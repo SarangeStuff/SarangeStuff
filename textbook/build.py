@@ -7,6 +7,7 @@ import pathlib
 import re
 
 from figs import build_all
+import figs2  # noqa: F401  (registers the Part II figures)
 
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "src"
@@ -32,10 +33,16 @@ def main():
         raise SystemExit(f"missing figures: {sorted(missing)}")
 
     toc = []
-    for m in re.finditer(r'<section class="chapter" id="([^"]+)" data-num="([^"]*)" data-short="([^"]+)"', body):
-        cid, num, short = m.groups()
-        label = f'<span class="toc-num">{num}</span>' if num else '<span class="toc-num">·</span>'
-        toc.append(f'<li><a href="#{cid}">{label}<span>{short}</span></a></li>')
+    for m in re.finditer(r'<section class="chapter([^"]*)" id="([^"]+)" data-num="([^"]*)" data-short="([^"]+)"', body):
+        extra, cid, num, short = m.groups()
+        if "hero" in extra:
+            continue
+        if "part-divider" in extra:
+            toc.append(f'<li class="toc-part"><a href="#{cid}">Part II · Kinetics</a></li>')
+            continue
+        if cid == "ch1":
+            toc.append('<li class="toc-part"><a href="#start">Part I · Kinematics</a></li>')
+        toc.append(f'<li><a href="#{cid}"><span class="toc-num">{num}</span><span>{short}</span></a></li>')
     head = (SRC / "shell_head.html").read_text().replace("{{toc}}", "\n".join(toc))
     tail = (SRC / "shell_tail.html").read_text()
     html = head + body + tail

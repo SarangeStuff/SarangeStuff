@@ -1,0 +1,57 @@
+<section class="chapter" id="ch14" data-num="14" data-short="Work, energy and power">
+<header><span class="eyebrow">Chapter 14 · Lectures L25–L27</span><h2>Work, energy and power</h2></header>
+<div class="inthis">In this chapter
+<ul><li>What work is, and which forces do none</li><li>The work of weight and of a spring</li><li>\(T_1 + \sum U = T_2\), and the potential-energy form \(T_1 + V_1 + U' = T_2 + V_2\)</li><li>Power and efficiency</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>Energy is bookkeeping. Kinetic energy is the account balance. Work is a deposit (positive) or a withdrawal (negative). Gravity and springs can be treated as savings accounts (potential energy) that you can draw back from. Because it is all scalars, you never need to resolve directions, and forces that do no work simply disappear from the problem.</p></div>
+
+<h3 id="ch14-work">Work</h3>
+<div class="eq">\[ U_{1-2} = \int \vec F\cdot d\vec r = \int F\cos\alpha\,ds \qquad\text{(constant force: } U = F\cos\alpha\;\Delta s\text{)} \]</div>
+<p>Only the part of the force <strong>along</strong> the motion does work. That gives three quick rules:</p>
+<ul>
+<li>Force along the motion: positive work. Force against it (friction, braking): negative work.</li>
+<li><strong>Zero work:</strong> a force perpendicular to the motion (the normal force on a fixed surface), or a force at a point that does not move (a fixed pin, or the contact point of a wheel rolling without slip).</li>
+<li>Weight: \(U_g = -mg\,\Delta y\). It is negative going up and positive going down, and only the height change matters, not the path.</li>
+<li>Linear spring: \(U_s = \tfrac12 k(x_1^2 - x_2^2)\), where \(x\) is measured from the <strong>unstretched</strong> length.</li>
+</ul>
+<div class="callout slip"><span class="tag">Common slip</span><p>Using a change in length instead of the stretch. The spring formula needs the stretch at each end of the motion, measured from the spring’s natural length. A spring that is already compressed at the start (Supp 2025, Chapter 16) starts with \(x_1 \neq 0\).</p></div>
+
+<h3 id="ch14-principle">The work–energy principle</h3>
+<div class="eq key">\[ T_1 + \sum U_{1-2} = T_2 \qquad\text{where}\qquad T = \tfrac12 m v^2 \]</div>
+<div class="callout why"><span class="tag">Where it comes from</span><p>Take the tangential part of Newton’s law, \(\sum F_t = m\,dv/dt\), and use the Chapter 2 trick \(a\,ds = v\,dv\): \(\sum F_t\,ds = m v\,dv\). Integrate along the path and the left side is the work, while the right side is \(\tfrac12mv_2^2 - \tfrac12mv_1^2\). So it is Newton’s law, integrated along the path, with time removed.</p></div>
+<p>Move gravity and springs across to the energy side and you get the form L26 uses most:</p>
+<div class="eq key">\[ T_1 + V_1 + U'_{1-2} = T_2 + V_2 \qquad V_g = mgy\ (\text{from a datum you choose}) \qquad V_e = \tfrac12 kx^2 \]</div>
+<p>\(U'\) is the work of everything <em>except</em> gravity and springs (friction, applied forces, motors). If \(U' = 0\), energy is conserved: \(T_1 + V_1 = T_2 + V_2\).</p>
+<div class="callout slip"><span class="tag">Common slip</span><p>Counting gravity twice, once as \(U_g\) and again as \(V_g\). Choose one bookkeeping style per problem.</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 14.1: a collar dropping onto a spring</h4><span class="src">L25 Example 1</span></div>
+<p class="problem">A 6 kg collar is released from rest and falls onto a spring (\(k = 12\) kN/m). Find its speed when the spring is compressed 50 mm, given that the collar has then fallen 0.55 m in total.</p>
+<ol class="work">
+<li>States: 1 is the release (\(T_1 = 0\)), and 2 is at 50 mm compression.<span class="why-inline">Energy compares two positions, so name them first.</span></li>
+<li>Weight: \(U_g = -mg\Delta y = -6(9.81)(-0.55) = +32.37\) J (it fell, so gravity did positive work).</li>
+<li>Spring: \(U_s = \tfrac12(12\,000)(0^2 - 0.05^2) = -15.0\) J (the spring resists).</li>
+<li>\(0 + 32.37 - 15.0 = \tfrac12(6)v^2\).</li>
+</ol>
+<p class="answer">v = 2.41 m/s downwards</p></div>
+
+<h3 id="ch14-power">Power and efficiency (L27)</h3>
+<div class="eq">\[ P = \frac{dU}{dt} = \vec F\cdot\vec v = Fv\cos\theta \qquad\qquad \varepsilon = \frac{P_{\text{out}}}{P_{\text{in}}} &lt; 1 \]</div>
+<p>Power is how fast work is done, in watts (1 W = 1 J/s). Efficiency compares what you get out with what you put in. Friction inside the machine always takes a share, so \(\varepsilon\) is less than 1.</p>
+<div class="example"><div class="ex-head"><h4>Worked example 14.2: winching a log</h4><span class="src">L27 Example 1</span></div>
+<p class="problem">A winch pulls a 360 kg log up a 30° slope at a constant 1.2 m/s. \(\mu_k = 0.5\) and the winch efficiency is 0.80. Find the motor’s power input.</p>
+<ol class="work">
+<li>Constant speed, so \(a = 0\), and the forces balance (Chapter 12 with \(ma = 0\)).</li>
+<li>\(N = mg\cos30^\circ = 3058\) N, so friction is \(0.5N = 1529\) N.</li>
+<li>Along the slope: \(T = 1529 + mg\sin30^\circ = 3295\) N.</li>
+<li>\(P_{\text{out}} = Tv = 3295 \times 1.2 = 3.95\) kW, and \(P_{\text{in}} = P_{\text{out}}/0.8\).</li>
+</ol>
+<p class="answer">P<sub>in</sub> = 4.94 kW</p></div>
+<p>A quick one in the same style (L27 Example 2): an escalator lifts 30 people per minute (65 kg each) up 7 m. Useful power is \(\tfrac{30}{60}(65)(9.81)(7) = 2.23\) kW. With a 3 kW motor, \(\varepsilon = 0.744\).</p>
+<p>Note from Review lecture 2: questions on the energy of <em>rotating rigid bodies</em> (such as the flywheel bus) were not covered this year, so energy questions in your exam should involve particles.</p>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>Work = force × distance along it. Normal forces, fixed pins and rolling contacts do no work.</li>
+<li>\(T_1 + V_1 + U' = T_2 + V_2\), with \(V_g = mgy\) and \(V_e = \tfrac12kx^2\) (\(x\) from the unstretched length).</li>
+<li>Use it for speed versus position. It cannot find forces perpendicular to the path.</li>
+<li>\(P = Fv\), \(\varepsilon = P_{\text{out}}/P_{\text{in}}\).</li></ul></div>
+</section>

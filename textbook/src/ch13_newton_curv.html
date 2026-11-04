@@ -1,0 +1,58 @@
+<section class="chapter" id="ch13" data-num="13" data-short="Newton’s second law: curves">
+<header><span class="eyebrow">Chapter 13 · Lectures L21 and L24</span><h2>Newton’s second law on curved paths</h2></header>
+<div class="inthis">In this chapter
+<ul><li>\(\sum F = ma\) in n–t and polar components</li><li>Why “centripetal force” is not a new kind of force</li><li>Banked tracks and losing contact over a hump</li><li>The rotating tube, and a memo slip to watch for</li></ul></div>
+
+<p>Nothing new in physics here: take the acceleration components from Chapter 3 and multiply by \(m\).</p>
+<div class="eq key">\[ \sum F_t = m\dot v \qquad \sum F_n = m\frac{v^2}{\rho} \qquad\qquad \sum F_r = m(\ddot r - r\dot\theta^2) \qquad \sum F_\theta = m(r\ddot\theta + 2\dot r\dot\theta) \]</div>
+<p>In 3D, cylindrical coordinates add \(\sum F_z = m\ddot z\).</p>
+<div class="callout big"><span class="tag">m v²/ρ is not a force</span><p>\(mv^2/\rho\) belongs on the <em>kinetic</em> diagram. It is what the real forces must add up to, in the direction of the centre of the bend. Something real has to provide it: friction on a flat corner, the normal force on a banked track, tension in a string, gravity for a satellite. If you draw it on the FBD as an extra force, you count it twice.</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 13.1: a boat on a circle</h4><span class="src">L21 Example 1</span></div>
+<p class="problem">A 540 kg boat travels a circle of radius 40 m with speed \(v = 0.0625t^2\) m/s. Find the normal and tangential forces from the water at \(t = 10\) s.</p>
+<ol class="work">
+<li>Kinematics: \(v = 6.25\) m/s, \(a_t = \dot v = 0.125t = 1.25\) m/s², and \(a_n = v^2/\rho = 0.977\) m/s².</li>
+<li>Multiply by the mass: \(F_t = 540(1.25)\) and \(F_n = 540(0.977)\).<span class="why-inline">The water’s force is the only horizontal force, so it must supply both acceleration components.</span></li>
+</ol>
+<p class="answer">F<sub>n</sub> = 527 N (towards the centre), F<sub>t</sub> = 675 N (forwards)</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 13.2: a banked track with no friction needed</h4><span class="src">L21 Example 3</span></div>
+<p class="problem">At what angle \(\theta\) should a track of radius \(\rho\) be banked so that a car at speed \(v\) needs no sideways friction? Then evaluate it for 90 km/h on a 100 m curve.</p>
+<div class="panel"><div class="eqrow">{{fig:k_bank_fbd}}<span class="eqsign">=</span>{{fig:k_bank_kd}}</div><figcaption>End-on view. The only forces are the weight and the normal force. Their sum must point horizontally to the centre of the bend.</figcaption></div>
+<ol class="work">
+<li>Horizontal (towards the centre): \(N\sin\theta = m v^2/\rho\).</li>
+<li>Vertical (no vertical acceleration): \(N\cos\theta - mg = 0\).</li>
+<li>Divide the two equations to remove \(N\) and \(m\): \(\tan\theta = \dfrac{v^2}{\rho g}\).<span class="why-inline">The tilted normal force has a sideways part. Banking makes the normal force do the friction’s job.</span></li>
+<li>For \(v = 25\) m/s and \(\rho = 100\) m: \(\tan\theta = 625/981\).</li>
+</ol>
+<p class="answer">θ = tan⁻¹(v²/ρg) = 32.5° for 90 km/h on a 100 m curve</p></div>
+
+<h3 id="ch13-hump">Losing contact over a hump</h3>
+<p>At the top of a hump of radius \(\rho\), the centre of curvature is <em>below</em> the car. Taking down (towards the centre) as positive: \(mg - N = mv^2/\rho\), so \(N = m(g - v^2/\rho)\). The road can only push, so \(N \ge 0\). The car leaves the road when \(N = 0\), that is when \(v = \sqrt{g\rho}\). L24 Example 1 (the Formula 1 car) is exactly this idea.</p>
+
+<h3 id="ch13-polar">Polar coordinates: the rotating tube</h3>
+<div class="example"><div class="ex-head"><h4>Worked example 13.3: slider in a spinning tube</h4><span class="src">L21 Example 2</span></div>
+<p class="problem">A 0.2 kg slider moves in a horizontal tube that spins with \(\dot\theta = 4\) rad/s and \(\ddot\theta = -2\) rad/s². A string controls it: \(r = 0.8\) m, \(\dot r = -2\) m/s, \(\ddot r = 4\) m/s². Find the string tension \(T\) and the side force \(F_\theta\) from the tube.</p>
+<div class="panel"><div class="eqrow">{{fig:k_tube_fbd}}<span class="eqsign">=</span>{{fig:k_tube_kd}}</div><figcaption>Top view. The weight and the vertical tube reaction cancel, so they are left out of the horizontal picture.</figcaption></div>
+<ol class="work">
+<li>List the five numbers: \(r = 0.8\), \(\dot r = -2\), \(\ddot r = 4\), \(\dot\theta = 4\), \(\ddot\theta = -2\).<span class="why-inline">Exactly as in Chapter 3: get these right and the rest is substitution.</span></li>
+<li>Radial (outward positive; the string pulls inward): \(-T = m(\ddot r - r\dot\theta^2) = 0.2(4 - 0.8\times16) = -1.76\) N.</li>
+<li>Transverse: \(F_\theta = m(r\ddot\theta + 2\dot r\dot\theta) = 0.2(-1.6 - 16) = -3.52\) N. The minus sign means the tube pushes on the slider from the other side.</li>
+</ol>
+<p class="answer">T = 1.76 N, F<sub>θ</sub> = 3.52 N (from the far side of the tube)</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 13.4: the same tube in an exam</h4><span class="src">Supp exam 2024, Q6 (Review lecture 2)</span></div>
+<p class="problem">\(\omega = 5\) rad/s, \(\dot\omega = -3\) rad/s², \(m = 0.4\) kg, \(r = 0.9\) m. The string is drawn down at 2.5 m/s but is decelerating at 4 m/s². Find the tension.</p>
+<ol class="work">
+<li>The five numbers: \(\dot r = -2.5\) m/s (moving inwards), and \(\ddot r = +4\) m/s² (the inward motion is slowing, so the radial acceleration is outward). \(\dot\theta = \omega = 5\) rad/s.</li>
+<li>\(-T = m(\ddot r - r\dot\theta^2) = 0.4(4 - 0.9\times5^2) = 0.4(4 - 22.5)\).</li>
+</ol>
+<p class="answer">T = 7.40 N</p>
+<div class="callout slip"><span class="tag">Check this one with your lecturer</span><p>The memo on the review slide writes \(0.4\,(4 - 0.9(-3)^2)\) and gets 1.64 N. It has put \(\dot\omega = -3\) where \(\dot\theta = \omega = 5\) belongs. Using the same method that gives L21’s 1.76 N, the tension is 7.40 N. Learn the method, which is the same either way, and ask in your next tutorial so you know what is expected.</p></div></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>n–t: \(\sum F_n = mv^2/\rho\) (towards the centre), \(\sum F_t = m\dot v\).</li>
+<li>Polar: \(\sum F_r = m(\ddot r - r\dot\theta^2)\), \(\sum F_\theta = m(r\ddot\theta + 2\dot r\dot\theta)\).</li>
+<li>\(mv^2/\rho\) goes on the kinetic diagram only. A real force must provide it.</li>
+<li>Losing contact means \(N = 0\).</li></ul></div>
+</section>

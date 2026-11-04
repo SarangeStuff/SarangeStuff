@@ -1,6 +1,6 @@
 
 <footer class="colophon">
-  <p>Written as a study companion for MEC2047S Dynamics I, built on the course's lecture notes L01–L17, tutorials 0–5 and the two review lectures. Every worked number was re-computed, and each velocity and acceleration diagram is drawn to scale from those computed values. Part II (kinetics: Newton's second law, energy, momentum and rigid-body kinetics) comes next.</p>
+  <p>Written as a study companion for MEC2047S Dynamics I, built on the course’s lecture notes L01–L35, tutorials 0–5 and the two review lectures. Every worked number was re-computed, and each velocity and acceleration diagram is drawn to scale from those computed values. Where a slide or memo number did not reproduce, the text says so.</p>
 </footer>
 </main>
 </div>
@@ -199,7 +199,9 @@ function fitInlineMath() {
   document.querySelectorAll('mjx-container:not([display="true"])').forEach(function (m) {
     var par = m.parentElement;
     if (!par || m.closest(".eq, .tablewrap")) return;
-    if (m.getBoundingClientRect().width > par.clientWidth - 4) {
+    var cs = getComputedStyle(par);
+    var avail = par.clientWidth - parseFloat(cs.paddingLeft || 0) - parseFloat(cs.paddingRight || 0);
+    if (m.getBoundingClientRect().width > avail - 4) {
       var svg = m.querySelector("svg");
       m.style.display = "inline-block";
       m.style.maxWidth = "100%";

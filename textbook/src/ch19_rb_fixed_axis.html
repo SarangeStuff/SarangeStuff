@@ -1,0 +1,46 @@
+<section class="chapter" id="ch19" data-num="19" data-short="Rigid bodies: fixed-axis rotation">
+<header><span class="eyebrow">Chapter 19 · Lecture L32 (rigid-body rotation I–II)</span><h2>Rigid bodies spinning about a fixed pivot</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The equations in n–t form, using Chapter 6’s kinematics</li><li>Why \(\sum M_O = I_O\alpha\) works about the pivot</li><li>“An instant after release”: what that phrase gives you</li><li>Two worked examples, including the I-beam from L32</li></ul></div>
+
+<p>Every point of the body moves on a circle around the fixed axis O, including the mass centre G at radius \(\bar r\). So G’s acceleration has the two parts from Chapter 6, and the force equations are best written in n–t components:</p>
+<div class="eq key">\[ \sum F_n = m\bar r\omega^2 \ (\text{towards }O) \qquad \sum F_t = m\bar r\alpha \qquad \sum M_O = I_O\,\alpha \]</div>
+<div class="callout why"><span class="tag">Why moments about the pivot use I_O</span><p>Take moments about O with the Chapter 18 rule: \(\sum M_O = I_G\alpha + m a_t \bar r\). The tangential part \(m\bar r\alpha\) has moment arm \(\bar r\), and the normal part points straight at O, so it has no moment. That gives \(\sum M_O = (I_G + m\bar r^2)\alpha = I_O\alpha\), by the parallel-axis theorem (Chapter 17). The moment equation about the pivot is the most useful one, because the unknown pin forces at O drop out.</p></div>
+
+<h3 id="ch19-procedure">Procedure (L32)</h3>
+<ol class="work">
+<li>Use n–t axes centred on O.</li>
+<li>Draw the FBD: weight, applied loads and the two pin components \(O_n\), \(O_t\).</li>
+<li>Draw the kinetic diagram: \(m\bar r\omega^2\) towards O, \(m\bar r\alpha\) ⟂ OG, and \(I_G\alpha\).</li>
+<li>Find \(\alpha\) from \(\sum M_O = I_O\alpha\) first, then the pin forces from the two force equations.</li>
+</ol>
+<div class="callout big"><span class="tag">“An instant after release from rest”</span><p>This phrase means \(\omega = 0\), so every \(\omega^2\) term is zero. But \(\alpha\) is <em>not</em> zero: the body has just started to speed up. Every exam uses this phrase. It makes the normal equation trivial and leaves you with \(\alpha\) and the tangential force.</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 19.1: a rod released from horizontal</h4><span class="src">The classic case</span></div>
+<p class="problem">A uniform 4 kg rod, 1.2 m long, is pinned at one end and released from rest in the horizontal position. Find its initial angular acceleration and the pin force.</p>
+<div class="panel"><div class="eqrow">{{fig:k_rod_fbd}}<span class="eqsign">=</span>{{fig:k_rod_kd}}</div><figcaption>At release \(\omega = 0\), so the kinetic diagram has only the tangential term and \(I_G\alpha\).</figcaption></div>
+<ol class="work">
+<li>\(I_O = \tfrac13mL^2 = 1.92\) kg·m².</li>
+<li>\(\sum M_O = I_O\alpha\): \(mg(L/2) = 1.92\,\alpha\), so \(\alpha = \dfrac{3g}{2L} = 12.3\) rad/s² clockwise.</li>
+<li>Normal: \(O_n = m\bar r\omega^2 = 0\).</li>
+<li>Tangential (down positive): \(mg - O_t = m\bar r\alpha = 4(0.6)(12.26)\), so \(O_t = 39.24 - 29.43\).<span class="why-inline">G drops at \(\tfrac34 g\), so the pin only needs to hold a quarter of the weight. The pin force suddenly falls from \(mg\) to \(mg/4\) at the moment of release.</span></li>
+</ol>
+<p class="answer">α = 12.3 rad/s² CW, pin force = 9.81 N (= mg/4) upwards</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 19.2: the I-beam on a bracket</h4><span class="src">L32 Rotation II, Example 2</span></div>
+<p class="problem">A 300 kg beam with \(k_O = 2.32\) m is pinned at O on a small bracket. G is 1.8 m along and 0.9 m across from O. The support at B is removed. Find the pin force at O at that instant.</p>
+<ol class="work">
+<li>\(I_O = mk_O^2 = 300(2.32)^2 = 1615\) kg·m².</li>
+<li>\(\sum M_O = I_O\alpha\): the weight’s moment arm is the horizontal distance 1.8 m, so \(300(9.81)(1.8) = 1615\,\alpha\) and \(\alpha = 3.28\) rad/s² CW.</li>
+<li>Geometry of OG: \(\bar r = \sqrt{1.8^2 + 0.9^2} = 2.012\) m, at \(\beta = \tan^{-1}(0.9/1.8) = 26.6^\circ\).</li>
+<li>Tangential (⟂ OG): \(mg\cos\beta - F_{O,t} = m\bar r\alpha\), so \(F_{O,t} = 2632 - 1981 = 651\) N.</li>
+<li>Normal (along OG, \(\omega = 0\)): \(F_{O,n} - mg\sin\beta = 0\), so \(F_{O,n} = 1316\) N.<span class="why-inline">Resolve the weight into the n and t directions, because those are the directions of G’s acceleration.</span></li>
+</ol>
+<p class="answer">F<sub>O</sub> = √(651² + 1316²) = 1469 N (memo: 1469 N)</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>G moves on a circle: \(\sum F_n = m\bar r\omega^2\), \(\sum F_t = m\bar r\alpha\).</li>
+<li>\(\sum M_O = I_O\alpha\), with \(I_O = I_G + m\bar r^2\). Use it first, because the pin forces drop out.</li>
+<li>“Instant after release”: \(\omega = 0\), \(\alpha \neq 0\).</li>
+<li>Practice: L32 homework (M&amp;K 6/65, 6/36).</li></ul></div>
+</section>

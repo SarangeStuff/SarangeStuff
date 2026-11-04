@@ -1,0 +1,43 @@
+<section class="chapter" id="ch21" data-num="21" data-short="Part II playbook and formula sheet">
+<header><span class="eyebrow">Chapter 21 · Revision for Part II</span><h2>Kinetics playbook and one-page formula sheet</h2></header>
+
+<h3 id="ch21-checklist">The kinetics question checklist</h3>
+<ol class="work">
+<li><strong>Read for the tool.</strong> Instant, force or acceleration: Newton. Speed against position: energy. Speed against time, or a short hit: impulse. Collision: momentum plus \(e\). (See the table at the <a href="#part2">start of Part II</a>.)</li>
+<li><strong>Split the story into stages</strong> wherever something sudden happens (an impact, a cable going slack, contact being lost). Each stage may need a different tool.</li>
+<li><strong>Draw the FBD and the kinetic diagram</strong> for each body. Label every force. Mark the positive directions.</li>
+<li><strong>Friction:</strong> check whether it moves, or rolls, before choosing \(\mu_s\) or \(\mu_k\).</li>
+<li><strong>Count unknowns against equations.</strong> If you are short, the missing equation is kinematics: a rope constraint, \(a_G = \alpha r\), or a relative acceleration.</li>
+<li><strong>Rigid bodies:</strong> take moments about the point where the most unknowns meet (a pin, or the contact point), including \(m a_G d\) if that point is not G.</li>
+<li><strong>Answer with direction and units</strong>, for example “846 N”, “3.27 m/s² down the incline”, “14.7 rad/s² CW”.</li>
+</ol>
+
+<h3 id="ch21-sheet">Formula sheet: Part II on one page</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Topic</th><th>Formulas</th><th>Remember</th></tr></thead>
+<tbody>
+<tr><td>Newton (particle)</td><td>\(\sum F_x = ma_x,\ \sum F_y = ma_y\)<br>\(\sum F_t = m\dot v,\ \sum F_n = mv^2/\rho\)<br>\(\sum F_r = m(\ddot r - r\dot\theta^2),\ \sum F_\theta = m(r\ddot\theta + 2\dot r\dot\theta)\)</td><td>\(m\vec a\) goes on the kinetic diagram, never on the FBD.</td></tr>
+<tr><td>Friction</td><td>Static: \(F \le \mu_sN\). Sliding: \(F = \mu_kN\).</td><td>Check whether it moves first.</td></tr>
+<tr><td>Work</td><td>\(U = \int F\cos\alpha\,ds\), \(U_g = -mg\Delta y\), \(U_s = \tfrac12k(x_1^2 - x_2^2)\)</td><td>\(x\) from the unstretched length. Normal forces and fixed pins do no work.</td></tr>
+<tr><td>Energy</td><td>\(T_1 + V_1 + U'_{1-2} = T_2 + V_2\), \(T = \tfrac12mv^2\), \(V_g = mgy\), \(V_e = \tfrac12kx^2\)</td><td>Scalar. Not valid across an impact unless \(e = 1\).</td></tr>
+<tr><td>Power</td><td>\(P = \vec F\cdot\vec v\), \(\varepsilon = P_{\text{out}}/P_{\text{in}}\)</td><td>1 W = 1 J/s.</td></tr>
+<tr><td>Linear momentum</td><td>\(m\vec v_1 + \sum\int\vec F\,dt = m\vec v_2\)</td><td>Vector. Use components or a triangle.</td></tr>
+<tr><td>Angular momentum</td><td>\(H_O = mvd\), \(\sum M_O = \dot H_O\), \(H_{O1} + \int M_O\,dt = H_{O2}\)</td><td>About a fixed pivot, the pivot force drops out.</td></tr>
+<tr><td>Impact</td><td>Along \(n\): \(\sum mv\) conserved, \(e = \dfrac{v_{B2} - v_{A2}}{v_{A1} - v_{B1}}\). Along \(t\): each body keeps its \(v_t\).</td><td>\(e = 1\) elastic, \(e = 0\) they stick.</td></tr>
+<tr><td>Moment of inertia</td><td>Rod \(\tfrac1{12}mL^2\) (centre), \(\tfrac13mL^2\) (end). Disc \(\tfrac12mr^2\). Hoop \(mr^2\). Sphere \(\tfrac25mr^2\).<br>\(I = mk^2\), \(I_O = I_G + md^2\)</td><td>Parallel axis always to or from G.</td></tr>
+<tr><td>Rigid body</td><td>\(\sum\vec F = m\vec a_G\), \(\sum M_G = I_G\alpha\), \(\sum M_P = I_G\alpha + ma_Gd\)</td><td>Translation: \(\alpha = 0\).</td></tr>
+<tr><td>Fixed axis</td><td>\(\sum F_n = m\bar r\omega^2\), \(\sum F_t = m\bar r\alpha\), \(\sum M_O = I_O\alpha\)</td><td>Released from rest: \(\omega = 0\), \(\alpha\neq0\).</td></tr>
+<tr><td>Rolling</td><td>No slip: \(a_G = \alpha r\), \(F \le \mu_sN\). Slipping: \(F = \mu_kN\), no link.</td><td>Assume rolling, then check.</td></tr>
+</tbody></table></div>
+
+<h3 id="ch21-memos">Two memo answers to ask about</h3>
+<p>While checking every example for this book, two review-lecture memo answers did not reproduce. The methods in the memos are right. Only a number slipped.</p>
+<ul>
+<li><strong>Supp 2024 Q6 (rotating tube):</strong> the memo uses \(\dot\omega = -3\) where \(\dot\theta = 5\) belongs, and gets \(T = 1.64\) N. With \(\dot\theta = 5\), \(T = 7.40\) N (Chapter 13).</li>
+<li><strong>Supp Q7 (two spheres):</strong> the memo’s \(v_{A\parallel} = -1.855\) m/s gives \(e = 0.65\) in its own equation. With \(e = 0.6\), \(v_{A\parallel} = -1.707\) m/s and \(v_A = 2.85\) m/s at 53.3° (Chapter 16).</li>
+</ul>
+<p>Also, from L16 in Part I: the slide uses a rod length of 0.250 m in the normal-acceleration step where the real length is 0.350 m (its answer, 305 m/s², is correct).</p>
+
+<div class="callout big"><span class="tag">The whole of Part II in four sentences</span>
+<p>Draw every force on the body, and \(m\vec a\) (plus \(I_G\alpha\)) on a separate picture. The two pictures are equal, which gives \(\sum F = ma\) and a moment equation about any point you like. Integrate that law along the path and you get energy; integrate it over time and you get momentum. Kinematics from Part I supplies whatever link between accelerations you are still missing.</p></div>
+</section>

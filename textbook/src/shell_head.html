@@ -1,6 +1,6 @@
-<title>MEC2047 Kinematics Companion</title>
+<title>MEC2047 Dynamics Companion</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A gentle, step-by-step companion to MEC2047S Dynamics I, Part I: kinematics, with an emphasis on drawing velocity and acceleration vector diagrams.">
+<meta name="description" content="A gentle, step-by-step companion to MEC2047S Dynamics I: kinematics (with an emphasis on velocity and acceleration vector diagrams) and kinetics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&family=Overpass+Mono:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
@@ -199,6 +199,10 @@ svg.fig.wide { width: 100%; }
 .fig .road { stroke: var(--muted); stroke-width: 1.5; } .fig .rope { stroke: var(--ink); stroke-width: 1.6; }
 .fig .ramark { fill: none; stroke: var(--muted); stroke-width: 1; }
 .fig .scalebar line { stroke: var(--ink); stroke-width: 1.4; }
+.fig .body { fill: var(--tint-abs); stroke: var(--ink); stroke-width: 1.5; }
+.fig .bar { stroke: none; opacity: 0.88; } .fig .bar.abs { fill: var(--c-abs); } .fig .bar.n { fill: var(--c-n); } .fig .bar.t { fill: var(--c-t); }
+.fig .arc.t { stroke: var(--c-t); stroke-width: 2; } .fig .arc.n { stroke: var(--c-n); stroke-width: 2; }
+.fig .archead.t { fill: var(--c-t); } .fig .archead.n { fill: var(--c-n); } .fig .archead.ans { fill: var(--c-ans); }
 
 /* ---- step-through diagrams */
 .stepper [data-step] { transition: opacity 0.25s ease; }
@@ -230,6 +234,15 @@ ol.steplist li.is-future { opacity: 0.5; }
 .lab .nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px 14px; margin-top: 12px; font-family: var(--f-mono); font-size: 0.86rem; }
 .lab .nums b { font-family: var(--f-display); }
 
+/* ---- Part II additions */
+.toc li.toc-part a { display: block; font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 14px 8px 4px; }
+.toc li.toc-part:first-child a { padding-top: 4px; }
+.chapter.part-divider { border-top: 3px solid var(--ink); margin-top: 72px; padding-top: 44px; }
+.part-title { font-size: clamp(2.2rem, 6vw, 3.3rem); font-weight: 800; letter-spacing: -0.02em; margin: 8px 0 14px; }
+.eqrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 18px; }
+.eqrow > svg.fig { flex: 1 1 230px; min-width: 0; max-width: 330px; margin: 0; }
+.eqrow .eqsign { font: 800 2.2rem var(--f-display); color: var(--muted); line-height: 1; }
+.figrow-wrap > figure.panel { margin: 0; }
 footer.colophon { font-family: var(--f-display); font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--rule); margin-top: 60px; padding-top: 18px; }
 </style>
 

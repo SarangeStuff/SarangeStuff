@@ -1,0 +1,53 @@
+<section class="chapter" id="ch17" data-num="17" data-short="Mass moment of inertia">
+<header><span class="eyebrow">Chapter 17 · Lecture L32 (MoI)</span><h2>Mass moment of inertia: rotational mass</h2></header>
+<div class="inthis">In this chapter
+<ul><li>What \(I\) measures, and why distance is squared</li><li>The standard shapes you need</li><li>Radius of gyration</li><li>The parallel-axis theorem and composite bodies</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>Mass resists being <em>pushed</em>: \(F = ma\). The moment of inertia resists being <em>spun</em>: \(M = I\alpha\). It depends not just on how much mass there is, but on how far it sits from the axis. Mass far from the axis counts for a lot more.</p></div>
+<div class="eq">\[ I = \int r^2\,dm \qquad \text{units: kg·m}^2 \]</div>
+<div class="callout why"><span class="tag">Why r is squared</span><p>A bit of mass at radius \(r\) has to move at \(r\omega\), so it takes more effort to speed up. Its tangential acceleration \(r\alpha\) also gives it more leverage against the turning, because the moment arm is another \(r\). One \(r\) from each effect gives \(r^2\). That is why a figure skater spins faster when pulling the arms in (Chapter 15: angular momentum \(I\omega\) stays constant while \(I\) drops).</p></div>
+<p>L32 says plainly that integrating to find \(I\) will <strong>no longer</strong> come up in tests or exams. You will use the table (M&amp;K Table D/4), the parallel-axis theorem, and addition.</p>
+
+<h3 id="ch17-table">The shapes you need</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Body (mass \(m\))</th><th>Axis</th><th>\(I\)</th></tr></thead>
+<tbody>
+<tr><td>Slender rod, length \(L\)</td><td>Through the centre, ⟂ rod</td><td>\(\tfrac1{12}mL^2\)</td></tr>
+<tr><td>Slender rod, length \(L\)</td><td>Through one end, ⟂ rod</td><td>\(\tfrac13mL^2\)</td></tr>
+<tr><td>Thin ring or hoop, radius \(r\)</td><td>Through the centre, ⟂ plane</td><td>\(mr^2\)</td></tr>
+<tr><td>Solid disc or cylinder, radius \(r\)</td><td>Its own axis</td><td>\(\tfrac12mr^2\)</td></tr>
+<tr><td>Thin disc, radius \(r\)</td><td>A diameter</td><td>\(\tfrac14mr^2\)</td></tr>
+<tr><td>Solid sphere, radius \(r\)</td><td>A diameter</td><td>\(\tfrac25mr^2\)</td></tr>
+<tr><td>Thin rectangular plate \(a\times b\)</td><td>Through the centre, ⟂ plate</td><td>\(\tfrac1{12}m(a^2+b^2)\)</td></tr>
+</tbody></table></div>
+<p>Sanity check: the hoop (\(mr^2\)) beats the disc (\(\tfrac12mr^2\)) because all of the hoop’s mass is at the rim.</p>
+
+<h3 id="ch17-k">Radius of gyration</h3>
+<p>\(I = mk^2\), so \(k = \sqrt{I/m}\). It is the radius at which you could squash all the mass into a thin ring without changing \(I\). Questions often give \(k\) instead of \(I\) (the I-beam in Chapter 19 has \(k_O = 2.32\) m).</p>
+
+<h3 id="ch17-parallel">The parallel-axis theorem</h3>
+<figure class="panel">{{fig:k_paxis}}<figcaption>Moving the axis a distance \(d\) away from the mass centre always increases \(I\), by \(md^2\).</figcaption></figure>
+<div class="eq key">\[ I_O = I_G + m d^2 \]</div>
+<div class="callout slip"><span class="tag">Common slip</span><p>One end of the move must be the mass centre G. To go from axis O to axis P, go O → G (subtract \(md_{OG}^2\)), then G → P (add \(md_{GP}^2\)).</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 17.1: a rod about a quarter point</h4><span class="src">L32 Think-Pair-Share 3</span></div>
+<p class="problem">Find \(I\) for a slender rod (mass \(M\), length \(L\)) about an axis through the point \(L/4\) from one end.</p>
+<ol class="work"><li>The axis is \(d = L/4\) from the centre, so \(I = \tfrac1{12}ML^2 + M(L/4)^2 = ML^2\left(\tfrac{4}{48} + \tfrac{3}{48}\right)\).</li></ol>
+<p class="answer">I = 7ML²/48</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 17.2: a composite pendulum</h4><span class="src">In the style of L32 Example 1</span></div>
+<p class="problem">A pendulum is a 3 kg slender rod (0.8 m), pivoted at its top end O, with a 5 kg solid disc (radius 0.1 m) centred on its bottom end. Find \(I_O\), the position of G, and \(I_G\).</p>
+<ol class="work">
+<li>Rod about O (its end): \(\tfrac13(3)(0.8)^2 = 0.640\).</li>
+<li>Disc about O: its own \(\tfrac12(5)(0.1)^2 = 0.025\), plus \(5(0.8)^2 = 3.200\) from the parallel-axis theorem.<span class="why-inline">The disc’s own spin barely matters. Almost all of its \(I\) comes from being far from O.</span></li>
+<li>\(I_O = 0.640 + 0.025 + 3.200 = 3.865\) kg·m².</li>
+<li>Mass centre: \(\bar y = \dfrac{3(0.4) + 5(0.8)}{8} = 0.650\) m below O. Then \(I_G = I_O - 8(0.65)^2\).</li>
+</ol>
+<p class="answer">I<sub>O</sub> = 3.87 kg·m², G is 0.650 m below O, I<sub>G</sub> = 0.485 kg·m²</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(I\) is rotational mass, and distance from the axis counts squared.</li>
+<li>Know the table, and \(I = mk^2\).</li>
+<li>\(I_O = I_G + md^2\), always to or from G.</li>
+<li>Composites: add each part about the same axis.</li></ul></div>
+</section>

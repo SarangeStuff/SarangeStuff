@@ -1,0 +1,85 @@
+<section class="chapter" id="ch16" data-num="16" data-short="Impact">
+<header><span class="eyebrow">Chapter 16 · Lecture L30</span><h2>Impact: collisions, bounces and the coefficient of restitution</h2></header>
+<div class="inthis">In this chapter
+<ul><li>Central impact: momentum plus \(e\)</li><li>Oblique impact: work along the line of impact and across it separately</li><li>Energy lost in an impact</li><li>A three-stage exam question: fall, impact, spring</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>A collision has two unknowns (the two speeds afterwards) but momentum conservation gives only one equation. The second equation comes from how “bouncy” the collision is, measured by the coefficient of restitution \(e\).</p></div>
+
+<h3 id="ch16-central">Central impact</h3>
+<p>The <strong>line of impact</strong> runs through the two mass centres at the moment of contact. In central impact both bodies move along it.</p>
+<div class="eq key">\[ m_A v_{A1} + m_B v_{B1} = m_A v_{A2} + m_B v_{B2} \qquad\qquad e = \frac{v_{B2} - v_{A2}}{v_{A1} - v_{B1}} = \frac{\text{speed of separation}}{\text{speed of approach}} \]</div>
+<ul>
+<li>\(e = 1\): perfectly elastic, no energy lost (an ideal that real collisions never quite reach).</li>
+<li>\(e = 0\): perfectly plastic. The bodies stick together and the most energy possible is lost.</li>
+<li>Typical values: steel 0.5–0.8, wood 0.4–0.6, glass about 0.94.</li>
+</ul>
+<div class="callout why"><span class="tag">Why e uses relative speeds</span><p>How hard two bodies squash together depends only on how fast they close on each other, not on how fast either one moves over the ground. So the fair measure of bounciness compares the closing speed before with the opening speed after. Keep one direction positive for <em>every</em> velocity, and the signs take care of themselves.</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 16.1: a quick central impact</h4><span class="src">L30 Think-Pair-Share 1</span></div>
+<p class="problem">Block B (1 kg, 10 m/s →) squarely hits block A (3 kg, at rest). Afterwards A moves at 4 m/s →. Find \(v_{B2}\) and \(e\).</p>
+<ol class="work">
+<li>Momentum (→ positive): \(1(10) + 0 = 1\,v_{B2} + 3(4)\), so \(v_{B2} = -2\) m/s.</li>
+<li>\(e = \dfrac{4 - (-2)}{10 - 0} = 0.6\).<span class="why-inline">B was behind, so the separation speed is A’s velocity minus B’s.</span></li>
+</ol>
+<p class="answer">v<sub>B2</sub> = 2 m/s ←, e = 0.6</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 16.2: a bouncing ball</h4><span class="src">L30 Example 1</span></div>
+<p class="problem">A ball thrown horizontally at 2.4 m/s from 0.9 m high bounces off hard ground with \(e = 0.8\). Find the rebound speed and the height it reaches.</p>
+<ol class="work">
+<li>Falling (Chapter 3 projectile): \(v_y^2 = 2(9.81)(0.9)\), so \(v_y = 4.20\) m/s down.</li>
+<li>Impact with the fixed ground: only the part along the line of impact (vertical) changes, \(v_{y}' = e\,v_y = 3.36\) m/s up. The horizontal 2.4 m/s is unchanged on a smooth surface.</li>
+<li>Rebound speed \(\sqrt{2.4^2 + 3.36^2}\), and height \(h = 3.36^2/(2\times9.81)\).</li>
+</ol>
+<p class="answer">v = 4.13 m/s, h = 0.576 m</p></div>
+
+<h3 id="ch16-oblique">Oblique impact</h3>
+<p>Now the velocities are at an angle to the line of impact. Set up an \(n\) axis along the line of impact and a \(t\) axis across it (the contact plane). Then:</p>
+<ul>
+<li><strong>Along \(n\):</strong> the momentum of the <em>system</em> is conserved, and \(e\) applies, exactly as in central impact.</li>
+<li><strong>Along \(t\):</strong> with smooth surfaces there is no force across the contact, so <em>each</em> body keeps its own \(t\)-velocity.</li>
+</ul>
+<p>That gives four equations for the four unknowns (two components for each body).</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 16.3: two hockey pucks</h4><span class="src">L30 Example 2</span></div>
+<p class="problem">Identical pucks: A moves at 6 m/s along the line of impact (\(x\)). B moves at 10 m/s, with \(-10\cos30^\circ\) along \(x\) and \(+5\) m/s across it. \(e = 0.75\).</p>
+<ol class="work">
+<li>\(x\)-momentum (equal masses): \(6 - 8.66 = v_{Ax2} + v_{Bx2}\).</li>
+<li>Restitution: \(v_{Bx2} - v_{Ax2} = 0.75(6 + 8.66) = 11.0\).</li>
+<li>Solve: \(v_{Ax2} = -6.83\) m/s and \(v_{Bx2} = 4.17\) m/s.</li>
+<li>\(y\): A keeps 0 and B keeps 5 m/s, so \(v_B = \sqrt{4.17^2 + 5^2}\) at \(\tan^{-1}(5/4.17)\).</li>
+</ol>
+<p class="answer">v<sub>A</sub> = 6.83 m/s ←, v<sub>B</sub> = 6.51 m/s at 50.2° to the x-axis</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 16.4: two spheres, from a supp exam</h4><span class="src">Supp exam Q7 (Review lecture 1)</span></div>
+<p class="problem">Sphere A (20 kg) moves → at 4 m/s. Sphere B (5 kg) moves ← at 15 m/s on a parallel path. \(e = 0.6\), and the line of impact is at 55.15° to the vertical. Find A’s velocity just after impact, relative to the line of impact.</p>
+<div class="figrow figrow-wrap"><figure class="panel">{{fig:k_oblique}}</figure><figure class="panel">{{fig:k_oblique_comp}}</figure></div>
+<p style="margin-top:-0.6rem"><span class="mono" style="font-size:0.85rem;color:var(--muted)">Left: geometry. Right: A’s velocity split along and across the line of impact.</span></p>
+<ol class="work">
+<li>Components along \(n\) (from A towards B): \(u_A = 4\sin55.15^\circ = 3.283\) and \(u_B = -15\sin55.15^\circ = -12.31\) m/s. Across \(n\): A has \(4\cos55.15^\circ = 2.286\) m/s, and keeps it.</li>
+<li>Momentum along \(n\): \(20(3.283) + 5(-12.31) = 20v_{A\parallel} + 5v_{B\parallel}\).</li>
+<li>Restitution: \(v_{B\parallel} - v_{A\parallel} = 0.6(3.283 + 12.31) = 9.355\).</li>
+<li>Solve: \(v_{A\parallel} = -1.707\) m/s (A bounces back along the line). Then \(v_A = \sqrt{1.707^2 + 2.286^2}\), at \(\tan^{-1}(2.286/1.707)\) to the line of impact.</li>
+</ol>
+<p class="answer">v<sub>A</sub> = 2.85 m/s at 53.3° to the line of impact</p>
+<div class="callout slip"><span class="tag">Check this one with your lecturer</span><p>The review-slide memo uses exactly these equations but reports \((v_{A2})_\parallel = -1.855\) m/s, giving 2.94 m/s at 50.9°. Putting −1.855 back into its own restitution equation gives \(e = 0.65\), not 0.6. The value −1.707 satisfies both momentum and \(e = 0.6\). The method is what earns most of the marks, and it is identical either way.</p></div></div>
+
+<h3 id="ch16-energy">Energy lost in an impact</h3>
+<p>Momentum survives a collision. Kinetic energy usually does not: \(\text{loss} = \sum T_1 - \sum T_2\), and it goes into heat, sound and permanent dents. So never use energy conservation <em>across</em> an impact unless you are told it is perfectly elastic.</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 16.5: putty, block and springs</h4><span class="src">Supp exam 2025, Q5 (Review lecture 2)</span></div>
+<p class="problem">2 kg of putty is dropped 2 m onto an 18 kg block resting on two springs (\(k = 1.2\) kN/m each). It sticks. Find the maximum <em>additional</em> deflection \(\delta\).</p>
+<ol class="work">
+<li><strong>Stage 1, the fall</strong> (energy): \(v_P = \sqrt{2(9.81)(2)} = 6.264\) m/s.</li>
+<li><strong>Stage 2, the impact</strong> (momentum, plastic): \(2(6.264) = 20v_3\), so \(v_3 = 0.6264\) m/s.<span class="why-inline">This is the lossy step: 39.2 J arrives, and only 3.9 J survives as kinetic energy.</span></li>
+<li><strong>Before impact the springs are already compressed</strong> by the block: \(2kx_0 = 18g\), so \(x_0 = 0.0736\) m.<span class="why-inline">The springs’ starting energy is not zero. Missing this is the most common way to lose marks on this question.</span></li>
+<li><strong>Stage 3, the compression</strong> (energy, datum at the lowest point): \(T_3 + V_{g3} + V_{e3} = V_{e4}\), which is \(3.924 + 196.2\,\delta + 6.496 = 1200(\delta + 0.0736)^2\).</li>
+<li>Solve the quadratic and keep the positive root.</li>
+</ol>
+<figure class="panel">{{fig:k_energy_bars}}<figcaption>Energy bookkeeping for stage 3. The total stays at 23.4 J. Kinetic and gravitational energy are both handed to the springs.</figcaption></figure>
+<p class="answer">δ = 65.9 mm (memo: 65.9 mm)</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>Along the line of impact: system momentum plus \(e = \) separation ÷ approach.</li>
+<li>Across it (smooth): each body keeps its own velocity component.</li>
+<li>Energy is lost in impacts (\(e &lt; 1\)), so switch to momentum for the impact and back to energy afterwards.</li></ul></div>
+</section>

@@ -1,0 +1,62 @@
+<section class="chapter" id="ch20" data-num="20" data-short="Rigid bodies: general plane motion">
+<header><span class="eyebrow">Chapter 20 · Lectures L33–L35 (plane motion I–III)</span><h2>Rigid bodies that move and turn at once</h2></header>
+<div class="inthis">In this chapter
+<ul><li>Where Part I and Part II meet: linking \(a_G\) and \(\alpha\)</li><li>Rolling: assume no slip, then check</li><li>Slipping: friction becomes \(\mu_k N\)</li><li>Three worked examples, including the rod-and-hoop review question</li></ul></div>
+
+<p>Same three equations as Chapter 18, now with \(\alpha\neq0\):</p>
+<div class="eq key">\[ \sum\vec F = m\vec a_G \qquad \sum M_G = I_G\alpha \qquad \sum M_P = I_G\alpha + m a_G d \]</div>
+<div class="callout big"><span class="tag">The big idea</span><p>Three equations, but often four unknowns: two force components, \(a_G\) and \(\alpha\). The fourth equation is <strong>kinematics</strong>, which links \(\vec a_G\) to \(\alpha\). For rolling without slip it is \(a_G = \alpha r\). For a pinned or sliding end it is the relative acceleration equation from Chapter 10, \(\vec a_G = \vec a_A + (\vec a_{G/A})_n + (\vec a_{G/A})_t\). This is why Part I matters so much for Part II.</p></div>
+
+<h3 id="ch20-rolling">Rolling bodies (L33): assume, solve, check</h3>
+<ol class="work">
+<li>Draw the FBD (weight, normal force, friction) and the kinetic diagram (\(m\vec a_G\), \(I_G\alpha\)).</li>
+<li><strong>Assume pure rolling</strong>: \(a_G = \alpha r\). Friction is unknown, anything up to \(\mu_sN\).<span class="why-inline">Static friction adjusts itself, so you cannot write \(F = \mu_s N\). Treat it as an unknown.</span></li>
+<li>Solve. Moments about the contact point are fastest, because \(F\) and \(N\) both pass through it.</li>
+<li><strong>Check</strong>: is the friction needed \(\le \mu_s N\)? If yes, the body rolls and you are done.</li>
+<li>If not, it <strong>slips</strong>: now \(F = \mu_k N\) (opposing the slip), and \(a_G \neq \alpha r\). Solve the force and moment equations separately.</li>
+</ol>
+
+<div class="example"><div class="ex-head"><h4>Worked example 20.1: a cylinder rolling down a ramp</h4><span class="src">L33 Example 2</span></div>
+<p class="problem">A solid cylinder is released from rest on a 30° ramp with \(\mu_s = 0.30\), \(\mu_k = 0.20\). Find \(a_G\) and the friction force, and check that it rolls.</p>
+<div class="panel"><div class="eqrow">{{fig:k_roll_fbd}}<span class="eqsign">=</span>{{fig:k_roll_kd}}</div><figcaption>Friction must point up the slope: it supplies the clockwise moment that makes the cylinder spin.</figcaption></div>
+<ol class="work">
+<li>Moments about the contact point C (both unknown contact forces drop out):<div class="eq">\[ mg\sin30^\circ\,r = I_G\alpha + m a_G r = \tfrac12mr^2\alpha + m(\alpha r)r \]</div>so \(\alpha = \dfrac{2g\sin30^\circ}{3r}\) and \(a_G = \alpha r = \tfrac23 g\sin30^\circ\).</li>
+<li>Along the slope: \(mg\sin30^\circ - F = ma_G\), so \(F = \tfrac13 mg\sin30^\circ\).</li>
+<li>Check: friction needed ÷ \(N\) is \(\tfrac13\tan30^\circ = 0.19\), which is less than \(\mu_s = 0.30\), so it rolls.<span class="why-inline">Neither \(m\) nor \(r\) appears in the answer. Every solid cylinder rolls down this ramp in the same way.</span></li>
+</ol>
+<p class="answer">a<sub>G</sub> = 3.27 m/s² down the ramp; F = ⅓mg sin 30° up the ramp (5.89 N for the slide’s cylinder, below its 9.17 N limit)</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 20.2: a wheel that slips</h4><span class="src">L34 Example 1</span></div>
+<p class="problem">A 10 kg wheel (radius 200 mm, \(k_G = 180\) mm) is released on a 60° incline. \(\mu_s = 0.35\), \(\mu_k = 0.30\). Find \(\alpha\).</p>
+<ol class="work">
+<li>Try rolling: moments about the contact point give \(a_G = \dfrac{g\sin60^\circ}{1 + k^2/r^2} = 4.69\) m/s². Then \(F = mg\sin60^\circ - ma_G = 38.0\) N.</li>
+<li>Check: \(N = mg\cos60^\circ = 49.05\) N, so at most \(\mu_sN = 17.2\) N is available. 38.0 &gt; 17.2, so <strong>it slips</strong>.</li>
+<li>Slipping: \(F = \mu_kN = 14.7\) N. Moments about G: \(Fr = mk^2\alpha\), so \(\alpha = \dfrac{14.7(0.2)}{10(0.18)^2}\).<span class="why-inline">Once it slips, rolling no longer ties \(a_G\) to \(\alpha\). Friction alone sets the spin.</span></li>
+</ol>
+<p class="answer">α = 9.08 rad/s² (and a<sub>G</sub> = 7.02 m/s² down the slope)</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 20.3: the rod on a hoop</h4><span class="src">Review lecture 1</span></div>
+<p class="problem">A uniform rod (\(l = 250\) mm, \(m = 0.5\) kg) lies along a horizontal radius of a light hoop of radius \(l\), so G is \(l/2\) from the hoop’s centre O. The assembly is released from rest on a horizontal surface and rolls. Find the initial \(\alpha\).</p>
+<ol class="work">
+<li><strong>Kinematics (Chapter 10):</strong> \(\vec a_G = \vec a_O + (\vec a_{G/O})_n + (\vec a_{G/O})_t\). Rolling gives \(a_O = l\alpha\) (horizontal). From rest, \(\omega = 0\), so the normal term vanishes and \((a_{G/O})_t = \tfrac{l}{2}\alpha\) (vertical, downwards).<span class="why-inline">This is the step that needs Part I. It tells you both components of \(\vec a_G\) in terms of the single unknown \(\alpha\).</span></li>
+<li>Horizontal: \(F_f = m\,l\alpha\).</li>
+<li>Vertical: \(N - mg = -m\tfrac{l}{2}\alpha\).</li>
+<li>Moments about G (CCW positive): \(-N\tfrac{l}{2} + F_f\,l = -\tfrac1{12}ml^2\alpha\).</li>
+<li>Substitute and simplify: \(\alpha\,l\left(\tfrac14 + 1 + \tfrac1{12}\right) = \tfrac{g}{2}\), so \(\alpha = \dfrac{3g}{8l}\).</li>
+</ol>
+<p class="answer">α = 14.7 rad/s² (memo: 14.7 rad/s²)</p></div>
+
+<p><strong>Free bodies.</strong> A body that is not attached to anything (L33 rocket, L34 Example 2) needs no kinematic link: \(\sum F = ma_G\) gives \(a_G\), and \(\sum M_G = I_G\alpha\) gives \(\alpha\). In L34 Example 2, a 6 N push at one end of a 1.2 kg body gives \(a_G = 5\) m/s² and \(\alpha = 48.8\) rad/s². The pushed end then accelerates at \(5 + 0.425(48.8) = 25.7\) m/s². Pushing off-centre makes things spin as well as move.</p>
+<p><strong>Linkages (L35).</strong> L35 Example 1 (a crank driving a bar on a roller) is the full combination: a Chapter 9 velocity diagram for \(\omega_{AB}\), a Chapter 10 acceleration diagram for \(\vec a_G\) and \(\alpha\), then this chapter’s three equations for the roller force. Work through it once you are comfortable with both halves.</p>
+
+<div class="callout slip"><span class="tag">Common slips</span><ul>
+<li>Writing \(F = \mu_s N\) for a body that rolls. It is an unknown, up to \(\mu_s N\).</li>
+<li>Using \(a_G = \alpha r\) after finding that the body slips.</li>
+<li>Taking moments about the contact point with \(\sum M = I_G\alpha\) alone. About any point other than G you need the \(m a_G d\) term too (for a round body rolling on a flat surface this adds up to \(I_C\alpha\), because \(m a_G r = mr^2\alpha\)).</li>
+<li>Forgetting the kinematic link, which leaves you one equation short.</li></ul></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(\sum F = ma_G\), \(\sum M_G = I_G\alpha\), plus a kinematic link between \(a_G\) and \(\alpha\).</li>
+<li>Rolling: assume \(a_G = \alpha r\), solve, check \(F \le \mu_sN\). If it fails, \(F = \mu_kN\) and the link is gone.</li>
+<li>Moments about the contact point remove both contact forces.</li></ul></div>
+</section>

@@ -1,0 +1,38 @@
+<section class="chapter" id="ch18" data-num="18" data-short="Rigid bodies: translation">
+<header><span class="eyebrow">Chapter 18 · Lectures L33–L34 (rectilinear translation)</span><h2>Rigid bodies that slide without turning</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The three equations of planar rigid-body motion</li><li>Why a translating body still needs a moment equation</li><li>Taking moments about a smart point, \(\sum M_P = m a_G d\)</li><li>The boom on the bakkie (review lecture)</li></ul></div>
+
+<p>A rigid body can rotate as well as move, so it needs one more equation than a particle. For planar motion there are three:</p>
+<div class="eq key">\[ \sum F_x = m(a_G)_x \qquad \sum F_y = m(a_G)_y \qquad \sum M_G = I_G\,\alpha \]</div>
+<p>The force equations use the acceleration of the <strong>mass centre G</strong>. The moment equation is taken <strong>about G</strong>, with \(I\) meaning \(I_G\) (L33 marks this “NB!”).</p>
+<p>There is also a very useful alternative. Take moments about <em>any</em> point P, and include the moment of the kinetic diagram on the right-hand side:</p>
+<div class="eq key">\[ \sum M_P = I_G\,\alpha + m a_G\,d \]</div>
+<p>Here \(d\) is the perpendicular distance from P to the line of \(m\vec a_G\).</p>
+<div class="callout why"><span class="tag">Why the extra term</span><p>The forces on the FBD and the \(m\vec a_G\) (plus \(I_G\alpha\)) on the kinetic diagram are equivalent, so they must have the same moment about every point, not just about G. About G, \(m\vec a_G\) has no moment, which leaves \(I_G\alpha\). About any other point it does, \(m a_G d\). Pick P where two unknown forces meet, and both drop out of the equation at once.</p></div>
+
+<h3 id="ch18-translation">Translation: no rotation, but moments still matter</h3>
+<p>In translation, \(\omega = \alpha = 0\), so \(\sum M_G = 0\). That does <em>not</em> make the moment equation useless. It is what decides how the load is shared between wheels, pins and cables. About any other point P, \(\sum M_P = m a_G d\).</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 18.1: a wheelie</h4><span class="src">L33 Think-Pair-Share 1</span></div>
+<p class="problem">A motorbike and rider (295 kg) hold a wheelie while accelerating at 5 m/s². Find the friction force on the back wheel.</p>
+<ol class="work"><li>The front wheel is off the ground, so the back wheel’s friction is the only horizontal force: \(F = ma = 295 \times 5\).<span class="why-inline">The moment equation about G is what holds the wheelie at a steady angle. The horizontal force equation alone answers this question.</span></li></ol>
+<p class="answer">F = 1475 N</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 18.2: the boom on the bakkie</h4><span class="src">Review lecture 1, Example 2</span></div>
+<p class="problem">A uniform 4 m, 60 kg boom is pinned at A to the back of a bakkie, at 60° to the horizontal, and held by a cable from its top B to C, 2 m in front of A. The bakkie accelerates forwards at 5 m/s². Find the cable tension and the total pin force at A.</p>
+<div class="panel"><div class="eqrow">{{fig:k_boom_fbd}}<span class="eqsign">=</span>{{fig:k_boom_kd}}</div><figcaption>The boom moves with the bakkie without turning, so the kinetic diagram is just \(m\vec a\) at G.</figcaption></div>
+<ol class="work">
+<li>Geometry: B is at \((-2, 3.464)\) m from A. The cable angle at C is \(\theta = \tan^{-1}\dfrac{4\sin60^\circ}{4\cos60^\circ + 2} = 40.9^\circ\). G is 1.0 m behind and 1.732 m above A.</li>
+<li>Moments about A, clockwise positive. This removes \(A_x\) and \(A_y\) in one go:<div class="eq">\[ T\,(2\sin40.9^\circ) - 589(1.0) = \underbrace{300 \times 1.732}_{m a_G d} \]</div>so \(T = 846\) N.<span class="why-inline">The cable’s moment arm about A is the perpendicular distance from A to the line BC, which is \(AC\sin\theta\). The kinetic diagram’s moment is \(ma\) times the height of G above A.</span></li>
+<li>Horizontal: \(T\cos40.9^\circ - A_x = 300\), so \(A_x = 340\) N (acting backwards on the boom).</li>
+<li>Vertical (no vertical acceleration): \(A_y - 589 - T\sin40.9^\circ = 0\), so \(A_y = 1143\) N.</li>
+</ol>
+<p class="answer">T = 846 N, A = √(340² + 1143²) = 1192 N (memo: 846 N and 1192 N)</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(\sum F = m a_G\) and \(\sum M_G = I_G\alpha\), or \(\sum M_P = I_G\alpha + m a_G d\) about any P.</li>
+<li>Translation: \(\alpha = 0\), but moments still decide the reactions.</li>
+<li>Take moments where the unknowns meet.</li>
+<li>Practice: M&amp;K 6/10 in L33 (T = 24.5 N, F<sub>A</sub> = 32.9 N).</li></ul></div>
+</section>

@@ -1,0 +1,68 @@
+<section class="chapter" id="ch15" data-num="15" data-short="Impulse and momentum">
+<header><span class="eyebrow">Chapter 15 · Lectures L28–L29</span><h2>Impulse and momentum: linear and angular</h2></header>
+<div class="inthis">In this chapter
+<ul><li>Linear impulse and momentum, drawn as a vector triangle</li><li>When momentum is conserved</li><li>The two-stage pattern: momentum for the collision, energy afterwards</li><li>Angular momentum about a fixed point</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>A force that acts for a while changes the momentum \(m\vec v\). The total change is the force multiplied by the time it acts, the <strong>impulse</strong>. Use this when the question is about time, or about a hit so short that you could never know the force at each instant, only its average.</p></div>
+
+<h3 id="ch15-linear">Linear impulse and momentum</h3>
+<div class="eq key">\[ m\vec v_1 + \sum\int_{t_1}^{t_2}\vec F\,dt = m\vec v_2 \]</div>
+<div class="callout why"><span class="tag">Where it comes from</span><p>\(\sum\vec F = m\,d\vec v/dt\). Multiply by \(dt\) and integrate over time. The left side becomes the impulse, the right side the change in momentum. It is Newton’s law integrated over time, just as work–energy was Newton’s law integrated along the path.</p></div>
+<ul>
+<li>It is a <strong>vector</strong> equation: write it in \(x\) and \(y\) separately, or draw it as a triangle.</li>
+<li>Impulse is the area under the force–time graph. A constant force gives \(\vec F\,\Delta t\).</li>
+<li>Units: N·s, which is the same as kg·m/s.</li>
+</ul>
+
+<div class="example"><div class="ex-head"><h4>Worked example 15.1: a tennis shot</h4><span class="src">L28 Example 1</span></div>
+<p class="problem">A 60 g ball arrives horizontally at 15 m/s and leaves at 21 m/s, 15° above the horizontal, the other way. Contact lasts 0.02 s. Find the average force from the racket.</p>
+<figure class="panel">{{fig:k_impulse_tri}}<figcaption>Momentum before plus impulse equals momentum after. The impulse closes the triangle (the weight’s impulse, 0.012 N·s, is too small to see).</figcaption></figure>
+<ol class="work">
+<li>\(x\) (towards the leaving direction): \(-0.06(15) + R_x(0.02) = 0.06(21\cos15^\circ)\), so \(R_x = 105.9\) N.<span class="why-inline">The ball reverses, so its starting momentum is negative. Signs carry the directions.</span></li>
+<li>\(y\) (up): \(0 + R_y(0.02) - 0.06(9.81)(0.02) = 0.06(21\sin15^\circ)\), so \(R_y = 16.9\) N.</li>
+<li>\(R = \sqrt{105.9^2 + 16.9^2}\), at \(\tan^{-1}(16.9/105.9)\).</li>
+</ol>
+<p class="answer">R = 107 N at 9.07° above the horizontal</p></div>
+
+<h3 id="ch15-conservation">Conservation of momentum</h3>
+<p>For a <em>system</em> of bodies, the forces between them come in equal and opposite pairs (Newton’s third law), so their impulses cancel. If the outside impulses are zero, or tiny compared with the impact forces, the total momentum is the same before and after:</p>
+<div class="eq">\[ \sum m\vec v_1 = \sum m\vec v_2 \]</div>
+<p>Weights and gentle ground forces are “non-impulsive”: during a very short hit they hardly act at all, so you can ignore them.</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 15.2: couple, then compress a spring</h4><span class="src">L28 Example 2</span></div>
+<p class="problem">Block B (10 kg, 15 m/s) hits block A (15 kg, at rest) on a smooth surface. They lock together and run into a spring (\(k = 10\) kN/m). Find the maximum compression.</p>
+<ol class="work">
+<li><strong>Stage 1, the coupling</strong> (momentum): \(10(15) + 15(0) = 25v\), so \(v = 6\) m/s.<span class="why-inline">The coupling forces are internal and enormous, and energy is lost as noise and heat. Momentum is the only thing you can trust here.</span></li>
+<li><strong>Stage 2, the spring</strong> (energy, nothing lost now): \(\tfrac12(25)(6^2) = \tfrac12(10\,000)x^2\).<span class="why-inline">Once the blocks move together, only the spring acts, so energy is conserved.</span></li>
+</ol>
+<p class="answer">x = 0.300 m</p>
+<p>This two-stage pattern (momentum through the collision, energy before and after it) is one of the most common in the exams.</p></div>
+
+<h3 id="ch15-angular">Angular momentum</h3>
+<p>The angular momentum of a particle about a point O is the moment of its momentum:</p>
+<div class="eq key">\[ \vec H_O = \vec r\times m\vec v,\quad |H_O| = mvd \qquad\qquad \sum M_O = \dot H_O \qquad\qquad H_{O1} + \sum\int M_O\,dt = H_{O2} \]</div>
+<p>Here \(d\) is the perpendicular distance from O to the line of the velocity. If no external moment acts about O, \(H_O\) is conserved. That happens for a central force (always pointing at O), and for a body on a fixed pivot hit by something, because the pivot force passes through O.</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 15.3: spinning up with a growing moment</h4><span class="src">L29 Example 1</span></div>
+<p class="problem">Four 5 kg spheres sit 0.6 m from a shaft on a light frame. A moment \(M = 0.5t + 0.8\) N·m is applied from rest. Find their speed after 4 s.</p>
+<ol class="work">
+<li>Angular impulse: \(\int_0^4 (0.5t + 0.8)\,dt = 0.25(16) + 0.8(4) = 7.2\) N·m·s.</li>
+<li>Angular momentum after: \(4\times(0.6)(5)v = 12v\).</li>
+<li>\(0 + 7.2 = 12v\).</li>
+</ol>
+<p class="answer">v = 0.600 m/s</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 15.4: clay hits a pendulum</h4><span class="src">L29 Example 2</span></div>
+<p class="problem">A 12 g piece of clay at 2.5 m/s hits and sticks to a light bar 50 mm below the pivot. An 80 g mass sits at the end of the 100 mm bar. Find \(\omega\) just after impact.</p>
+<ol class="work">
+<li>About the pivot O: \(H_{O1} = m_1v_1(L/2) = 0.012(2.5)(0.05) = 0.0015\) N·m·s.<span class="why-inline">The pivot pushes hard during the impact, but that force has no moment about O. So angular momentum about O is conserved, while linear momentum is not.</span></li>
+<li>After, both masses turn together: \(H_{O2} = [m_1(L/2)^2 + m_2L^2]\,\omega = 0.00083\,\omega\).</li>
+</ol>
+<p class="answer">ω = 1.81 rad/s</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(m\vec v_1 + \int\vec F\,dt = m\vec v_2\), a vector equation (use components or a triangle).</li>
+<li>No outside impulse means momentum is conserved. Use it for collisions and couplings.</li>
+<li>Momentum through the impact, energy before and after it.</li>
+<li>\(H_O = mvd\). About a fixed pivot, the pivot force drops out.</li></ul></div>
+</section>

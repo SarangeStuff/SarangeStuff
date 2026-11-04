@@ -1,6 +1,6 @@
-<title>MEC2047 Kinematics Companion</title>
+<title>MEC2047 Dynamics Companion</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A gentle, step-by-step companion to MEC2047S Dynamics I, Part I: kinematics, with an emphasis on drawing velocity and acceleration vector diagrams.">
+<meta name="description" content="A gentle, step-by-step companion to MEC2047S Dynamics I: kinematics (with an emphasis on velocity and acceleration vector diagrams) and kinetics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&family=Overpass+Mono:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
@@ -199,6 +199,10 @@ svg.fig.wide { width: 100%; }
 .fig .road { stroke: var(--muted); stroke-width: 1.5; } .fig .rope { stroke: var(--ink); stroke-width: 1.6; }
 .fig .ramark { fill: none; stroke: var(--muted); stroke-width: 1; }
 .fig .scalebar line { stroke: var(--ink); stroke-width: 1.4; }
+.fig .body { fill: var(--tint-abs); stroke: var(--ink); stroke-width: 1.5; }
+.fig .bar { stroke: none; opacity: 0.88; } .fig .bar.abs { fill: var(--c-abs); } .fig .bar.n { fill: var(--c-n); } .fig .bar.t { fill: var(--c-t); }
+.fig .arc.t { stroke: var(--c-t); stroke-width: 2; } .fig .arc.n { stroke: var(--c-n); stroke-width: 2; }
+.fig .archead.t { fill: var(--c-t); } .fig .archead.n { fill: var(--c-n); } .fig .archead.ans { fill: var(--c-ans); }
 
 /* ---- step-through diagrams */
 .stepper [data-step] { transition: opacity 0.25s ease; }
@@ -230,6 +234,15 @@ ol.steplist li.is-future { opacity: 0.5; }
 .lab .nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px 14px; margin-top: 12px; font-family: var(--f-mono); font-size: 0.86rem; }
 .lab .nums b { font-family: var(--f-display); }
 
+/* ---- Part II additions */
+.toc li.toc-part a { display: block; font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 14px 8px 4px; }
+.toc li.toc-part:first-child a { padding-top: 4px; }
+.chapter.part-divider { border-top: 3px solid var(--ink); margin-top: 72px; padding-top: 44px; }
+.part-title { font-size: clamp(2.2rem, 6vw, 3.3rem); font-weight: 800; letter-spacing: -0.02em; margin: 8px 0 14px; }
+.eqrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 18px; }
+.eqrow > svg.fig { flex: 1 1 230px; min-width: 0; max-width: 330px; margin: 0; }
+.eqrow .eqsign { font: 800 2.2rem var(--f-display); color: var(--muted); line-height: 1; }
+.figrow-wrap > figure.panel { margin: 0; }
 footer.colophon { font-family: var(--f-display); font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--rule); margin-top: 60px; padding-top: 18px; }
 </style>
 
@@ -238,6 +251,7 @@ footer.colophon { font-family: var(--f-display); font-size: 0.85rem; color: var(
 <details open id="tocDetails">
 <summary>Contents</summary>
 <ol>
+<li class="toc-part"><a href="#start">Part I · Kinematics</a></li>
 <li><a href="#ch1"><span class="toc-num">1</span><span>The toolkit</span></a></li>
 <li><a href="#ch2"><span class="toc-num">2</span><span>Straight-line motion</span></a></li>
 <li><a href="#ch3"><span class="toc-num">3</span><span>Curved paths</span></a></li>
@@ -248,15 +262,26 @@ footer.colophon { font-family: var(--f-display); font-size: 0.85rem; color: var(
 <li><a href="#ch8"><span class="toc-num">8</span><span>Instantaneous centre</span></a></li>
 <li><a href="#ch9"><span class="toc-num">9</span><span>Relative velocity (diagrams)</span></a></li>
 <li><a href="#ch10"><span class="toc-num">10</span><span>Relative acceleration (diagrams)</span></a></li>
-<li><a href="#ch11"><span class="toc-num">11</span><span>Exam playbook and formula sheet</span></a></li>
+<li><a href="#ch11"><span class="toc-num">11</span><span>Part I playbook and formula sheet</span></a></li>
+<li class="toc-part"><a href="#part2">Part II · Kinetics</a></li>
+<li><a href="#ch12"><span class="toc-num">12</span><span>Newton’s second law: straight lines</span></a></li>
+<li><a href="#ch13"><span class="toc-num">13</span><span>Newton’s second law: curves</span></a></li>
+<li><a href="#ch14"><span class="toc-num">14</span><span>Work, energy and power</span></a></li>
+<li><a href="#ch15"><span class="toc-num">15</span><span>Impulse and momentum</span></a></li>
+<li><a href="#ch16"><span class="toc-num">16</span><span>Impact</span></a></li>
+<li><a href="#ch17"><span class="toc-num">17</span><span>Mass moment of inertia</span></a></li>
+<li><a href="#ch18"><span class="toc-num">18</span><span>Rigid bodies: translation</span></a></li>
+<li><a href="#ch19"><span class="toc-num">19</span><span>Rigid bodies: fixed-axis rotation</span></a></li>
+<li><a href="#ch20"><span class="toc-num">20</span><span>Rigid bodies: general plane motion</span></a></li>
+<li><a href="#ch21"><span class="toc-num">21</span><span>Part II playbook and formula sheet</span></a></li>
 </ol>
 </details>
 </nav>
 <main id="top">
 <section class="chapter hero" id="start" data-num="" data-short="Start here">
-<span class="eyebrow">MEC2047S · Dynamics I · Part I: Kinematics (L01–L17)</span>
+<span class="eyebrow">MEC2047S · Dynamics I · Kinematics and kinetics (L01–L35)</span>
 <h1>Dynamics, <em>gently</em>.</h1>
-<p class="lead">A plain-language companion to your lecture notes. It explains what each formula means, why it has the shape it has, and how to draw velocity and acceleration diagrams that earn full marks.</p>
+<p class="lead">A plain-language companion to your lecture notes. It explains what each formula means, why it has the shape it has, and how to draw velocity and acceleration diagrams that earn full marks. Part I covers kinematics (L01–L17); Part II covers kinetics (L19–L35).</p>
 <p>Kinematics is the geometry of motion. It asks where things are, how fast they move and how that speed changes, and it never asks <em>why</em>. Forces come later, in Part II. Everything in this half of the course comes from one chain of ideas:</p>
 <div class="eq key">\[ \text{position} \;\xrightarrow{\;d/dt\;}\; \text{velocity} \;\xrightarrow{\;d/dt\;}\; \text{acceleration} \]</div>
 <p>Integration walks the chain backwards. The rest of the course is about two choices: <strong>which coordinates</strong> to describe the motion in, and <strong>which reference point</strong> to measure it from. Once you see each topic as one of those two choices, the whole course hangs together.</p>
@@ -277,7 +302,7 @@ footer.colophon { font-family: var(--f-display); font-size: 0.85rem; color: var(
 <li><strong>Read with your lecture slides open.</strong> Each chapter names the lectures it covers, and most worked examples are the same ones from your slides, slowed right down.</li>
 <li><strong>Look for the green “Why” boxes.</strong> They explain the science behind a formula, so you can rebuild it in the exam if your memory fails.</li>
 <li><strong>Use the step-through diagrams.</strong> Click <em>Next step</em> (or tap a numbered step) to watch a velocity or acceleration diagram being built one line at a time, in the order you would draw it on paper.</li>
-<li><strong>Chapters 9 and 10 are the heart of the book.</strong> If you only have one evening, read those two and Chapter 11.</li>
+<li><strong>Chapters 9 and 10 are the heart of Part I</strong>, and Chapter 20 is where they pay off in Part II. Chapters 11 and 21 are one-page summaries for the night before.</li>
 </ul>
 
 <h3 id="course-map">Where each lecture lives</h3>
@@ -294,6 +319,15 @@ footer.colophon { font-family: var(--f-display); font-size: 0.85rem; color: var(
 <tr><td class="mono">L13</td><td>Instantaneous centre of zero velocity</td><td><a href="#ch8">8</a></td><td>Tut03 Q5</td></tr>
 <tr><td class="mono">L14–L15</td><td>Relative velocity on a rigid body</td><td><a href="#ch9">9</a></td><td>Tut04</td></tr>
 <tr><td class="mono">L16–L17</td><td>Relative acceleration on a rigid body</td><td><a href="#ch10">10</a></td><td>Tut05</td></tr>
+<tr><td class="mono">L19–L20</td><td>Newton’s second law, straight lines</td><td><a href="#ch12">12</a></td><td></td></tr>
+<tr><td class="mono">L21, L24</td><td>Newton’s second law, curved paths</td><td><a href="#ch13">13</a></td><td></td></tr>
+<tr><td class="mono">L25–L27</td><td>Work, energy and power</td><td><a href="#ch14">14</a></td><td></td></tr>
+<tr><td class="mono">L28–L29</td><td>Linear and angular impulse–momentum</td><td><a href="#ch15">15</a></td><td></td></tr>
+<tr><td class="mono">L30</td><td>Impact</td><td><a href="#ch16">16</a></td><td></td></tr>
+<tr><td class="mono">L32</td><td>Mass moment of inertia</td><td><a href="#ch17">17</a></td><td></td></tr>
+<tr><td class="mono">L33–L34</td><td>Rigid bodies: translation</td><td><a href="#ch18">18</a></td><td></td></tr>
+<tr><td class="mono">L32</td><td>Rigid bodies: fixed-axis rotation</td><td><a href="#ch19">19</a></td><td></td></tr>
+<tr><td class="mono">L33–L35</td><td>Rigid bodies: general plane motion</td><td><a href="#ch20">20</a></td><td></td></tr>
 </tbody></table></div>
 
 <div class="callout big"><span class="tag">Why the diagrams matter so much</span>
@@ -1202,8 +1236,8 @@ footer.colophon { font-family: var(--f-display); font-size: 0.85rem; color: var(
 <li>Practice: Tut05 Q1–Q5 (answers on the sheet).</li></ul></div>
 </section>
 
-<section class="chapter" id="ch11" data-num="11" data-short="Exam playbook and formula sheet">
-<header><span class="eyebrow">Chapter 11 · Revision</span><h2>Exam playbook and one-page formula sheet</h2></header>
+<section class="chapter" id="ch11" data-num="11" data-short="Part I playbook and formula sheet">
+<header><span class="eyebrow">Chapter 11 · Revision for Part I</span><h2>Diagram playbook and one-page formula sheet</h2></header>
 
 <h3 id="ch11-checklist">The diagram question checklist</h3>
 <p>This list is built from the 2016, 2021 and 2022 memos. Each line matches something the markers tick.</p>
@@ -1253,8 +1287,644 @@ footer.colophon { font-family: var(--f-display); font-size: 0.85rem; color: var(
 <p>Velocity is the slope of position, and acceleration is the slope of velocity. On a curve, acceleration splits into a part that changes speed and a part, \(v^2/\rho\), that turns you into the bend. On a rigid body, any point’s motion is a reference point’s motion plus a spin about it, and that spin always moves the point perpendicular to the line joining them. Draw that as a triangle for velocities and a polygon for accelerations, and you can solve every mechanism in this course.</p></div>
 </section>
 
+<section class="chapter part-divider" id="part2" data-num="II" data-short="Part II starts here: kinetics">
+<span class="eyebrow">Part II · Kinetics · Lectures L19–L35</span>
+<h2 class="part-title">Part II: why things move</h2>
+<p class="lead">Part I described motion without asking what causes it. Part II brings in forces and masses. The good news is that every acceleration, every \(v^2/\rho\), every \(r\ddot\theta\) and every relative acceleration diagram from Part I is reused here. Kinetics is kinematics plus one law.</p>
+<div class="eq key">\[ \sum \vec F = m\,\vec a \]</div>
+<p>Everything else in Part II is this law in a different outfit. Integrate it along the path and you get the <strong>work–energy</strong> principle. Integrate it over time and you get <strong>impulse–momentum</strong>. Apply it to a body with size and you add a moment equation, \(\sum M_G = I_G\alpha\).</p>
+
+<div class="legend" aria-label="Colour code for force diagrams">
+<h2>The colour code in Part II diagrams</h2>
+<ul>
+<li><svg class="fig" viewBox="0 0 46 16" aria-hidden="true"><g class="vec abs"><line x1="2" y1="8" x2="35" y2="8"/><polygon points="44,8 35,4 35,12"/></g></svg><span><span class="k-abs">Blue</span>: a force you know, such as the weight or a given push.</span></li>
+<li><svg class="fig" viewBox="0 0 46 16" aria-hidden="true"><g class="vec ans"><line x1="2" y1="8" x2="35" y2="8"/><polygon points="44,8 35,4 35,12"/></g></svg><span><span class="k-ans">Crimson</span>: an unknown force, such as a reaction, tension, normal force or friction.</span></li>
+<li><svg class="fig" viewBox="0 0 46 16" aria-hidden="true"><g class="vec n"><line x1="2" y1="8" x2="35" y2="8"/><polygon points="44,8 35,4 35,12"/></g></svg><span><span class="k-n">Amber</span>: an \(m\vec a\) term on the kinetic diagram. It is the <em>effect</em> of the forces, not another force.</span></li>
+<li><svg class="fig" viewBox="0 0 46 16" aria-hidden="true"><path class="arc t" d="M6,13 A10,10 0 1 1 30,13" fill="none"/><polygon class="archead t" points="30,13 25,6 34,7"/></svg><span><span class="k-t">Green curl</span>: an \(I_G\alpha\) term on the kinetic diagram (rigid bodies only).</span></li>
+</ul>
+</div>
+
+<h3 id="part2-which">Which tool? The first decision in every kinetics question</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>The question asks for…</th><th>Use</th><th>Because</th></tr></thead>
+<tbody>
+<tr><td>A force, tension, reaction or acceleration <em>at one instant</em></td><td><strong>Newton’s second law</strong> \(\sum F = ma\) (and \(\sum M_G = I_G\alpha\))</td><td>It links forces to acceleration at that moment.</td></tr>
+<tr><td>A speed at one <em>position</em>, given the speed at another position</td><td><strong>Work–energy</strong> \(T_1 + V_1 + U'_{1-2} = T_2 + V_2\)</td><td>It is a scalar equation with no time in it. Forces that do no work drop out.</td></tr>
+<tr><td>A speed after a <em>time</em>, or an average force during a short hit</td><td><strong>Impulse–momentum</strong> \(m\vec v_1 + \sum\int \vec F\,dt = m\vec v_2\)</td><td>It deals with time and forces that act briefly.</td></tr>
+<tr><td>Speeds just after a collision</td><td><strong>Conservation of momentum</strong> plus the coefficient of restitution \(e\)</td><td>The impact forces are internal and huge, but they cancel in pairs.</td></tr>
+<tr><td>A spin rate after something moves in or out, or an impact on a pivoted body</td><td><strong>Angular momentum</strong> about a fixed point</td><td>The pivot force has no moment about the pivot.</td></tr>
+</tbody></table></div>
+<p>Many exam questions chain two tools together. A typical chain is energy (falling), then momentum (impact), then energy again (compressing a spring), as in the putty question in Chapter 16. Spot where one stage ends and the next begins.</p>
+</section>
+
+<section class="chapter" id="ch12" data-num="12" data-short="Newton’s second law: straight lines">
+<header><span class="eyebrow">Chapter 12 · Lectures L19–L20</span><h2>Newton’s second law in a straight line</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The free-body diagram and the kinetic diagram</li><li>The four-step strategy from L19</li><li>Friction: first ask “will it move?”</li><li>Connected bodies, pulleys and forces that depend on speed</li></ul></div>
+
+<h3 id="ch12-laws">Newton’s three laws, in one line each</h3>
+<ol>
+<li><strong>First law:</strong> with no net force, a particle stays at rest or keeps moving in a straight line at constant speed.</li>
+<li><strong>Second law:</strong> a net force causes an acceleration in the same direction, \(\sum\vec F = m\vec a\).</li>
+<li><strong>Third law:</strong> two bodies push on each other with equal and opposite forces along the same line.</li>
+</ol>
+<p>The first and third laws were the whole of statics. The second law is the whole of dynamics. It only fails near the speed of light or at atomic sizes, which never come up here.</p>
+
+<h3 id="ch12-fbd">The free-body diagram and the kinetic diagram</h3>
+<p>Draw the body on its own, cut free from everything it touches. Then put on it <strong>every force</strong> that acts on it:</p>
+<ul>
+<li>its <strong>weight</strong> \(W = mg\), straight down from the mass centre;</li>
+<li>a <strong>normal force</strong> \(N\) at each contact, perpendicular to the surface;</li>
+<li><strong>friction</strong> \(F_f\) at each rough contact, along the surface;</li>
+<li><strong>tensions</strong> along each rope, pulling away from the body;</li>
+<li>any <strong>applied</strong> force.</li>
+</ul>
+<p>Next to it, draw the <strong>kinetic diagram</strong>: the same body with only one arrow, \(m\vec a\), in the direction the body accelerates. Newton’s second law says the two pictures are equivalent: the forces on the left add up to the \(m\vec a\) on the right.</p>
+<div class="callout why"><span class="tag">Why two pictures (and why your notes use one)</span><p>L19 draws the “inertial force” \(m\vec a\) on the same diagram as the forces. That is fine, but it tempts you to treat \(m\vec a\) as one more force and add it to the others. Drawing it on its own picture, with an equals sign between, makes the equation \(\sum F = ma\) visible: sum everything on the left, and set it equal to what is on the right, component by component.</p></div>
+
+<h3 id="ch12-strategy">The strategy (L19)</h3>
+<ol class="work">
+<li><strong>Choose axes</strong> that line up with the acceleration (along and across a slope, for example).<span class="why-inline">Then one equation contains the acceleration and the other has \(ma = 0\).</span></li>
+<li><strong>Draw the FBD and the kinetic diagram.</strong></li>
+<li><strong>Write \(\sum F_x = ma_x\) and \(\sum F_y = ma_y\)</strong>, stating which way is positive for each.</li>
+<li><strong>Bring in kinematics</strong> if needed: a constant-\(a\) equation, a rope constraint (Chapter 5), or \(a\,ds = v\,dv\).</li>
+</ol>
+
+<div class="example"><div class="ex-head"><h4>Worked example 12.1: dragging a crate up a slope</h4><span class="src">L19 Example 2</span></div>
+<p class="problem">A motor winds in a cable with constant acceleration so that a 20 kg crate moves 6 m up a 30° incline in 3 s, starting from rest. \(\mu_k = 0.3\). Find the cable tension.</p>
+<div class="panel"><div class="eqrow"><svg class="fig " viewBox="-149 -108 259 216" width="259" role="img" aria-label="Crate on a 30 degree incline: free-body diagram"><line class="muted" x1="-97.4" y1="56.2" x2="97.4" y2="-56.2" stroke-dasharray="4 5"/><polygon class="block" points="9.0,-74.5 -69.0,-29.5 -39.0,22.5 39.0,-22.5"/><g class="vec abs"><line x1="-15.0" y1="-26.0" x2="-15.0" y2="54.0"/><polygon points="-15.0,64.0 -11.0,54.0 -19.0,54.0"/></g><text class="lbl abs" x="-15.0" y="76.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">W</tspan><tspan> = </tspan><tspan font-style="italic">mg</tspan></text><g class="vec ans"><line x1="37.5" y1="65.0" x2="5.0" y2="8.7"/><polygon points="0.0,-0.0 1.5,10.7 8.5,6.7"/></g><text class="lbl ans" x="36.1" y="48.7" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">N</tspan></text><g class="vec ans"><line x1="6.5" y1="-3.7" x2="-49.8" y2="28.8"/><polygon points="-58.5,33.8 -47.8,32.2 -51.8,25.3"/></g><text class="lbl ans" x="-59.5" y="27.6" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">F</tspan><tspan dy="4" font-size="0.74em">f</tspan></text><g class="vec ans"><line x1="24.0" y1="-48.5" x2="86.8" y2="-84.7"/><polygon points="95.4,-89.7 84.8,-88.2 88.8,-81.3"/></g><text class="lbl ans" x="75.4" y="-87.2" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">T</tspan></text><path class="arc muted" d="M-57.4,56.2 A40,40 0 0 0 -62.8,36.2"/><text class="lbl muted" x="-45.3" y="42.3" text-anchor="middle" dominant-baseline="central"><tspan>30°</tspan></text><line class="muted" x1="-97.4" y1="56.2" x2="-44.9" y2="56.2" stroke-dasharray="3 3"/></svg><span class="eqsign">=</span><svg class="fig " viewBox="-109 -90 219 158" width="219" role="img" aria-label="Crate on a 30 degree incline: kinetic diagram"><line class="muted" x1="-97.4" y1="56.2" x2="97.4" y2="-56.2" stroke-dasharray="4 5"/><polygon class="block" points="9.0,-74.5 -69.0,-29.5 -39.0,22.5 39.0,-22.5"/><g class="vec n"><line x1="-15.0" y1="-26.0" x2="47.8" y2="-62.2"/><polygon points="56.4,-67.2 45.8,-65.7 49.8,-58.8"/></g><text class="lbl n" x="43.5" y="-68.9" text-anchor="end" dominant-baseline="central"><tspan>m</tspan><tspan> </tspan><tspan font-style="italic">a</tspan></text></svg></div><figcaption>Free-body diagram (left) and kinetic diagram (right). Friction points down the slope because the crate slides up it.</figcaption></div>
+<ol class="work">
+<li>Kinematics first: \(s = \tfrac12 a t^2 \Rightarrow 6 = \tfrac12 a (3)^2\), so \(a = 1.33\) m/s² up the slope.<span class="why-inline">The question gives a distance and a time, which is a constant-acceleration statement. Find \(a\) before touching the forces.</span></li>
+<li>Across the slope (\(a_y = 0\)): \(N - mg\cos30^\circ = 0\), so \(N = 169.9\) N.</li>
+<li>Friction while sliding: \(F_f = \mu_k N = 50.97\) N.</li>
+<li>Along the slope, up positive: \(T - F_f - mg\sin30^\circ = ma\), so \(T = 50.97 + 98.1 + 26.67\).<span class="why-inline">Three things must be paid for: friction, the slope component of the weight, and the acceleration itself.</span></li>
+</ol>
+<p class="answer">T = 176 N</p></div>
+
+<h3 id="ch12-friction">Friction: first ask “will it move?”</h3>
+<p>Static friction is a <em>reaction</em>. It is only as big as it needs to be, up to a limit of \(\mu_s N\). Kinetic friction, once sliding, is fixed at \(\mu_k N\). So L20 starts every friction question the same way:</p>
+<ol>
+<li>Assume the body stays still (\(a = 0\)) and work out the friction force that would be <strong>needed</strong>.</li>
+<li>Compare it with the <strong>maximum available</strong>, \(\mu_s N\).</li>
+<li>If needed ≤ available, nothing moves and \(a = 0\). If needed &gt; available, it slides: use \(F_f = \mu_k N\), opposite to the sliding.</li>
+</ol>
+<div class="callout slip"><span class="tag">Common slip</span><p>Writing \(F_f = \mu_s N\) for a body that is not sliding. That is only true at the very point of slipping. The memos give a mark for showing the inequality (needed vs maximum).</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 12.2: will the block move?</h4><span class="src">Final exam 2023, Q6 (Review lecture 2)</span></div>
+<p class="problem">A 25 kg block has a pulley on it. A cable pulled with \(T = 40\) N at 30° above horizontal loops round the pulley and a fixed pulley, so the block feels two horizontal cable pulls of \(T\) plus the inclined pull. \(\mu_s = 0.20\), \(\mu_k = 0.15\). Find the block’s acceleration.</p>
+<ol class="work">
+<li>Vertical (\(a_y = 0\)): \(T\sin30^\circ + N - mg = 0\), so \(N = 245.3 - 20 = 225.3\) N.<span class="why-inline">The upward part of the pull lifts some of the weight off the floor, which reduces friction.</span></li>
+<li>Static check: friction needed to hold it is \(2T + T\cos30^\circ = 114.6\) N. Maximum available is \(\mu_s N = 45.05\) N. Needed &gt; available, so <strong>the block moves</strong>.</li>
+<li>Moving: \(2T + T\cos30^\circ - \mu_k N = ma\), so \(114.6 - 33.8 = 25a\).</li>
+</ol>
+<p class="answer">a = 3.23 m/s² (memo: 3.23 m/s²)</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 12.3: two bodies tied by a pulley</h4><span class="src">L20 Example 2</span></div>
+<p class="problem">Block A (60 kg) is on a 30° slope (\(\mu_s = 0.25\), \(\mu_k = 0.20\)). Its cable runs over a fixed pulley and down to a movable pulley that carries cylinder B (20 kg). Released from rest, find both accelerations and the tension.</p>
+<ol class="work">
+<li>Constraint (Chapter 5): B hangs on a movable pulley, so \(a_A = 2a_B\).<span class="why-inline">The rope loops round B’s pulley, so B moves half as far as A.</span></li>
+<li>Static check: holding B needs \(2T = m_Bg\), so \(T = 98.1\) N. A would then need \(294.3 - 98.1 = 196.2\) N of friction, but only \(\mu_s(509.7) = 127.4\) N is available. So A slides down the slope.</li>
+<li>B, up positive: \(2T - m_Bg = m_Ba_B\). A, down the slope positive: \(m_Ag\sin30^\circ - T - \mu_k N = m_A a_A\).</li>
+<li>Substitute \(a_A = 2a_B\) and solve the two equations together.</li>
+</ol>
+<p class="answer">a<sub>A</sub> = 1.45 m/s², a<sub>B</sub> = 0.725 m/s², T = 105 N</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 12.4: a force that depends on speed</h4><span class="src">L19 Example 1</span></div>
+<p class="problem">A 105 000 kg orbiter deploys its parachute at 320 km/h and drops it at 55 km/h. The drag is \(F_D = 105v^2\) N. How far does it travel meanwhile?</p>
+<ol class="work">
+<li>Newton: \(-105v^2 = 105\,000\,a\), so \(a = -v^2/1000\).</li>
+<li>\(a\) depends on \(v\) and we want a distance, so use \(a\,ds = v\,dv\) (Chapter 2):<div class="eq">\[ \int_0^s ds = \int_{88.9}^{15.3} -\frac{1000}{v}\,dv = 1000\ln\frac{88.9}{15.3} \]</div><span class="why-inline">This is the Chapter 2 decision table again. Newton’s law only supplies the formula for \(a\).</span></li>
+</ol>
+<p class="answer">s = 1761 m</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>FBD (every force) = kinetic diagram (\(m\vec a\)). Choose axes along the acceleration.</li>
+<li>Friction: check “will it move?” with \(\mu_s N\) first. If it slides, use \(\mu_k N\) against the sliding.</li>
+<li>Connected bodies: one FBD per body, plus the rope constraint.</li>
+<li>Practice: L20 homework (M&amp;K 3/20, 3/24, 3/28).</li></ul></div>
+</section>
+
+<section class="chapter" id="ch13" data-num="13" data-short="Newton’s second law: curves">
+<header><span class="eyebrow">Chapter 13 · Lectures L21 and L24</span><h2>Newton’s second law on curved paths</h2></header>
+<div class="inthis">In this chapter
+<ul><li>\(\sum F = ma\) in n–t and polar components</li><li>Why “centripetal force” is not a new kind of force</li><li>Banked tracks and losing contact over a hump</li><li>The rotating tube, and a memo slip to watch for</li></ul></div>
+
+<p>Nothing new in physics here: take the acceleration components from Chapter 3 and multiply by \(m\).</p>
+<div class="eq key">\[ \sum F_t = m\dot v \qquad \sum F_n = m\frac{v^2}{\rho} \qquad\qquad \sum F_r = m(\ddot r - r\dot\theta^2) \qquad \sum F_\theta = m(r\ddot\theta + 2\dot r\dot\theta) \]</div>
+<p>In 3D, cylindrical coordinates add \(\sum F_z = m\ddot z\).</p>
+<div class="callout big"><span class="tag">m v²/ρ is not a force</span><p>\(mv^2/\rho\) belongs on the <em>kinetic</em> diagram. It is what the real forces must add up to, in the direction of the centre of the bend. Something real has to provide it: friction on a flat corner, the normal force on a banked track, tension in a string, gravity for a satellite. If you draw it on the FBD as an extra force, you count it twice.</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 13.1: a boat on a circle</h4><span class="src">L21 Example 1</span></div>
+<p class="problem">A 540 kg boat travels a circle of radius 40 m with speed \(v = 0.0625t^2\) m/s. Find the normal and tangential forces from the water at \(t = 10\) s.</p>
+<ol class="work">
+<li>Kinematics: \(v = 6.25\) m/s, \(a_t = \dot v = 0.125t = 1.25\) m/s², and \(a_n = v^2/\rho = 0.977\) m/s².</li>
+<li>Multiply by the mass: \(F_t = 540(1.25)\) and \(F_n = 540(0.977)\).<span class="why-inline">The water’s force is the only horizontal force, so it must supply both acceleration components.</span></li>
+</ol>
+<p class="answer">F<sub>n</sub> = 527 N (towards the centre), F<sub>t</sub> = 675 N (forwards)</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 13.2: a banked track with no friction needed</h4><span class="src">L21 Example 3</span></div>
+<p class="problem">At what angle \(\theta\) should a track of radius \(\rho\) be banked so that a car at speed \(v\) needs no sideways friction? Then evaluate it for 90 km/h on a 100 m curve.</p>
+<div class="panel"><div class="eqrow"><svg class="fig " viewBox="-161 -94 282 197" width="282" role="img" aria-label="Car on a banked track seen end-on: free-body diagram"><line class="muted" x1="-108.8" y1="50.7" x2="108.8" y2="-50.7" stroke-dasharray="4 5"/><polygon class="block" points="12.4,-62.1 -55.5,-30.4 -34.0,15.8 34.0,-15.8"/><g class="vec abs"><line x1="-10.8" y1="-23.1" x2="-10.8" y2="56.9"/><polygon points="-10.8,66.9 -6.8,56.9 -14.8,56.9"/></g><text class="lbl abs" x="-18.8" y="57.9" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">W</tspan><tspan> = </tspan><tspan font-style="italic">mg</tspan></text><g class="vec ans"><line x1="34.9" y1="74.8" x2="4.2" y2="9.1"/><polygon points="0.0,-0.0 0.6,10.8 7.9,7.4"/></g><text class="lbl ans" x="34.1" y="56.1" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">N</tspan></text><line class="muted" x1="0.0" y1="-0.0" x2="0.0" y2="-82.5" stroke-dasharray="3 3"/><path class="arc muted" d="M0.0,-46.0 A46,46 0 0 0 -19.4,-41.7"/><text class="lbl muted" x="-12.6" y="-56.6" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">θ</tspan></text><path class="arc muted" d="M-68.8,50.7 A40,40 0 0 0 -72.5,33.8"/><text class="lbl muted" x="-56.0" y="39.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">θ</tspan></text><line class="muted" x1="-108.8" y1="50.7" x2="-48.8" y2="50.7" stroke-dasharray="3 3"/></svg><span class="eqsign">=</span><svg class="fig " viewBox="-248 -74 369 137" width="369" role="img" aria-label="Car on a banked track seen end-on: kinetic diagram"><line class="muted" x1="-108.8" y1="50.7" x2="108.8" y2="-50.7" stroke-dasharray="4 5"/><polygon class="block" points="12.4,-62.1 -55.5,-30.4 -34.0,15.8 34.0,-15.8"/><g class="vec n"><line x1="-10.8" y1="-23.1" x2="-90.8" y2="-23.1"/><polygon points="-100.8,-23.1 -90.8,-19.1 -90.8,-27.1"/></g><text class="lbl n" x="-64.8" y="-11.1" text-anchor="middle" dominant-baseline="central"><tspan>m</tspan><tspan> </tspan><tspan font-style="italic">v</tspan><tspan>²/</tspan><tspan font-style="italic">ρ</tspan></text><text class="lbl muted" x="-111.8" y="-23.1" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">to</tspan><tspan> </tspan><tspan font-style="italic">centre</tspan><tspan> </tspan><tspan font-style="italic">of</tspan><tspan> </tspan><tspan font-style="italic">bend</tspan></text></svg></div><figcaption>End-on view. The only forces are the weight and the normal force. Their sum must point horizontally to the centre of the bend.</figcaption></div>
+<ol class="work">
+<li>Horizontal (towards the centre): \(N\sin\theta = m v^2/\rho\).</li>
+<li>Vertical (no vertical acceleration): \(N\cos\theta - mg = 0\).</li>
+<li>Divide the two equations to remove \(N\) and \(m\): \(\tan\theta = \dfrac{v^2}{\rho g}\).<span class="why-inline">The tilted normal force has a sideways part. Banking makes the normal force do the friction’s job.</span></li>
+<li>For \(v = 25\) m/s and \(\rho = 100\) m: \(\tan\theta = 625/981\).</li>
+</ol>
+<p class="answer">θ = tan⁻¹(v²/ρg) = 32.5° for 90 km/h on a 100 m curve</p></div>
+
+<h3 id="ch13-hump">Losing contact over a hump</h3>
+<p>At the top of a hump of radius \(\rho\), the centre of curvature is <em>below</em> the car. Taking down (towards the centre) as positive: \(mg - N = mv^2/\rho\), so \(N = m(g - v^2/\rho)\). The road can only push, so \(N \ge 0\). The car leaves the road when \(N = 0\), that is when \(v = \sqrt{g\rho}\). L24 Example 1 (the Formula 1 car) is exactly this idea.</p>
+
+<h3 id="ch13-polar">Polar coordinates: the rotating tube</h3>
+<div class="example"><div class="ex-head"><h4>Worked example 13.3: slider in a spinning tube</h4><span class="src">L21 Example 2</span></div>
+<p class="problem">A 0.2 kg slider moves in a horizontal tube that spins with \(\dot\theta = 4\) rad/s and \(\ddot\theta = -2\) rad/s². A string controls it: \(r = 0.8\) m, \(\dot r = -2\) m/s, \(\ddot r = 4\) m/s². Find the string tension \(T\) and the side force \(F_\theta\) from the tube.</p>
+<div class="panel"><div class="eqrow"><svg class="fig " viewBox="-38 -39 311 126" width="311" role="img" aria-label="Slider in a rotating tube, top view: free-body diagram"><line class="guide" x1="0.0" y1="-10.5" x2="225.0" y2="-10.5"/><line class="guide" x1="0.0" y1="10.5" x2="225.0" y2="10.5"/><circle class="pin" cx="0.0" cy="0.0" r="4.2"/><text class="lbl muted" x="0.0" y="-18.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">axis</tspan><tspan> </tspan><tspan font-style="italic">O</tspan></text><polygon class="block" points="163.5,-9.0 136.5,-9.0 136.5,9.0 163.5,9.0"/><path class="arc abs" d="M-24.4,8.9 A26,26 0 0 0 22.5,13.0"/><polygon class="archead abs" points="22.5,13.0 15.6,18.2 21.5,21.6"/><text class="lbl abs" x="-3.5" y="39.8" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">ω</tspan></text><g class="vec ans"><line x1="150.0" y1="-0.0" x2="77.5" y2="-0.0"/><polygon points="67.5,-0.0 77.5,4.0 77.5,-4.0"/></g><text class="lbl ans" x="108.8" y="22.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">T</tspan><tspan> (</tspan><tspan font-style="italic">string</tspan><tspan>)</tspan></text><g class="vec ans"><line x1="150.0" y1="75.0" x2="150.0" y2="20.5"/><polygon points="150.0,10.5 146.0,20.5 154.0,20.5"/></g><text class="lbl ans" x="158.0" y="55.7" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">F</tspan><tspan dy="4" font-size="0.74em">θ</tspan><tspan dy="-4"> (</tspan><tspan font-style="italic">tube</tspan><tspan> </tspan><tspan font-style="italic">wall</tspan><tspan>)</tspan></text><text class="lbl muted" x="191.5" y="0.0" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">r</tspan><tspan> →</tspan></text></svg><span class="eqsign">=</span><svg class="fig " viewBox="-38 -82 354 143" width="354" role="img" aria-label="Slider in a rotating tube, top view: kinetic diagram"><line class="guide" x1="0.0" y1="-10.5" x2="225.0" y2="-10.5"/><line class="guide" x1="0.0" y1="10.5" x2="225.0" y2="10.5"/><circle class="pin" cx="0.0" cy="0.0" r="4.2"/><text class="lbl muted" x="0.0" y="-18.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">axis</tspan><tspan> </tspan><tspan font-style="italic">O</tspan></text><polygon class="block" points="163.5,-9.0 136.5,-9.0 136.5,9.0 163.5,9.0"/><path class="arc abs" d="M-24.4,8.9 A26,26 0 0 0 22.5,13.0"/><polygon class="archead abs" points="22.5,13.0 15.6,18.2 21.5,21.6"/><text class="lbl abs" x="-3.5" y="39.8" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">ω</tspan></text><g class="vec n"><line x1="150.0" y1="-0.0" x2="77.5" y2="-0.0"/><polygon points="67.5,-0.0 77.5,4.0 77.5,-4.0"/></g><text class="lbl n" x="108.8" y="22.0" text-anchor="middle" dominant-baseline="central"><tspan>m</tspan><tspan> </tspan><tspan font-style="italic">a</tspan><tspan dy="4" font-size="0.74em">r</tspan><tspan dy="-4"> = </tspan><tspan>m</tspan><tspan>(</tspan><tspan font-style="italic">r</tspan><tspan>̈ − </tspan><tspan font-style="italic">rθ</tspan><tspan>̇²)</tspan></text><g class="vec n"><line x1="150.0" y1="-0.0" x2="150.0" y2="-57.5"/><polygon points="150.0,-67.5 146.0,-57.5 154.0,-57.5"/></g><text class="lbl n" x="158.0" y="-60.8" text-anchor="start" dominant-baseline="central"><tspan>m</tspan><tspan> </tspan><tspan font-style="italic">a</tspan><tspan dy="4" font-size="0.74em">θ</tspan><tspan dy="-4"> = </tspan><tspan>m</tspan><tspan>(</tspan><tspan font-style="italic">rθ</tspan><tspan>̈ + 2ṙ</tspan><tspan font-style="italic">θ</tspan><tspan>̇)</tspan></text></svg></div><figcaption>Top view. The weight and the vertical tube reaction cancel, so they are left out of the horizontal picture.</figcaption></div>
+<ol class="work">
+<li>List the five numbers: \(r = 0.8\), \(\dot r = -2\), \(\ddot r = 4\), \(\dot\theta = 4\), \(\ddot\theta = -2\).<span class="why-inline">Exactly as in Chapter 3: get these right and the rest is substitution.</span></li>
+<li>Radial (outward positive; the string pulls inward): \(-T = m(\ddot r - r\dot\theta^2) = 0.2(4 - 0.8\times16) = -1.76\) N.</li>
+<li>Transverse: \(F_\theta = m(r\ddot\theta + 2\dot r\dot\theta) = 0.2(-1.6 - 16) = -3.52\) N. The minus sign means the tube pushes on the slider from the other side.</li>
+</ol>
+<p class="answer">T = 1.76 N, F<sub>θ</sub> = 3.52 N (from the far side of the tube)</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 13.4: the same tube in an exam</h4><span class="src">Supp exam 2024, Q6 (Review lecture 2)</span></div>
+<p class="problem">\(\omega = 5\) rad/s, \(\dot\omega = -3\) rad/s², \(m = 0.4\) kg, \(r = 0.9\) m. The string is drawn down at 2.5 m/s but is decelerating at 4 m/s². Find the tension.</p>
+<ol class="work">
+<li>The five numbers: \(\dot r = -2.5\) m/s (moving inwards), and \(\ddot r = +4\) m/s² (the inward motion is slowing, so the radial acceleration is outward). \(\dot\theta = \omega = 5\) rad/s.</li>
+<li>\(-T = m(\ddot r - r\dot\theta^2) = 0.4(4 - 0.9\times5^2) = 0.4(4 - 22.5)\).</li>
+</ol>
+<p class="answer">T = 7.40 N</p>
+<div class="callout slip"><span class="tag">Check this one with your lecturer</span><p>The memo on the review slide writes \(0.4\,(4 - 0.9(-3)^2)\) and gets 1.64 N. It has put \(\dot\omega = -3\) where \(\dot\theta = \omega = 5\) belongs. Using the same method that gives L21’s 1.76 N, the tension is 7.40 N. Learn the method, which is the same either way, and ask in your next tutorial so you know what is expected.</p></div></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>n–t: \(\sum F_n = mv^2/\rho\) (towards the centre), \(\sum F_t = m\dot v\).</li>
+<li>Polar: \(\sum F_r = m(\ddot r - r\dot\theta^2)\), \(\sum F_\theta = m(r\ddot\theta + 2\dot r\dot\theta)\).</li>
+<li>\(mv^2/\rho\) goes on the kinetic diagram only. A real force must provide it.</li>
+<li>Losing contact means \(N = 0\).</li></ul></div>
+</section>
+
+<section class="chapter" id="ch14" data-num="14" data-short="Work, energy and power">
+<header><span class="eyebrow">Chapter 14 · Lectures L25–L27</span><h2>Work, energy and power</h2></header>
+<div class="inthis">In this chapter
+<ul><li>What work is, and which forces do none</li><li>The work of weight and of a spring</li><li>\(T_1 + \sum U = T_2\), and the potential-energy form \(T_1 + V_1 + U' = T_2 + V_2\)</li><li>Power and efficiency</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>Energy is bookkeeping. Kinetic energy is the account balance. Work is a deposit (positive) or a withdrawal (negative). Gravity and springs can be treated as savings accounts (potential energy) that you can draw back from. Because it is all scalars, you never need to resolve directions, and forces that do no work simply disappear from the problem.</p></div>
+
+<h3 id="ch14-work">Work</h3>
+<div class="eq">\[ U_{1-2} = \int \vec F\cdot d\vec r = \int F\cos\alpha\,ds \qquad\text{(constant force: } U = F\cos\alpha\;\Delta s\text{)} \]</div>
+<p>Only the part of the force <strong>along</strong> the motion does work. That gives three quick rules:</p>
+<ul>
+<li>Force along the motion: positive work. Force against it (friction, braking): negative work.</li>
+<li><strong>Zero work:</strong> a force perpendicular to the motion (the normal force on a fixed surface), or a force at a point that does not move (a fixed pin, or the contact point of a wheel rolling without slip).</li>
+<li>Weight: \(U_g = -mg\,\Delta y\). It is negative going up and positive going down, and only the height change matters, not the path.</li>
+<li>Linear spring: \(U_s = \tfrac12 k(x_1^2 - x_2^2)\), where \(x\) is measured from the <strong>unstretched</strong> length.</li>
+</ul>
+<div class="callout slip"><span class="tag">Common slip</span><p>Using a change in length instead of the stretch. The spring formula needs the stretch at each end of the motion, measured from the spring’s natural length. A spring that is already compressed at the start (Supp 2025, Chapter 16) starts with \(x_1 \neq 0\).</p></div>
+
+<h3 id="ch14-principle">The work–energy principle</h3>
+<div class="eq key">\[ T_1 + \sum U_{1-2} = T_2 \qquad\text{where}\qquad T = \tfrac12 m v^2 \]</div>
+<div class="callout why"><span class="tag">Where it comes from</span><p>Take the tangential part of Newton’s law, \(\sum F_t = m\,dv/dt\), and use the Chapter 2 trick \(a\,ds = v\,dv\): \(\sum F_t\,ds = m v\,dv\). Integrate along the path and the left side is the work, while the right side is \(\tfrac12mv_2^2 - \tfrac12mv_1^2\). So it is Newton’s law, integrated along the path, with time removed.</p></div>
+<p>Move gravity and springs across to the energy side and you get the form L26 uses most:</p>
+<div class="eq key">\[ T_1 + V_1 + U'_{1-2} = T_2 + V_2 \qquad V_g = mgy\ (\text{from a datum you choose}) \qquad V_e = \tfrac12 kx^2 \]</div>
+<p>\(U'\) is the work of everything <em>except</em> gravity and springs (friction, applied forces, motors). If \(U' = 0\), energy is conserved: \(T_1 + V_1 = T_2 + V_2\).</p>
+<div class="callout slip"><span class="tag">Common slip</span><p>Counting gravity twice, once as \(U_g\) and again as \(V_g\). Choose one bookkeeping style per problem.</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 14.1: a collar dropping onto a spring</h4><span class="src">L25 Example 1</span></div>
+<p class="problem">A 6 kg collar is released from rest and falls onto a spring (\(k = 12\) kN/m). Find its speed when the spring is compressed 50 mm, given that the collar has then fallen 0.55 m in total.</p>
+<ol class="work">
+<li>States: 1 is the release (\(T_1 = 0\)), and 2 is at 50 mm compression.<span class="why-inline">Energy compares two positions, so name them first.</span></li>
+<li>Weight: \(U_g = -mg\Delta y = -6(9.81)(-0.55) = +32.37\) J (it fell, so gravity did positive work).</li>
+<li>Spring: \(U_s = \tfrac12(12\,000)(0^2 - 0.05^2) = -15.0\) J (the spring resists).</li>
+<li>\(0 + 32.37 - 15.0 = \tfrac12(6)v^2\).</li>
+</ol>
+<p class="answer">v = 2.41 m/s downwards</p></div>
+
+<h3 id="ch14-power">Power and efficiency (L27)</h3>
+<div class="eq">\[ P = \frac{dU}{dt} = \vec F\cdot\vec v = Fv\cos\theta \qquad\qquad \varepsilon = \frac{P_{\text{out}}}{P_{\text{in}}} &lt; 1 \]</div>
+<p>Power is how fast work is done, in watts (1 W = 1 J/s). Efficiency compares what you get out with what you put in. Friction inside the machine always takes a share, so \(\varepsilon\) is less than 1.</p>
+<div class="example"><div class="ex-head"><h4>Worked example 14.2: winching a log</h4><span class="src">L27 Example 1</span></div>
+<p class="problem">A winch pulls a 360 kg log up a 30° slope at a constant 1.2 m/s. \(\mu_k = 0.5\) and the winch efficiency is 0.80. Find the motor’s power input.</p>
+<ol class="work">
+<li>Constant speed, so \(a = 0\), and the forces balance (Chapter 12 with \(ma = 0\)).</li>
+<li>\(N = mg\cos30^\circ = 3058\) N, so friction is \(0.5N = 1529\) N.</li>
+<li>Along the slope: \(T = 1529 + mg\sin30^\circ = 3295\) N.</li>
+<li>\(P_{\text{out}} = Tv = 3295 \times 1.2 = 3.95\) kW, and \(P_{\text{in}} = P_{\text{out}}/0.8\).</li>
+</ol>
+<p class="answer">P<sub>in</sub> = 4.94 kW</p></div>
+<p>A quick one in the same style (L27 Example 2): an escalator lifts 30 people per minute (65 kg each) up 7 m. Useful power is \(\tfrac{30}{60}(65)(9.81)(7) = 2.23\) kW. With a 3 kW motor, \(\varepsilon = 0.744\).</p>
+<p>Note from Review lecture 2: questions on the energy of <em>rotating rigid bodies</em> (such as the flywheel bus) were not covered this year, so energy questions in your exam should involve particles.</p>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>Work = force × distance along it. Normal forces, fixed pins and rolling contacts do no work.</li>
+<li>\(T_1 + V_1 + U' = T_2 + V_2\), with \(V_g = mgy\) and \(V_e = \tfrac12kx^2\) (\(x\) from the unstretched length).</li>
+<li>Use it for speed versus position. It cannot find forces perpendicular to the path.</li>
+<li>\(P = Fv\), \(\varepsilon = P_{\text{out}}/P_{\text{in}}\).</li></ul></div>
+</section>
+
+<section class="chapter" id="ch15" data-num="15" data-short="Impulse and momentum">
+<header><span class="eyebrow">Chapter 15 · Lectures L28–L29</span><h2>Impulse and momentum: linear and angular</h2></header>
+<div class="inthis">In this chapter
+<ul><li>Linear impulse and momentum, drawn as a vector triangle</li><li>When momentum is conserved</li><li>The two-stage pattern: momentum for the collision, energy afterwards</li><li>Angular momentum about a fixed point</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>A force that acts for a while changes the momentum \(m\vec v\). The total change is the force multiplied by the time it acts, the <strong>impulse</strong>. Use this when the question is about time, or about a hit so short that you could never know the force at each instant, only its average.</p></div>
+
+<h3 id="ch15-linear">Linear impulse and momentum</h3>
+<div class="eq key">\[ m\vec v_1 + \sum\int_{t_1}^{t_2}\vec F\,dt = m\vec v_2 \]</div>
+<div class="callout why"><span class="tag">Where it comes from</span><p>\(\sum\vec F = m\,d\vec v/dt\). Multiply by \(dt\) and integrate over time. The left side becomes the impulse, the right side the change in momentum. It is Newton’s law integrated over time, just as work–energy was Newton’s law integrated along the path.</p></div>
+<ul>
+<li>It is a <strong>vector</strong> equation: write it in \(x\) and \(y\) separately, or draw it as a triangle.</li>
+<li>Impulse is the area under the force–time graph. A constant force gives \(\vec F\,\Delta t\).</li>
+<li>Units: N·s, which is the same as kg·m/s.</li>
+</ul>
+
+<div class="example"><div class="ex-head"><h4>Worked example 15.1: a tennis shot</h4><span class="src">L28 Example 1</span></div>
+<p class="problem">A 60 g ball arrives horizontally at 15 m/s and leaves at 21 m/s, 15° above the horizontal, the other way. Contact lasts 0.02 s. Find the average force from the racket.</p>
+<figure class="panel"><svg class="fig " viewBox="-210 -84 525 164" width="525" role="img" aria-label="Impulse-momentum triangle for the tennis ball"><circle class="dotk" cx="0.0" cy="-0.0" r="3.2"/><text class="lbl ink" x="0.0" y="16.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">o</tspan></text><g class="vec abs"><line x1="0.0" y1="-0.0" x2="-188.0" y2="-0.0"/><polygon points="-198.0,-0.0 -188.0,4.0 -188.0,-4.0"/></g><text class="lbl abs" x="-118.8" y="14.0" text-anchor="middle" dominant-baseline="central"><tspan>m</tspan><tspan> </tspan><tspan font-style="italic">v</tspan><tspan dy="4" font-size="0.74em">1</tspan><tspan dy="-4"> = 0.90 </tspan><tspan font-style="italic">N</tspan><tspan>·</tspan><tspan>s</tspan></text><g class="vec ans"><line x1="-198.0" y1="-0.0" x2="257.9" y2="-70.2"/><polygon points="267.8,-71.7 257.3,-74.2 258.5,-66.3"/></g><text class="lbl ans" x="-11.7" y="-42.7" text-anchor="middle" dominant-baseline="central"><tspan>∫</tspan><tspan font-style="italic">R</tspan><tspan> </tspan><tspan font-style="italic">dt</tspan><tspan> ≈ 2.14 </tspan><tspan font-style="italic">N</tspan><tspan>·</tspan><tspan>s</tspan></text><g class="vec abs"><line x1="0.0" y1="-0.0" x2="258.1" y2="-69.2"/><polygon points="267.8,-71.7 257.1,-73.0 259.1,-65.3"/></g><text class="lbl abs" x="193.2" y="-44.5" text-anchor="start" dominant-baseline="central"><tspan>m</tspan><tspan> </tspan><tspan font-style="italic">v</tspan><tspan dy="4" font-size="0.74em">2</tspan><tspan dy="-4"> = 1.26 </tspan><tspan font-style="italic">N</tspan><tspan>·</tspan><tspan>s</tspan></text><path class="arc muted" d="M40.0,-0.0 A40,40 0 0 0 38.6,-10.4"/><text class="lbl muted" x="55.5" y="-7.3" text-anchor="middle" dominant-baseline="central"><tspan>15°</tspan></text><g class="scalebar"><line x1="-198.0" y1="62.0" x2="-88.0" y2="62.0"/><line x1="-198.0" y1="58.0" x2="-198.0" y2="66.0"/><line x1="-88.0" y1="58.0" x2="-88.0" y2="66.0"/><text class="lbl muted" x="-80.0" y="62.0" dominant-baseline="central">0.5 N·s</text></g></svg><figcaption>Momentum before plus impulse equals momentum after. The impulse closes the triangle (the weight’s impulse, 0.012 N·s, is too small to see).</figcaption></figure>
+<ol class="work">
+<li>\(x\) (towards the leaving direction): \(-0.06(15) + R_x(0.02) = 0.06(21\cos15^\circ)\), so \(R_x = 105.9\) N.<span class="why-inline">The ball reverses, so its starting momentum is negative. Signs carry the directions.</span></li>
+<li>\(y\) (up): \(0 + R_y(0.02) - 0.06(9.81)(0.02) = 0.06(21\sin15^\circ)\), so \(R_y = 16.9\) N.</li>
+<li>\(R = \sqrt{105.9^2 + 16.9^2}\), at \(\tan^{-1}(16.9/105.9)\).</li>
+</ol>
+<p class="answer">R = 107 N at 9.07° above the horizontal</p></div>
+
+<h3 id="ch15-conservation">Conservation of momentum</h3>
+<p>For a <em>system</em> of bodies, the forces between them come in equal and opposite pairs (Newton’s third law), so their impulses cancel. If the outside impulses are zero, or tiny compared with the impact forces, the total momentum is the same before and after:</p>
+<div class="eq">\[ \sum m\vec v_1 = \sum m\vec v_2 \]</div>
+<p>Weights and gentle ground forces are “non-impulsive”: during a very short hit they hardly act at all, so you can ignore them.</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 15.2: couple, then compress a spring</h4><span class="src">L28 Example 2</span></div>
+<p class="problem">Block B (10 kg, 15 m/s) hits block A (15 kg, at rest) on a smooth surface. They lock together and run into a spring (\(k = 10\) kN/m). Find the maximum compression.</p>
+<ol class="work">
+<li><strong>Stage 1, the coupling</strong> (momentum): \(10(15) + 15(0) = 25v\), so \(v = 6\) m/s.<span class="why-inline">The coupling forces are internal and enormous, and energy is lost as noise and heat. Momentum is the only thing you can trust here.</span></li>
+<li><strong>Stage 2, the spring</strong> (energy, nothing lost now): \(\tfrac12(25)(6^2) = \tfrac12(10\,000)x^2\).<span class="why-inline">Once the blocks move together, only the spring acts, so energy is conserved.</span></li>
+</ol>
+<p class="answer">x = 0.300 m</p>
+<p>This two-stage pattern (momentum through the collision, energy before and after it) is one of the most common in the exams.</p></div>
+
+<h3 id="ch15-angular">Angular momentum</h3>
+<p>The angular momentum of a particle about a point O is the moment of its momentum:</p>
+<div class="eq key">\[ \vec H_O = \vec r\times m\vec v,\quad |H_O| = mvd \qquad\qquad \sum M_O = \dot H_O \qquad\qquad H_{O1} + \sum\int M_O\,dt = H_{O2} \]</div>
+<p>Here \(d\) is the perpendicular distance from O to the line of the velocity. If no external moment acts about O, \(H_O\) is conserved. That happens for a central force (always pointing at O), and for a body on a fixed pivot hit by something, because the pivot force passes through O.</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 15.3: spinning up with a growing moment</h4><span class="src">L29 Example 1</span></div>
+<p class="problem">Four 5 kg spheres sit 0.6 m from a shaft on a light frame. A moment \(M = 0.5t + 0.8\) N·m is applied from rest. Find their speed after 4 s.</p>
+<ol class="work">
+<li>Angular impulse: \(\int_0^4 (0.5t + 0.8)\,dt = 0.25(16) + 0.8(4) = 7.2\) N·m·s.</li>
+<li>Angular momentum after: \(4\times(0.6)(5)v = 12v\).</li>
+<li>\(0 + 7.2 = 12v\).</li>
+</ol>
+<p class="answer">v = 0.600 m/s</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 15.4: clay hits a pendulum</h4><span class="src">L29 Example 2</span></div>
+<p class="problem">A 12 g piece of clay at 2.5 m/s hits and sticks to a light bar 50 mm below the pivot. An 80 g mass sits at the end of the 100 mm bar. Find \(\omega\) just after impact.</p>
+<ol class="work">
+<li>About the pivot O: \(H_{O1} = m_1v_1(L/2) = 0.012(2.5)(0.05) = 0.0015\) N·m·s.<span class="why-inline">The pivot pushes hard during the impact, but that force has no moment about O. So angular momentum about O is conserved, while linear momentum is not.</span></li>
+<li>After, both masses turn together: \(H_{O2} = [m_1(L/2)^2 + m_2L^2]\,\omega = 0.00083\,\omega\).</li>
+</ol>
+<p class="answer">ω = 1.81 rad/s</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(m\vec v_1 + \int\vec F\,dt = m\vec v_2\), a vector equation (use components or a triangle).</li>
+<li>No outside impulse means momentum is conserved. Use it for collisions and couplings.</li>
+<li>Momentum through the impact, energy before and after it.</li>
+<li>\(H_O = mvd\). About a fixed pivot, the pivot force drops out.</li></ul></div>
+</section>
+
+<section class="chapter" id="ch16" data-num="16" data-short="Impact">
+<header><span class="eyebrow">Chapter 16 · Lecture L30</span><h2>Impact: collisions, bounces and the coefficient of restitution</h2></header>
+<div class="inthis">In this chapter
+<ul><li>Central impact: momentum plus \(e\)</li><li>Oblique impact: work along the line of impact and across it separately</li><li>Energy lost in an impact</li><li>A three-stage exam question: fall, impact, spring</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>A collision has two unknowns (the two speeds afterwards) but momentum conservation gives only one equation. The second equation comes from how “bouncy” the collision is, measured by the coefficient of restitution \(e\).</p></div>
+
+<h3 id="ch16-central">Central impact</h3>
+<p>The <strong>line of impact</strong> runs through the two mass centres at the moment of contact. In central impact both bodies move along it.</p>
+<div class="eq key">\[ m_A v_{A1} + m_B v_{B1} = m_A v_{A2} + m_B v_{B2} \qquad\qquad e = \frac{v_{B2} - v_{A2}}{v_{A1} - v_{B1}} = \frac{\text{speed of separation}}{\text{speed of approach}} \]</div>
+<ul>
+<li>\(e = 1\): perfectly elastic, no energy lost (an ideal that real collisions never quite reach).</li>
+<li>\(e = 0\): perfectly plastic. The bodies stick together and the most energy possible is lost.</li>
+<li>Typical values: steel 0.5–0.8, wood 0.4–0.6, glass about 0.94.</li>
+</ul>
+<div class="callout why"><span class="tag">Why e uses relative speeds</span><p>How hard two bodies squash together depends only on how fast they close on each other, not on how fast either one moves over the ground. So the fair measure of bounciness compares the closing speed before with the opening speed after. Keep one direction positive for <em>every</em> velocity, and the signs take care of themselves.</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 16.1: a quick central impact</h4><span class="src">L30 Think-Pair-Share 1</span></div>
+<p class="problem">Block B (1 kg, 10 m/s →) squarely hits block A (3 kg, at rest). Afterwards A moves at 4 m/s →. Find \(v_{B2}\) and \(e\).</p>
+<ol class="work">
+<li>Momentum (→ positive): \(1(10) + 0 = 1\,v_{B2} + 3(4)\), so \(v_{B2} = -2\) m/s.</li>
+<li>\(e = \dfrac{4 - (-2)}{10 - 0} = 0.6\).<span class="why-inline">B was behind, so the separation speed is A’s velocity minus B’s.</span></li>
+</ol>
+<p class="answer">v<sub>B2</sub> = 2 m/s ←, e = 0.6</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 16.2: a bouncing ball</h4><span class="src">L30 Example 1</span></div>
+<p class="problem">A ball thrown horizontally at 2.4 m/s from 0.9 m high bounces off hard ground with \(e = 0.8\). Find the rebound speed and the height it reaches.</p>
+<ol class="work">
+<li>Falling (Chapter 3 projectile): \(v_y^2 = 2(9.81)(0.9)\), so \(v_y = 4.20\) m/s down.</li>
+<li>Impact with the fixed ground: only the part along the line of impact (vertical) changes, \(v_{y}' = e\,v_y = 3.36\) m/s up. The horizontal 2.4 m/s is unchanged on a smooth surface.</li>
+<li>Rebound speed \(\sqrt{2.4^2 + 3.36^2}\), and height \(h = 3.36^2/(2\times9.81)\).</li>
+</ol>
+<p class="answer">v = 4.13 m/s, h = 0.576 m</p></div>
+
+<h3 id="ch16-oblique">Oblique impact</h3>
+<p>Now the velocities are at an angle to the line of impact. Set up an \(n\) axis along the line of impact and a \(t\) axis across it (the contact plane). Then:</p>
+<ul>
+<li><strong>Along \(n\):</strong> the momentum of the <em>system</em> is conserved, and \(e\) applies, exactly as in central impact.</li>
+<li><strong>Along \(t\):</strong> with smooth surfaces there is no force across the contact, so <em>each</em> body keeps its own \(t\)-velocity.</li>
+</ul>
+<p>That gives four equations for the four unknowns (two components for each body).</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 16.3: two hockey pucks</h4><span class="src">L30 Example 2</span></div>
+<p class="problem">Identical pucks: A moves at 6 m/s along the line of impact (\(x\)). B moves at 10 m/s, with \(-10\cos30^\circ\) along \(x\) and \(+5\) m/s across it. \(e = 0.75\).</p>
+<ol class="work">
+<li>\(x\)-momentum (equal masses): \(6 - 8.66 = v_{Ax2} + v_{Bx2}\).</li>
+<li>Restitution: \(v_{Bx2} - v_{Ax2} = 0.75(6 + 8.66) = 11.0\).</li>
+<li>Solve: \(v_{Ax2} = -6.83\) m/s and \(v_{Bx2} = 4.17\) m/s.</li>
+<li>\(y\): A keeps 0 and B keeps 5 m/s, so \(v_B = \sqrt{4.17^2 + 5^2}\) at \(\tan^{-1}(5/4.17)\).</li>
+</ol>
+<p class="answer">v<sub>A</sub> = 6.83 m/s ←, v<sub>B</sub> = 6.51 m/s at 50.2° to the x-axis</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 16.4: two spheres, from a supp exam</h4><span class="src">Supp exam Q7 (Review lecture 1)</span></div>
+<p class="problem">Sphere A (20 kg) moves → at 4 m/s. Sphere B (5 kg) moves ← at 15 m/s on a parallel path. \(e = 0.6\), and the line of impact is at 55.15° to the vertical. Find A’s velocity just after impact, relative to the line of impact.</p>
+<div class="figrow figrow-wrap"><figure class="panel"><svg class="fig " viewBox="-135 -166 527 364" width="527" role="img" aria-label="Oblique impact geometry: line of impact through the two centres"><circle class="body" cx="0.0" cy="-0.0" r="112.5"/><circle class="body" cx="129.3" cy="90.0" r="45.0"/><text class="lbl ink" x="0.0" y="0.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">A</tspan><tspan> (20 </tspan><tspan font-style="italic">kg</tspan><tspan>)</tspan></text><text class="lbl ink" x="129.3" y="90.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">B</tspan></text><line class="cons" x1="-123.1" y1="-85.7" x2="240.0" y2="167.1"/><text class="lbl muted" x="248.0" y="173.1" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">line</tspan><tspan> </tspan><tspan font-style="italic">of</tspan><tspan> </tspan><tspan font-style="italic">impact</tspan><tspan> (</tspan><tspan font-style="italic">n</tspan><tspan>)</tspan></text><line class="muted" x1="15.2" y1="175.1" x2="169.5" y2="-46.5" stroke-dasharray="2 3"/><text class="lbl muted" x="177.5" y="-46.5" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">contact</tspan><tspan> </tspan><tspan font-style="italic">plane</tspan><tspan> (</tspan><tspan font-style="italic">t</tspan><tspan>)</tspan></text><g class="vec abs"><line x1="-75.0" y1="-135.0" x2="65.0" y2="-135.0"/><polygon points="75.0,-135.0 65.0,-139.0 65.0,-131.0"/></g><text class="lbl abs" x="0.0" y="-145.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">v</tspan><tspan dy="4" font-size="0.74em">A</tspan><tspan dy="-4"> = 4 </tspan><tspan>m</tspan><tspan>/</tspan><tspan>s</tspan></text><g class="vec abs"><line x1="234.3" y1="165.0" x2="34.3" y2="165.0"/><polygon points="24.3,165.0 34.3,169.0 34.3,161.0"/></g><text class="lbl abs" x="129.3" y="177.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">v</tspan><tspan dy="4" font-size="0.74em">B</tspan><tspan dy="-4"> = 15 </tspan><tspan>m</tspan><tspan>/</tspan><tspan>s</tspan></text><line class="muted" x1="0.0" y1="-0.0" x2="0.0" y2="112.5" stroke-dasharray="3 3"/><path class="arc muted" d="M0.0,60.0 A60,60 0 0 0 49.2,34.3"/><text class="lbl muted" x="36.6" y="68.9" text-anchor="middle" dominant-baseline="central"><tspan>55.15°</tspan></text></svg></figure><figure class="panel"><svg class="fig " viewBox="-149 -31 516 127" width="516" role="img" aria-label="Splitting v_A into components along and across the line of impact"><circle class="dotk" cx="0.0" cy="-0.0" r="3.2"/><text class="lbl ink" x="-8.0" y="-8.0" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">o</tspan></text><g class="vec abs"><line x1="0.0" y1="-0.0" x2="170.0" y2="0.0"/><polygon points="180.0,0.0 170.0,-4.0 170.0,4.0"/></g><text class="lbl abs" x="90.0" y="-10.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">v</tspan><tspan dy="4" font-size="0.74em">A</tspan><tspan dy="-4"> = 4 </tspan><tspan>m</tspan><tspan>/</tspan><tspan>s</tspan></text><g class="vec n"><line x1="0.0" y1="-0.0" x2="113.0" y2="78.7"/><polygon points="121.2,84.4 115.3,75.4 110.7,82.0"/></g><text class="lbl n" x="67.0" y="56.4" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">along</tspan><tspan> </tspan><tspan font-style="italic">n</tspan><tspan>: 4 </tspan><tspan font-style="italic">sin</tspan><tspan> 55.15° = 3.28</tspan></text><g class="vec t"><line x1="121.2" y1="84.4" x2="174.3" y2="8.2"/><polygon points="180.0,0.0 171.0,5.9 177.6,10.5"/></g><text class="lbl t" x="158.6" y="42.2" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">across</tspan><tspan>: 4 </tspan><tspan font-style="italic">cos</tspan><tspan> 55.15° = 2.29</tspan></text><path class="ramark muted" d="M113.9,79.3 L119.0,71.9 L126.4,77.0"/></svg></figure></div>
+<p style="margin-top:-0.6rem"><span class="mono" style="font-size:0.85rem;color:var(--muted)">Left: geometry. Right: A’s velocity split along and across the line of impact.</span></p>
+<ol class="work">
+<li>Components along \(n\) (from A towards B): \(u_A = 4\sin55.15^\circ = 3.283\) and \(u_B = -15\sin55.15^\circ = -12.31\) m/s. Across \(n\): A has \(4\cos55.15^\circ = 2.286\) m/s, and keeps it.</li>
+<li>Momentum along \(n\): \(20(3.283) + 5(-12.31) = 20v_{A\parallel} + 5v_{B\parallel}\).</li>
+<li>Restitution: \(v_{B\parallel} - v_{A\parallel} = 0.6(3.283 + 12.31) = 9.355\).</li>
+<li>Solve: \(v_{A\parallel} = -1.707\) m/s (A bounces back along the line). Then \(v_A = \sqrt{1.707^2 + 2.286^2}\), at \(\tan^{-1}(2.286/1.707)\) to the line of impact.</li>
+</ol>
+<p class="answer">v<sub>A</sub> = 2.85 m/s at 53.3° to the line of impact</p>
+<div class="callout slip"><span class="tag">Check this one with your lecturer</span><p>The review-slide memo uses exactly these equations but reports \((v_{A2})_\parallel = -1.855\) m/s, giving 2.94 m/s at 50.9°. Putting −1.855 back into its own restitution equation gives \(e = 0.65\), not 0.6. The value −1.707 satisfies both momentum and \(e = 0.6\). The method is what earns most of the marks, and it is identical either way.</p></div></div>
+
+<h3 id="ch16-energy">Energy lost in an impact</h3>
+<p>Momentum survives a collision. Kinetic energy usually does not: \(\text{loss} = \sum T_1 - \sum T_2\), and it goes into heat, sound and permanent dents. So never use energy conservation <em>across</em> an impact unless you are told it is perfectly elastic.</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 16.5: putty, block and springs</h4><span class="src">Supp exam 2025, Q5 (Review lecture 2)</span></div>
+<p class="problem">2 kg of putty is dropped 2 m onto an 18 kg block resting on two springs (\(k = 1.2\) kN/m each). It sticks. Find the maximum <em>additional</em> deflection \(\delta\).</p>
+<ol class="work">
+<li><strong>Stage 1, the fall</strong> (energy): \(v_P = \sqrt{2(9.81)(2)} = 6.264\) m/s.</li>
+<li><strong>Stage 2, the impact</strong> (momentum, plastic): \(2(6.264) = 20v_3\), so \(v_3 = 0.6264\) m/s.<span class="why-inline">This is the lossy step: 39.2 J arrives, and only 3.9 J survives as kinetic energy.</span></li>
+<li><strong>Before impact the springs are already compressed</strong> by the block: \(2kx_0 = 18g\), so \(x_0 = 0.0736\) m.<span class="why-inline">The springs’ starting energy is not zero. Missing this is the most common way to lose marks on this question.</span></li>
+<li><strong>Stage 3, the compression</strong> (energy, datum at the lowest point): \(T_3 + V_{g3} + V_{e3} = V_{e4}\), which is \(3.924 + 196.2\,\delta + 6.496 = 1200(\delta + 0.0736)^2\).</li>
+<li>Solve the quadratic and keep the positive root.</li>
+</ol>
+<figure class="panel"><svg class="fig " viewBox="-40 -199 472 238" width="472" role="img" aria-label="Energy bookkeeping for the putty and block"><rect class="bar abs" x="0.0" y="-27.4" width="70" height="27.4"/><text class="lbl abs" x="80.0" y="-13.7" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">T</tspan><tspan> = 3.92 </tspan><tspan font-style="italic">J</tspan></text><rect class="bar n" x="0.0" y="-118.0" width="70" height="90.6"/><text class="lbl n" x="80.0" y="-72.7" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">V</tspan><tspan dy="4" font-size="0.74em">g</tspan><tspan dy="-4"> = 12.94 </tspan><tspan font-style="italic">J</tspan></text><rect class="bar t" x="0.0" y="-163.5" width="70" height="45.5"/><text class="lbl t" x="80.0" y="-140.8" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">V</tspan><tspan dy="4" font-size="0.74em">e</tspan><tspan dy="-4"> = 6.50 </tspan><tspan font-style="italic">J</tspan></text><text class="lbl muted" x="35.0" y="18.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">Just</tspan><tspan> </tspan><tspan font-style="italic">after</tspan><tspan> </tspan><tspan font-style="italic">impact</tspan></text><text class="lbl ink" x="35.0" y="-177.5" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">total</tspan><tspan> 23.4 </tspan><tspan font-style="italic">J</tspan></text><rect class="bar t" x="220.0" y="-163.5" width="70" height="163.5"/><text class="lbl t" x="300.0" y="-81.8" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">V</tspan><tspan dy="4" font-size="0.74em">e</tspan><tspan dy="-4"> = 23.36 </tspan><tspan font-style="italic">J</tspan></text><text class="lbl muted" x="255.0" y="18.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">Maximum</tspan><tspan> </tspan><tspan font-style="italic">compression</tspan></text><text class="lbl ink" x="255.0" y="-177.5" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">total</tspan><tspan> 23.4 </tspan><tspan font-style="italic">J</tspan></text><line class="axis" x1="-10.0" y1="0.0" x2="420.0" y2="0.0"/></svg><figcaption>Energy bookkeeping for stage 3. The total stays at 23.4 J. Kinetic and gravitational energy are both handed to the springs.</figcaption></figure>
+<p class="answer">δ = 65.9 mm (memo: 65.9 mm)</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>Along the line of impact: system momentum plus \(e = \) separation ÷ approach.</li>
+<li>Across it (smooth): each body keeps its own velocity component.</li>
+<li>Energy is lost in impacts (\(e &lt; 1\)), so switch to momentum for the impact and back to energy afterwards.</li></ul></div>
+</section>
+
+<section class="chapter" id="ch17" data-num="17" data-short="Mass moment of inertia">
+<header><span class="eyebrow">Chapter 17 · Lecture L32 (MoI)</span><h2>Mass moment of inertia: rotational mass</h2></header>
+<div class="inthis">In this chapter
+<ul><li>What \(I\) measures, and why distance is squared</li><li>The standard shapes you need</li><li>Radius of gyration</li><li>The parallel-axis theorem and composite bodies</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>Mass resists being <em>pushed</em>: \(F = ma\). The moment of inertia resists being <em>spun</em>: \(M = I\alpha\). It depends not just on how much mass there is, but on how far it sits from the axis. Mass far from the axis counts for a lot more.</p></div>
+<div class="eq">\[ I = \int r^2\,dm \qquad \text{units: kg·m}^2 \]</div>
+<div class="callout why"><span class="tag">Why r is squared</span><p>A bit of mass at radius \(r\) has to move at \(r\omega\), so it takes more effort to speed up. Its tangential acceleration \(r\alpha\) also gives it more leverage against the turning, because the moment arm is another \(r\). One \(r\) from each effect gives \(r^2\). That is why a figure skater spins faster when pulling the arms in (Chapter 15: angular momentum \(I\omega\) stays constant while \(I\) drops).</p></div>
+<p>L32 says plainly that integrating to find \(I\) will <strong>no longer</strong> come up in tests or exams. You will use the table (M&amp;K Table D/4), the parallel-axis theorem, and addition.</p>
+
+<h3 id="ch17-table">The shapes you need</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Body (mass \(m\))</th><th>Axis</th><th>\(I\)</th></tr></thead>
+<tbody>
+<tr><td>Slender rod, length \(L\)</td><td>Through the centre, ⟂ rod</td><td>\(\tfrac1{12}mL^2\)</td></tr>
+<tr><td>Slender rod, length \(L\)</td><td>Through one end, ⟂ rod</td><td>\(\tfrac13mL^2\)</td></tr>
+<tr><td>Thin ring or hoop, radius \(r\)</td><td>Through the centre, ⟂ plane</td><td>\(mr^2\)</td></tr>
+<tr><td>Solid disc or cylinder, radius \(r\)</td><td>Its own axis</td><td>\(\tfrac12mr^2\)</td></tr>
+<tr><td>Thin disc, radius \(r\)</td><td>A diameter</td><td>\(\tfrac14mr^2\)</td></tr>
+<tr><td>Solid sphere, radius \(r\)</td><td>A diameter</td><td>\(\tfrac25mr^2\)</td></tr>
+<tr><td>Thin rectangular plate \(a\times b\)</td><td>Through the centre, ⟂ plate</td><td>\(\tfrac1{12}m(a^2+b^2)\)</td></tr>
+</tbody></table></div>
+<p>Sanity check: the hoop (\(mr^2\)) beats the disc (\(\tfrac12mr^2\)) because all of the hoop’s mass is at the rim.</p>
+
+<h3 id="ch17-k">Radius of gyration</h3>
+<p>\(I = mk^2\), so \(k = \sqrt{I/m}\). It is the radius at which you could squash all the mass into a thin ring without changing \(I\). Questions often give \(k\) instead of \(I\) (the I-beam in Chapter 19 has \(k_O = 2.32\) m).</p>
+
+<h3 id="ch17-parallel">The parallel-axis theorem</h3>
+<figure class="panel"><svg class="fig " viewBox="-176 -102 308 204" width="308" role="img" aria-label="Parallel-axis theorem: I about O equals I_G plus m d squared"><path class="body" d="M-108.0,36.0 -48.0,90.0 60.0,72.0 120.0,-0.0 72.0,-84.0 -36.0,-90.0 -120.0,-42.0 Z"/><circle class="dotk" cx="0.0" cy="-0.0" r="4.5"/><text class="lbl ink" x="10.0" y="-10.0" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">G</tspan><tspan> (</tspan><tspan font-style="italic">mass</tspan><tspan> </tspan><tspan font-style="italic">centre</tspan><tspan>)</tspan></text><circle class="dotans" cx="-66.0" cy="30.0" r="4.5"/><text class="lbl ans" x="-76.0" y="44.0" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">O</tspan><tspan> (</tspan><tspan font-style="italic">new</tspan><tspan> </tspan><tspan font-style="italic">axis</tspan><tspan>)</tspan></text><line class="ink" x1="-66.0" y1="30.0" x2="0.0" y2="-0.0"/><text class="lbl ink" x="-37.0" y="3.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">d</tspan></text></svg><figcaption>Moving the axis a distance \(d\) away from the mass centre always increases \(I\), by \(md^2\).</figcaption></figure>
+<div class="eq key">\[ I_O = I_G + m d^2 \]</div>
+<div class="callout slip"><span class="tag">Common slip</span><p>One end of the move must be the mass centre G. To go from axis O to axis P, go O → G (subtract \(md_{OG}^2\)), then G → P (add \(md_{GP}^2\)).</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 17.1: a rod about a quarter point</h4><span class="src">L32 Think-Pair-Share 3</span></div>
+<p class="problem">Find \(I\) for a slender rod (mass \(M\), length \(L\)) about an axis through the point \(L/4\) from one end.</p>
+<ol class="work"><li>The axis is \(d = L/4\) from the centre, so \(I = \tfrac1{12}ML^2 + M(L/4)^2 = ML^2\left(\tfrac{4}{48} + \tfrac{3}{48}\right)\).</li></ol>
+<p class="answer">I = 7ML²/48</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 17.2: a composite pendulum</h4><span class="src">In the style of L32 Example 1</span></div>
+<p class="problem">A pendulum is a 3 kg slender rod (0.8 m), pivoted at its top end O, with a 5 kg solid disc (radius 0.1 m) centred on its bottom end. Find \(I_O\), the position of G, and \(I_G\).</p>
+<ol class="work">
+<li>Rod about O (its end): \(\tfrac13(3)(0.8)^2 = 0.640\).</li>
+<li>Disc about O: its own \(\tfrac12(5)(0.1)^2 = 0.025\), plus \(5(0.8)^2 = 3.200\) from the parallel-axis theorem.<span class="why-inline">The disc’s own spin barely matters. Almost all of its \(I\) comes from being far from O.</span></li>
+<li>\(I_O = 0.640 + 0.025 + 3.200 = 3.865\) kg·m².</li>
+<li>Mass centre: \(\bar y = \dfrac{3(0.4) + 5(0.8)}{8} = 0.650\) m below O. Then \(I_G = I_O - 8(0.65)^2\).</li>
+</ol>
+<p class="answer">I<sub>O</sub> = 3.87 kg·m², G is 0.650 m below O, I<sub>G</sub> = 0.485 kg·m²</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(I\) is rotational mass, and distance from the axis counts squared.</li>
+<li>Know the table, and \(I = mk^2\).</li>
+<li>\(I_O = I_G + md^2\), always to or from G.</li>
+<li>Composites: add each part about the same axis.</li></ul></div>
+</section>
+
+<section class="chapter" id="ch18" data-num="18" data-short="Rigid bodies: translation">
+<header><span class="eyebrow">Chapter 18 · Lectures L33–L34 (rectilinear translation)</span><h2>Rigid bodies that slide without turning</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The three equations of planar rigid-body motion</li><li>Why a translating body still needs a moment equation</li><li>Taking moments about a smart point, \(\sum M_P = m a_G d\)</li><li>The boom on the bakkie (review lecture)</li></ul></div>
+
+<p>A rigid body can rotate as well as move, so it needs one more equation than a particle. For planar motion there are three:</p>
+<div class="eq key">\[ \sum F_x = m(a_G)_x \qquad \sum F_y = m(a_G)_y \qquad \sum M_G = I_G\,\alpha \]</div>
+<p>The force equations use the acceleration of the <strong>mass centre G</strong>. The moment equation is taken <strong>about G</strong>, with \(I\) meaning \(I_G\) (L33 marks this “NB!”).</p>
+<p>There is also a very useful alternative. Take moments about <em>any</em> point P, and include the moment of the kinetic diagram on the right-hand side:</p>
+<div class="eq key">\[ \sum M_P = I_G\,\alpha + m a_G\,d \]</div>
+<p>Here \(d\) is the perpendicular distance from P to the line of \(m\vec a_G\).</p>
+<div class="callout why"><span class="tag">Why the extra term</span><p>The forces on the FBD and the \(m\vec a_G\) (plus \(I_G\alpha\)) on the kinetic diagram are equivalent, so they must have the same moment about every point, not just about G. About G, \(m\vec a_G\) has no moment, which leaves \(I_G\alpha\). About any other point it does, \(m a_G d\). Pick P where two unknown forces meet, and both drop out of the equation at once.</p></div>
+
+<h3 id="ch18-translation">Translation: no rotation, but moments still matter</h3>
+<p>In translation, \(\omega = \alpha = 0\), so \(\sum M_G = 0\). That does <em>not</em> make the moment equation useless. It is what decides how the load is shared between wheels, pins and cables. About any other point P, \(\sum M_P = m a_G d\).</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 18.1: a wheelie</h4><span class="src">L33 Think-Pair-Share 1</span></div>
+<p class="problem">A motorbike and rider (295 kg) hold a wheelie while accelerating at 5 m/s². Find the friction force on the back wheel.</p>
+<ol class="work"><li>The front wheel is off the ground, so the back wheel’s friction is the only horizontal force: \(F = ma = 295 \times 5\).<span class="why-inline">The moment equation about G is what holds the wheelie at a steady angle. The horizontal force equation alone answers this question.</span></li></ol>
+<p class="answer">F = 1475 N</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 18.2: the boom on the bakkie</h4><span class="src">Review lecture 1, Example 2</span></div>
+<p class="problem">A uniform 4 m, 60 kg boom is pinned at A to the back of a bakkie, at 60° to the horizontal, and held by a cable from its top B to C, 2 m in front of A. The bakkie accelerates forwards at 5 m/s². Find the cable tension and the total pin force at A.</p>
+<div class="panel"><div class="eqrow"><svg class="fig " viewBox="-170 -269 339 358" width="339" role="img" aria-label="Boom pivoted at A on an accelerating bakkie: free-body diagram"><line class="link" x1="0.0" y1="-0.0" x2="-140.0" y2="-242.5" stroke-width="9"/><circle class="pin" cx="0.0" cy="-0.0" r="4.2"/><circle class="dotk" cx="-70.0" cy="-121.2" r="3.2"/><text class="lbl ink" x="-60.0" y="-127.2" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">G</tspan></text><text class="lbl ink" x="12.0" y="12.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">A</tspan></text><text class="lbl ink" x="-152.0" y="-248.5" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">B</tspan></text><line class="muted" x1="-140.0" y1="-242.5" x2="140.0" y2="-0.0" stroke-dasharray="3 4"/><circle class="dotk" cx="140.0" cy="-0.0" r="3.2"/><text class="lbl ink" x="148.0" y="10.0" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">C</tspan></text><g class="vec ans"><line x1="-140.0" y1="-242.5" x2="-78.8" y2="-189.5"/><polygon points="-71.2,-182.9 -76.2,-192.5 -81.4,-186.4"/></g><text class="lbl ans" x="-86.1" y="-206.5" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">T</tspan></text><g class="vec abs"><line x1="-70.0" y1="-121.2" x2="-70.0" y2="-40.2"/><polygon points="-70.0,-30.2 -66.0,-40.2 -74.0,-40.2"/></g><text class="lbl abs" x="-78.0" y="-48.4" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">W</tspan><tspan> = 589 </tspan><tspan font-style="italic">N</tspan></text><g class="vec ans"><line x1="84.0" y1="-0.0" x2="10.0" y2="-0.0"/><polygon points="0.0,-0.0 10.0,4.0 10.0,-4.0"/></g><text class="lbl ans" x="50.4" y="12.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">A</tspan><tspan dy="4" font-size="0.74em">x</tspan></text><g class="vec ans"><line x1="0.0" y1="77.0" x2="0.0" y2="10.0"/><polygon points="0.0,-0.0 -4.0,10.0 4.0,10.0"/></g><text class="lbl ans" x="8.0" y="46.2" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">A</tspan><tspan dy="4" font-size="0.74em">y</tspan></text><path class="arc muted" d="M-15.0,-26.0 A30,30 0 0 0 -30.0,-0.0"/><text class="lbl muted" x="-38.1" y="-22.0" text-anchor="middle" dominant-baseline="central"><tspan>60°</tspan></text><line class="muted" x1="0.0" y1="-0.0" x2="-70.0" y2="-0.0" stroke-dasharray="3 3"/></svg><span class="eqsign">=</span><svg class="fig " viewBox="-170 -269 268 302" width="268" role="img" aria-label="Boom pivoted at A on an accelerating bakkie: kinetic diagram"><line class="link" x1="0.0" y1="-0.0" x2="-140.0" y2="-242.5" stroke-width="9"/><circle class="pin" cx="0.0" cy="-0.0" r="4.2"/><circle class="dotk" cx="-70.0" cy="-121.2" r="3.2"/><text class="lbl ink" x="-60.0" y="-127.2" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">G</tspan></text><text class="lbl ink" x="12.0" y="12.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">A</tspan></text><text class="lbl ink" x="-152.0" y="-248.5" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">B</tspan></text><g class="vec n"><line x1="-70.0" y1="-121.2" x2="18.0" y2="-121.2"/><polygon points="28.0,-121.2 18.0,-125.2 18.0,-117.2"/></g><text class="lbl n" x="-11.2" y="-131.2" text-anchor="middle" dominant-baseline="central"><tspan>m</tspan><tspan> </tspan><tspan font-style="italic">a</tspan><tspan> = 300 </tspan><tspan font-style="italic">N</tspan></text><text class="lbl muted" x="-60.0" y="-79.2" text-anchor="start" dominant-baseline="central"><tspan>(</tspan><tspan font-style="italic">no</tspan><tspan> </tspan><tspan font-style="italic">rotation</tspan><tspan>: </tspan><tspan font-style="italic">no</tspan><tspan> </tspan><tspan font-style="italic">Iα</tspan><tspan>)</tspan></text></svg></div><figcaption>The boom moves with the bakkie without turning, so the kinetic diagram is just \(m\vec a\) at G.</figcaption></div>
+<ol class="work">
+<li>Geometry: B is at \((-2, 3.464)\) m from A. The cable angle at C is \(\theta = \tan^{-1}\dfrac{4\sin60^\circ}{4\cos60^\circ + 2} = 40.9^\circ\). G is 1.0 m behind and 1.732 m above A.</li>
+<li>Moments about A, clockwise positive. This removes \(A_x\) and \(A_y\) in one go:<div class="eq">\[ T\,(2\sin40.9^\circ) - 589(1.0) = \underbrace{300 \times 1.732}_{m a_G d} \]</div>so \(T = 846\) N.<span class="why-inline">The cable’s moment arm about A is the perpendicular distance from A to the line BC, which is \(AC\sin\theta\). The kinetic diagram’s moment is \(ma\) times the height of G above A.</span></li>
+<li>Horizontal: \(T\cos40.9^\circ - A_x = 300\), so \(A_x = 340\) N (acting backwards on the boom).</li>
+<li>Vertical (no vertical acceleration): \(A_y - 589 - T\sin40.9^\circ = 0\), so \(A_y = 1143\) N.</li>
+</ol>
+<p class="answer">T = 846 N, A = √(340² + 1143²) = 1192 N (memo: 846 N and 1192 N)</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(\sum F = m a_G\) and \(\sum M_G = I_G\alpha\), or \(\sum M_P = I_G\alpha + m a_G d\) about any P.</li>
+<li>Translation: \(\alpha = 0\), but moments still decide the reactions.</li>
+<li>Take moments where the unknowns meet.</li>
+<li>Practice: M&amp;K 6/10 in L33 (T = 24.5 N, F<sub>A</sub> = 32.9 N).</li></ul></div>
+</section>
+
+<section class="chapter" id="ch19" data-num="19" data-short="Rigid bodies: fixed-axis rotation">
+<header><span class="eyebrow">Chapter 19 · Lecture L32 (rigid-body rotation I–II)</span><h2>Rigid bodies spinning about a fixed pivot</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The equations in n–t form, using Chapter 6’s kinematics</li><li>Why \(\sum M_O = I_O\alpha\) works about the pivot</li><li>“An instant after release”: what that phrase gives you</li><li>Two worked examples, including the I-beam from L32</li></ul></div>
+
+<p>Every point of the body moves on a circle around the fixed axis O, including the mass centre G at radius \(\bar r\). So G’s acceleration has the two parts from Chapter 6, and the force equations are best written in n–t components:</p>
+<div class="eq key">\[ \sum F_n = m\bar r\omega^2 \ (\text{towards }O) \qquad \sum F_t = m\bar r\alpha \qquad \sum M_O = I_O\,\alpha \]</div>
+<div class="callout why"><span class="tag">Why moments about the pivot use I_O</span><p>Take moments about O with the Chapter 18 rule: \(\sum M_O = I_G\alpha + m a_t \bar r\). The tangential part \(m\bar r\alpha\) has moment arm \(\bar r\), and the normal part points straight at O, so it has no moment. That gives \(\sum M_O = (I_G + m\bar r^2)\alpha = I_O\alpha\), by the parallel-axis theorem (Chapter 17). The moment equation about the pivot is the most useful one, because the unknown pin forces at O drop out.</p></div>
+
+<h3 id="ch19-procedure">Procedure (L32)</h3>
+<ol class="work">
+<li>Use n–t axes centred on O.</li>
+<li>Draw the FBD: weight, applied loads and the two pin components \(O_n\), \(O_t\).</li>
+<li>Draw the kinetic diagram: \(m\bar r\omega^2\) towards O, \(m\bar r\alpha\) ⟂ OG, and \(I_G\alpha\).</li>
+<li>Find \(\alpha\) from \(\sum M_O = I_O\alpha\) first, then the pin forces from the two force equations.</li>
+</ol>
+<div class="callout big"><span class="tag">“An instant after release from rest”</span><p>This phrase means \(\omega = 0\), so every \(\omega^2\) term is zero. But \(\alpha\) is <em>not</em> zero: the body has just started to speed up. Every exam uses this phrase. It makes the normal equation trivial and leaves you with \(\alpha\) and the tangential force.</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 19.1: a rod released from horizontal</h4><span class="src">The classic case</span></div>
+<p class="problem">A uniform 4 kg rod, 1.2 m long, is pinned at one end and released from rest in the horizontal position. Find its initial angular acceleration and the pin force.</p>
+<div class="panel"><div class="eqrow"><svg class="fig " viewBox="-82 -35 345 137" width="345" role="img" aria-label="Slender rod pinned at O, released from rest: free-body diagram"><line class="link" x1="0.0" y1="-0.0" x2="240.0" y2="-0.0" stroke-width="11"/><circle class="pin" cx="0.0" cy="-0.0" r="4.2"/><circle class="dotk" cx="120.0" cy="-0.0" r="3.2"/><text class="lbl ink" x="120.0" y="-14.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">G</tspan></text><text class="lbl ink" x="-6.0" y="-14.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">O</tspan></text><g class="vec abs"><line x1="120.0" y1="-0.0" x2="120.0" y2="80.0"/><polygon points="120.0,90.0 124.0,80.0 116.0,80.0"/></g><text class="lbl abs" x="128.0" y="72.0" text-anchor="start" dominant-baseline="central"><tspan font-style="italic">W</tspan><tspan> = </tspan><tspan font-style="italic">mg</tspan></text><g class="vec ans"><line x1="0.0" y1="80.0" x2="0.0" y2="10.0"/><polygon points="0.0,-0.0 -4.0,10.0 4.0,10.0"/></g><text class="lbl ans" x="-8.0" y="48.0" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">O</tspan><tspan dy="4" font-size="0.74em">t</tspan></text><g class="vec ans"><line x1="-70.0" y1="-0.0" x2="-10.0" y2="-0.0"/><polygon points="0.0,-0.0 -10.0,-4.0 -10.0,4.0"/></g><text class="lbl ans" x="-42.0" y="12.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">O</tspan><tspan dy="4" font-size="0.74em">n</tspan></text><g class="dim"><line x1="0.0" y1="4.0" x2="0.0" y2="74.0"/><line x1="240.0" y1="4.0" x2="240.0" y2="74.0"/><line x1="0.0" y1="70.0" x2="240.0" y2="70.0"/><polygon points="0.0,70.0 7.0,72.6 7.0,67.4"/><polygon points="240.0,70.0 233.0,72.6 233.0,67.4"/></g><text class="lbl dimt" x="120.0" y="80.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">L</tspan><tspan> = 1.2 </tspan><tspan>m</tspan></text></svg><span class="eqsign">=</span><svg class="fig " viewBox="-24 -57 295 159" width="295" role="img" aria-label="Slender rod pinned at O, released from rest: kinetic diagram"><line class="link" x1="0.0" y1="-0.0" x2="240.0" y2="-0.0" stroke-width="11"/><circle class="pin" cx="0.0" cy="-0.0" r="4.2"/><circle class="dotk" cx="120.0" cy="-0.0" r="3.2"/><text class="lbl ink" x="120.0" y="-14.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">G</tspan></text><text class="lbl ink" x="-6.0" y="-14.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">O</tspan></text><g class="vec n"><line x1="120.0" y1="-0.0" x2="120.0" y2="80.0"/><polygon points="120.0,90.0 124.0,80.0 116.0,80.0"/></g><text class="lbl n" x="128.0" y="72.0" text-anchor="start" dominant-baseline="central"><tspan>m</tspan><tspan>(</tspan><tspan font-style="italic">a</tspan><tspan dy="4" font-size="0.74em">G</tspan><tspan dy="-4">)</tspan><tspan dy="4" font-size="0.74em">t</tspan><tspan dy="-4"> = </tspan><tspan>m</tspan><tspan> </tspan><tspan font-style="italic">α</tspan><tspan> (</tspan><tspan font-style="italic">L</tspan><tspan>/2)</tspan></text><text class="lbl muted" x="56.0" y="22.0" text-anchor="middle" dominant-baseline="central"><tspan>m</tspan><tspan>(</tspan><tspan font-style="italic">a</tspan><tspan dy="4" font-size="0.74em">G</tspan><tspan dy="-4">)</tspan><tspan dy="4" font-size="0.74em">n</tspan><tspan dy="-4"> = 0</tspan></text><path class="arc t" d="M100.9,11.0 A22,22 0 1 1 139.1,11.0"/><polygon class="archead t" points="139.1,11.0 146.0,5.8 140.1,2.4"/><text class="lbl t" x="120.0" y="-36.0" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">I</tspan><tspan dy="4" font-size="0.74em">G</tspan><tspan font-style="italic" dy="-4">α</tspan></text></svg></div><figcaption>At release \(\omega = 0\), so the kinetic diagram has only the tangential term and \(I_G\alpha\).</figcaption></div>
+<ol class="work">
+<li>\(I_O = \tfrac13mL^2 = 1.92\) kg·m².</li>
+<li>\(\sum M_O = I_O\alpha\): \(mg(L/2) = 1.92\,\alpha\), so \(\alpha = \dfrac{3g}{2L} = 12.3\) rad/s² clockwise.</li>
+<li>Normal: \(O_n = m\bar r\omega^2 = 0\).</li>
+<li>Tangential (down positive): \(mg - O_t = m\bar r\alpha = 4(0.6)(12.26)\), so \(O_t = 39.24 - 29.43\).<span class="why-inline">G drops at \(\tfrac34 g\), so the pin only needs to hold a quarter of the weight. The pin force suddenly falls from \(mg\) to \(mg/4\) at the moment of release.</span></li>
+</ol>
+<p class="answer">α = 12.3 rad/s² CW, pin force = 9.81 N (= mg/4) upwards</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 19.2: the I-beam on a bracket</h4><span class="src">L32 Rotation II, Example 2</span></div>
+<p class="problem">A 300 kg beam with \(k_O = 2.32\) m is pinned at O on a small bracket. G is 1.8 m along and 0.9 m across from O. The support at B is removed. Find the pin force at O at that instant.</p>
+<ol class="work">
+<li>\(I_O = mk_O^2 = 300(2.32)^2 = 1615\) kg·m².</li>
+<li>\(\sum M_O = I_O\alpha\): the weight’s moment arm is the horizontal distance 1.8 m, so \(300(9.81)(1.8) = 1615\,\alpha\) and \(\alpha = 3.28\) rad/s² CW.</li>
+<li>Geometry of OG: \(\bar r = \sqrt{1.8^2 + 0.9^2} = 2.012\) m, at \(\beta = \tan^{-1}(0.9/1.8) = 26.6^\circ\).</li>
+<li>Tangential (⟂ OG): \(mg\cos\beta - F_{O,t} = m\bar r\alpha\), so \(F_{O,t} = 2632 - 1981 = 651\) N.</li>
+<li>Normal (along OG, \(\omega = 0\)): \(F_{O,n} - mg\sin\beta = 0\), so \(F_{O,n} = 1316\) N.<span class="why-inline">Resolve the weight into the n and t directions, because those are the directions of G’s acceleration.</span></li>
+</ol>
+<p class="answer">F<sub>O</sub> = √(651² + 1316²) = 1469 N (memo: 1469 N)</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>G moves on a circle: \(\sum F_n = m\bar r\omega^2\), \(\sum F_t = m\bar r\alpha\).</li>
+<li>\(\sum M_O = I_O\alpha\), with \(I_O = I_G + m\bar r^2\). Use it first, because the pin forces drop out.</li>
+<li>“Instant after release”: \(\omega = 0\), \(\alpha \neq 0\).</li>
+<li>Practice: L32 homework (M&amp;K 6/65, 6/36).</li></ul></div>
+</section>
+
+<section class="chapter" id="ch20" data-num="20" data-short="Rigid bodies: general plane motion">
+<header><span class="eyebrow">Chapter 20 · Lectures L33–L35 (plane motion I–III)</span><h2>Rigid bodies that move and turn at once</h2></header>
+<div class="inthis">In this chapter
+<ul><li>Where Part I and Part II meet: linking \(a_G\) and \(\alpha\)</li><li>Rolling: assume no slip, then check</li><li>Slipping: friction becomes \(\mu_k N\)</li><li>Three worked examples, including the rod-and-hoop review question</li></ul></div>
+
+<p>Same three equations as Chapter 18, now with \(\alpha\neq0\):</p>
+<div class="eq key">\[ \sum\vec F = m\vec a_G \qquad \sum M_G = I_G\alpha \qquad \sum M_P = I_G\alpha + m a_G d \]</div>
+<div class="callout big"><span class="tag">The big idea</span><p>Three equations, but often four unknowns: two force components, \(a_G\) and \(\alpha\). The fourth equation is <strong>kinematics</strong>, which links \(\vec a_G\) to \(\alpha\). For rolling without slip it is \(a_G = \alpha r\). For a pinned or sliding end it is the relative acceleration equation from Chapter 10, \(\vec a_G = \vec a_A + (\vec a_{G/A})_n + (\vec a_{G/A})_t\). This is why Part I matters so much for Part II.</p></div>
+
+<h3 id="ch20-rolling">Rolling bodies (L33): assume, solve, check</h3>
+<ol class="work">
+<li>Draw the FBD (weight, normal force, friction) and the kinetic diagram (\(m\vec a_G\), \(I_G\alpha\)).</li>
+<li><strong>Assume pure rolling</strong>: \(a_G = \alpha r\). Friction is unknown, anything up to \(\mu_sN\).<span class="why-inline">Static friction adjusts itself, so you cannot write \(F = \mu_s N\). Treat it as an unknown.</span></li>
+<li>Solve. Moments about the contact point are fastest, because \(F\) and \(N\) both pass through it.</li>
+<li><strong>Check</strong>: is the friction needed \(\le \mu_s N\)? If yes, the body rolls and you are done.</li>
+<li>If not, it <strong>slips</strong>: now \(F = \mu_k N\) (opposing the slip), and \(a_G \neq \alpha r\). Solve the force and moment equations separately.</li>
+</ol>
+
+<div class="example"><div class="ex-head"><h4>Worked example 20.1: a cylinder rolling down a ramp</h4><span class="src">L33 Example 2</span></div>
+<p class="problem">A solid cylinder is released from rest on a 30° ramp with \(\mu_s = 0.30\), \(\mu_k = 0.20\). Find \(a_G\) and the friction force, and check that it rolls.</p>
+<div class="panel"><div class="eqrow"><svg class="fig " viewBox="-126 -135 253 223" width="253" role="img" aria-label="Cylinder rolling down a 30 degree ramp: free-body diagram"><line class="muted" x1="-114.3" y1="-66.0" x2="114.3" y2="66.0" stroke-dasharray="4 5"/><circle class="body" cx="33.0" cy="-57.2" r="66.0"/><circle class="dotk" cx="33.0" cy="-57.2" r="3.2"/><text class="lbl ink" x="23.0" y="-67.2" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">G</tspan></text><g class="vec abs"><line x1="33.0" y1="-57.2" x2="33.0" y2="53.8"/><polygon points="33.0,63.8 37.0,53.8 29.0,53.8"/></g><text class="lbl abs" x="25.0" y="45.7" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">W</tspan><tspan> = </tspan><tspan font-style="italic">mg</tspan></text><g class="vec ans"><line x1="-44.0" y1="76.2" x2="-5.0" y2="8.7"/><polygon points="0.0,-0.0 -8.5,6.7 -1.5,10.7"/></g><text class="lbl ans" x="-38.8" y="53.3" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">N</tspan></text><g class="vec ans"><line x1="3.8" y1="2.2" x2="-67.5" y2="-39.0"/><polygon points="-76.2,-44.0 -69.5,-35.5 -65.5,-42.5"/></g><text class="lbl ans" x="-56.2" y="-20.4" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">F</tspan><tspan dy="4" font-size="0.74em">f</tspan></text></svg><span class="eqsign">=</span><svg class="fig " viewBox="-126 -135 294 213" width="294" role="img" aria-label="Cylinder rolling down a 30 degree ramp: kinetic diagram"><line class="muted" x1="-114.3" y1="-66.0" x2="114.3" y2="66.0" stroke-dasharray="4 5"/><circle class="body" cx="33.0" cy="-57.2" r="66.0"/><circle class="dotk" cx="33.0" cy="-57.2" r="3.2"/><text class="lbl ink" x="23.0" y="-67.2" text-anchor="end" dominant-baseline="central"><tspan font-style="italic">G</tspan></text><g class="vec n"><line x1="33.0" y1="-57.2" x2="119.6" y2="-7.2"/><polygon points="128.3,-2.2 121.6,-10.6 117.6,-3.7"/></g><text class="lbl n" x="124.5" y="-13.4" text-anchor="start" dominant-baseline="central"><tspan>m</tspan><tspan> </tspan><tspan font-style="italic">a</tspan><tspan dy="4" font-size="0.74em">G</tspan></text><path class="arc t" d="M7.0,-42.2 A30,30 0 1 1 59.0,-42.2"/><polygon class="archead t" points="59.0,-42.2 65.9,-47.4 60.0,-50.8"/><text class="lbl t" x="18.0" y="-98.5" text-anchor="middle" dominant-baseline="central"><tspan font-style="italic">I</tspan><tspan dy="4" font-size="0.74em">G</tspan><tspan font-style="italic" dy="-4">α</tspan></text></svg></div><figcaption>Friction must point up the slope: it supplies the clockwise moment that makes the cylinder spin.</figcaption></div>
+<ol class="work">
+<li>Moments about the contact point C (both unknown contact forces drop out):<div class="eq">\[ mg\sin30^\circ\,r = I_G\alpha + m a_G r = \tfrac12mr^2\alpha + m(\alpha r)r \]</div>so \(\alpha = \dfrac{2g\sin30^\circ}{3r}\) and \(a_G = \alpha r = \tfrac23 g\sin30^\circ\).</li>
+<li>Along the slope: \(mg\sin30^\circ - F = ma_G\), so \(F = \tfrac13 mg\sin30^\circ\).</li>
+<li>Check: friction needed ÷ \(N\) is \(\tfrac13\tan30^\circ = 0.19\), which is less than \(\mu_s = 0.30\), so it rolls.<span class="why-inline">Neither \(m\) nor \(r\) appears in the answer. Every solid cylinder rolls down this ramp in the same way.</span></li>
+</ol>
+<p class="answer">a<sub>G</sub> = 3.27 m/s² down the ramp; F = ⅓mg sin 30° up the ramp (5.89 N for the slide’s cylinder, below its 9.17 N limit)</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 20.2: a wheel that slips</h4><span class="src">L34 Example 1</span></div>
+<p class="problem">A 10 kg wheel (radius 200 mm, \(k_G = 180\) mm) is released on a 60° incline. \(\mu_s = 0.35\), \(\mu_k = 0.30\). Find \(\alpha\).</p>
+<ol class="work">
+<li>Try rolling: moments about the contact point give \(a_G = \dfrac{g\sin60^\circ}{1 + k^2/r^2} = 4.69\) m/s². Then \(F = mg\sin60^\circ - ma_G = 38.0\) N.</li>
+<li>Check: \(N = mg\cos60^\circ = 49.05\) N, so at most \(\mu_sN = 17.2\) N is available. 38.0 &gt; 17.2, so <strong>it slips</strong>.</li>
+<li>Slipping: \(F = \mu_kN = 14.7\) N. Moments about G: \(Fr = mk^2\alpha\), so \(\alpha = \dfrac{14.7(0.2)}{10(0.18)^2}\).<span class="why-inline">Once it slips, rolling no longer ties \(a_G\) to \(\alpha\). Friction alone sets the spin.</span></li>
+</ol>
+<p class="answer">α = 9.08 rad/s² (and a<sub>G</sub> = 7.02 m/s² down the slope)</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 20.3: the rod on a hoop</h4><span class="src">Review lecture 1</span></div>
+<p class="problem">A uniform rod (\(l = 250\) mm, \(m = 0.5\) kg) lies along a horizontal radius of a light hoop of radius \(l\), so G is \(l/2\) from the hoop’s centre O. The assembly is released from rest on a horizontal surface and rolls. Find the initial \(\alpha\).</p>
+<ol class="work">
+<li><strong>Kinematics (Chapter 10):</strong> \(\vec a_G = \vec a_O + (\vec a_{G/O})_n + (\vec a_{G/O})_t\). Rolling gives \(a_O = l\alpha\) (horizontal). From rest, \(\omega = 0\), so the normal term vanishes and \((a_{G/O})_t = \tfrac{l}{2}\alpha\) (vertical, downwards).<span class="why-inline">This is the step that needs Part I. It tells you both components of \(\vec a_G\) in terms of the single unknown \(\alpha\).</span></li>
+<li>Horizontal: \(F_f = m\,l\alpha\).</li>
+<li>Vertical: \(N - mg = -m\tfrac{l}{2}\alpha\).</li>
+<li>Moments about G (CCW positive): \(-N\tfrac{l}{2} + F_f\,l = -\tfrac1{12}ml^2\alpha\).</li>
+<li>Substitute and simplify: \(\alpha\,l\left(\tfrac14 + 1 + \tfrac1{12}\right) = \tfrac{g}{2}\), so \(\alpha = \dfrac{3g}{8l}\).</li>
+</ol>
+<p class="answer">α = 14.7 rad/s² (memo: 14.7 rad/s²)</p></div>
+
+<p><strong>Free bodies.</strong> A body that is not attached to anything (L33 rocket, L34 Example 2) needs no kinematic link: \(\sum F = ma_G\) gives \(a_G\), and \(\sum M_G = I_G\alpha\) gives \(\alpha\). In L34 Example 2, a 6 N push at one end of a 1.2 kg body gives \(a_G = 5\) m/s² and \(\alpha = 48.8\) rad/s². The pushed end then accelerates at \(5 + 0.425(48.8) = 25.7\) m/s². Pushing off-centre makes things spin as well as move.</p>
+<p><strong>Linkages (L35).</strong> L35 Example 1 (a crank driving a bar on a roller) is the full combination: a Chapter 9 velocity diagram for \(\omega_{AB}\), a Chapter 10 acceleration diagram for \(\vec a_G\) and \(\alpha\), then this chapter’s three equations for the roller force. Work through it once you are comfortable with both halves.</p>
+
+<div class="callout slip"><span class="tag">Common slips</span><ul>
+<li>Writing \(F = \mu_s N\) for a body that rolls. It is an unknown, up to \(\mu_s N\).</li>
+<li>Using \(a_G = \alpha r\) after finding that the body slips.</li>
+<li>Taking moments about the contact point with \(\sum M = I_G\alpha\) alone. About any point other than G you need the \(m a_G d\) term too (for a round body rolling on a flat surface this adds up to \(I_C\alpha\), because \(m a_G r = mr^2\alpha\)).</li>
+<li>Forgetting the kinematic link, which leaves you one equation short.</li></ul></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(\sum F = ma_G\), \(\sum M_G = I_G\alpha\), plus a kinematic link between \(a_G\) and \(\alpha\).</li>
+<li>Rolling: assume \(a_G = \alpha r\), solve, check \(F \le \mu_sN\). If it fails, \(F = \mu_kN\) and the link is gone.</li>
+<li>Moments about the contact point remove both contact forces.</li></ul></div>
+</section>
+
+<section class="chapter" id="ch21" data-num="21" data-short="Part II playbook and formula sheet">
+<header><span class="eyebrow">Chapter 21 · Revision for Part II</span><h2>Kinetics playbook and one-page formula sheet</h2></header>
+
+<h3 id="ch21-checklist">The kinetics question checklist</h3>
+<ol class="work">
+<li><strong>Read for the tool.</strong> Instant, force or acceleration: Newton. Speed against position: energy. Speed against time, or a short hit: impulse. Collision: momentum plus \(e\). (See the table at the <a href="#part2">start of Part II</a>.)</li>
+<li><strong>Split the story into stages</strong> wherever something sudden happens (an impact, a cable going slack, contact being lost). Each stage may need a different tool.</li>
+<li><strong>Draw the FBD and the kinetic diagram</strong> for each body. Label every force. Mark the positive directions.</li>
+<li><strong>Friction:</strong> check whether it moves, or rolls, before choosing \(\mu_s\) or \(\mu_k\).</li>
+<li><strong>Count unknowns against equations.</strong> If you are short, the missing equation is kinematics: a rope constraint, \(a_G = \alpha r\), or a relative acceleration.</li>
+<li><strong>Rigid bodies:</strong> take moments about the point where the most unknowns meet (a pin, or the contact point), including \(m a_G d\) if that point is not G.</li>
+<li><strong>Answer with direction and units</strong>, for example “846 N”, “3.27 m/s² down the incline”, “14.7 rad/s² CW”.</li>
+</ol>
+
+<h3 id="ch21-sheet">Formula sheet: Part II on one page</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Topic</th><th>Formulas</th><th>Remember</th></tr></thead>
+<tbody>
+<tr><td>Newton (particle)</td><td>\(\sum F_x = ma_x,\ \sum F_y = ma_y\)<br>\(\sum F_t = m\dot v,\ \sum F_n = mv^2/\rho\)<br>\(\sum F_r = m(\ddot r - r\dot\theta^2),\ \sum F_\theta = m(r\ddot\theta + 2\dot r\dot\theta)\)</td><td>\(m\vec a\) goes on the kinetic diagram, never on the FBD.</td></tr>
+<tr><td>Friction</td><td>Static: \(F \le \mu_sN\). Sliding: \(F = \mu_kN\).</td><td>Check whether it moves first.</td></tr>
+<tr><td>Work</td><td>\(U = \int F\cos\alpha\,ds\), \(U_g = -mg\Delta y\), \(U_s = \tfrac12k(x_1^2 - x_2^2)\)</td><td>\(x\) from the unstretched length. Normal forces and fixed pins do no work.</td></tr>
+<tr><td>Energy</td><td>\(T_1 + V_1 + U'_{1-2} = T_2 + V_2\), \(T = \tfrac12mv^2\), \(V_g = mgy\), \(V_e = \tfrac12kx^2\)</td><td>Scalar. Not valid across an impact unless \(e = 1\).</td></tr>
+<tr><td>Power</td><td>\(P = \vec F\cdot\vec v\), \(\varepsilon = P_{\text{out}}/P_{\text{in}}\)</td><td>1 W = 1 J/s.</td></tr>
+<tr><td>Linear momentum</td><td>\(m\vec v_1 + \sum\int\vec F\,dt = m\vec v_2\)</td><td>Vector. Use components or a triangle.</td></tr>
+<tr><td>Angular momentum</td><td>\(H_O = mvd\), \(\sum M_O = \dot H_O\), \(H_{O1} + \int M_O\,dt = H_{O2}\)</td><td>About a fixed pivot, the pivot force drops out.</td></tr>
+<tr><td>Impact</td><td>Along \(n\): \(\sum mv\) conserved, \(e = \dfrac{v_{B2} - v_{A2}}{v_{A1} - v_{B1}}\). Along \(t\): each body keeps its \(v_t\).</td><td>\(e = 1\) elastic, \(e = 0\) they stick.</td></tr>
+<tr><td>Moment of inertia</td><td>Rod \(\tfrac1{12}mL^2\) (centre), \(\tfrac13mL^2\) (end). Disc \(\tfrac12mr^2\). Hoop \(mr^2\). Sphere \(\tfrac25mr^2\).<br>\(I = mk^2\), \(I_O = I_G + md^2\)</td><td>Parallel axis always to or from G.</td></tr>
+<tr><td>Rigid body</td><td>\(\sum\vec F = m\vec a_G\), \(\sum M_G = I_G\alpha\), \(\sum M_P = I_G\alpha + ma_Gd\)</td><td>Translation: \(\alpha = 0\).</td></tr>
+<tr><td>Fixed axis</td><td>\(\sum F_n = m\bar r\omega^2\), \(\sum F_t = m\bar r\alpha\), \(\sum M_O = I_O\alpha\)</td><td>Released from rest: \(\omega = 0\), \(\alpha\neq0\).</td></tr>
+<tr><td>Rolling</td><td>No slip: \(a_G = \alpha r\), \(F \le \mu_sN\). Slipping: \(F = \mu_kN\), no link.</td><td>Assume rolling, then check.</td></tr>
+</tbody></table></div>
+
+<h3 id="ch21-memos">Two memo answers to ask about</h3>
+<p>While checking every example for this book, two review-lecture memo answers did not reproduce. The methods in the memos are right. Only a number slipped.</p>
+<ul>
+<li><strong>Supp 2024 Q6 (rotating tube):</strong> the memo uses \(\dot\omega = -3\) where \(\dot\theta = 5\) belongs, and gets \(T = 1.64\) N. With \(\dot\theta = 5\), \(T = 7.40\) N (Chapter 13).</li>
+<li><strong>Supp Q7 (two spheres):</strong> the memo’s \(v_{A\parallel} = -1.855\) m/s gives \(e = 0.65\) in its own equation. With \(e = 0.6\), \(v_{A\parallel} = -1.707\) m/s and \(v_A = 2.85\) m/s at 53.3° (Chapter 16).</li>
+</ul>
+<p>Also, from L16 in Part I: the slide uses a rod length of 0.250 m in the normal-acceleration step where the real length is 0.350 m (its answer, 305 m/s², is correct).</p>
+
+<div class="callout big"><span class="tag">The whole of Part II in four sentences</span>
+<p>Draw every force on the body, and \(m\vec a\) (plus \(I_G\alpha\)) on a separate picture. The two pictures are equal, which gives \(\sum F = ma\) and a moment equation about any point you like. Integrate that law along the path and you get energy; integrate it over time and you get momentum. Kinematics from Part I supplies whatever link between accelerations you are still missing.</p></div>
+</section>
+
 <footer class="colophon">
-  <p>Written as a study companion for MEC2047S Dynamics I, built on the course's lecture notes L01–L17, tutorials 0–5 and the two review lectures. Every worked number was re-computed, and each velocity and acceleration diagram is drawn to scale from those computed values. Part II (kinetics: Newton's second law, energy, momentum and rigid-body kinetics) comes next.</p>
+  <p>Written as a study companion for MEC2047S Dynamics I, built on the course’s lecture notes L01–L35, tutorials 0–5 and the two review lectures. Every worked number was re-computed, and each velocity and acceleration diagram is drawn to scale from those computed values. Where a slide or memo number did not reproduce, the text says so.</p>
 </footer>
 </main>
 </div>
@@ -1453,7 +2123,9 @@ function fitInlineMath() {
   document.querySelectorAll('mjx-container:not([display="true"])').forEach(function (m) {
     var par = m.parentElement;
     if (!par || m.closest(".eq, .tablewrap")) return;
-    if (m.getBoundingClientRect().width > par.clientWidth - 4) {
+    var cs = getComputedStyle(par);
+    var avail = par.clientWidth - parseFloat(cs.paddingLeft || 0) - parseFloat(cs.paddingRight || 0);
+    if (m.getBoundingClientRect().width > avail - 4) {
       var svg = m.querySelector("svg");
       m.style.display = "inline-block";
       m.style.maxWidth = "100%";
