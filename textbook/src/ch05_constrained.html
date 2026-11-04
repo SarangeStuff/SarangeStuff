@@ -1,0 +1,46 @@
+<section class="chapter" id="ch5" data-num="5" data-short="Pulleys and constrained motion">
+<header><span class="eyebrow">Chapter 5 · Lecture L10</span><h2>Pulleys: motion tied together by a rope</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The rope-length method (position coordinates)</li><li>The quick “velocity line” method for pulleys</li><li>Why a pulley is secretly a rolling wheel</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>A rope does not stretch. Its total length is a constant, so if you write that length in terms of the positions of the blocks and differentiate, the constant disappears. What remains links the velocities, and differentiating again links the accelerations.</p></div>
+
+<h3 id="ch5-method">Method 1: the rope-length equation</h3>
+<ol>
+<li><strong>Datums.</strong> Measure each moving thing’s position (\(s_A\), \(s_B\), …) from a <em>fixed</em> line, usually through the centre of a fixed pulley. Choose positive in the direction each thing moves (often “down”).</li>
+<li><strong>Length.</strong> Add up the rope segments that change length. Leave out bits that never change, such as the arcs wrapped round pulleys. A pulley hanging in a loop of rope contributes its coordinate <em>twice</em>, once for each side of the loop.</li>
+<li><strong>More than one rope?</strong> Write one length equation per rope, then eliminate the shared coordinate.</li>
+<li><strong>Differentiate.</strong> Constants vanish. Watch the signs: a negative answer means opposite to your positive direction.</li>
+</ol>
+<div class="callout why"><span class="tag">Why a pulley’s coordinate counts twice</span><p>If a moving pulley hangs in a loop of rope and drops by 1 cm, <em>both</em> rope segments beside it get 1 cm longer. That 2 cm has to come from somewhere else in the rope. This is where every factor of 2 in pulley problems comes from: the block on a moving pulley moves at half the speed of the free end.</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 5.1: two ropes</h4><span class="src">L10 Example 2: keep the slide’s figure open</span></div>
+<p class="problem">The rope at A is pulled down at 2 m/s. Find the speed of block B.</p>
+<ol class="work">
+<li>Datum through the fixed top pulley, with all coordinates positive downwards. There are three moving things: the end A, pulley C and block B.</li>
+<li>Rope 1 (A round to C): \(s_A + 2s_C = l_1\).<span class="why-inline">Pulley C hangs in a loop of rope 1, so \(s_C\) appears twice.</span></li>
+<li>Rope 2 (C round B): \(s_B + (s_B - s_C) = l_2\).<span class="why-inline">One segment runs from the datum to B. The other runs from C down to B, and its length is the gap \(s_B - s_C\).</span></li>
+<li>Eliminate \(s_C\): doubling rope 2 gives \(4s_B - 2s_C = 2l_2\), and adding rope 1 gives \(s_A + 4s_B = l_1 + 2l_2\).</li>
+<li>Differentiate: \(v_A + 4v_B = 0 \Rightarrow v_B = -\tfrac14 (2) = -0.5\) m/s.</li>
+</ol>
+<p class="answer">v<sub>B</sub> = 0.5 m/s upwards</p>
+<p>The minus sign says B moves against the “positive down” direction, so it rises.</p></div>
+
+<h3 id="ch5-velocity">Method 2: the velocity line (velocity analysis)</h3>
+<p>L10 shows a much faster method that uses one fact: <strong>across a pulley, velocity changes in a straight line</strong>. Draw the pulley with a horizontal diameter, put the rope speeds as arrows at the two edges, and join their tips with a straight line. The height of that line at the centre is the speed of the pulley’s axle.</p>
+<figure class="panel">{{fig:pulley_line}}<figcaption>A movable pulley. The left rope is tied off (speed 0) and the right rope is pulled up at \(v\). The straight line through the two arrow tips crosses the centre at height \(v/2\), so the axle and the load rise at half the rope speed.</figcaption></figure>
+<div class="eq">\[ v_{\text{centre}} = \frac{v_{\text{left}} + v_{\text{right}}}{2} \qquad \text{(with signs: up positive)} \]</div>
+<div class="callout why"><span class="tag">Why the line is straight</span><p>The rope grips the pulley, so the pulley’s rim moves with the rope wherever they touch. A pulley is a rigid disc, so its velocities vary linearly across it, just like a wheel rolling along the rope. If one side of the rope is fixed, that side of the pulley is momentarily still. It is the pulley’s <strong>instantaneous centre</strong> (Chapter 8), and the speed grows in proportion to the distance from it.</p></div>
+<ul>
+<li><strong>Fixed pulley</strong> (axle fixed): the line passes through the centre, so the two rope sides move at equal speeds in opposite directions.</li>
+<li><strong>Movable pulley, one side tied:</strong> the centre moves at half the speed of the free side.</li>
+<li><strong>Both sides moving:</strong> the centre moves at the average. In L10 Example 4, A moves down at 4 m/s and C moves up at 2 m/s, so B moves at \((4-2)/2 = 1\) m/s.</li>
+</ul>
+<p>Work from the pulley you know most about towards the one you want, carrying each answer across shared ropes.</p>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>Rope length is constant, so differentiate the length equation.</li>
+<li>A pulley in a loop of rope counts twice, which gives the factors of 2.</li>
+<li>Velocity line: rope speeds at the edges, a straight line between the tips, read off the centre.</li>
+<li>Practice: L10 Examples 3–5 and Tut03 Q1.</li></ul></div>
+</section>

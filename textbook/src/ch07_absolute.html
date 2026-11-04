@@ -1,0 +1,47 @@
+<section class="chapter" id="ch7" data-num="7" data-short="Absolute motion analysis">
+<header><span class="eyebrow">Chapter 7 · Lecture L12</span><h2>Absolute motion: write the geometry, then differentiate</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The four-step tactic from L12</li><li>The sliding ladder and the slider-crank done by calculus</li><li>Rolling without slipping: \(s = r\theta\)</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>If you can write <em>where</em> a point is as a formula in an angle, you can find how fast it moves by differentiating. The chain rule does the work: every time you differentiate a \(\theta\), a \(\dot\theta = \omega\) appears.</p></div>
+
+<h3 id="ch7-tactic">The tactic (from L12)</h3>
+<ol>
+<li>Locate the point with a coordinate \(s\) measured from a <strong>fixed</strong> origin.</li>
+<li>Measure the angle \(\theta\) of a line in the body from a fixed reference line, and use the body’s dimensions to write \(s = f(\theta)\).</li>
+<li>Differentiate once to get \(v\) in terms of \(\omega = \dot\theta\).</li>
+<li>Differentiate again to get \(a\) in terms of \(\omega\) and \(\alpha = \ddot\theta\). Use the product rule, because \(\dot\theta\) can itself change.</li>
+</ol>
+
+<div class="example"><div class="ex-head"><h4>Worked example 7.1: the sliding ladder</h4><span class="src">The same bar as L14 Example 1, solved by calculus</span></div>
+<p class="problem">A 1.5 m bar has end A on the floor and end B on a wall. A slides away from the wall at 3 m/s. When the bar makes 30° with the floor, find \(\omega\) and the velocity of B.</p>
+<ol class="work">
+<li>Geometry, with \(\theta\) the angle at A between the floor and the bar: \(x_A = 1.5\cos\theta\) (from the wall) and \(y_B = 1.5\sin\theta\) (up the wall).<span class="why-inline">Both ends are tied to one angle by the fixed length of the bar.</span></li>
+<li>Differentiate \(x_A\): \(\dot x_A = -1.5\sin\theta\,\dot\theta\). Put in \(\dot x_A = 3\): \(3 = -1.5(0.5)\dot\theta \Rightarrow \dot\theta = -4\) rad/s.<span class="why-inline">The minus sign means \(\theta\) is getting smaller, so the bar is falling flatter, which makes sense as A slides out.</span></li>
+<li>Differentiate \(y_B\): \(\dot y_B = 1.5\cos\theta\,\dot\theta = 1.5(0.866)(-4) = -5.20\) m/s.</li>
+</ol>
+<p class="answer">|ω| = 4.00 rad/s, v<sub>B</sub> = 5.20 m/s down the wall</p>
+<p>Keep these numbers in mind. Chapter 8 gets them from a single point, and Chapter 9 from a triangle.</p></div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 7.2: slider-crank</h4><span class="src">L12 Example 3</span></div>
+<p class="problem">Crank AB (0.2 m) turns at a constant 150 rad/s. Connecting rod BP is 0.75 m, and P slides along the horizontal line through A. Find the velocity of P when \(\theta = 30^\circ\).</p>
+<ol class="work">
+<li>Geometry: \(x_P = \underbrace{0.2\cos\theta}_{\text{crank}} + \underbrace{\sqrt{0.75^2 - (0.2\sin\theta)^2}}_{\text{rod, by Pythagoras}}\).<span class="why-inline">The rod’s horizontal reach comes from its length and the height of B above the slider line.</span></li>
+<li>Differentiate with the chain rule:<div class="eq">\[ v_P = -0.2\omega\sin\theta - \frac{0.2^2\sin\theta\cos\theta\,\omega}{\sqrt{0.75^2 - (0.2\sin\theta)^2}} \]</div></li>
+<li>Substitute: \(v_P = -15.0 - \frac{2.598}{0.7433} = -15.0 - 3.50\).</li>
+</ol>
+<p class="answer">v<sub>P</sub> = 18.5 m/s towards A</p></div>
+
+<h3 id="ch7-rolling">Rolling without slipping</h3>
+<p>A wheel that rolls without slipping lays its rim down on the ground like tape off a roll. After turning through \(\theta\), the centre has moved exactly the length of rim that touched the ground:</p>
+<div class="eq key">\[ s_O = r\theta \qquad\Longrightarrow\qquad v_O = r\omega \qquad\Longrightarrow\qquad a_O = r\alpha \]</div>
+<p>L12 Example 4 follows a point on the rim and finds that, at the moment it touches the ground, its velocity is zero but its acceleration is \(r\omega^2\) <strong>upwards</strong>. Remember this: it comes back in Chapters 8 and 10.</p>
+
+<div class="callout why"><span class="tag">When to choose this method</span><p>Absolute motion is ideal when the geometry is simple and you want a formula valid at <em>every</em> angle (for example a cam follower, L12 Example 2). It becomes painful when the expression is messy, and differentiating it twice for acceleration is where mistakes creep in. For linkages at one instant, the relative velocity diagram (Chapter 9) is usually faster, and it is what the exams ask for.</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>Write position as a function of the angle, using fixed origins.</li>
+<li>Differentiate with the chain rule; every \(d\theta/dt\) is \(\omega\).</li>
+<li>Rolling without slip: \(s=r\theta\), \(v=r\omega\), \(a=r\alpha\).</li>
+<li>Practice: L12 Questions 1–2 and Tut03 Q3.</li></ul></div>
+</section>

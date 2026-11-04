@@ -1,0 +1,50 @@
+<section class="chapter" id="ch11" data-num="11" data-short="Exam playbook and formula sheet">
+<header><span class="eyebrow">Chapter 11 · Revision</span><h2>Exam playbook and one-page formula sheet</h2></header>
+
+<h3 id="ch11-checklist">The diagram question checklist</h3>
+<p>This list is built from the 2016, 2021 and 2022 memos. Each line matches something the markers tick.</p>
+<ol class="work">
+<li><strong>Geometry first.</strong> Bar lengths (Pythagoras) and angles (\(\tan^{-1}\)). Write them down: they are marks.</li>
+<li><strong>Driving crank:</strong> \(v = \omega r\), with direction and a sketch arrow. Convert rev/min to rad/s.</li>
+<li><strong>Velocity equation</strong> written out, e.g. \(\vec v_C = \vec v_B + \vec v_{C/B}\).</li>
+<li><strong>Audit</strong>: size and direction of each term, known or not.</li>
+<li><strong>Velocity diagram</strong> to the given scale, with arrows on every vector, labels, and angles marked.</li>
+<li><strong>\(\omega\) of each bar</strong> = relative velocity ÷ length, <em>with sense</em> (CW or CCW).</li>
+<li><strong>Acceleration equation</strong> with every \(n\) and \(t\) part written separately.</li>
+<li><strong>Audit</strong>: every normal part calculated (\(\omega^2 r\)) with its direction (“towards ___”). Every tangential part as “\(\alpha r\), ⟂ ___, ?”.</li>
+<li><strong>Acceleration diagram</strong> to scale: known arrows first, two direction lines, crossing, arrowheads on everything.</li>
+<li><strong>Measure</strong>, convert, then \(\alpha\) = tangential ÷ length, <em>with sense</em>. Answers within about ±5% earn full marks.</li>
+</ol>
+
+<h3 id="ch11-scale">Choosing a scale when none is given</h3>
+<p>Find the largest known vector and aim for 10–15 cm. For example, 0.63 m/s² at 1 m/s² : 20 cm is 12.6 cm. 3084 m/s² at 1 mm = 25 m/s² is 123 mm. Always write the scale beside the diagram. Draw thin, sharp lines; use set squares for perpendiculars and a protractor for angles. Practise with the course app (convect.uct.ac.za) and then on paper, because the exam is on paper.</p>
+
+<h3 id="ch11-timing">If you get stuck</h3>
+<ul>
+<li><strong>Count the unknowns.</strong> More than two means you have missed a known direction (a slider’s guide, a crank’s perpendicular) or need another equation for a different bar.</li>
+<li><strong>Check the IC</strong> for a fast sanity check of any \(\omega\) (Chapter 8).</li>
+<li><strong>Switch to components</strong> (vector algebra) if the diagram looks wrong. Pick the component direction in which one unknown disappears.</li>
+<li><strong>Parallel velocities</strong> on a bar mean \(\omega = 0\) for that bar, so its normal relative term is zero, but not its \(\alpha\).</li>
+</ul>
+
+<h3 id="ch11-sheet">Formula sheet: Part I on one page</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Topic</th><th>Formulas</th><th>Remember</th></tr></thead>
+<tbody>
+<tr><td>Rectilinear</td><td>\(v=\dot s,\ a=\dot v,\ a\,ds=v\,dv\)<br>Constant \(a\): \(v=v_0+at,\ s=s_0+v_0t+\frac12at^2,\ v^2=v_0^2+2a\Delta s\)</td><td>Ask what \(a\) depends on. Constant-\(a\) equations only if \(a\) is constant.</td></tr>
+<tr><td>Graphs</td><td>Slope of \(s\)–\(t\) = \(v\), slope of \(v\)–\(t\) = \(a\), area under \(v\)–\(t\) = \(\Delta s\), area under \(a\)–\(s\) = \(\frac12\Delta(v^2)\)</td><td>Integrating raises the curve’s power by one.</td></tr>
+<tr><td>Projectile</td><td>\(a_x=0,\ a_y=-g\)</td><td>Time links x and y.</td></tr>
+<tr><td>n–t</td><td>\(a_t=\dot v,\ a_n=v^2/\rho\)</td><td>\(a_n\) points into the bend.</td></tr>
+<tr><td>Polar</td><td>\(v_r=\dot r,\ v_\theta=r\dot\theta\)<br>\(a_r=\ddot r-r\dot\theta^2,\ a_\theta=r\ddot\theta+2\dot r\dot\theta\)</td><td>List \(r,\dot r,\ddot r,\dot\theta,\ddot\theta\) first.</td></tr>
+<tr><td>Relative (particles)</td><td>\(\vec v_B=\vec v_A+\vec v_{B/A},\ \vec a_B=\vec a_A+\vec a_{B/A}\)</td><td>Non-rotating observer. \(\vec v_{A/B}=-\vec v_{B/A}\).</td></tr>
+<tr><td>Pulleys</td><td>\(\sum (\text{segment lengths}) = \text{const}\) → differentiate. Centre speed = average of the side speeds.</td><td>A pulley in a loop counts twice.</td></tr>
+<tr><td>Fixed-axis rotation</td><td>\(\omega=\dot\theta,\ \alpha=\dot\omega,\ \omega\,d\omega=\alpha\,d\theta\)<br>\(v=\omega r,\ a_n=\omega^2r,\ a_t=\alpha r\)</td><td>\(\omega\) [rad/s] = rev/min × 2π/60. Contacts share \(v\) and \(a_t\).</td></tr>
+<tr><td>Rolling (no slip)</td><td>\(v_O=\omega r,\ a_O=\alpha r,\ a_{\text{contact}}=\omega^2 r\) (towards O)</td><td>Contact point: \(v=0\), \(a\neq0\).</td></tr>
+<tr><td>IC</td><td>\(v=\omega\cdot r_{\text{to IC}}\), ⟂ to the line to the IC</td><td>Velocities only. Never accelerations.</td></tr>
+<tr><td>Relative velocity (rigid)</td><td>\(\vec v_B=\vec v_A+\vec\omega\times\vec r_{B/A}\), \(\ v_{B/A}=\omega r_{AB}\) ⟂ AB</td><td>Known vector from o; ⟂ line through its tip; direction line through o.</td></tr>
+<tr><td>Relative acceleration (rigid)</td><td>\(\vec a_B=\vec a_A-\omega^2\vec r_{B/A}+\vec\alpha\times\vec r_{B/A}\)<br>\((a_{B/A})_n=\omega^2r\) (B → A), \((a_{B/A})_t=\alpha r\) (⟂ AB)</td><td>Velocities first. Two chains from o, unknowns last.</td></tr>
+</tbody></table></div>
+
+<div class="callout big"><span class="tag">The whole of Part I in four sentences</span>
+<p>Velocity is the slope of position, and acceleration is the slope of velocity. On a curve, acceleration splits into a part that changes speed and a part, \(v^2/\rho\), that turns you into the bend. On a rigid body, any point’s motion is a reference point’s motion plus a spin about it, and that spin always moves the point perpendicular to the line joining them. Draw that as a triangle for velocities and a polygon for accelerations, and you can solve every mechanism in this course.</p></div>
+</section>

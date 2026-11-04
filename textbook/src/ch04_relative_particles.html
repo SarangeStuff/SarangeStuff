@@ -1,0 +1,65 @@
+<section class="chapter" id="ch4" data-num="4" data-short="Relative motion of particles">
+<header><span class="eyebrow">Chapter 4 · Lecture L09</span><h2>Relative motion: what one moving observer sees</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The relative-motion equation and how to read the subscripts</li><li>Your first vector triangle, drawn step by step</li><li>Relative acceleration with n–t components</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>Picture yourself in car A, watching car B. What you see (B relative to A) is B’s real motion with your own motion taken away. Written the other way round, B’s real motion is <em>your</em> motion plus what you see. That one sentence is the equation for the whole chapter, and for Chapters 9 and 10 as well.</p></div>
+
+<div class="eq key">\[ \vec r_B = \vec r_A + \vec r_{B/A} \qquad\Longrightarrow\qquad \vec v_B = \vec v_A + \vec v_{B/A} \qquad\Longrightarrow\qquad \vec a_B = \vec a_A + \vec a_{B/A} \]</div>
+<p>Read \(\vec v_{B/A}\) as “the velocity of B <em>as seen from</em> A”. The second and third equations are just the first one differentiated, once and twice. In L09 the observer’s axes <strong>translate but do not rotate</strong>. The observer slides along with A but keeps facing north.</p>
+<div class="callout why"><span class="tag">Why it is just addition</span><p>Positions add like steps on a map: getting from O to B is the same as getting from O to A and then from A to B. Differentiating a sum gives the sum of the derivatives, so velocities and accelerations add the same way. Nothing more is going on.</p></div>
+<p>Two habits that prevent most mistakes:</p>
+<ul>
+<li>\(\vec v_{A/B} = -\vec v_{B/A}\). Swapping the letters flips the arrow and keeps the size.</li>
+<li>The equation is one vector equation, so it is worth <strong>two</strong> scalar equations (\(x\) and \(y\)). At most two things can be unknown.</li>
+</ul>
+
+<h3 id="ch4-triangle">Drawing the vector triangle</h3>
+<p>The equation \(\vec v_B = \vec v_A + \vec v_{B/A}\) is a triangle. Draw \(\vec v_A\) first. Put the tail of \(\vec v_{B/A}\) at the tip of \(\vec v_A\). The line from the start to the final tip is \(\vec v_B\). Read it like a journey: go along \(\vec v_A\), then along \(\vec v_{B/A}\), and you arrive where \(\vec v_B\) takes you directly.</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 4.1: two cars at a crossing</h4><span class="src">Same method as L09 Examples 1 and 3, Tut03 Q2</span></div>
+<p class="problem">Car A drives east at 20 m/s. Car B drives north at 15 m/s on the crossing road. What velocity does B appear to have to the driver of A?</p>
+<figure class="panel">{{fig:cars_map}}<figcaption>The two cars approach the crossing.</figcaption></figure>
+<figure class="panel stepper">{{fig:cars_tri}}
+<ol class="steplist">
+<li>Pick a starting point <em>o</em> and draw \(\vec v_A\): 20 m/s east, to scale.</li>
+<li>From the same point o, draw \(\vec v_B\): 15 m/s north. Both absolute velocities start at o, because they are both measured from the ground.</li>
+<li>The vector from the tip of \(\vec v_A\) to the tip of \(\vec v_B\) is \(\vec v_{B/A}\), because \(\vec v_A + \vec v_{B/A}\) must land on the tip of \(\vec v_B\).</li>
+</ol>
+<figcaption>Velocity triangle, drawn to scale.</figcaption></figure>
+<ol class="work">
+<li>Size, from the right angle at o: \(v_{B/A} = \sqrt{20^2 + 15^2} = 25.0\) m/s.<span class="why-inline">With no right angle, you would use the cosine rule (Chapter 1).</span></li>
+<li>Direction: \(\tan^{-1}(15/20) = 36.9^\circ\) north of west. In the course’s angle notation that is \(\measuredangle\,143.1^\circ\).</li>
+<li>Check with components, which matches:<div class="eq">\[ \vec v_{B/A} = \vec v_B - \vec v_A = (0, 15) - (20, 0) = (-20, 15)\ \text{m/s} \]</div></li>
+</ol>
+<p class="answer">v<sub>B/A</sub> = 25.0 m/s at 36.9° north of west</p>
+<p>It makes sense physically: to the driver of A, the whole world drifts west at 20 m/s, so B appears to move north <em>and</em> west.</p>
+</div>
+
+<h3 id="ch4-acc">Relative acceleration</h3>
+<p>The same triangle works for accelerations. The extra step is that a particle on a <strong>curved</strong> path has two acceleration components (Chapter 3), and you must include both.</p>
+<div class="eq">\[ (\vec a_B)_n + (\vec a_B)_t = \vec a_A + \vec a_{B/A} \]</div>
+<div class="example"><div class="ex-head"><h4>Worked example 4.2: the cars again, with B on a bend</h4><span class="src">Like L09 Example 3</span></div>
+<p class="problem">At the same instant, A is speeding up at 2 m/s². B is on a bend of radius 100 m curving towards the west and is slowing down at 1 m/s². Find \(\vec a_{B/A}\).</p>
+<ol class="work">
+<li>\(\vec a_A = 2\) m/s² east, along its straight path.</li>
+<li>\((a_B)_n = v_B^2/\rho = 15^2/100 = 2.25\) m/s², pointing into the bend (west).<span class="why-inline">B is turning, so part of its acceleration must point towards the centre of the bend.</span></li>
+<li>\((a_B)_t = 1\) m/s² pointing <em>south</em>, opposite to its motion, because B is slowing down.</li>
+<li>Subtract:<div class="eq">\[ \vec a_{B/A} = \vec a_B - \vec a_A = (-2.25, -1) - (2, 0) = (-4.25, -1)\ \text{m/s}^2 \]</div></li>
+</ol>
+<figure class="panel stepper">{{fig:cars_acc}}
+<ol class="steplist">
+<li>From o, draw the known \(\vec a_A\): 2 m/s² east.</li>
+<li>From o, build \(\vec a_B\) from its parts: \((\vec a_B)_n\) west, then \((\vec a_B)_t\) south from its tip.</li>
+<li>Close the triangle from the tip of \(\vec a_A\) to the tip of \(\vec a_B\). That closing vector is \(\vec a_{B/A}\).</li>
+</ol>
+<figcaption>Acceleration polygon, drawn to scale.</figcaption></figure>
+<p class="answer">a<sub>B/A</sub> = 4.37 m/s² at ∡ −166.8° (13.2° south of west)</p>
+</div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(\vec v_B = \vec v_A + \vec v_{B/A}\): B’s real motion is A’s motion plus what A sees.</li>
+<li>Draw the absolute vectors from one point o. The relative vector joins their tips.</li>
+<li>For a curved path, split acceleration into \(n\) (\(v^2/\rho\), into the bend) and \(t\).</li>
+<li>A 2D vector equation can solve for at most two unknowns.</li></ul></div>
+</section>

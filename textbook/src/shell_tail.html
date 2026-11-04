@@ -1,0 +1,227 @@
+
+<footer class="colophon">
+  <p>Written as a study companion for MEC2047S Dynamics I, built on the course's lecture notes L01–L17, tutorials 0–5 and the two review lectures. Every worked number was re-computed, and each velocity and acceleration diagram is drawn to scale from those computed values. Part II (kinetics: Newton's second law, energy, momentum and rigid-body kinetics) comes next.</p>
+</footer>
+</main>
+</div>
+
+<script>
+/* Step-through diagrams: each figure.stepper has SVG groups with data-step="k"
+   and an <ol class="steplist"> whose k-th item explains step k. At rest every step shows. */
+document.querySelectorAll("figure.stepper").forEach(function (fig) {
+  var items = Array.prototype.slice.call(fig.querySelectorAll("[data-step]"));
+  var lis = Array.prototype.slice.call(fig.querySelectorAll("ol.steplist > li"));
+  var n = lis.length;
+  items.forEach(function (e) { n = Math.max(n, +e.getAttribute("data-step")); });
+  var bar = document.createElement("div");
+  bar.className = "stepbar";
+  bar.innerHTML = '<button type="button" data-a="first">Start over</button>' +
+    '<button type="button" data-a="prev">Back</button>' +
+    '<button type="button" data-a="next">Next step</button>' +
+    '<button type="button" data-a="all">Show all</button><span class="count"></span>';
+  var svg = fig.querySelector("svg");
+  svg.insertAdjacentElement("afterend", bar);
+  var count = bar.querySelector(".count");
+  var cur = n, all = true;
+  function show(k, showAll) {
+    cur = Math.max(1, Math.min(n, k)); all = !!showAll;
+    items.forEach(function (e) {
+      var s = +e.getAttribute("data-step");
+      e.classList.toggle("is-future", !all && s > cur);
+      e.classList.toggle("is-now", !all && s === cur);
+    });
+    lis.forEach(function (li, i) {
+      li.classList.toggle("is-now", !all && i + 1 === cur);
+      li.classList.toggle("is-future", !all && i + 1 > cur);
+    });
+    count.textContent = all ? "All " + n + " steps shown" : "Step " + cur + " of " + n;
+  }
+  bar.addEventListener("click", function (ev) {
+    var a = ev.target.getAttribute && ev.target.getAttribute("data-a");
+    if (!a) return;
+    if (a === "first") show(1, false);
+    if (a === "prev") show(all ? n - 1 : cur - 1, false);
+    if (a === "next") show(all ? 1 : cur + 1, false);
+    if (a === "all") show(n, true);
+  });
+  lis.forEach(function (li, i) {
+    li.tabIndex = 0;
+    li.setAttribute("role", "button");
+    li.addEventListener("click", function () { show(i + 1, false); });
+    li.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); show(i + 1, false); }
+    });
+  });
+  show(n, true);
+});
+
+/* Contents: collapse on narrow screens, highlight the chapter being read. */
+(function () {
+  var det = document.getElementById("tocDetails");
+  try { if (window.matchMedia("(max-width: 1080px)").matches) det.open = false; } catch (e) {}
+  var links = {};
+  document.querySelectorAll(".toc a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+  if (!("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        Object.keys(links).forEach(function (k) { links[k].classList.toggle("is-current", k === en.target.id); });
+      }
+    });
+  }, { rootMargin: "-20% 0px -70% 0px" });
+  document.querySelectorAll("section.chapter").forEach(function (s) { io.observe(s); });
+})();
+
+/* Slider-crank lab: r = 125 mm, l = 350 mm, crank 1500 rev/min CW (constant). */
+(function () {
+  var lab = document.getElementById("lab");
+  if (!lab) return;
+  var r = 0.125, l = 0.35, w = -1500 * 2 * Math.PI / 60;
+  var NS = "http://www.w3.org/2000/svg";
+  var inp = document.getElementById("labTheta");
+  var out = document.getElementById("labThetaOut");
+  var sM = document.getElementById("labMech"), sV = document.getElementById("labVel"), sA = document.getElementById("labAcc");
+  var nums = document.getElementById("labNums");
+  function add(a, b) { return [a[0] + b[0], a[1] + b[1]]; }
+  function sub(a, b) { return [a[0] - b[0], a[1] - b[1]]; }
+  function mul(k, a) { return [k * a[0], k * a[1]]; }
+  function perp(om, v) { return [-om * v[1], om * v[0]]; }
+  function solve2(K, d1, d2) {
+    var det = d1[0] * d2[1] - d1[1] * d2[0];
+    return [(K[0] * d2[1] - K[1] * d2[0]) / det, (d1[0] * K[1] - d1[1] * K[0]) / det];
+  }
+  function compute(th) {
+    var B = [-r * Math.cos(th), r * Math.sin(th)];
+    var A = [B[0] - Math.sqrt(l * l - B[1] * B[1]), 0];
+    var rAB = sub(A, B), d = [-rAB[1] / l, rAB[0] / l];
+    var vB = perp(w, B);
+    var s1 = solve2(vB, [1, 0], mul(-1, d));
+    var wAB = s1[1] / l;
+    var aB = mul(-w * w, B), aABn = mul(-wAB * wAB, rAB);
+    var s2 = solve2(add(aB, aABn), [1, 0], mul(-1, d));
+    return { A: A, B: B, d: d, vB: vB, vA: [s1[0], 0], vAB: mul(s1[1], d), wAB: wAB,
+             aB: aB, aABn: aABn, aABt: mul(s2[1], d), aA: [s2[0], 0], alpha: s2[1] / l };
+  }
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    parent.appendChild(e);
+    return e;
+  }
+  function arrowPx(g, x1, y1, x2, y2, cls) {
+    var dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy);
+    var gg = el("g", { "class": "vec " + cls }, g);
+    if (L < 1) return;
+    var ux = dx / L, uy = dy / L, h = Math.min(9, L * 0.55), bx = x2 - ux * h, by = y2 - uy * h, nx = uy, ny = -ux, hw = h * 0.4;
+    el("line", { x1: x1, y1: y1, x2: bx, y2: by }, gg);
+    el("polygon", { points: x2 + "," + y2 + " " + (bx + nx * hw) + "," + (by + ny * hw) + " " + (bx - nx * hw) + "," + (by - ny * hw) }, gg);
+  }
+  function label(g, x, y, txt, cls) {
+    var t = el("text", { x: x, y: y, "class": "lbl " + cls, "text-anchor": "middle", "dominant-baseline": "central" }, g);
+    t.textContent = txt;
+  }
+  function polygon(svg, vecs, lines, W, H) {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var pts = [[0, 0]];
+    vecs.forEach(function (v) { pts.push(v.p, v.q); });
+    var minx = Infinity, maxx = -Infinity, miny = Infinity, maxy = -Infinity;
+    pts.forEach(function (p) { minx = Math.min(minx, p[0]); maxx = Math.max(maxx, p[0]); miny = Math.min(miny, p[1]); maxy = Math.max(maxy, p[1]); });
+    var pad = 30, bw = Math.max(maxx - minx, 1e-9), bh = Math.max(maxy - miny, 1e-9);
+    var s = Math.min((W - 2 * pad) / bw, (H - 2 * pad) / bh);
+    var ox = (W - bw * s) / 2, oy = (H - bh * s) / 2;
+    function X(p) { return ox + (p[0] - minx) * s; }
+    function Y(p) { return oy + (maxy - p[1]) * s; }
+    var g = el("g", {}, svg);
+    lines.forEach(function (ln) {
+      var x = X(ln.p), y = Y(ln.p), dx = ln.d[0], dy = -ln.d[1];
+      el("line", { "class": "cons", x1: x - dx * 400, y1: y - dy * 400, x2: x + dx * 400, y2: y + dy * 400 }, g);
+    });
+    vecs.forEach(function (v) {
+      arrowPx(g, X(v.p), Y(v.p), X(v.q), Y(v.q), v.cls);
+      var mx = (X(v.p) + X(v.q)) / 2, my = (Y(v.p) + Y(v.q)) / 2;
+      var dx = X(v.q) - X(v.p), dy = Y(v.q) - Y(v.p), L = Math.hypot(dx, dy) || 1;
+      if (v.label) label(g, mx + (dy / L) * 13, my - (dx / L) * 13, v.label, v.cls);
+    });
+    el("circle", { "class": "dotk", cx: X([0, 0]), cy: Y([0, 0]), r: 3 }, g);
+  }
+  function mech(c) {
+    while (sM.firstChild) sM.removeChild(sM.firstChild);
+    var s = 520, ox = 280, oy = 100;
+    function X(p) { return ox + p[0] * s; }
+    function Y(p) { return oy - p[1] * s; }
+    var g = el("g", {}, sM);
+    el("line", { "class": "guide", x1: 20, y1: oy - 13, x2: 240, y2: oy - 13 }, g);
+    el("line", { "class": "guide", x1: 20, y1: oy + 13, x2: 240, y2: oy + 13 }, g);
+    el("circle", { "class": "outline thin", cx: X([0, 0]), cy: Y([0, 0]), r: r * s, "stroke-dasharray": "3 4" }, g);
+    el("rect", { "class": "block", x: X(c.A) - 18, y: oy - 11, width: 36, height: 22, rx: 2 }, g);
+    el("line", { "class": "link", x1: X(c.A), y1: Y(c.A), x2: X(c.B), y2: Y(c.B), "stroke-width": 9 }, g);
+    el("line", { "class": "link", x1: X([0, 0]), y1: Y([0, 0]), x2: X(c.B), y2: Y(c.B), "stroke-width": 8 }, g);
+    [[0, 0], c.B, c.A].forEach(function (p) { el("circle", { "class": "pin", cx: X(p), cy: Y(p), r: 4.2 }, g); });
+    label(g, X(c.A), Y(c.A) + 26, "A", "ink");
+    label(g, X(c.B) + (c.B[0] > 0 ? 12 : -12), Y(c.B) - 12, "B", "ink");
+    label(g, X([0, 0]) + 14, Y([0, 0]) + 12, "O", "ink");
+    var vlen = 2.2;
+    arrowPx(g, X(c.B), Y(c.B), X(c.B) + c.vB[0] * vlen, Y(c.B) - c.vB[1] * vlen, "abs");
+    arrowPx(g, X(c.A), Y(c.A) - 20, X(c.A) + c.vA[0] * vlen, Y(c.A) - 20, "ans");
+  }
+  function fmtDir(x, pos, neg) { return Math.abs(x) < 1e-6 ? "" : (x > 0 ? pos : neg); }
+  function update() {
+    var deg = +inp.value;
+    out.textContent = deg + "°";
+    var c = compute(deg * Math.PI / 180);
+    mech(c);
+    polygon(sV, [
+      { p: [0, 0], q: c.vB, cls: "abs", label: "vB" },
+      { p: c.vB, q: c.vA, cls: "t", label: "vA/B" },
+      { p: [0, 0], q: c.vA, cls: "ans", label: "vA" }
+    ], [{ p: c.vB, d: c.d }, { p: [0, 0], d: [1, 0] }], 260, 210);
+    var n = add(c.aB, c.aABn);
+    polygon(sA, [
+      { p: [0, 0], q: c.aB, cls: "abs", label: "aB" },
+      { p: c.aB, q: n, cls: "n", label: "(aA/B)n" },
+      { p: n, q: c.aA, cls: "t", label: "(aA/B)t" },
+      { p: [0, 0], q: c.aA, cls: "ans", label: "aA" }
+    ], [{ p: n, d: c.d }, { p: [0, 0], d: [1, 0] }], 260, 210);
+    nums.innerHTML =
+      "<div><b>v<sub>A</sub></b> = " + Math.abs(c.vA[0]).toFixed(1) + " m/s " + fmtDir(c.vA[0], "→", "←") + "</div>" +
+      "<div><b>ω<sub>AB</sub></b> = " + Math.abs(c.wAB).toFixed(1) + " rad/s " + fmtDir(c.wAB, "CCW", "CW") + "</div>" +
+      "<div><b>a<sub>A</sub></b> = " + Math.abs(c.aA[0]).toFixed(0) + " m/s² " + fmtDir(c.aA[0], "→", "←") + "</div>" +
+      "<div><b>α<sub>AB</sub></b> = " + Math.abs(c.alpha).toFixed(0) + " rad/s² " + fmtDir(c.alpha, "CCW", "CW") + "</div>";
+  }
+  inp.addEventListener("input", update);
+  update();
+})();
+</script>
+<script>
+/* Any inline equation wider than its line scrolls inside itself instead of
+   pushing the page sideways on a phone. */
+function fitInlineMath() {
+  document.querySelectorAll('mjx-container:not([display="true"])').forEach(function (m) {
+    var par = m.parentElement;
+    if (!par || m.closest(".eq, .tablewrap")) return;
+    if (m.getBoundingClientRect().width > par.clientWidth - 4) {
+      var svg = m.querySelector("svg");
+      m.style.display = "inline-block";
+      m.style.maxWidth = "100%";
+      m.style.overflowX = "auto";
+      m.style.overflowY = "hidden";
+      m.style.verticalAlign = (svg && svg.style.verticalAlign) || "middle";
+    }
+  });
+}
+window.MathJax = {
+  tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+  svg: { fontCache: "global" },
+  options: { enableMenu: false },
+  startup: {
+    pageReady: function () {
+      return MathJax.startup.defaultPageReady().then(function () {
+        fitInlineMath();
+        var t;
+        window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(fitInlineMath, 200); });
+      });
+    }
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js" defer></script>

@@ -1,0 +1,49 @@
+<section class="chapter" id="ch6" data-num="6" data-short="Rotation about a fixed axis">
+<header><span class="eyebrow">Chapter 6 · Lecture L11</span><h2>Rigid bodies: spinning about a fixed axis</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The three kinds of planar motion</li><li>Angular position, velocity and acceleration</li><li>The three formulas for any point on a spinning body: \(v=\omega r\), \(a_n=\omega^2 r\), \(a_t=\alpha r\)</li><li>Gears and belts</li></ul></div>
+
+<p>From here on, objects have size. A <strong>rigid body</strong> never changes shape: the distance between any two of its points stays the same. That one property is what makes everything in Chapters 6 to 10 work.</p>
+
+<h3 id="ch6-types">Three kinds of planar motion</h3>
+<ul>
+<li><strong>Translation:</strong> every line on the body stays parallel to itself. It can be <em>rectilinear</em> (straight paths) or <em>curvilinear</em> (curved paths). Either way, every point has the same velocity and acceleration, so the body behaves like one particle.</li>
+<li><strong>Rotation about a fixed axis:</strong> every point moves on a circle round the axis (a crank, a gear, a door).</li>
+<li><strong>General plane motion:</strong> translation and rotation at once (a connecting rod, a rolling wheel, a sliding ladder, a thrown Frisbee). This is where Chapters 7 to 10 live.</li>
+</ul>
+
+<h3 id="ch6-angular">Angular motion is Chapter 2 again</h3>
+<p>Replace \(s, v, a\) by \(\theta, \omega, \alpha\) and every rectilinear result carries straight over:</p>
+<div class="eq">\[ \omega = \frac{d\theta}{dt} \qquad \alpha = \frac{d\omega}{dt} \qquad \omega\,d\omega = \alpha\,d\theta \]</div>
+<div class="eq">\[ \text{constant }\alpha:\quad \omega = \omega_0 + \alpha t \qquad \Delta\theta = \omega_0 t + \tfrac12\alpha t^2 \qquad \omega^2 = \omega_0^2 + 2\alpha\,\Delta\theta \]</div>
+<p>Anticlockwise is positive. Use the same decision table as in Chapter 2: ask whether \(\alpha\) is given as a function of \(t\), \(\omega\) or \(\theta\). (The 2019 exam pulley question gives \(\alpha = 0.8\theta\), so it needs \(\omega\,d\omega = \alpha\,d\theta\).)</p>
+
+<h3 id="ch6-point">A point on a spinning body</h3>
+<figure class="panel">{{fig:rot_point}}<figcaption>Point P at radius \(r\). Here the body is slowing down (\(\alpha\) opposite to \(\omega\)), so \(a_t\) points backwards, against \(v\).</figcaption></figure>
+<div class="eq key">\[ v = \omega r \quad(\perp OP) \qquad\qquad a_n = \omega^2 r \quad(\text{towards }O) \qquad\qquad a_t = \alpha r \quad(\perp OP) \]</div>
+<div class="callout why"><span class="tag">Why these three</span><p>P moves on a circle of radius \(r\), so this is just n–t motion (Chapter 3) with \(\rho = r\).</p>
+<ul><li>In one radian of turn, P travels a distance \(r\). Turning at \(\omega\) rad/s, it travels \(\omega r\) metres per second.</li>
+<li>\(a_n = v^2/\rho = (\omega r)^2/r = \omega^2 r\). It always points to the centre, because the velocity is being turned towards it.</li>
+<li>\(a_t = \dot v = \frac{d}{dt}(\omega r) = \alpha r\), because \(r\) is fixed.</li></ul>
+<p>In vector form these are \(\vec v = \vec\omega\times\vec r\), \(\vec a_n = \vec\omega\times(\vec\omega\times\vec r) = -\omega^2\vec r\) and \(\vec a_t = \vec\alpha\times\vec r\). These are the Chapter 1 cross product turning \(\vec r\) a quarter-turn.</p></div>
+<div class="callout slip"><span class="tag">Common slip</span><p>If a crank turns at <em>constant</em> \(\omega\), then \(\alpha = 0\) and \(a_t = 0\), but \(a_n = \omega^2 r\) is <strong>not</strong> zero. A point moving at steady speed round a circle is still accelerating, towards the centre. Forgetting this costs marks in every relative acceleration question.</p></div>
+
+<h3 id="ch6-gears">Gears and belts</h3>
+<p>Where two wheels touch without slipping, or are joined by a belt, the touching points share the same <strong>speed</strong> and the same <strong>tangential acceleration</strong>:</p>
+<div class="eq">\[ \omega_A r_A = \omega_B r_B \qquad\qquad \alpha_A r_A = \alpha_B r_B \]</div>
+<p>Their <em>normal</em> accelerations differ, because \(\omega^2 r\) depends on each wheel’s own \(\omega\) and \(r\) (L17, “bodies in contact”).</p>
+<div class="example"><div class="ex-head"><h4>Worked example 6.1: belt drive starting from rest</h4><span class="src">Like L11 Example 1 and Tut03 Q4</span></div>
+<p class="problem">Pulley A (radius 50 mm) starts from rest with \(\alpha_A = 6t\) rad/s². A belt drives pulley B (radius 150 mm). At \(t = 2\) s, find \(\omega_B\), the angle B has turned, and the acceleration of a point on B’s rim.</p>
+<ol class="work">
+<li>\(\alpha\) depends on \(t\), so integrate: \(\omega_A = \int_0^t 6t\,dt = 3t^2 = 12\) rad/s at \(t=2\), and \(\theta_A = \int_0^t 3t^2\,dt = t^3 = 8\) rad.</li>
+<li>The belt links the rims: \(\omega_B = \omega_A r_A/r_B = 12\times50/150 = 4.00\) rad/s, and in the same ratio \(\theta_B = 8/3 = 2.67\) rad and \(\alpha_B = 12/3 = 4\) rad/s².<span class="why-inline">The belt does not stretch or slip, so both rims move the same distance, at the same speed, with the same tangential acceleration.</span></li>
+<li>Rim of B: \(a_t = \alpha_B r_B = 4(0.15) = 0.60\) m/s² and \(a_n = \omega_B^2 r_B = 16(0.15) = 2.40\) m/s², so \(a = \sqrt{0.6^2 + 2.4^2}\).</li>
+</ol>
+<p class="answer">ω<sub>B</sub> = 4.00 rad/s, θ<sub>B</sub> = 2.67 rad, a = 2.47 m/s²</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>Rigid means fixed distances between points.</li>
+<li>\(\theta, \omega, \alpha\) follow exactly the same rules as \(s, v, a\).</li>
+<li>A point on a spinning body: \(v=\omega r\) and \(a_t=\alpha r\), both ⟂ to the radius, plus \(a_n=\omega^2r\) towards the axis.</li>
+<li>Gears and belts share \(v\) and \(a_t\) at the contact, not \(a_n\).</li></ul></div>
+</section>

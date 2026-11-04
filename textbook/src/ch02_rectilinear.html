@@ -1,0 +1,87 @@
+<section class="chapter" id="ch2" data-num="2" data-short="Straight-line motion">
+<header><span class="eyebrow">Chapter 2 · Lectures L02–L03</span><h2>Straight-line motion</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The three defining equations, and where the third one comes from</li><li>A decision table: what to do when \(a\) depends on \(t\), \(v\) or \(s\)</li><li>Choosing the limits of integration</li><li>Reading and drawing motion graphs</li></ul></div>
+
+<p>A particle moving along a straight line needs only one number to say where it is: its position \(s\), measured from a fixed origin, with one direction chosen as positive. Every idea in the rest of the course is a dressed-up version of this chapter, so it pays to get it rock solid.</p>
+
+<h3 id="ch2-defs">Three definitions</h3>
+<div class="eq key">\[ v = \frac{ds}{dt} \qquad\qquad a = \frac{dv}{dt} \qquad\qquad a\,ds = v\,dv \]</div>
+<p>The first two are definitions: velocity is how fast position changes, and acceleration is how fast velocity changes. The third is not a new law. It is the second one rewritten with the chain rule:</p>
+<div class="eq">\[ a = \frac{dv}{dt} = \frac{dv}{ds}\cdot\frac{ds}{dt} = \frac{dv}{ds}\,v \quad\Longrightarrow\quad a\,ds = v\,dv \]</div>
+<div class="callout why"><span class="tag">Why we need the third one</span><p>Sometimes the acceleration is given as a function of <em>position</em>, as with a spring, which pushes harder the further you stretch it. Then \(a = dv/dt\) is useless, because you cannot integrate a function of \(s\) with respect to \(t\). The chain-rule form swaps time out for position, so you can separate the variables and integrate.</p></div>
+
+<h3 id="ch2-decide">Which equation? Look at what \(a\) depends on</h3>
+<p>The single most useful question in L02–L03 is “<em>what is the acceleration a function of?</em>” The answer tells you which equation to separate.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Given</th><th>Use</th><th>Separate as</th><th>You get</th></tr></thead>
+<tbody>
+<tr><td>\(a\) constant</td><td>the constant-\(a\) equations</td><td>(already integrated)</td><td>\(v=v_0+at,\ s=s_0+v_0t+\tfrac12at^2,\ v^2=v_0^2+2a(s-s_0)\)</td></tr>
+<tr><td>\(a(t)\)</td><td>\(a = dv/dt\)</td><td>\(\int dv = \int a(t)\,dt\)</td><td>\(v(t)\), then \(s(t)\) from \(v=ds/dt\)</td></tr>
+<tr><td>\(a(v)\)</td><td>\(a=dv/dt\) <em>or</em> \(a\,ds=v\,dv\)</td><td>\(\int \frac{dv}{a(v)}=\int dt\) or \(\int\frac{v\,dv}{a(v)} = \int ds\)</td><td>time <em>or</em> distance, whichever is asked</td></tr>
+<tr><td>\(a(s)\)</td><td>\(a\,ds = v\,dv\)</td><td>\(\int a(s)\,ds = \int v\,dv\)</td><td>\(v(s)\)</td></tr>
+</tbody></table></div>
+<div class="callout slip"><span class="tag">Common slip</span><p>The constant-acceleration equations are only allowed when \(a\) really is constant. L03’s key outputs say it plainly: <em>acceleration does not have to be constant</em>. If \(a\) contains \(t\), \(v\) or \(s\), you must integrate.</p></div>
+
+<h3 id="ch2-limits">Choosing limits of integration</h3>
+<p>Each integral has limits on both sides, and the limits on the two sides must describe the <strong>same two moments</strong>. The lower limits are the starting state, and the upper limits are the state you want.</p>
+<div class="eq">\[ \int_{v_0}^{v} dv = \int_{0}^{t} a\,dt \qquad\text{reads as}\qquad \text{“from when the speed was } v_0 \text{ at } t=0, \text{ to when it is } v \text{ at time } t\text{”} \]</div>
+<p>If you know the end state (say the particle stops, so \(v = 0\)), put that number in as the upper limit directly.</p>
+
+<div class="example"><div class="ex-head"><h4>Worked example 2.1: acceleration that depends on time</h4><span class="src">Final exam 2019, Q1 (Review lecture 2)</span></div>
+<p class="problem">A particle is fired into a long test chamber at \(v_0 = 27\) m/s when \(t = 0\). Its acceleration is \(a = -6t\) m/s². Ignoring gravity, how far does it travel before it stops?</p>
+<ol class="work">
+<li>\(a\) depends on \(t\), so start from \(a = dv/dt\) and separate:<div class="eq">\[ \int_{27}^{v} dv = \int_0^t -6t\,dt \;\Rightarrow\; v = 27 - 3t^2 \]</div><span class="why-inline">Time is the variable we know \(a\) in terms of, so time has to be the variable we integrate over.</span></li>
+<li>Find when it stops: \(0 = 27 - 3t^2 \Rightarrow t = 3\) s.<span class="why-inline">“Stops” is a velocity condition, so use the velocity equation to turn it into a time.</span></li>
+<li>Integrate again for position:<div class="eq">\[ \int_0^x ds = \int_0^3 (27 - 3t^2)\,dt = \big[27t - t^3\big]_0^3 = 81 - 27 \]</div><span class="why-inline">\(v = ds/dt\), and \(v\) is now a known function of time.</span></li>
+</ol>
+<p class="answer">x = 54.0 m</p>
+<p>Check: the velocity never changes sign before \(t = 3\) s, so distance travelled equals displacement.</p>
+</div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 2.2: acceleration that depends on velocity (drag)</h4><span class="src">Same idea as Tut01 Q3–Q4</span></div>
+<p class="problem">A boat cuts its engine at 20 m/s. Water drag gives \(a = -0.05\,v^2\) m/s². How far does it coast, and how long does it take, to slow to 10 m/s?</p>
+<ol class="work">
+<li><strong>Distance:</strong> the question links speed to distance, so use \(a\,ds = v\,dv\):<div class="eq">\[ \int_0^s ds = \int_{20}^{10}\frac{v\,dv}{-0.05v^2} = -20\big[\ln v\big]_{20}^{10} = 20\ln 2 \]</div><span class="why-inline">\(a\) is a function of \(v\). The \(v\,dv\) form gives distance directly, without going through time.</span></li>
+<li><strong>Time:</strong> use \(a = dv/dt\):<div class="eq">\[ \int_0^t dt = \int_{20}^{10}\frac{dv}{-0.05v^2} = 20\Big[\frac1v\Big]_{20}^{10} = 20(0.1 - 0.05) \]</div><span class="why-inline">Same \(a(v)\), but now time is wanted, so put \(dt\) on the other side.</span></li>
+</ol>
+<p class="answer">s = 13.9 m, t = 1.00 s</p>
+</div>
+
+<div class="example"><div class="ex-head"><h4>Worked example 2.3: constant acceleration</h4><span class="src">L02 homework, M&amp;K 2/14</span></div>
+<p class="problem">A ball is thrown straight up at 30 m/s from the edge of a 60 m cliff. Find the height \(h\) it rises above the edge, and the time to reach the bottom of the cliff.</p>
+<ol class="work">
+<li>Take up as positive, so \(a = -9.81\) m/s², which is constant.<span class="why-inline">Gravity is the only acceleration, and near the Earth it does not change. That is the one situation where the constant-\(a\) equations are legal.</span></li>
+<li>At the top, \(v = 0\): \(0 = 30^2 - 2(9.81)h \Rightarrow h = 45.9\) m.<span class="why-inline">We know speeds and want a distance, so use the equation without \(t\) in it.</span></li>
+<li>The bottom is at \(s = -60\) m: \(-60 = 30t - 4.905t^2\). Solve the quadratic and keep the positive root: \(t = 7.70\) s.<span class="why-inline">Measuring \(s\) from the cliff edge means the bottom is <em>negative</em>. Signs carry the direction, so there is no need to split the trip into up and down legs.</span></li>
+</ol>
+<p class="answer">h = 45.9 m (matches the homework answer), t = 7.70 s</p>
+</div>
+
+<h3 id="ch2-graphs">Motion graphs</h3>
+<p>L03 treats graphs as calculus you can see. Two facts do all the work: the <strong>slope</strong> of a graph is the next quantity down the chain, and the <strong>area</strong> under a graph is the change in the quantity above it.</p>
+<figure class="panel">{{fig:motion_graphs}}<figcaption>A trip that speeds up at 2 m/s² for 5 s, cruises at 10 m/s for 10 s, then brakes to rest. Constant \(a\) gives a straight \(v\)–\(t\) line and a parabolic \(s\)–\(t\) curve. The shaded area under \(v\)–\(t\) is the distance: 25 + 100 + 25 = 150 m.</figcaption></figure>
+<div class="tablewrap"><table>
+<thead><tr><th>From this graph</th><th>Slope gives</th><th>Area gives</th></tr></thead>
+<tbody>
+<tr><td>\(s\)–\(t\)</td><td>\(v\)</td><td></td></tr>
+<tr><td>\(v\)–\(t\)</td><td>\(a\)</td><td>\(\Delta s\)</td></tr>
+<tr><td>\(a\)–\(t\)</td><td></td><td>\(\Delta v\)</td></tr>
+<tr><td>\(v\)–\(s\)</td><td>\(a = v\,\frac{dv}{ds}\) (slope times height)</td><td></td></tr>
+<tr><td>\(a\)–\(s\)</td><td></td><td>\(\tfrac12(v^2 - v_0^2)\)</td></tr>
+</tbody></table></div>
+<div class="callout why"><span class="tag">Why the a–s area gives ½v²</span><p>Integrate \(a\,ds = v\,dv\) on both sides: \(\int a\,ds = \tfrac12 v^2 - \tfrac12 v_0^2\). So the area under an \(a\)–\(s\) graph is not a velocity. It is the change in \(\tfrac12v^2\). That is exactly how you build the \(v\)–\(s\) graph in Tut01 Q2: add up the area as you go, then take a square root.</p></div>
+<h4>Drawing a graph from the one above it: a checklist</h4>
+<ol>
+<li>Split the time axis wherever the given graph changes formula.</li>
+<li>Integrating raises the power by one. A constant becomes a sloped line, and a sloped line becomes a parabola.</li>
+<li>Carry the end value of each piece into the start of the next. The curve never jumps (unless there is an impact).</li>
+<li>Label the key values at every break point, and mark maxima. Where \(v=0\), the \(s\)–\(t\) curve is flat.</li>
+</ol>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(v=ds/dt\), \(a=dv/dt\), \(a\,ds=v\,dv\). The third is the chain rule.</li>
+<li>Ask what \(a\) depends on, then separate the matching equation.</li>
+<li>Limits on both sides describe the same two moments.</li>
+<li>Slope goes down the chain, area goes back up it.</li></ul></div>
+</section>

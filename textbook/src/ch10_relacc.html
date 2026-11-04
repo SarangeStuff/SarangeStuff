@@ -1,0 +1,229 @@
+<section class="chapter" id="ch10" data-num="10" data-short="Relative acceleration (diagrams)">
+<header><span class="eyebrow">Chapter 10 · Lectures L16–L17 · the heart of the book, part 2</span><h2>Relative acceleration: drawing the acceleration diagram</h2></header>
+<div class="inthis">In this chapter
+<ul><li>Why the relative acceleration has two parts, and which part is always known</li><li>The accelerations of pins, sliders and rolling wheels</li><li>The “two chains” recipe for an acceleration diagram that always closes</li><li>Worked examples: ladder, engine, and the 2016, 2021 and 2022 exam questions</li><li>Rolling without slipping, and a slider-crank you can turn by hand</li></ul></div>
+
+<h3 id="ch10-equation">The equation, and why it has two relative parts</h3>
+<p>Differentiate \(\vec v_B = \vec v_A + \vec v_{B/A}\) and you get \(\vec a_B = \vec a_A + \vec a_{B/A}\). Chapter 9 showed that, seen from A, point B moves on a circle of radius \(r_{AB}\). Chapter 3 showed that motion on a circle has two acceleration components. Put those together:</p>
+<div class="eq key">\[ \vec a_B = \vec a_A + (\vec a_{B/A})_n + (\vec a_{B/A})_t \qquad \begin{cases} (a_{B/A})_n = \omega^2 r_{AB} & \text{from B towards A} \\[2pt] (a_{B/A})_t = \alpha\, r_{AB} & \perp AB \end{cases} \]</div>
+<figure class="panel">{{fig:acc_concept}}<figcaption>As seen from A, B runs round a circle. The normal part points along the bar towards A, and the tangential part is perpendicular to the bar.</figcaption></figure>
+<div class="callout why"><span class="tag">Why the normal part is always known (and why velocities come first)</span>
+<p>The normal part \(\omega^2 r\) depends only on \(\omega\) (from the velocity diagram) and the bar length, and it always points along the bar towards the reference point. So <strong>once the velocity diagram is solved, every normal component in the problem is fully known</strong>: size and direction. That is why the exam always asks for the velocity diagram first, and why the amber arrows in this book are always drawn before the green ones.</p>
+<p>The tangential part \(\alpha r\) is perpendicular to the bar (direction known) but its size contains the unknown \(\alpha\). It plays exactly the role that \(\vec v_{B/A}\) played in Chapter 9.</p></div>
+<p>In vector form (L16): \(\vec a_B = \vec a_A - \omega^2\vec r_{B/A} + \vec\alpha\times\vec r_{B/A}\). The \(\omega^2\) term is <strong>not</strong> a cross product. It is \(\omega^2\) times \(\vec r_{B/A}\), with a minus sign, which is just the arrow from B back towards A.</p>
+
+<h3 id="ch10-points">Accelerations of the usual suspects</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Point</th><th>Normal part</th><th>Tangential part</th></tr></thead>
+<tbody>
+<tr><td>Pin on a crank about a fixed pivot</td><td>\(\omega^2 r\), towards the pivot (known once \(\omega\) is known)</td><td>\(\alpha r\), ⟂ crank. <strong>Zero if \(\omega\) is constant.</strong> Unknown if \(\alpha\) is what you want.</td></tr>
+<tr><td>Slider in a straight guide</td><td colspan="2">Only one part, along the guide. Size usually unknown. (A straight path has no normal acceleration.)</td></tr>
+<tr><td>Centre of a wheel rolling without slip</td><td colspan="2">\(a_O = \alpha r\), parallel to the surface</td></tr>
+<tr><td>Contact point of a rolling wheel</td><td colspan="2">\(\omega^2 r\) towards the wheel’s centre. Not zero! (Chapter 8’s trap.)</td></tr>
+<tr><td>Gear teeth in contact</td><td>Different for each gear</td><td>Equal: \(\alpha_1 r_1 = \alpha_2 r_2\)</td></tr>
+</tbody></table></div>
+
+<h3 id="ch10-recipe">The recipe: two chains that meet</h3>
+<p>An acceleration diagram has more arrows than a velocity diagram, but there are still only two unknowns. The trick is to organise the equation so that each unknown comes <strong>last</strong> in a chain of arrows that starts at o.</p>
+<div class="eq">\[ \underbrace{(\vec a_C)_n + (\vec a_C)_t}_{\text{chain 1: what C does on its own path}} \;=\; \underbrace{\vec a_B + (\vec a_{C/B})_n + (\vec a_{C/B})_t}_{\text{chain 2: reach C via B}} \]</div>
+<ol class="work">
+<li><strong>Solve the velocity diagram first.</strong> Write down every \(\omega\) with its sense.<span class="why-inline">Every \(\omega^2 r\) term needs these.</span></li>
+<li><strong>Write the equation with the unknown point on the left</strong>, splitting every acceleration on a curved path into \(n\) and \(t\). This is the form the memos tick:<div class="eq">\[ (\vec a_C)_n + (\vec a_C)_t = (\vec a_B)_n + (\vec a_B)_t + (\vec a_{C/B})_n + (\vec a_{C/B})_t \]</div></li>
+<li><strong>Audit table:</strong> size and direction of every term. Calculate all the normal parts now. Expect exactly two question marks, both of them sizes of perpendicular terms (or of a slider’s acceleration).</li>
+<li><strong>Choose and state a scale</strong>, for example 1 mm = 2 m/s².</li>
+<li><strong>Chain 2 first:</strong> from o, draw the known parts of \(\vec a_B\) head to tail, then \((\vec a_{C/B})_n\) from its tip, pointing from C towards B.<span class="why-inline">You can only draw a vector with an arrowhead when you know both its size and direction, so all the fully known vectors go down first.</span></li>
+<li><strong>Through the end of chain 2</strong>, draw a long line perpendicular to BC, the direction of \((\vec a_{C/B})_t\).</li>
+<li><strong>Chain 1:</strong> from o, draw the known part of C’s own acceleration. For a pin on a crank that is \((\vec a_C)_n\), towards that crank’s pivot. For a slider there is no known part, so start at o itself.</li>
+<li><strong>Through the end of chain 1</strong>, draw a long line in the unknown direction: ⟂ the crank for \((\vec a_C)_t\), or along the guide for a slider.</li>
+<li><strong>The two lines cross</strong> at the tip of \(\vec a_C\). Put arrowheads on both unknown vectors, finishing at the crossing.<span class="why-inline">Both chains describe the same \(\vec a_C\), so they must end at the same point. The crossing is the only point that lies on both lines.</span></li>
+<li><strong>Measure</strong> the two unknowns, convert with the scale, and get \(\alpha = (a_{\text{rel}})_t / r\). Find the sense with pin-and-push on the green arrow. Measure \(\vec a_C\) itself (o to the crossing) if it is asked for.</li>
+</ol>
+<div class="callout big"><span class="tag">Normal points to the pin you measure from</span><p>\((\vec a_{C/B})_n\) points from C <strong>towards B</strong>, the letter after the slash. For a crank about a fixed pivot P, \((\vec a_C)_n\) points from C towards P. Every normal acceleration points inwards, towards the centre the point is circling (relative to that reference point).</p></div>
+
+<div class="example" id="ex-ladder-a"><div class="ex-head"><h4>Worked example 10.1: the ladder, first acceleration diagram</h4><span class="src">Continues worked example 9.1</span></div>
+<p class="problem">The same ladder, with A moving right at a <em>constant</em> 3 m/s (so \(\vec a_A = 0\)). Find \(\vec a_B\) and \(\alpha_{AB}\) at \(\theta = 30^\circ\).</p>
+<ol class="work">
+<li>From Chapter 9: \(\omega_{AB} = 4.00\) rad/s CCW.</li>
+<li>\((a_{B/A})_n = \omega^2 r = 4^2(1.5) = 24.0\) m/s², pointing from B towards A, so down and to the right along the bar.</li>
+<li>Equation: \(\vec a_B = \underbrace{\vec a_A}_{0} + (\vec a_{B/A})_n + (\vec a_{B/A})_t\). The unknowns are the size of \(\vec a_B\) (direction vertical) and the size of \((\vec a_{B/A})_t\) (direction ⟂ AB).</li>
+</ol>
+<figure class="panel stepper">{{fig:ladder_apoly}}
+<ol class="steplist">
+<li>Mark o. Because \(\vec a_A = 0\), chain 2 has nothing to draw for A: it stays at o.</li>
+<li>Draw \((\vec a_{B/A})_n\) = 24 m/s² from o, parallel to the bar, pointing from B towards A.</li>
+<li>Through its tip, draw the line perpendicular to AB, the direction of \((\vec a_{B/A})_t\).</li>
+<li>Through o, draw a vertical line, because B only moves along the wall.</li>
+<li>Close: \(\vec a_B\) from o to the crossing, and \((\vec a_{B/A})_t\) from the tip of the amber arrow to the crossing.</li>
+</ol>
+<figcaption>Even though A does not accelerate at all, B does, strongly, because the bar is turning.</figcaption></figure>
+<ol class="work" start="4">
+<li>Measured, or from components: \(a_B = 48.0\) m/s² and \((a_{B/A})_t = 41.6\) m/s².</li>
+<li>\(\alpha = 41.6/1.5 = 27.7\) rad/s². The green arrow points down-left at B. Pin A and push B that way: anticlockwise.</li>
+</ol>
+<p class="answer">a<sub>B</sub> = 48.0 m/s² ↓, α<sub>AB</sub> = 27.7 rad/s² CCW</p>
+<p>α has the same sense as ω, so the ladder’s rotation is speeding up as it falls flatter, which matches what you see when a ladder slips.</p>
+</div>
+
+<div class="example" id="ex-sc-a"><div class="ex-head"><h4>Worked example 10.2: the engine’s piston acceleration</h4><span class="src">L16 Example 2 (continues worked example 9.2)</span></div>
+<p class="problem">Same slider-crank: crank 125 mm at a constant 1500 rev/min CW, rod 350 mm, \(\theta = 60^\circ\). Find \(\vec a_A\) and \(\alpha_{AB}\).</p>
+<ol class="work">
+<li>From the velocity diagram: \(\omega_{OB} = 157.1\) rad/s CW and \(\omega_{AB} = 29.5\) rad/s CCW.</li>
+<li>B is on a crank with <em>constant</em> speed, so \((a_B)_t = 0\) and \(a_B = (a_B)_n = 157.1^2(0.125) = 3084\) m/s², from B towards O.</li>
+<li>\((a_{A/B})_n = \omega_{AB}^2\, r_{AB} = 29.5^2(0.350) = 305\) m/s², from A towards B (up the rod at 18°).<span class="why-inline">The L16 slide prints 0.250 m here, but 305 only comes out with the real rod length, 0.350 m. That is a typo on the slide; the answer 305 is right.</span></li>
+<li>Unknowns: the size of \(\vec a_A\) (horizontal) and the size of \((\vec a_{A/B})_t\) (⟂ AB).</li>
+</ol>
+<figure class="panel stepper">{{fig:sc_apoly}}
+<ol class="steplist">
+<li>From o, draw \(\vec a_B\) = 3084 m/s² from B towards O (down and to the right at 60°).</li>
+<li>From its tip, draw \((\vec a_{A/B})_n\) = 305 m/s² parallel to the rod, pointing from A to B.</li>
+<li>Through that tip, draw the line perpendicular to AB.</li>
+<li>Through o, draw the horizontal line along which the piston moves.</li>
+<li>Close: \(\vec a_A\) from o along the horizontal, and \((\vec a_{A/B})_t\) up to meet it.</li>
+</ol>
+<figcaption>Acceleration diagram to scale (the L16 slide is marked “not to scale”).</figcaption></figure>
+<ol class="work" start="5">
+<li>Component check. The \(y\)-equation contains only one unknown, because \(\vec a_A\) is horizontal:<div class="eq">\[ y:\ 0 = -3084\sin60^\circ + 305\sin18^\circ + 0.951\,(a_{A/B})_t \;\Rightarrow\; (a_{A/B})_t = 2710\ \text{m/s}^2 \]\[ x:\ a_A = 1542 + 290 - 0.309(2710) = 994\ \text{m/s}^2 \]</div><span class="why-inline">Picking the equation in which one unknown has no component is the fastest way to solve these by hand.</span></li>
+<li>\(\alpha_{AB} = 2710/0.350 = 7740\) rad/s². The green arrow points up-left at A. Pin B and push A (the left end) upwards: clockwise.</li>
+</ol>
+<p class="answer">a<sub>A</sub> = 994 m/s² →, α<sub>AB</sub> = 7740 rad/s² CW</p>
+</div>
+
+<div class="example" id="ex-16-a"><div class="ex-head"><h4>Worked example 10.3: the 2016 exam, parts (c) and (d)</h4><span class="src">Continues worked example 9.3 · exam scale 1 mm = 2 m/s²</span></div>
+<p class="problem">Draw the relative acceleration diagram of bar BD and use it to find \(\alpha_{BD}\). (AB turns at a constant 10 rad/s CW.)</p>
+<p>From the velocity diagram: \(\omega_{BD} = 8.00\) rad/s CCW and \(\omega_{DE} = 24.0\) rad/s CCW. D is the point whose acceleration is not fully known, so put it on the left:</p>
+<div class="eq">\[ (\vec a_D)_n + (\vec a_D)_t \;=\; \vec a_B + (\vec a_{D/B})_n + (\vec a_{D/B})_t \]</div>
+<div class="tablewrap"><table>
+<thead><tr><th>Term</th><th>Size</th><th>Direction</th></tr></thead>
+<tbody>
+<tr><td>\((\vec a_D)_n = \omega_{DE}^2 r_{DE}\)</td><td class="ok">✓ \(24^2(0.2) = 115.2\)</td><td class="ok">✓ D → E (→)</td></tr>
+<tr><td>\((\vec a_D)_t = \alpha_{DE} r_{DE}\)</td><td class="no">?</td><td class="ok">✓ ⟂ DE (vertical)</td></tr>
+<tr><td>\(\vec a_B = \omega_{AB}^2 r_{AB}\) (and \((a_B)_t = 0\))</td><td class="ok">✓ \(10^2(0.2) = 20.0\)</td><td class="ok">✓ B → A (↑)</td></tr>
+<tr><td>\((\vec a_{D/B})_n = \omega_{BD}^2 r_{BD}\)</td><td class="ok">✓ \(8^2(0.65) = 41.6\)</td><td class="ok">✓ D → B (22.6° above →)</td></tr>
+<tr><td>\((\vec a_{D/B})_t = \alpha_{BD} r_{BD}\)</td><td class="no">?</td><td class="ok">✓ ⟂ BD</td></tr>
+</tbody></table></div>
+<figure class="panel stepper">{{fig:x16_apoly}}
+<ol class="steplist">
+<li>Chain 1: from o, draw \((\vec a_D)_n\) = 115.2 m/s² to the right (towards E).</li>
+<li>Through its tip, draw a vertical line: the direction of \((\vec a_D)_t\).</li>
+<li>Chain 2: from o, draw \(\vec a_B\) = 20 m/s² upwards (towards A).</li>
+<li>From its tip, draw \((\vec a_{D/B})_n\) = 41.6 m/s², pointing from D towards B (up and to the right, 22.6°).</li>
+<li>Through that tip, draw the line perpendicular to BD.</li>
+<li>Close: both green arrows finish at the crossing.</li>
+</ol>
+<figcaption>Two chains from o, each ending in a direction line. They meet at the tip of \(\vec a_D\).</figcaption></figure>
+<ol class="work">
+<li>Measured: \((a_{D/B})_t \approx 200\) m/s². (Check: the \(x\)-components give \(115.2 = 0 + 38.4 + 0.385\,(a_{D/B})_t\), so it is 199.7.)</li>
+<li>\(\alpha_{BD} = 200/0.65 = 307\) rad/s². The green arrow points down-right. Pin B and push D (down-left of B) that way: anticlockwise.</li>
+<li>Bonus: \((a_D)_t = 148\) m/s² ↓, so \(\alpha_{DE} = 148/0.2 = 742\) rad/s² CCW.</li>
+</ol>
+<p class="answer">α<sub>BD</sub> = 307 rad/s² CCW (memo: 307 rad/s² CCW)</p>
+</div>
+
+<div class="example" id="ex-22-a"><div class="ex-head"><h4>Worked example 10.4: the 2022 exam, parts (b) and (c)</h4><span class="src">Continues worked example 9.4 · exam scale 1 m/s² : 20 cm</span></div>
+<p class="problem">With \(\omega_{AB} = 3\) rad/s and \(\alpha_{AB} = 2\) rad/s², both CCW, draw the acceleration diagram for bar BC and find the acceleration of block C.</p>
+<p>From the velocity diagram: \(\omega_{BC} = 1.125\) rad/s CCW. The new feature is that AB is <em>speeding up</em>, so B has a tangential part as well.</p>
+<div class="eq">\[ \vec a_C \;=\; (\vec a_B)_n + (\vec a_B)_t + (\vec a_{C/B})_n + (\vec a_{C/B})_t \]</div>
+<div class="tablewrap"><table>
+<thead><tr><th>Term</th><th>Size (m/s²)</th><th>Direction</th></tr></thead>
+<tbody>
+<tr><td>\((\vec a_B)_n = \omega_{AB}^2 r_{AB}\)</td><td class="ok">✓ \(9(0.07) = 0.63\)</td><td class="ok">✓ B → A (↓)</td></tr>
+<tr><td>\((\vec a_B)_t = \alpha_{AB} r_{AB}\)</td><td class="ok">✓ \(2(0.07) = 0.14\)</td><td class="ok">✓ ⟂ AB, ← (pin A, spin CCW)</td></tr>
+<tr><td>\((\vec a_{C/B})_n = \omega_{BC}^2 r_{BC}\)</td><td class="ok">✓ \(1.125^2(0.13) = 0.1645\)</td><td class="ok">✓ C → B (22.6° from vertical)</td></tr>
+<tr><td>\((\vec a_{C/B})_t = \alpha_{BC} r_{BC}\)</td><td class="no">?</td><td class="ok">✓ ⟂ BC (22.6° from horizontal)</td></tr>
+<tr><td>\(\vec a_C\)</td><td class="no">?</td><td class="ok">✓ along the slope (36.9°)</td></tr>
+</tbody></table></div>
+<figure class="panel stepper">{{fig:x22_apoly}}
+<ol class="steplist">
+<li>From o, draw \((\vec a_B)_n\) = 0.63 m/s² downwards (12.6 cm at the exam scale).</li>
+<li>From its tip, draw \((\vec a_B)_t\) = 0.14 m/s² to the left.</li>
+<li>From that tip, draw \((\vec a_{C/B})_n\) = 0.1645 m/s², pointing from C towards B.</li>
+<li>Through that tip, draw the line perpendicular to BC.</li>
+<li>Through o, draw the line along the slope, because C is a slider (chain 1 has no known part).</li>
+<li>Close: \(\vec a_C\) from o to the crossing, and \((\vec a_{C/B})_t\) to the same point.</li>
+</ol>
+<figcaption>Chain 2 has three known arrows before its unknown direction line. Chain 1 is just the slope line through o.</figcaption></figure>
+<ol class="work">
+<li>Measure \(\vec a_C\) from o to the crossing: 0.547 m/s² (10.9 cm at 20 cm per m/s²). The memo accepts anything between 0.492 and 0.602 m/s², so neat drawing within 5% gets full marks.</li>
+<li>The green arrow is 0.39 m/s², so \(\alpha_{BC} = 0.39/0.13 = 3.0\) rad/s². Pin B and push C up-left: clockwise. (This part was not asked, but it is a useful check.)</li>
+</ol>
+<p class="answer">a<sub>C</sub> = 0.547 m/s², directed down the slope</p>
+<div class="callout slip"><span class="tag">The mark people lose here</span><p>Because AB has an angular <em>acceleration</em>, \((\vec a_B)_t = \alpha_{AB} r_{AB}\) is not zero. The memo gives it its own tick “(mag. &amp; dir.)”. Always ask whether the driving crank’s \(\omega\) is constant. If it is not, B has a tangential part.</p></div>
+</div>
+
+<div class="example" id="ex-21-a"><div class="ex-head"><h4>Worked example 10.5: the 2021 exam, a bar with ω = 0</h4><span class="src">Final exam 2021 Q5(b)–(c) · continues worked example 9.5</span></div>
+<p class="problem">AB turns at a constant 6 rad/s CW. Draw the relative acceleration diagram of BDE, find \(\alpha_{BDE}\), then find the acceleration of E.</p>
+<ol class="work">
+<li>From the velocity diagram: \(\omega_{BDE} = 0\) and \(\omega_{DC} = 3.00\) rad/s CW.</li>
+<li>Equation for D:<div class="eq">\[ (\vec a_D)_n + (\vec a_D)_t = (\vec a_B)_n + (\vec a_B)_t + (\vec a_{D/B})_n + (\vec a_{D/B})_t \]</div></li>
+<li>Terms: \((a_D)_n = 3^2(0.18) = 1.62\) ↓ (towards C). \((a_D)_t\): horizontal, size ?. \((a_B)_n = 6^2(0.09) = 3.24\) ↓ (towards A). \((a_B)_t = 0\) (constant ω). \((a_{D/B})_n = 0^2(0.242) = 0\). \((a_{D/B})_t\): ⟂ BD, size ?.<span class="why-inline">With \(\omega_{BDE} = 0\), the normal relative term vanishes. This is the one situation where it does.</span></li>
+</ol>
+<figure class="panel stepper">{{fig:x21_apoly}}
+<ol class="steplist">
+<li>Chain 2: from o, draw \((\vec a_B)_n\) = 3.24 m/s² downwards. The other two parts of chain 2 are zero.</li>
+<li>Through its tip, draw the line perpendicular to BD.</li>
+<li>Chain 1: from o, draw \((\vec a_D)_n\) = 1.62 m/s² downwards. It lies on top of the first arrow, but is half as long.</li>
+<li>Through its tip, draw a horizontal line: the direction of \((\vec a_D)_t\).</li>
+<li>Close: both green arrows end at the crossing.</li>
+</ol>
+<figcaption>Two downward arrows that overlap are normal in this problem. They belong to different chains.</figcaption></figure>
+<ol class="work" start="4">
+<li>The vertical components give \(-1.62 = -3.24 + (a_{D/B})_t\cos21.8^\circ\), so \((a_{D/B})_t = 1.745\) m/s².</li>
+<li>\(\alpha_{BDE} = 1.745/0.242 = 7.21\) rad/s². The green arrow points up-left at D. Pin B and push D (up-right of B) that way: anticlockwise.</li>
+<li>Part (c): E is on the same bar, so \(\vec a_E = \vec a_B + (\vec a_{E/B})_n + (\vec a_{E/B})_t\), with \((a_{E/B})_n = 0\) and \((a_{E/B})_t = 7.21(0.485) = 3.49\) m/s² ⟂ BE. In components:<div class="eq">\[ \vec a_E = (0, -3.24) + 3.49(-0.371,\ 0.928) = (-1.30,\ 0)\ \text{m/s}^2 \]</div><span class="why-inline">Once you know \(\alpha\) for a bar, any other point on it follows from one more relative acceleration equation.</span></li>
+</ol>
+<p class="answer">α<sub>BDE</sub> = 7.2 rad/s² CCW, a<sub>E</sub> = 1.30 m/s² ← (memo: 7.2 rad/s² and 1.3 m/s² ←)</p>
+</div>
+
+<h3 id="ch10-rolling">Rolling without slipping, and gears</h3>
+<p>For a wheel of radius \(r\) rolling on a fixed surface (L17):</p>
+<div class="eq">\[ v_O = \omega r \qquad a_O = \alpha r \ (\text{parallel to the surface}) \qquad a_{\text{contact}} = \omega^2 r \ (\text{towards }O) \]</div>
+<div class="callout why"><span class="tag">Why the contact point accelerates</span><p>The contact point is at rest for an instant, but a moment earlier it was coming down and a moment later it is lifting off. Its path is a cusp of a cycloid, and that sharp change of direction needs an acceleration of \(\omega^2 r\) straight up into the wheel. This is why you can never use the IC for accelerations.</p></div>
+<div class="example" id="ex-gear"><div class="ex-head"><h4>Worked example 10.6: a gear rolling on a rack</h4><span class="src">L17 Example 1</span></div>
+<p class="problem">A gear of radius 0.3 m rolls to the right on a fixed rack with \(\omega = 12\) rad/s and \(\alpha = 6\) rad/s², both clockwise. Find the acceleration of point A at the top.</p>
+<figure class="panel">{{fig:gear_mech}}<figcaption>Rolling to the right means clockwise spin.</figcaption></figure>
+<ol class="work">
+<li>Use the centre O as the reference point, because its acceleration is known: \(a_O = \alpha r = 6(0.3) = 1.8\) m/s² →.</li>
+<li>\((a_{A/O})_n = \omega^2 r = 144(0.3) = 43.2\) m/s², from A towards O (↓). \((a_{A/O})_t = \alpha r = 1.8\) m/s², ⟂ OA. For CW α at the top of the wheel that is →.</li>
+<li>Add head to tail: \(\vec a_A = (1.8 + 1.8)\hat i - 43.2\hat j\).</li>
+</ol>
+<figure class="panel stepper">{{fig:gear_apoly}}
+<ol class="steplist">
+<li>From o, draw \(\vec a_O\) = 1.8 m/s² to the right.</li>
+<li>From its tip, draw \((\vec a_{A/O})_t\) = 1.8 m/s², also to the right.</li>
+<li>From that tip, draw \((\vec a_{A/O})_n\) = 43.2 m/s² downwards.</li>
+<li>\(\vec a_A\) runs from o to the end of the chain.</li>
+</ol>
+<figcaption>Everything is known here, so there is no crossing to find. The normal part dominates.</figcaption></figure>
+<p class="answer">a<sub>A</sub> = 43.3 m/s² at ∡ −85.2°</p>
+<p>Two gears in mesh share the same \(a_t\) at the contact point (\(\alpha_1 r_1 = \alpha_2 r_2\)), but each has its own \(a_n = \omega^2 r\), so their total accelerations at the contact differ (L17, “bodies in contact”).</p>
+</div>
+
+<h3 id="ch10-lab">Lab: turn the crank yourself</h3>
+<p>Drag the slider to change the crank angle of the engine from worked examples 9.2 and 10.2. Watch how the two diagrams change shape. Things to look for: at 0° and 180° (dead centres), the piston’s velocity is zero but its acceleration is at its largest. And the green arrow flips direction as the rod’s angular acceleration changes sense.</p>
+<div class="lab" id="lab">
+<label for="labTheta">Crank angle θ <input type="range" id="labTheta" min="0" max="359" step="1" value="60"> <span class="readout" id="labThetaOut">60°</span></label>
+<div class="labgrid">
+<div><h4>Mechanism</h4><svg id="labMech" class="fig" viewBox="0 0 320 200" role="img" aria-label="Slider-crank at the chosen angle"></svg></div>
+<div><h4>Velocity diagram</h4><svg id="labVel" class="fig" viewBox="0 0 260 210" role="img" aria-label="Velocity diagram, scaled to fit"></svg></div>
+<div><h4>Acceleration diagram</h4><svg id="labAcc" class="fig" viewBox="0 0 260 210" role="img" aria-label="Acceleration diagram, scaled to fit"></svg></div>
+</div>
+<div class="nums" id="labNums"></div>
+<p style="margin:10px 0 0;font-size:0.9rem;color:var(--muted)">Each diagram is rescaled to fit its box, so compare shapes, not lengths, between angles. Crank 125 mm, rod 350 mm, 1500 rev/min CW.</p>
+</div>
+
+<div class="callout slip"><span class="tag">Common slips with acceleration diagrams</span><ul>
+<li>Starting on accelerations before the velocities are solved. Every normal term needs an \(\omega\).</li>
+<li>Pointing a normal arrow the wrong way. It always points <em>towards</em> the reference point or the pivot.</li>
+<li>Forgetting \((a_B)_t\) when the driving crank has an \(\alpha\), or putting one in when \(\omega\) is constant.</li>
+<li>Drawing the tangential term along the bar. It is always ⟂ to the bar, like the relative velocity.</li>
+<li>Squaring the wrong thing: it is \(\omega^2 r\), not \((\omega r)^2\).</li>
+<li>Using the IC to find accelerations.</li>
+<li>Not stating the sense of \(\alpha\) (CW/CCW). It is a separate mark.</li></ul></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(\vec a_C = \vec a_B + (\vec a_{C/B})_n + (\vec a_{C/B})_t\). The normal part is \(\omega^2 r\) towards B (known after the velocities). The tangential part is \(\alpha r\), ⟂ BC (direction only).</li>
+<li>Points on cranks have \(n\) and \(t\) parts. Sliders have one part, along the guide.</li>
+<li>Two chains from o, unknowns last. Their direction lines cross at the answer.</li>
+<li>\(\alpha = (a_{\text{rel}})_t/r\). Sense by pin-and-push on the green arrow.</li>
+<li>Practice: Tut05 Q1–Q5 (answers on the sheet).</li></ul></div>
+</section>

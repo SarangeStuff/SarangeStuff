@@ -1,0 +1,51 @@
+<section class="chapter" id="ch1" data-num="1" data-short="The toolkit">
+<header><span class="eyebrow">Chapter 1 · Lecture L01</span><h2>The toolkit you will use every day</h2></header>
+<div class="inthis">In this chapter
+<ul><li>Vectors, and how the course writes them</li><li>The two triangle rules that solve most vector diagrams</li><li>The one cross product you need, \(\omega\hat k\times\vec r\)</li><li>Slope, area and the chain rule</li></ul></div>
+
+<p>L01 is a checklist of maths you are expected to already have. This chapter keeps only the parts that will come up again and again in kinematics, and says <em>where</em> each one gets used.</p>
+
+<h3 id="ch1-vectors">Scalars and vectors</h3>
+<p>A <strong>scalar</strong> has only a size: time, mass, distance travelled, speed. A <strong>vector</strong> has a size <em>and</em> a direction: position, displacement, velocity, acceleration, force. In this course a vector is written with an arrow, \(\vec v\), and its size (the magnitude) is written without one, \(v\) or \(|\vec v|\).</p>
+<p>You will meet two ways of writing the same vector:</p>
+<div class="eq">\[ \vec v = \underbrace{(5.32\ \text{m/s},\ \measuredangle -117^\circ)}_{\text{magnitude, angle}} \qquad\text{or}\qquad \vec v = \underbrace{-2.44\,\hat i + 4.73\,\hat j\ \ \text{m/s}}_{\text{components}} \]</div>
+<p>The angle form is the one your memos use for final answers. Angles are measured from the positive \(x\)-axis, anticlockwise positive. Converting between them is the bread and butter of the course:</p>
+<div class="eq">\[ v_x = v\cos\theta,\quad v_y = v\sin\theta \qquad\Longleftrightarrow\qquad v=\sqrt{v_x^2+v_y^2},\quad \theta=\tan^{-1}\!\frac{v_y}{v_x}\ \text{(check the quadrant!)} \]</div>
+<div class="callout slip"><span class="tag">Common slip</span><p>Your calculator’s \(\tan^{-1}\) only returns angles between −90° and +90°. A vector like \(-2.44\hat i + 4.73\hat j\) points up and to the <em>left</em>, so its angle is \(180^\circ - 62.7^\circ = 117.3^\circ\), not 62.7°. Sketch the vector before trusting the button.</p></div>
+
+<h3 id="ch1-triangles">The two triangle rules</h3>
+<p>Almost every vector diagram in this course is a triangle. You can measure it with a ruler, or solve it exactly with one of these two rules.</p>
+<figure class="panel">{{fig:tri_rules}}<figcaption>Side \(a\) sits opposite angle \(A\), side \(b\) opposite \(B\), side \(c\) opposite \(C\).</figcaption></figure>
+<div class="eq key">\[ \textbf{Sine rule:}\ \ \frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C} \qquad\qquad \textbf{Cosine rule:}\ \ a^2=b^2+c^2-2bc\cos A \]</div>
+<div class="callout why"><span class="tag">Which one, when?</span>
+<p>Use the <strong>cosine rule</strong> when you know two sides and the angle <em>between</em> them. That is the typical relative velocity case: you know \(v_A\), \(v_B\) and the angle between their directions, and you want \(v_{B/A}\).</p>
+<p>Use the <strong>sine rule</strong> when you know all three directions (so all three angles) and one side. That is the typical rigid-body case: one velocity is known completely and the other two are known only by direction. Most of Chapter 9 runs on the sine rule.</p></div>
+
+<h3 id="ch1-cross">The one cross product you need</h3>
+<p>For flat (planar) motion, every angular velocity points along \(\hat k\), straight out of the page. Anticlockwise (CCW) is positive. The cross product with a position vector then has a very simple meaning:</p>
+<div class="eq key">\[ \omega\hat k \times (x\,\hat i + y\,\hat j) \;=\; \omega\,(-y\,\hat i + x\,\hat j) \]</div>
+<div class="callout why"><span class="tag">Why this works</span>
+<p>Look at the result: the vector \((x, y)\) has become \((-y, x)\). That is the same vector <strong>turned 90° anticlockwise</strong>, then stretched by \(\omega\). So “\(\vec\omega\times\vec r\)” just means <em>turn \(\vec r\) a quarter-turn in the direction of spin, and scale it by \(\omega\)</em>. That is why the velocity of a point on a spinning body is always perpendicular to the line from the centre, and why its size is \(\omega r\). You will use this idea in Chapters 6, 9 and 10.</p></div>
+<p>The handy unit-vector results are \(\hat k\times\hat i = \hat j\) and \(\hat k\times\hat j = -\hat i\).</p>
+
+<h3 id="ch1-calc">Calculus as pictures</h3>
+<ul>
+<li><strong>A derivative is a slope.</strong> \(v = ds/dt\) is the slope of the position–time graph.</li>
+<li><strong>An integral is an area.</strong> \(\Delta s = \int v\,dt\) is the area under the velocity–time graph.</li>
+<li><strong>The chain rule turns geometry into velocity.</strong> If \(x = 0.2\cos\theta\) and \(\theta\) changes with time, then \(\dot x = -0.2\sin\theta\,\dot\theta\). That one line is the whole idea of Chapter 7.</li>
+</ul>
+<p>Dots mean time derivatives: \(\dot\theta = d\theta/dt = \omega\) and \(\ddot\theta = d^2\theta/dt^2 = \alpha\).</p>
+
+<h3 id="ch1-units">Units and significant figures</h3>
+<ul>
+<li>Angles in kinematics formulas are in <strong>radians</strong>. Convert revolutions per minute with \(\omega = N\cdot\frac{2\pi}{60}\). For example, 1500 rev/min = 157 rad/s.</li>
+<li>Tutorials ask for <strong>3 significant figures</strong>. Keep 4 or more in your working and round only at the end.</li>
+<li>Check units at the end of every answer. \(\omega^2 r\) is (rad/s)²·m = m/s², and \(\omega r\) is m/s.</li>
+</ul>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>Vectors carry a size and a direction. Sketch before using \(\tan^{-1}\).</li>
+<li>Cosine rule: two sides and the angle between them. Sine rule: one side and all the angles.</li>
+<li>\(\omega\hat k\times\vec r\) means turn \(\vec r\) 90° the way it spins and multiply by \(\omega\).</li>
+<li>Derivative = slope, integral = area, chain rule = geometry into velocity.</li></ul></div>
+</section>

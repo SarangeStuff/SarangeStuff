@@ -1,0 +1,79 @@
+<section class="chapter" id="ch3" data-num="3" data-short="Curved paths">
+<header><span class="eyebrow">Chapter 3 · Lectures L04–L08</span><h2>Curved paths: three ways to look at the same motion</h2></header>
+<div class="inthis">In this chapter
+<ul><li>Rectangular (x–y) components and projectiles</li><li>Normal–tangential (n–t) components: the key to everything that turns</li><li>Polar (r–θ) components and the strange-looking Coriolis term</li><li>Cylindrical and spherical coordinates for 3D</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>The motion is the same whichever coordinates you use. You only choose the coordinate system that makes <em>your</em> problem easy. Use <strong>x–y</strong> when the forces line up with fixed directions (gravity). Use <strong>n–t</strong> when you know the path and the speed along it. Use <strong>r–θ</strong> when something is measured from a fixed point, such as a rotating arm, a radar, or a slot.</p></div>
+
+<p>One fact holds in every system: <strong>velocity is always tangent to the path.</strong> Acceleration usually is not, and the three systems are just three ways of splitting it into pieces.</p>
+
+<h3 id="ch3-xy">Rectangular components (L04)</h3>
+<div class="eq">\[ \vec r = x\hat i + y\hat j \qquad \vec v = \dot x\,\hat i + \dot y\,\hat j \qquad \vec a = \ddot x\,\hat i + \ddot y\,\hat j \]</div>
+<p>Because \(\hat i\) and \(\hat j\) never change direction, you differentiate each component on its own. A curved motion splits into two straight-line motions, each of which is a Chapter 2 problem.</p>
+<p><strong>Projectiles</strong> are the classic case. With no air resistance, \(a_x = 0\) and \(a_y = -g\).</p>
+<div class="eq">\[ x = x_0 + v_{0x}t \qquad v_y = v_{0y} - gt \qquad y = y_0 + v_{0y}t - \tfrac12 g t^2 \qquad v_y^2 = v_{0y}^2 - 2g(y-y_0) \]</div>
+<div class="callout why"><span class="tag">Why the horizontal speed never changes</span><p>Gravity pulls straight down. Nothing pushes sideways, so nothing changes the sideways velocity. The only thing the horizontal and vertical motions share is the clock. Time is the link you solve for, usually from the vertical equation, and then use in the horizontal one.</p></div>
+<div class="example"><div class="ex-head"><h4>Worked example 3.1: a simple projectile</h4><span class="src">Tut02 Q1 uses the same method</span></div>
+<p class="problem">A ball is kicked from level ground at 20 m/s, 35° above horizontal. Find its range and maximum height.</p>
+<ol class="work">
+<li>Split the launch velocity: \(v_{0x} = 20\cos35^\circ = 16.38\) m/s and \(v_{0y} = 20\sin35^\circ = 11.47\) m/s.</li>
+<li>Time of flight: it lands when \(y = 0\) again, so \(0 = 11.47t - 4.905t^2 \Rightarrow t = 2.339\) s.<span class="why-inline">The vertical motion decides <em>when</em> it lands. The horizontal motion only tells you <em>where</em>.</span></li>
+<li>Range: \(x = 16.38 \times 2.339 = 38.3\) m. Maximum height (where \(v_y = 0\)): \(H = 11.47^2/(2\times 9.81) = 6.71\) m.</li>
+</ol>
+<p class="answer">Range 38.3 m, maximum height 6.71 m</p></div>
+
+<h3 id="ch3-nt">Normal and tangential components (L05)</h3>
+<p>Ride along with the particle. One unit vector \(\hat e_t\) points forward along the path, and the other, \(\hat e_n\), points sideways towards the <strong>centre of curvature</strong> (the inside of the bend).</p>
+<figure class="panel">{{fig:nt_path}}<figcaption>The velocity is along \(\hat e_t\). The acceleration has a tangential part (speed changing) and a normal part pointing into the bend (direction changing). They add head-to-tail to give \(\vec a\).</figcaption></figure>
+<div class="eq key">\[ \vec v = v\,\hat e_t \qquad\qquad \vec a = \underbrace{\dot v\,\hat e_t}_{a_t} + \underbrace{\frac{v^2}{\rho}\,\hat e_n}_{a_n} \]</div>
+<div class="callout why"><span class="tag">Why two pieces, and why v²/ρ</span>
+<p>Velocity can change in two ways: it can get longer or shorter (speed changes), or it can turn (direction changes). Each kind of change needs its own acceleration.</p>
+<ul><li>\(a_t = \dot v = dv/dt\) changes the <strong>speed</strong>. It is zero when you drive round a bend at a constant speed.</li>
+<li>\(a_n = v^2/\rho\) changes the <strong>direction</strong>. It always points into the bend. Going twice as fast round the same bend turns the velocity twice as quickly <em>and</em> the velocity is twice as big, so \(a_n\) goes up four times. That is why \(v\) appears squared. A tighter bend (smaller \(\rho\)) turns you faster, so \(\rho\) is on the bottom.</li></ul>
+<p>Unless the speed is changing, \(a_n\) is the only acceleration, which is why you feel pushed outwards in a turning car.</p></div>
+<p>For a path given as \(y(x)\), the radius of curvature is \(\rho = \frac{\left[1+(dy/dx)^2\right]^{3/2}}{|d^2y/dx^2|}\) (the hint in Tut02 Q2). On a circle, \(\rho\) is just the radius, and that special case drives all of rigid-body rotation (Chapter 6).</p>
+<div class="example"><div class="ex-head"><h4>Worked example 3.2: a car on a bend</h4><span class="src">Like L05 Example 1</span></div>
+<p class="problem">A car rounds a bend of radius 50 m at 20 m/s and is speeding up at 3 m/s². Find the size of its acceleration.</p>
+<ol class="work">
+<li>\(a_t = \dot v = 3\) m/s² (given directly as the rate of change of speed).</li>
+<li>\(a_n = v^2/\rho = 20^2/50 = 8\) m/s², pointing to the centre of the bend.</li>
+<li>The two are perpendicular, so \(a = \sqrt{3^2 + 8^2}\).<span class="why-inline">\(\hat e_t\) and \(\hat e_n\) are at right angles, so Pythagoras applies.</span></li>
+</ol>
+<p class="answer">a = 8.54 m/s²</p></div>
+
+<h3 id="ch3-polar">Polar coordinates (L06–L07)</h3>
+<p>Now describe the particle by its distance \(r\) from a fixed point O and the angle \(\theta\) of the line OP. The unit vectors are \(\hat e_r\) (straight out along OP) and \(\hat e_\theta\) (a quarter-turn anticlockwise from it).</p>
+<figure class="panel">{{fig:polar}}<figcaption>The unit vectors \(\hat e_r\) and \(\hat e_\theta\) turn as the particle moves. That turning is what creates the extra terms.</figcaption></figure>
+<div class="eq key">\[ \vec v = \dot r\,\hat e_r + r\dot\theta\,\hat e_\theta \qquad\qquad \vec a = \big(\ddot r - r\dot\theta^2\big)\hat e_r + \big(r\ddot\theta + 2\dot r\dot\theta\big)\hat e_\theta \]</div>
+<div class="callout why"><span class="tag">What each term means</span>
+<ul>
+<li>\(\dot r\): sliding outwards along the arm. \(r\dot\theta\): being carried round by the arm, like a point at radius \(r\) on a wheel spinning at \(\dot\theta\).</li>
+<li>\(\ddot r\): the outward slide speeding up.</li>
+<li>\(-r\dot\theta^2\): the centripetal term (the \(v^2/\rho\) of a circle). It is negative because it points <em>inwards</em>, towards O.</li>
+<li>\(r\ddot\theta\): the arm spinning faster.</li>
+<li>\(2\dot r\dot\theta\): the <strong>Coriolis</strong> term. Two things happen when you slide outward on a spinning arm. You move to a bigger radius, where the same \(\dot\theta\) means a faster sideways speed. And your outward velocity is itself being swung round. Each effect contributes one \(\dot r\dot\theta\), so the term is \(2\dot r\dot\theta\).</li>
+</ul></div>
+<div class="example"><div class="ex-head"><h4>Worked example 3.3: a collar on a rotating rod</h4><span class="src">Same set-up as Tut02 Q3–Q4</span></div>
+<p class="problem">A rod spins at a constant \(\dot\theta = 2\) rad/s. A collar on it is at \(r = 0.5\) m and sliding outward at a steady \(\dot r = 0.3\) m/s. Find the collar’s velocity and acceleration.</p>
+<ol class="work">
+<li>List the five numbers you need: \(r = 0.5\), \(\dot r = 0.3\), \(\ddot r = 0\), \(\dot\theta = 2\), \(\ddot\theta = 0\).<span class="why-inline">Every polar question comes down to finding these five numbers. The formulas do the rest.</span></li>
+<li>\(v_r = 0.3\) m/s and \(v_\theta = 0.5\times2 = 1.0\) m/s, so \(v = \sqrt{0.3^2+1.0^2} = 1.04\) m/s.</li>
+<li>\(a_r = 0 - 0.5(2)^2 = -2.0\) m/s² (inwards) and \(a_\theta = 0 + 2(0.3)(2) = 1.2\) m/s², so \(a = 2.33\) m/s².<span class="why-inline">Even with nothing speeding up, there are two accelerations: the inward centripetal one, and the Coriolis one from sliding outward on a spinning rod.</span></li>
+</ol>
+<p class="answer">v = 1.04 m/s, a = 2.33 m/s²</p></div>
+
+<h3 id="ch3-3d">3D: cylindrical and spherical (L08)</h3>
+<p><strong>Cylindrical</strong> coordinates are polar coordinates with a height \(z\) added. Use them for helices (the roller coaster in L04) and anything turning around a vertical axis while rising.</p>
+<div class="eq">\[ \vec v = \dot r\,\hat e_r + r\dot\theta\,\hat e_\theta + \dot z\,\hat k \qquad \vec a = (\ddot r - r\dot\theta^2)\hat e_r + (r\ddot\theta + 2\dot r\dot\theta)\hat e_\theta + \ddot z\,\hat k \]</div>
+<p><strong>Spherical</strong> coordinates \((R, \theta, \phi)\) suit radar antennas and anything pointing into the sky, like latitude (\(\phi\), measured up from the horizontal plane) and longitude (\(\theta\)). The velocity, as in L08, is</p>
+<div class="eq">\[ \vec v = \dot R\,\hat e_R + R\dot\theta\cos\phi\,\hat e_\theta + R\dot\phi\,\hat e_\phi \]</div>
+<p>and the acceleration components are</p>
+<div class="eq">\[ a_R = \ddot R - R\dot\phi^2 - R\dot\theta^2\cos^2\phi \qquad a_\theta = \frac{\cos\phi}{R}\frac{d}{dt}\!\left(R^2\dot\theta\right) - 2R\dot\theta\dot\phi\sin\phi \qquad a_\phi = \frac1R\frac{d}{dt}\!\left(R^2\dot\phi\right) + R\dot\theta^2\sin\phi\cos\phi \]</div>
+<p>You are not expected to derive these. Learn to list \(R, \dot R, \ddot R, \theta, \dot\theta, \ddot\theta, \phi, \dot\phi, \ddot\phi\) carefully, just as for polar coordinates, and then substitute.</p>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>Velocity is always tangent to the path. Choose coordinates to suit the problem.</li>
+<li>x–y: components are independent, and time links them.</li>
+<li>n–t: \(a_t = \dot v\) changes the speed and \(a_n = v^2/\rho\) turns the velocity into the bend.</li>
+<li>r–θ: list the five numbers, then use \((\ddot r - r\dot\theta^2)\) and \((r\ddot\theta + 2\dot r\dot\theta)\).</li></ul></div>
+</section>

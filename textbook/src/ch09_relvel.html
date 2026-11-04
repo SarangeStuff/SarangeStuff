@@ -1,0 +1,198 @@
+<section class="chapter" id="ch9" data-num="9" data-short="Relative velocity (diagrams)">
+<header><span class="eyebrow">Chapter 9 · Lectures L14–L15 · the heart of the book, part 1</span><h2>Relative velocity: drawing the velocity diagram</h2></header>
+<div class="inthis">In this chapter
+<ul><li>The one equation, and why the relative velocity is always perpendicular to the bar</li><li>The known/unknown audit that tells you a diagram will close</li><li>A ten-step recipe for drawing the diagram, with the reason for each step</li><li>How to tell clockwise from anticlockwise straight from your diagram</li><li>Four worked examples, three of them past exam questions</li></ul></div>
+
+<h3 id="ch9-equation">The one equation</h3>
+<p>Take any two points A and B on the same rigid body. Chapter 4 already says \(\vec v_B = \vec v_A + \vec v_{B/A}\). What is new is that, on a rigid body, we know a great deal about \(\vec v_{B/A}\) before we start:</p>
+<div class="eq key">\[ \vec v_B = \vec v_A + \vec v_{B/A} \qquad\text{where}\qquad \vec v_{B/A} = \vec\omega\times\vec r_{B/A},\quad v_{B/A} = \omega\,r_{AB},\quad \vec v_{B/A}\perp AB \]</div>
+<figure class="panel">{{fig:rel_concept}}<figcaption>An observer riding on A (without turning) sees B swing round on a circle, because the bar’s length cannot change. Motion on a circle is always tangent to it, which means perpendicular to the radius AB.</figcaption></figure>
+<div class="callout why"><span class="tag">Why the relative velocity is perpendicular to the bar</span>
+<p>Sit at A, move with it, but do not turn. B is always exactly \(r_{AB}\) away from you, because the body is rigid. A point that stays a fixed distance from you can only move around you on a circle. A velocity on a circle is tangent to it, so \(\vec v_{B/A}\) is perpendicular to AB. Its size is \(\omega r_{AB}\), because that is how fast a point on a circle of radius \(r_{AB}\) moves when the radius turns at \(\omega\) (Chapter 6).</p>
+<p>So the general plane motion of any rigid body is a <strong>translation</strong> (everything moving with A) plus a <strong>rotation</strong> about A (L14, “interpretation of relative velocity”).</p></div>
+<p>This is why the relative velocity diagram works so well. One of the three vectors always has a <strong>known direction</strong> (perpendicular to the bar) without any calculation. That direction is the green dashed line in every diagram below.</p>
+
+<h3 id="ch9-points">Choose points you know something about</h3>
+<p>The equation is only useful if A and B are points whose motion you already partly know. In practice these are almost always pins and sliders:</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Type of point</th><th>Direction of its velocity</th><th>Size</th></tr></thead>
+<tbody>
+<tr><td>Pin on a crank that turns about a fixed pivot</td><td>⟂ to the crank</td><td>\(\omega_{\text{crank}}\,r\) if \(\omega\) is given, otherwise unknown</td></tr>
+<tr><td>Slider (piston, collar, block) in a straight guide</td><td>Along the guide</td><td>Usually unknown</td></tr>
+<tr><td>Contact point of a wheel rolling without slip</td><td colspan="2">Zero, so it makes a great reference point</td></tr>
+<tr><td>Centre of a rolling wheel</td><td>Parallel to the surface</td><td>\(\omega r\)</td></tr>
+<tr><td>Pin joining two bars</td><td colspan="2">One velocity, shared by both bars. This is how you carry an answer from one bar to the next.</td></tr>
+</tbody></table></div>
+
+<h3 id="ch9-audit">The audit: will the diagram close?</h3>
+<p>Every vector has two pieces of information, a <strong>size</strong> and a <strong>direction</strong>. A 2D vector equation gives two scalar equations, so <strong>at most two pieces can be unknown</strong>. Before drawing anything, fill in a small table. Exam memos award ticks for exactly this table, written next to the equation.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Term</th><th>Size</th><th>Direction</th></tr></thead>
+<tbody>
+<tr><td>\(\vec v_B\) (the reference point, e.g. a pin on a driven crank)</td><td class="ok">✓ \(\omega r\)</td><td class="ok">✓ ⟂ crank</td></tr>
+<tr><td>\(\vec v_{C/B}\)</td><td class="no">? (it holds \(\omega_{BC}\))</td><td class="ok">✓ ⟂ BC</td></tr>
+<tr><td>\(\vec v_C\) (the point you want)</td><td class="no">?</td><td class="ok">✓ along guide or ⟂ its crank</td></tr>
+</tbody></table></div>
+<p>Two question marks, both of them sizes. That is the standard situation, and it means the diagram is a triangle with one fully known side and two known directions.</p>
+
+<h3 id="ch9-recipe">The recipe: drawing a relative velocity diagram</h3>
+<ol class="work">
+<li><strong>Draw the mechanism neatly</strong>, roughly to scale, and label every pin. Mark the angles you will need.<span class="why-inline">Every direction in the velocity diagram is copied from this drawing. A sloppy sketch gives sloppy perpendiculars.</span></li>
+<li><strong>Find the bar lengths and angles</strong> from the dimensions (Pythagoras and \(\tan^{-1}\)).<span class="why-inline">You need each bar’s angle to draw its perpendicular, and its length to turn \(v_{\text{rel}}\) into \(\omega\).</span></li>
+<li><strong>Write the equation with the unknown point on the left</strong>: \(\vec v_{\text{unknown}} = \vec v_{\text{known}} + \vec v_{\text{unknown}/\text{known}}\).<span class="why-inline">Then every term on the right starts from something you know, which fixes the order of drawing.</span></li>
+<li><strong>Fill in the audit table</strong>, size and direction for each term. Calculate any known sizes now, such as \(v_B = \omega_{AB} r_{AB}\).</li>
+<li><strong>Choose a scale</strong> so that the biggest vector is 8–15 cm long, and write it on the page (for example, “1 m/s = 20 mm”).<span class="why-inline">Bigger diagrams give more accurate readings, and the memo awards a mark for using the given scale.</span></li>
+<li><strong>Mark an origin <em>o</em></strong> and draw the fully known vector from it, with an arrowhead and a label.</li>
+<li><strong>Through the tip of that vector, draw a long, thin line perpendicular to the bar.</strong> This is the direction of \(\vec v_{\text{rel}}\). You do not know where it ends yet, so do not put an arrowhead on it.</li>
+<li><strong>Through o, draw a long, thin line in the direction the unknown point must move</strong> (along its guide, or perpendicular to its crank).<span class="why-inline">The unknown absolute velocity also starts at o, because every absolute velocity is measured from the same fixed ground.</span></li>
+<li><strong>The two lines cross at the tip of the unknown velocity.</strong> Now draw both arrows: the absolute one from o to the crossing, and the relative one from the tip of the known vector to the crossing. Label everything.</li>
+<li><strong>Measure and convert</strong> with your scale (or solve the triangle with the sine rule). Then \(\omega_{\text{bar}} = v_{\text{rel}}/r_{\text{bar}}\), and find its sense with the rule below.</li>
+</ol>
+
+<h3 id="ch9-sense">Clockwise or anticlockwise? Read it off the diagram</h3>
+<div class="callout big"><span class="tag">The pin-and-push rule</span><p>\(\vec v_{C/B}\) is how C moves <em>as seen from B</em>. So put your finger on the mechanism at <strong>B</strong> (the letter after the slash) and hold it still. Push the other end, <strong>C</strong>, in the direction of the \(\vec v_{C/B}\) arrow from your diagram. Whichever way the bar turns, that is the sense of \(\omega_{BC}\).</p></div>
+<p>The same rule works for a crank on a fixed pivot: hold the pivot and push the pin in the direction of its velocity. It also works in Chapter 10 for \(\alpha\), using the tangential arrow. If you swap the order (\(\vec v_{B/C}\) instead of \(\vec v_{C/B}\)), the arrow flips <em>and</em> the pinned point swaps, so you get the same answer either way.</p>
+
+<div class="example" id="ex-ladder-v"><div class="ex-head"><h4>Worked example 9.1: the sliding ladder</h4><span class="src">L14 Example 1</span></div>
+<p class="problem">Roller A moves right at 3 m/s. Find the velocity of B and the angular velocity of the 1.5 m bar when \(\theta = 30^\circ\).</p>
+<figure class="panel">{{fig:ladder_mech}}<figcaption>The mechanism. A is confined to the floor and B to the wall.</figcaption></figure>
+<p><strong>Equation:</strong> B is the unknown point, so \(\vec v_B = \vec v_A + \vec v_{B/A}\).</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Term</th><th>Size</th><th>Direction</th></tr></thead>
+<tbody>
+<tr><td>\(\vec v_A\)</td><td class="ok">✓ 3 m/s</td><td class="ok">✓ → (floor)</td></tr>
+<tr><td>\(\vec v_{B/A}\)</td><td class="no">? \(= 1.5\,\omega\)</td><td class="ok">✓ ⟂ AB</td></tr>
+<tr><td>\(\vec v_B\)</td><td class="no">?</td><td class="ok">✓ vertical (wall)</td></tr>
+</tbody></table></div>
+<figure class="panel stepper">{{fig:ladder_vpoly}}
+<ol class="steplist">
+<li>Mark o and draw \(\vec v_A\) = 3 m/s to the right. It is the only vector known completely, so it goes first.</li>
+<li>Through the tip of \(\vec v_A\), draw a line perpendicular to AB. The bar slopes at 30°, so this line is at 30° to the vertical. \(\vec v_{B/A}\) lies somewhere along it.</li>
+<li>Through o, draw a vertical line, because B can only move up or down the wall.</li>
+<li>The lines cross at the tip of \(\vec v_B\). Draw \(\vec v_B\) from o, and \(\vec v_{B/A}\) from the tip of \(\vec v_A\) to the crossing.</li>
+</ol>
+<figcaption>Velocity diagram drawn to scale. Use the buttons, or tap a step, to build it line by line.</figcaption></figure>
+<ol class="work">
+<li>The triangle has a right angle at o and 30° at the bottom, so \(v_B = \frac{v_A}{\tan30^\circ} = 5.20\) m/s and \(v_{B/A} = \frac{v_A}{\sin30^\circ} = 6.00\) m/s.</li>
+<li>\(\omega = v_{B/A}/r_{AB} = 6.00/1.5 = 4.00\) rad/s.</li>
+<li>Sense: pin A, and push B along \(\vec v_{B/A}\), which points down and to the left. B sits up and to the left of A, so pushing it down-left swings the bar anticlockwise.<span class="why-inline">This is the pin-and-push rule. It agrees with the instantaneous centre in Chapter 8.</span></li>
+</ol>
+<p class="answer">v<sub>B</sub> = 5.20 m/s ↓, ω<sub>AB</sub> = 4.00 rad/s CCW</p>
+<div class="callout why"><span class="tag">Check by vector algebra (L14, “vector solution”)</span><p>Write every vector in components and equate. With \(\vec r_{B/A} = -1.299\hat i + 0.75\hat j\):</p>
+<div class="eq">\[ -v_B\hat j = 3\hat i + \omega\hat k\times(-1.299\hat i + 0.75\hat j) = (3 - 0.75\omega)\hat i - 1.299\omega\,\hat j \]</div>
+<p>The \(\hat i\) parts give \(0 = 3 - 0.75\omega\), so \(\omega = 4\) (positive means CCW). The \(\hat j\) parts give \(v_B = 1.299(4) = 5.20\). This is the same equation as the diagram, in a different language. It is a good check when you have time.</p></div>
+</div>
+
+<div class="example" id="ex-sc-v"><div class="ex-head"><h4>Worked example 9.2: the slider-crank engine</h4><span class="src">L15 Example 2 (also the start of L16 Example 2)</span></div>
+<p class="problem">Crank OB (125 mm) turns clockwise at 1500 rev/min. Connecting rod AB is 350 mm. Find the piston velocity \(v_A\) and \(\omega_{AB}\) when \(\theta = 60^\circ\).</p>
+<figure class="panel">{{fig:sc_mech}}<figcaption>The piston A slides along the horizontal line through O.</figcaption></figure>
+<ol class="work">
+<li>Known pin: \(\omega_{OB} = 1500\times\frac{2\pi}{60} = 157.1\) rad/s, so \(v_B = 157.1\times0.125 = 19.6\) m/s, perpendicular to OB. For a clockwise crank with B up and to the left of O, that points up and to the right at 30°.</li>
+<li>Rod angle: B is \(0.125\sin60^\circ = 0.108\) m above the slider line, so \(\sin\beta = 0.108/0.350\) and \(\beta = 18.0^\circ\).<span class="why-inline">You need β to draw the perpendicular to AB in the diagram.</span></li>
+<li>Equation, with A unknown: \(\vec v_A = \vec v_B + \vec v_{A/B}\). \(\vec v_B\) is fully known, \(\vec v_{A/B}\) is ⟂ AB with size unknown, and \(\vec v_A\) is horizontal with size unknown.</li>
+</ol>
+<figure class="panel stepper">{{fig:sc_vpoly}}
+<ol class="steplist">
+<li>From o, draw \(\vec v_B\) = 19.6 m/s at 30° above horizontal.</li>
+<li>Through its tip, draw the line perpendicular to AB, which is 18° from the vertical.</li>
+<li>Through o, draw the horizontal line along which the piston moves.</li>
+<li>Close the triangle: \(\vec v_A\) from o to the crossing, and \(\vec v_{A/B}\) from the tip of \(\vec v_B\) down to the crossing.</li>
+</ol>
+<figcaption>Velocity diagram to scale. The angles inside the triangle are 30° at o, 72° at the piston end and 78° at the tip of \(\vec v_B\).</figcaption></figure>
+<ol class="work" start="4">
+<li>Sine rule (each side over the sine of the angle opposite it): \(\frac{v_A}{\sin78^\circ} = \frac{v_B}{\sin72^\circ} = \frac{v_{A/B}}{\sin30^\circ}\). This gives \(v_A = 20.2\) m/s and \(v_{A/B} = 10.3\) m/s.<span class="why-inline">All three directions are known, so all three angles are known. That is exactly when the sine rule is the right tool.</span></li>
+<li>\(\omega_{AB} = 10.3/0.350 = 29.5\) rad/s. Pin B and push A along \(\vec v_{A/B}\) (down, slightly right). A is the left end, so the bar turns anticlockwise.</li>
+</ol>
+<p class="answer">v<sub>A</sub> = 20.2 m/s →, ω<sub>AB</sub> = 29.5 rad/s CCW</p>
+</div>
+
+<div class="example" id="ex-16-v"><div class="ex-head"><h4>Worked example 9.3: three bars, from a past exam</h4><span class="src">2016 exam (a)–(b), L17 slides</span></div>
+<p class="problem">Bar AB turns clockwise at a constant 10 rad/s. Draw the relative velocity diagram of bar BD and find the angular velocities of BD and DE.</p>
+<figure class="panel">{{fig:x16_mech}}<figcaption>A and E are fixed pivots. B is shared by AB and BD, and D is shared by BD and DE.</figcaption></figure>
+<ol class="work">
+<li>Geometry: \(r_{BD} = \sqrt{0.25^2 + 0.6^2} = 0.65\) m, and BD rises at \(\theta = \tan^{-1}(0.25/0.6) = 22.6^\circ\).</li>
+<li>Known pin: \(v_B = \omega_{AB}\,r_{AB} = 10(0.2) = 2.00\) m/s. AB is vertical with B below A, so for clockwise rotation B moves <strong>left</strong>.<span class="why-inline">Pin A and turn the bar clockwise: the bottom end swings to the left.</span></li>
+<li>D is on DE, which pivots at E. DE is horizontal, so \(\vec v_D\) is <strong>vertical</strong> (perpendicular to DE).</li>
+<li>Equation: \(\vec v_D = \vec v_B + \vec v_{D/B}\). \(\vec v_B\) is known completely, \(\vec v_{D/B}\) is ⟂ BD (size ?), and \(\vec v_D\) is vertical (size ?). That is two unknowns, so the triangle will close.</li>
+</ol>
+<figure class="panel stepper">{{fig:x16_vpoly}}
+<ol class="steplist">
+<li>From o, draw \(\vec v_B\) = 2.0 m/s to the left (scale given in the exam: 10 mm = 1 m/s).</li>
+<li>Through its tip, draw the line perpendicular to BD, at 22.6° from the vertical.</li>
+<li>Through o, draw a vertical line (the direction of \(\vec v_D\), ⟂ DE).</li>
+<li>Close: \(\vec v_D\) from o down to the crossing, and \(\vec v_{D/B}\) from the tip of \(\vec v_B\) to the crossing.</li>
+</ol>
+<figcaption>A right-angled triangle, because \(\vec v_B\) is horizontal and \(\vec v_D\) is vertical.</figcaption></figure>
+<ol class="work" start="5">
+<li>\(v_D = \frac{v_B}{\tan22.6^\circ} = 4.80\) m/s ↓ and \(v_{D/B} = \frac{v_B}{\sin22.6^\circ} = 5.20\) m/s.</li>
+<li>\(\omega_{BD} = 5.20/0.65 = 8.00\) rad/s. Pin B and push D (down and left of B) towards the lower right: anticlockwise.</li>
+<li>\(\omega_{DE} = v_D/r_{DE} = 4.80/0.2 = 24.0\) rad/s. Pin E and push D (to the left of E) downwards: anticlockwise.</li>
+</ol>
+<p class="answer">ω<sub>BD</sub> = 8.00 rad/s CCW, ω<sub>DE</sub> = 24.0 rad/s CCW (as in the memo)</p>
+<div class="callout why"><span class="tag">Same triangle, different-looking memo</span><p>The memo writes \(\vec v_B = \vec v_D + \vec v_{B/D}\) instead. That is the same equation rearranged: \(\vec v_{B/D} = -\vec v_{D/B}\), so the relative arrow points the other way along the same side of the triangle. Both are marked correct. Pick one form and keep the arrows consistent with it.</p></div>
+</div>
+
+<div class="example" id="ex-22-v"><div class="ex-head"><h4>Worked example 9.4: a slider on a slope, from a past exam</h4><span class="src">Final exam 2022 Q4(a), Review lecture 1</span></div>
+<p class="problem">Bar AB has \(\omega_{AB} = 3\) rad/s CCW at this instant. Block C slides on a 3-4-5 incline. Find the angular velocity of bar BC.</p>
+<figure class="panel">{{fig:x22_mech}}<figcaption>AB is vertical (70 mm). C is 50 mm below and 50 mm to the left of A, so BC = \(\sqrt{50^2+120^2} = 130\) mm.</figcaption></figure>
+<ol class="work">
+<li>Known pin: \(v_B = 3(0.07) = 0.21\) m/s. B is above A and the rotation is anticlockwise, so B moves <strong>left</strong>.</li>
+<li>Angles: BC makes \(\theta = \tan^{-1}(50/120) = 22.6^\circ\) with the vertical. The slope is at \(\beta = \tan^{-1}(3/4) = 36.9^\circ\) to the horizontal.</li>
+<li>Equation: \(\vec v_C = \vec v_B + \vec v_{C/B}\), with \(\vec v_C\) along the slope (size ?) and \(\vec v_{C/B}\) ⟂ BC, which is 22.6° below horizontal (size ?).</li>
+</ol>
+<figure class="panel stepper">{{fig:x22_vpoly}}
+<ol class="steplist">
+<li>From o, draw \(\vec v_B\) = 0.21 m/s to the left.</li>
+<li>Through its tip, draw the line perpendicular to BC (22.6° to the horizontal).</li>
+<li>Through o, draw the line along the slope (36.9° to the horizontal).</li>
+<li>Close: \(\vec v_C\) from o to the crossing (down the slope), and \(\vec v_{C/B}\) from the tip of \(\vec v_B\) to the crossing.</li>
+</ol>
+<figcaption>The triangle has angles 36.9° at o, 22.6° at the tip of \(\vec v_B\), and 120.5° where the lines cross.</figcaption></figure>
+<ol class="work" start="4">
+<li>Sine rule: \(\frac{v_{C/B}}{\sin36.9^\circ} = \frac{v_B}{\sin120.5^\circ}\), so \(v_{C/B} = 0.146\) m/s.</li>
+<li>\(\omega_{BC} = 0.146/0.13 = 1.125\) rad/s. Pin B and push C (below-left of B) towards the lower right: anticlockwise.</li>
+</ol>
+<p class="answer">ω<sub>BC</sub> = 1.125 rad/s CCW (memo: 1.125 rad/s CCW)</p>
+<p>The memo gives a tick for each of: \(v_B\) with its direction, the length CB, each of the two angles, the equation, the vector diagram, the arrows, and the final answer with its sense. It is the full recipe above, written down.</p>
+</div>
+
+<h3 id="ch9-special">A special case: when the diagram collapses</h3>
+<div class="example" id="ex-21-v"><div class="ex-head"><h4>Worked example 9.5: the bar that is not rotating</h4><span class="src">Final exam 2021 Q5(a), Review lecture 2</span></div>
+<p class="problem">Arm AB turns clockwise at a constant 6 rad/s. Find the angular velocity of bar BDE at the instant shown.</p>
+<figure class="panel">{{fig:x21_mech}}<figcaption>AB (90 mm) and CD (180 mm) are both vertical at this instant.</figcaption></figure>
+<ol class="work">
+<li>\(v_B = 6(0.09) = 0.54\) m/s. B is above A and the rotation is clockwise, so B moves to the right.</li>
+<li>D is on the vertical arm CD, so \(\vec v_D\) is horizontal.</li>
+<li>Equation \(\vec v_D = \vec v_B + \vec v_{D/B}\): \(\vec v_{D/B}\) must be ⟂ BD, which is tilted, while \(\vec v_D\) and \(\vec v_B\) are both horizontal.</li>
+</ol>
+<figure class="panel stepper">{{fig:x21_vpoly}}
+<ol class="steplist">
+<li>From o, draw \(\vec v_B\) = 0.54 m/s to the right.</li>
+<li>Through its tip, draw the line perpendicular to BD.</li>
+<li>Through o, draw a horizontal line (the direction of \(\vec v_D\)).</li>
+<li>The lines cross <em>exactly at the tip of \(\vec v_B\)</em>, so \(\vec v_{D/B}\) has zero length.</li>
+</ol>
+<figcaption>The “triangle” has collapsed to a single line.</figcaption></figure>
+<ol class="work" start="4">
+<li>\(v_{D/B} = 0\), so \(\omega_{BDE} = 0\). At this instant BDE is translating, and every point on it moves at 0.54 m/s to the right.<span class="why-inline">The perpendiculars to \(\vec v_B\) and \(\vec v_D\) are two parallel vertical lines that never meet, so the instantaneous centre is at infinity (Chapter 8).</span></li>
+<li>\(v_D = 0.54\) m/s, so \(\omega_{DC} = 0.54/0.18 = 3.00\) rad/s clockwise.</li>
+</ol>
+<p class="answer">ω<sub>BDE</sub> = 0 (instantaneous translation), ω<sub>DC</sub> = 3.00 rad/s CW</p>
+<p>Zero angular velocity does <strong>not</strong> mean zero angular acceleration. In Chapter 10 this same bar has \(\alpha = 7.2\) rad/s².</p>
+</div>
+
+<div class="callout slip"><span class="tag">Common slips with velocity diagrams</span><ul>
+<li>Drawing \(\vec v_{\text{rel}}\) <em>along</em> the bar instead of perpendicular to it. The bar cannot stretch, so there is never a component along it.</li>
+<li>Starting the unknown absolute velocity from the tip of a vector instead of from o. Absolute velocities all start at o.</li>
+<li>Using the wrong length in \(\omega = v_{\text{rel}}/r\). Use the distance between the two points in the equation.</li>
+<li>Forgetting to state the sense (CW or CCW) of each \(\omega\). It is a separate mark.</li>
+<li>Not converting rev/min to rad/s.</li>
+</ul></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>\(\vec v_C = \vec v_B + \vec v_{C/B}\), with \(\vec v_{C/B}\) ⟂ BC and of size \(\omega_{BC}\,r_{BC}\).</li>
+<li>Audit first: at most two unknowns, usually two sizes.</li>
+<li>Known vector from o. Perpendicular line through its tip. Direction line for the unknown point through o. Close at the crossing.</li>
+<li>\(\omega = v_{\text{rel}}/r\). Sense by pin-and-push.</li>
+<li>Practice: Tut04 Q1–Q4 (answers are on the sheet), and redo Tut04 with this method as the Relative Velocity page suggests.</li></ul></div>
+</section>

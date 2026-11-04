@@ -1,0 +1,40 @@
+<section class="chapter" id="ch8" data-num="8" data-short="Instantaneous centre">
+<header><span class="eyebrow">Chapter 8 · Lecture L13</span><h2>The instantaneous centre: pretend it is just spinning</h2></header>
+<div class="inthis">In this chapter
+<ul><li>What the instantaneous centre (IC) is, and why it always exists</li><li>Three ways to find it</li><li>Fast velocity answers from one distance</li><li>The trap: the IC is not a point of zero acceleration</li></ul></div>
+
+<div class="callout big"><span class="tag">The big idea</span><p>At any single instant, a body in plane motion moves <em>as if</em> it were spinning about one point. That point has zero velocity at that instant, and it is called the instantaneous centre of zero velocity (IC). Find it, and every velocity on the body is just \(v = \omega \times (\text{distance to the IC})\), perpendicular to the line to the IC. This is the Chapter 6 formula, borrowed for one moment.</p></div>
+
+<h3 id="ch8-find">Finding the IC</h3>
+<p>Every velocity on the body is perpendicular to the line joining that point to the IC. Turned around, the IC must lie on the perpendicular to each velocity. That gives three cases:</p>
+<ol>
+<li><strong>You know \(\vec v_A\) and \(\omega\):</strong> the IC is on the perpendicular to \(\vec v_A\) through A, at distance \(v_A/\omega\).</li>
+<li><strong>You know the directions of two velocities</strong> (the usual case: a slider, or a pin on a crank): draw the perpendicular to each through its point. The IC is where they cross.</li>
+<li><strong>Two parallel velocities, perpendicular to the line joining their points:</strong> use similar triangles. The IC is where the line through the arrow tips meets the line through the points. If the two velocities are equal, the lines never meet: the body is translating, the IC is “at infinity”, and \(\omega = 0\).</li>
+</ol>
+
+<div class="example"><div class="ex-head"><h4>Worked example 8.1: the sliding ladder in one line</h4><span class="src">Same bar as Chapters 7 and 9</span></div>
+<figure class="panel">{{fig:ic_ladder}}<figcaption>\(\vec v_A\) is horizontal, so its perpendicular through A is vertical. \(\vec v_B\) is vertical, so its perpendicular through B is horizontal. They cross at the IC.</figcaption></figure>
+<ol class="work">
+<li>Distances from the IC: \(r_{A/IC} = 1.5\sin30^\circ = 0.75\) m and \(r_{B/IC} = 1.5\cos30^\circ = 1.30\) m.</li>
+<li>\(\omega = v_A / r_{A/IC} = 3/0.75 = 4.00\) rad/s. A moves right while sitting below the IC, so the bar turns anticlockwise about it.<span class="why-inline">Imagine the bar pinned at the IC. For the point below the pin to move right, the bar must turn anticlockwise.</span></li>
+<li>\(v_B = \omega\, r_{B/IC} = 4(1.30) = 5.20\) m/s. B is to the left of the IC, so with anticlockwise rotation it moves down.</li>
+</ol>
+<p class="answer">ω = 4.00 rad/s CCW, v<sub>B</sub> = 5.20 m/s ↓ (the same as Chapter 7)</p></div>
+
+<p>L13 Example 1 does the slider-crank from Chapter 7 the same way and gets \(v_P = 18.5\) m/s again. You now have three methods that give one answer, which is a good sign the physics is consistent.</p>
+
+<h3 id="ch8-rolling">Rolling wheels</h3>
+<p>A wheel rolling without slip has its IC at the contact point C, because that point is momentarily stuck to the ground. So the centre moves at \(\omega r\), and the top of the wheel moves at \(\omega(2r) = 2v_O\). The top of a bicycle tyre really does move at twice the bike’s speed.</p>
+
+<div class="callout slip"><span class="tag">The trap</span><p>The IC has zero <strong>velocity</strong>, not zero acceleration. A moment later, a different point is the IC. The contact point of a rolling wheel accelerates at \(\omega^2 r\) straight up, towards the centre (L12 Example 4, L17). So <strong>never take moments of acceleration about the IC</strong> and never use \(a = \alpha \times (\text{distance to IC})\). For accelerations, use the relative acceleration diagram (Chapter 10).</p></div>
+
+<div class="callout why"><span class="tag">Why an IC always exists</span><p>Chapter 9 shows that any point’s velocity is a reference point’s velocity plus \(\omega\times\) the relative position. Whenever \(\omega\neq 0\), you can always find one position where the spin part exactly cancels the reference velocity. That position is the IC. When \(\omega = 0\) there is nothing to cancel with, so there is no IC (it is at infinity) and the body translates.</p></div>
+
+<div class="callout recap"><span class="tag">In one breath</span><ul>
+<li>The IC is the point momentarily at rest. Every velocity is \(\omega\times\) the distance to it, perpendicular to the line to it.</li>
+<li>Find it where the perpendiculars to two known velocity directions cross.</li>
+<li>Parallel equal velocities put the IC at infinity, so \(\omega = 0\).</li>
+<li>Never use the IC for accelerations.</li>
+<li>Practice: L13 Examples 2–4 and Tut03 Q5.</li></ul></div>
+</section>
