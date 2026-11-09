@@ -1,0 +1,438 @@
+<main class="page">
+<section class="hero" id="top">
+<span class="eyebrow">MEC2047S · Lectures L06, L07, L08 · Study guide</span>
+<h1>Polar &amp; 3D <em>coordinates</em>, from the ground up</h1>
+<p class="lead">This guide is for being able to do polar, cylindrical and spherical problems from memory. Every formula is derived slowly so you can see where each term comes from. Every lecture example is worked step by step, next to a snapshot of the original slide. Section 16 is a one-page summary for the night before.</p>
+<nav class="contents" aria-label="Contents">
+<h2 class="nobm">Contents</h2>
+<ol>
+<li><a href="#s1">Why polar coordinates?</a></li>
+<li><a href="#s2">The two unit vectors: how to draw them</a></li>
+<li><a href="#s3">Why \(\hat e_\theta = -\sin\theta\,\hat i + \cos\theta\,\hat j\)</a></li>
+<li><a href="#s4">How the unit vectors change (the key fact)</a></li>
+<li><a href="#s5">Velocity, derived slowly</a></li>
+<li><a href="#s6">Acceleration, derived slowly</a></li>
+<li><a href="#s7">Special cases you should recognise</a></li>
+<li><a href="#s8">Switching between x–y and r–θ</a></li>
+<li><a href="#s9">The method: the six-number table</a></li>
+<li><a href="#s10">Lecture 6 examples, worked slowly</a></li>
+<li><a href="#s11">Lecture 7 examples, worked slowly</a></li>
+<li><a href="#s12">Tutorial 2 polar questions (no memo, so worked here)</a></li>
+<li><a href="#s13">Cylindrical coordinates (L08)</a></li>
+<li><a href="#s14">Spherical coordinates (L08)</a></li>
+<li><a href="#s15">Quick drills</a></li>
+<li><a href="#s16">Formulas to know, and the one-page summary</a></li>
+</ol>
+</nav>
+</section>
+
+<section class="chapter" id="s1">
+<h2>1. Why polar coordinates?</h2>
+<p>In x–y coordinates you say where a point is by walking along \(x\) and then along \(y\). In polar coordinates you say where it is by <strong>how far</strong> it is from a fixed point O (the distance \(r\)) and <strong>which way</strong> you look to see it (the angle \(\theta\)). That is exactly how many machines and sensors work:</p>
+<ul>
+<li>a <strong>rotating arm or slotted link</strong> with something sliding along it (the arm sets \(\theta\), the slider sets \(r\));</li>
+<li>a <strong>radar</strong> that measures distance and bearing;</li>
+<li>a <strong>robot arm</strong> that extends and swings;</li>
+<li>a <strong>path described as \(r = f(\theta)\)</strong> (spiral, cardioid, circle through O).</li>
+</ul>
+<div class="callout big"><span class="tag">How to spot a polar question</span><p>Look for a rotating line through a fixed point, with something moving along it, or a question that gives or asks for \(r, \dot r, \ddot r, \theta, \dot\theta, \ddot\theta\). If you can name a fixed point O and a line from O to the particle that the problem cares about, use polar.</p></div>
+<p>The one new idea compared with x–y: the direction arrows (unit vectors) are not fixed. They point along and across the line OP, so they <strong>turn as the particle moves</strong>. Every extra term in the polar formulas comes from that turning. Once you understand Section 4, the formulas stop being things to memorise and become things you can rebuild in a minute.</p>
+</section>
+
+<section class="chapter" id="s2">
+<h2>2. The two unit vectors: how to draw them</h2>
+<p>At the particle P, draw two arrows, each of length 1:</p>
+<ol class="work">
+<li><strong>Draw the radial line</strong>: a straight line from O through P, and a little beyond.</li>
+<li><strong>\(\hat e_r\)</strong> starts at P and points <strong>along the radial line, away from O</strong>.<span class="why-inline">“r” grows in this direction. Moving along \(\hat e_r\) increases the distance from O.</span></li>
+<li><strong>\(\hat e_\theta\)</strong> starts at P, is <strong>perpendicular to the radial line</strong>, and points <strong>the way \(\theta\) increases</strong>.<span class="why-inline">“θ” grows in this direction. If \(\theta\) is measured anticlockwise, \(\hat e_\theta\) points anticlockwise around O.</span></li>
+<li>Mark the right angle between them.</li>
+</ol>
+<figure class="panel">{{fig:pu_unitvec}}<figcaption>\(\hat e_r\) lies along the radial line. \(\hat e_\theta\) is \(\hat e_r\) turned 90° in the direction of increasing θ. The dashed lines show their x and y components.</figcaption></figure>
+<div class="callout slip"><span class="tag">When θ is measured some other way</span><p>The rule is always “\(\hat e_\theta\) points the way θ increases”. If a figure measures θ from the vertical, or clockwise (Tut02 Q3 measures θ from a hanging rod), then \(\hat e_\theta\) points the way that angle opens. Draw it from the figure, not from habit.</p></div>
+<figure class="panel">{{fig:pu_rotating}}<figcaption>The same two arrows drawn at three points along a path. They turn with the radial line. This is the whole reason polar formulas have extra terms.</figcaption></figure>
+<p>Note that the position vector only has an \(\hat e_r\) part: \(\vec r = r\,\hat e_r\). You get from O to P by going a distance \(r\) along the radial line, with no sideways part.</p>
+</section>
+
+<section class="chapter" id="s3">
+<h2>3. Why \(\hat e_r = \cos\theta\,\hat i + \sin\theta\,\hat j\) and \(\hat e_\theta = -\sin\theta\,\hat i + \cos\theta\,\hat j\)</h2>
+<p>This is the trig that makes the whole system work, and it is the bit worth understanding properly.</p>
+<h3>\(\hat e_r\): basic SOH-CAH-TOA</h3>
+<p>\(\hat e_r\) has length 1 and makes angle \(\theta\) with the x-axis. In the right-angled triangle it forms, the side next to \(\theta\) is \(1\cdot\cos\theta\) and the side opposite is \(1\cdot\sin\theta\). So</p>
+<div class="eq key">\[ \hat e_r = \cos\theta\,\hat i + \sin\theta\,\hat j \]</div>
+<h3>\(\hat e_\theta\): the same arrow turned a quarter-turn</h3>
+<p>\(\hat e_\theta\) is \(\hat e_r\) rotated by \(+90^\circ\), so it points at angle \(\theta + 90^\circ\). Use the same SOH-CAH-TOA with that angle, and the two “angle plus 90°” identities:</p>
+<div class="eq">\[ \begin{gathered} \cos(\theta + 90^\circ) = -\sin\theta \\[4pt] \sin(\theta + 90^\circ) = \cos\theta \end{gathered} \]</div>
+<div class="eq key">\[ \hat e_\theta = -\sin\theta\,\hat i + \cos\theta\,\hat j \]</div>
+<div class="callout why"><span class="tag">See it without any identities</span><p>Look at the figure in Section 2. When \(\hat e_r\) tilts up by \(\theta\), the perpendicular arrow \(\hat e_\theta\) tilts <em>back</em> past the vertical by the same \(\theta\). Leaning back means its horizontal part points left, so it is <strong>negative</strong>, and its size is \(\sin\theta\). Its vertical part points up with size \(\cos\theta\). That is where the minus sign comes from: \(\hat e_\theta\) leans backwards.</p></div>
+<h3>Two quick checks you can do in the exam</h3>
+<ul>
+<li><strong>Perpendicular?</strong> \(\hat e_r\cdot\hat e_\theta = \cos\theta(-\sin\theta) + \sin\theta\cos\theta = 0\). Yes.</li>
+<li><strong>Length 1?</strong> \((-\sin\theta)^2 + \cos^2\theta = 1\). Yes.</li>
+</ul>
+<p>It is the same pattern as Part I’s Chapter 1 trick: turning any vector \((a, b)\) a quarter-turn anticlockwise gives \((-b, a)\). Apply it to \((\cos\theta, \sin\theta)\) and you get \((-\sin\theta, \cos\theta)\).</p>
+</section>
+
+<section class="chapter" id="s4">
+<h2>4. How the unit vectors change (the key fact)</h2>
+<p>\(\hat i\) and \(\hat j\) never change, so their derivatives are zero. \(\hat e_r\) and \(\hat e_\theta\) depend on \(\theta\), so they change whenever \(\theta\) changes. Differentiate the component forms from Section 3 with respect to \(\theta\):</p>
+<div class="eq">\[ \begin{gathered} \frac{d\hat e_r}{d\theta} = -\sin\theta\,\hat i + \cos\theta\,\hat j = \hat e_\theta \\[4pt] \frac{d\hat e_\theta}{d\theta} = -\cos\theta\,\hat i - \sin\theta\,\hat j = -\hat e_r \end{gathered} \]</div>
+<p>Then the chain rule turns “per unit of θ” into “per second”, which multiplies by \(\dot\theta\):</p>
+<div class="eq key">\[ \begin{gathered} \dot{\hat e}_r = \dot\theta\,\hat e_\theta \\[4pt] \dot{\hat e}_\theta = -\dot\theta\,\hat e_r \end{gathered} \]</div>
+<figure class="panel">{{fig:pu_derivative}}<figcaption>Turn a unit arrow by a small angle Δθ. Its tip moves a distance Δθ (arc length = radius × angle = 1 × Δθ), sideways. For \(\hat e_r\) “sideways” is \(\hat e_\theta\). For \(\hat e_\theta\) “sideways” is back towards O, which is \(-\hat e_r\).</figcaption></figure>
+<div class="callout big"><span class="tag">Remember it like this</span><p>A turning unit arrow changes in the direction it is being swung, at the rate it is being swung. \(\hat e_r\) is swung towards \(\hat e_\theta\). \(\hat e_\theta\) is swung towards \(-\hat e_r\). Both at rate \(\dot\theta\).</p></div>
+</section>
+
+<section class="chapter" id="s5">
+<h2>5. Velocity, derived slowly</h2>
+<p>Start from the position \(\vec r = r\,\hat e_r\) and differentiate. It is a product (\(r\) times \(\hat e_r\)), and <em>both</em> parts change with time, so use the product rule:</p>
+<div class="eq">\[ \vec v = \frac{d}{dt}\big(r\,\hat e_r\big) = \dot r\,\hat e_r + r\,\dot{\hat e}_r = \dot r\,\hat e_r + r\,(\dot\theta\,\hat e_\theta) \]</div>
+<div class="eq key">\[ \begin{gathered} \vec v = \dot r\,\hat e_r + r\dot\theta\,\hat e_\theta \\[4pt] v_r = \dot r,\quad v_\theta = r\dot\theta,\quad v = \sqrt{\dot r^2 + (r\dot\theta)^2} \end{gathered} \]</div>
+<figure class="panel">{{fig:pu_velocity}}<figcaption>The two velocity components at P. Their sum is tangent to the path, as every velocity must be.</figcaption></figure>
+<ul>
+<li><strong>\(v_r = \dot r\)</strong>: how fast the distance from O changes. It is the slider moving along the arm.</li>
+<li><strong>\(v_\theta = r\dot\theta\)</strong>: being carried round by the arm. A point at radius \(r\) on something turning at \(\dot\theta\) moves at \(r\dot\theta\) (Part I, Chapter 6, \(v = \omega r\)).</li>
+</ul>
+<p><strong>Direction.</strong> The angle between \(\vec v\) and the radial line is \(\psi = \tan^{-1}(v_\theta / v_r)\), using the signs to pick the quadrant. Measured from the x-axis, the direction is \(\theta + \psi\), because \(\hat e_r\) itself points at \(\theta\).</p>
+<figure class="slide">{{img:L07-02}}<figcaption>Lecture slide L07, “Geometric interpretation”: the components change from A to A′, but \(\vec v\) stays tangent to the path.</figcaption></figure>
+</section>
+
+<section class="chapter" id="s6">
+<h2>6. Acceleration, derived slowly</h2>
+<p>Differentiate \(\vec v = \dot r\,\hat e_r + r\dot\theta\,\hat e_\theta\) one term at a time. Each term is a product, so each gives two pieces.</p>
+<div class="eq">\[ \frac{d}{dt}\big(\dot r\,\hat e_r\big) = \ddot r\,\hat e_r + \dot r\,\dot{\hat e}_r = \ddot r\,\hat e_r + \color[rgb]{0.753,0.082,0.298}{\dot r\dot\theta\,\hat e_\theta} \]</div>
+<div class="eq">\[ \begin{aligned} \frac{d}{dt}\big(r\dot\theta\,\hat e_\theta\big) &= \color[rgb]{0.753,0.082,0.298}{\dot r\dot\theta\,\hat e_\theta} + r\ddot\theta\,\hat e_\theta + r\dot\theta\,\dot{\hat e}_\theta \\ &= \color[rgb]{0.753,0.082,0.298}{\dot r\dot\theta\,\hat e_\theta} + r\ddot\theta\,\hat e_\theta - r\dot\theta^2\,\hat e_r \end{aligned} \]</div>
+<p>(The middle line uses the product rule on three factors: \(r\), \(\dot\theta\) and \(\hat e_\theta\) all change.) Now collect the \(\hat e_r\) parts and the \(\hat e_\theta\) parts. The two highlighted \(\dot r\dot\theta\) terms come from different places and add up, which is where the famous “2” comes from:</p>
+<div class="eq key">\[ \vec a = \big(\ddot r - r\dot\theta^2\big)\,\hat e_r + \big(r\ddot\theta + 2\dot r\dot\theta\big)\,\hat e_\theta \]</div>
+<figure class="panel">{{fig:pu_accel}}<figcaption>The radial part is \(\ddot r\) (outwards) plus \(-r\dot\theta^2\) (towards O). The transverse part is \(r\ddot\theta + 2\dot r\dot\theta\).</figcaption></figure>
+<h3>What each of the four terms means</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Term</th><th>Where it comes from</th><th>Plain meaning</th></tr></thead>
+<tbody>
+<tr><td>\(\ddot r\)</td><td>\(\dot r\) changing</td><td>The slide along the arm is speeding up or slowing down.</td></tr>
+<tr><td>\(-r\dot\theta^2\)</td><td>\(\hat e_\theta\) turning</td><td>Centripetal: anything carried round O needs an acceleration towards O, just like \(v^2/\rho\) on a circle.</td></tr>
+<tr><td>\(r\ddot\theta\)</td><td>\(\dot\theta\) changing</td><td>The arm’s spin is speeding up or slowing down (like \(a_t = \alpha r\)).</td></tr>
+<tr><td>\(2\dot r\dot\theta\)</td><td>two places, one each</td><td>Coriolis. Moving outward on a spinning arm means (1) you reach a bigger radius, where the same spin needs a faster sideways speed, and (2) your outward velocity is itself being swung round. Each effect gives one \(\dot r\dot\theta\).</td></tr>
+</tbody></table></div>
+<div class="callout big"><span class="tag">Say it out loud</span><p>“a-r is r-double-dot minus r theta-dot squared. a-theta is r theta-double-dot plus two r-dot theta-dot.” Saying it ten times is genuinely the fastest way to have it on tap in the exam.</p></div>
+<figure class="slide">{{img:L07-03}}<figcaption>Lecture slide L07, “Geometric interpretation” of the four acceleration terms.</figcaption></figure>
+</section>
+
+<section class="chapter" id="s7">
+<h2>7. Special cases you should recognise</h2>
+<ul>
+<li><strong>\(r\) constant (moving on a circle about O):</strong> \(\dot r = \ddot r = 0\), so \(\vec v = r\dot\theta\,\hat e_\theta\) and \(\vec a = -r\dot\theta^2\,\hat e_r + r\ddot\theta\,\hat e_\theta\). These are exactly the n–t results \(a_n = r\omega^2\) (towards the centre) and \(a_t = r\alpha\). Polar contains circular motion as a special case.</li>
+<li><strong>\(\theta\) constant (moving straight out along a fixed line):</strong> \(\vec v = \dot r\,\hat e_r\) and \(\vec a = \ddot r\,\hat e_r\). Plain straight-line motion.</li>
+<li><strong>Constant velocity in a straight line that does not pass through O:</strong> \(\vec a = 0\), but that does <em>not</em> make \(\ddot r\) or \(\ddot\theta\) zero. Setting both components to zero gives \(\ddot r = r\dot\theta^2\) and \(\ddot\theta = -2\dot r\dot\theta / r\). L06 Examples 1 and 2 are built on this.</li>
+<li><strong>A circle that passes through O</strong> (\(r = 2a\cos\theta\)): with constant \(\dot\theta\), the speed is constant at \(2a\dot\theta\) (L07 Example 4).</li>
+</ul>
+</section>
+
+<section class="chapter" id="s8">
+<h2>8. Switching between x–y and r–θ</h2>
+<p>Often a question gives you a velocity in x–y form (a piston moving horizontally, a crane tip with known \(v_x, v_y\), a plane flying level) and wants polar answers. The component of any vector along a unit vector is its <strong>dot product</strong> with that unit vector:</p>
+<div class="eq key">\[ \begin{gathered} v_r = \vec v\cdot\hat e_r = v_x\cos\theta + v_y\sin\theta \\[4pt] v_\theta = \vec v\cdot\hat e_\theta = -v_x\sin\theta + v_y\cos\theta \end{gathered} \]</div>
+<figure class="panel">{{fig:pu_project}}<figcaption>Drop perpendiculars from the tip of \(\vec v\) onto the r and θ directions. Exactly the same formulas work for accelerations.</figcaption></figure>
+<p>Going back the other way:</p>
+<div class="eq">\[ \begin{gathered} v_x = v_r\cos\theta - v_\theta\sin\theta \\[4pt] v_y = v_r\sin\theta + v_\theta\cos\theta \\[4pt] r = \sqrt{x^2 + y^2},\quad \tan\theta = \frac{y}{x} \end{gathered} \]</div>
+<p>Once you have \(v_r\) and \(v_\theta\), read off \(\dot r = v_r\) and \(\dot\theta = v_\theta / r\). This one move solves L06 Ex1, L06 Ex2, L07 Ex1 and Tut02 Q5.</p>
+</section>
+
+<section class="chapter" id="s9">
+<h2>9. The method: the six-number table</h2>
+<p>Every polar question comes down to filling in six numbers at the instant asked about. Then you substitute into two formulas.</p>
+<div class="tablewrap"><table class="six">
+<thead><tr><th></th><th>value</th><th>rate</th><th>rate of rate</th></tr></thead>
+<tbody>
+<tr><th>distance</th><td>\(r\)</td><td>\(\dot r\)</td><td>\(\ddot r\)</td></tr>
+<tr><th>angle</th><td>\(\theta\)</td><td>\(\dot\theta\)</td><td>\(\ddot\theta\)</td></tr>
+</tbody></table></div>
+<h3>Where the six numbers come from</h3>
+<ol class="work">
+<li><strong>Given as functions of time</strong> (\(r(t)\), \(\theta(t)\)): differentiate each twice, then put in the time (L06 Ex3, L07 Ex2, Tut02 Q3).</li>
+<li><strong>Path given as \(r = f(\theta)\)</strong>: use the chain rule.<div class="eq">\[ \begin{gathered} \dot r = f'(\theta)\,\dot\theta \\[4pt] \ddot r = f''(\theta)\,\dot\theta^2 + f'(\theta)\,\ddot\theta \end{gathered} \]</div><span class="why-inline">The second one is the product rule on \(f'(\theta)\,\dot\theta\): both factors change with time. Used in L07 Ex3, L07 Ex4 and Tut02 Q4.</span></li>
+<li><strong>Geometry plus known Cartesian motion</strong> (a pin sliding horizontally at a fixed height, for example): find \(r\) from the geometry and \(\dot r, \dot\theta\) by projection (Section 8). If \(\vec a\) is known (often zero), set \(a_r\) and \(a_\theta\) equal to its components and solve for \(\ddot r\) and \(\ddot\theta\) (L06 Ex1, Ex2).</li>
+<li><strong>A known speed or acceleration magnitude</strong>: write \(v^2 = \dot r^2 + (r\dot\theta)^2\) or \(a^2 = a_r^2 + a_\theta^2\) and solve for the missing number (L07 Ex3).</li>
+</ol>
+<div class="callout slip"><span class="tag">Traps</span><ul>
+<li>Angles must be in radians: deg/s × π/180 = rad/s.</li>
+<li>Do not mix up \(\dot\theta\) and \(\ddot\theta\) when substituting (a real memo slip in your review lecture made exactly this mistake).</li>
+<li>Signs mean directions: a negative \(\dot r\) means moving towards O, and a negative \(a_\theta\) means pointing opposite to \(\hat e_\theta\).</li>
+</ul></div>
+</section>
+
+<section class="chapter" id="s10">
+<h2>10. Lecture 6 examples, worked slowly</h2>
+
+<div class="example" id="l6e1"><div class="ex-head"><h3>L06 Example 1: the hydraulic cylinder</h3></div>
+<figure class="slide">{{img:L06-07}}<figcaption>Lecture slide L06, Example 1.</figcaption></figure>
+<p><strong>Read the picture.</strong> The arm turns about O. Pin A slides in the arm’s slot, and the piston pushes A horizontally to the left at a constant 3.0 m/s. The piston rod is 0.50 m above O. θ is measured anticlockwise from the horizontal, and \(r = OA\).</p>
+<ol class="work">
+<li><strong>Find \(r\) from geometry.</strong> A is always 0.50 m above O, so \(r\sin\theta = 0.5\) and \(r = 0.5/\sin60^\circ = 0.5774\) m.</li>
+<li><strong>Velocity in x–y.</strong> \(\vec v = -3.0\,\hat i\) m/s (left), so \(v_x = -3\), \(v_y = 0\).</li>
+<li><strong>Project onto \(\hat e_r\) and \(\hat e_\theta\)</strong> (Section 8):<div class="eq">\[ \begin{gathered} \dot r = v_r = (-3)\cos60^\circ = -1.50\ \text{m/s} \\[4pt] r\dot\theta = v_\theta = -(-3)\sin60^\circ = 2.598\ \text{m/s} \end{gathered} \]</div><span class="why-inline">A moves left and slightly towards O, so \(r\) shrinks (negative \(\dot r\)). The arm swings anticlockwise (positive \(\dot\theta\)), getting steeper.</span></li>
+<li>\(\dot\theta = 2.598 / 0.5774 = 4.50\) rad/s.</li>
+<li><strong>Acceleration.</strong> The velocity is constant, so \(\vec a = 0\). Both polar components must be zero:<div class="eq">\[ a_r = \ddot r - r\dot\theta^2 = 0 \;\Rightarrow\; \ddot r = r\dot\theta^2 = 0.5774(4.50)^2 = 11.69\ \text{m/s}^2 \]\[ a_\theta = r\ddot\theta + 2\dot r\dot\theta = 0 \;\Rightarrow\; \ddot\theta = -\frac{2\dot r\dot\theta}{r} = -\frac{2(-1.5)(4.50)}{0.5774} = 23.38\ \text{rad/s}^2 \]</div><span class="why-inline">Zero acceleration does not mean \(\ddot r\) and \(\ddot\theta\) are zero. The polar terms have to cancel each other exactly.</span></li>
+</ol>
+<p class="answer">ṙ = −1.50 m/s, θ̇ = 4.50 rad/s, r̈ = 11.7 m/s², θ̈ = 23.4 rad/s²</p>
+<figure class="slide">{{img:L06-08}}<figcaption>Lecture solution slide. It is written in imperial units (3 ft/s and 6 in = 0.5 ft), but the numbers are identical to the SI version on the problem slide.</figcaption></figure>
+</div>
+
+<div class="example" id="l6e2"><div class="ex-head"><h3>L06 Example 2: the hydraulic actuator and slotted bar</h3></div>
+<figure class="slide">{{img:L06-09}}<figcaption>Lecture slide L06, Example 2.</figcaption></figure>
+<p><strong>Read the picture.</strong> P is pushed straight up at a constant 2 m/s, at a fixed horizontal distance \(x = 2\) m from the pivot. The slotted bar turns to follow P. Find the polar velocity and acceleration, and the bar’s angular velocity, at \(\theta = 35^\circ\).</p>
+<ol class="work">
+<li><strong>Geometry:</strong> \(y = 2\tan35^\circ = 1.40\) m and \(r = \sqrt{2^2 + 1.40^2} = 2.44\) m.</li>
+<li><strong>Project \(\vec v = 2\hat j\)</strong>: \(\dot r = v_r = 2\sin35^\circ = 1.15\) m/s and \(r\dot\theta = v_\theta = 2\cos35^\circ = 1.64\) m/s.</li>
+<li>\(\dot\theta = 1.64 / 2.44 = 0.671\) rad/s, so \(\vec v = 1.15\,\hat e_r + 1.64\,\hat e_\theta\) m/s.</li>
+<li><strong>Acceleration:</strong> constant velocity, so \(\vec a = 0\). Then \(\ddot r = r\dot\theta^2 = 1.10\) m/s² and \(\ddot\theta = -2\dot r\dot\theta / r = -0.631\) rad/s².</li>
+<li><strong>Check by the lecture’s route:</strong> \(y = 2\tan\theta\), so \(\dot y = 2\sec^2\theta\,\dot\theta\), giving \(\dot\theta = \cos^2\theta = 0.671\). Differentiating again: \(\ddot\theta = -2\sin\theta\cos\theta\,\dot\theta = -0.631\) rad/s². Same answer.<span class="why-inline">\(\dot\theta = \cos^2\theta\) shrinks as θ grows, so the bar’s spin is slowing down. That is why \(\ddot\theta\) is negative.</span></li>
+</ol>
+<p class="answer">v = 1.15 e<sub>r</sub> + 1.64 e<sub>θ</sub> m/s, θ̇ = 0.671 rad/s, a = 0 (r̈ = 1.10 m/s², θ̈ = −0.631 rad/s²)</p>
+<div class="callout slip"><span class="tag">Sign on the slide</span><p>The last line of the lecture solution writes \(\ddot\theta = 0.631\) rad/s². Its own formula, \(-2\tan\theta\,\dot\theta^2\), gives −0.631. The bar is slowing, so the minus belongs there.</p></div>
+<figure class="slide">{{img:L06-10}}<figcaption>Lecture solution slide (velocity), including the sketch of \(\hat e_r\), \(\hat e_\theta\) and \(\dot y\) at P.</figcaption></figure>
+<figure class="slide">{{img:L06-11}}<figcaption>Lecture solution slide (angular acceleration).</figcaption></figure>
+</div>
+
+<div class="example" id="l6e3"><div class="ex-head"><h3>L06 Example 3: the collar with r(t) and θ(t)</h3></div>
+<figure class="slide">{{img:L06-12}}<figcaption>Lecture slide L06, Example 3.</figcaption></figure>
+<p><strong>Read the picture.</strong> Both coordinates are given as functions of time: \(r = 1 + 0.2t^2\) m and \(\theta = 2t\) rad. This is route 1 of the six-number method.</p>
+<ol class="work">
+<li><strong>Differentiate:</strong> \(\dot r = 0.4t\), \(\ddot r = 0.4\); \(\dot\theta = 2\), \(\ddot\theta = 0\).</li>
+<li><strong>Six numbers at \(t = 2\) s:</strong> \(r = 1.8\), \(\dot r = 0.8\), \(\ddot r = 0.4\); \(\theta = 4\) rad, \(\dot\theta = 2\), \(\ddot\theta = 0\).</li>
+<li><strong>Velocity:</strong> \(v_r = 0.8\) and \(v_\theta = 1.8(2) = 3.6\), so \(v = \sqrt{0.8^2 + 3.6^2} = 3.69\) m/s.</li>
+<li><strong>Acceleration:</strong> \(a_r = 0.4 - 1.8(2)^2 = -6.8\) and \(a_\theta = 1.8(0) + 2(0.8)(2) = 3.2\), so \(a = \sqrt{6.8^2 + 3.2^2} = 7.52\) m/s².<span class="why-inline">The spin is constant (\(\ddot\theta = 0\)), but \(a_\theta\) is not zero. The Coriolis term \(2\dot r\dot\theta\) comes from sliding outward while spinning.</span></li>
+</ol>
+<p class="answer">v = 3.69 m/s, a = 7.52 m/s²</p>
+<figure class="slide">{{img:L06-13}}<figcaption>Lecture solution (part 1). The solution is printed in ft units, but with the same numbers.</figcaption></figure>
+<figure class="slide">{{img:L06-14}}<figcaption>Lecture solution (part 2).</figcaption></figure>
+</div>
+</section>
+
+<section class="chapter" id="s11">
+<h2>11. Lecture 7 examples, worked slowly</h2>
+
+<div class="example" id="l7e1"><div class="ex-head"><h3>L07 Example 1: the crane (Cartesian to polar)</h3></div>
+<figure class="slide">{{img:L07-04}}<figcaption>Lecture slide L07, Example 1.</figcaption></figure>
+<ol class="work">
+<li><strong>Six numbers needed:</strong> only \(r = 3\) m and \(\theta = 30^\circ\) (plus the given \(v_x = 2\), \(v_y = 8\) m/s).</li>
+<li><strong>Project</strong> (Section 8):<div class="eq">\[ \begin{gathered} v_r = 2\cos30^\circ + 8\sin30^\circ = 5.73\ \text{m/s} \\[4pt] v_\theta = -2\sin30^\circ + 8\cos30^\circ = 5.93\ \text{m/s} \end{gathered} \]</div></li>
+<li><strong>Angular velocity</strong> of the boom: \(v_\theta = r\dot\theta\), so \(\dot\theta = 5.93/3 = 1.98\) rad/s.<span class="why-inline">The boom is the radial line. How fast it turns is exactly \(\dot\theta\).</span></li>
+<li>Check: \(\sqrt{5.73^2 + 5.93^2} = \sqrt{2^2 + 8^2} = 8.25\) m/s. A vector’s length does not depend on which axes you use.</li>
+</ol>
+<p class="answer">v = 5.73 e<sub>r</sub> + 5.93 e<sub>θ</sub> m/s, θ̇ = 1.98 rad/s</p>
+<figure class="slide">{{img:L07-05}}<figcaption>Lecture solution slide.</figcaption></figure>
+</div>
+
+<div class="example" id="l7e2"><div class="ex-head"><h3>L07 Example 2: slider pulled in on a rotating arm (with directions)</h3></div>
+<figure class="slide">{{img:L07-06}}<figcaption>Lecture slide L07, Example 2.</figcaption></figure>
+<ol class="work">
+<li><strong>Functions of time:</strong> \(\theta = 0.8t - t^2/20\), so \(\dot\theta = 0.8 - 0.1t\) and \(\ddot\theta = -0.1\). \(r = 1.6 - 0.2t\), so \(\dot r = -0.2\) and \(\ddot r = 0\).</li>
+<li><strong>At \(t = 4\) s:</strong> \(\theta = 2.4\) rad (137.5°), \(\dot\theta = 0.4\), \(\ddot\theta = -0.1\); \(r = 0.8\), \(\dot r = -0.2\), \(\ddot r = 0\).</li>
+<li><strong>Velocity:</strong> \(\vec v = -0.2\,\hat e_r + 0.8(0.4)\,\hat e_\theta = -0.2\,\hat e_r + 0.32\,\hat e_\theta\), so \(v = 0.377\) m/s.</li>
+<li><strong>Direction from the x-axis.</strong> \(\hat e_r\) points at θ = 137.5°, and \(\hat e_\theta\) points at θ + 90° = 227.5°. The velocity is mostly along \(\hat e_\theta\), leaning back towards \(-\hat e_r\) by \(\beta = \tan^{-1}(0.2/0.32) = 32.0^\circ\). So its angle is \(137.5^\circ + 90^\circ + 32.0^\circ = 259.5^\circ\), pointing almost straight down.<span class="why-inline">General rule: angle of a polar vector = θ + atan2(\(v_\theta\), \(v_r\)).</span></li>
+<li><strong>Acceleration:</strong> \(a_r = 0 - 0.8(0.4)^2 = -0.128\) and \(a_\theta = 0.8(-0.1) + 2(-0.2)(0.4) = -0.240\), so \(a = 0.272\) m/s².</li>
+<li><strong>Direction:</strong> both components are negative, so \(\vec a\) points back from \(-\hat e_\theta\) towards \(-\hat e_r\): angle \(= 137.5^\circ - 90^\circ - \tan^{-1}(0.128/0.240) = 137.5 - 90 - 28.1 = 19.4^\circ\).</li>
+</ol>
+<p class="answer">v = 0.377 m/s at 260° (≈ −100°) from x; a = 0.272 m/s² at 19.4° from x</p>
+<figure class="slide">{{img:L07-07}}<figcaption>Lecture solution (M&amp;K 2/141), with the sketches of \(\hat e_r\), \(\hat e_\theta\), \(\vec v\) and \(\vec a\) at P that you should copy in an exam.</figcaption></figure>
+</div>
+
+<div class="example" id="l7e3"><div class="ex-head"><h3>L07 Example 3: the cardioid and the forked rod</h3></div>
+<figure class="slide">{{img:L07-08}}<figcaption>Lecture slide L07, Example 3.</figcaption></figure>
+<ol class="work">
+<li><strong>Path given as \(r = f(\theta)\)</strong>, so use the chain rule:<div class="eq">\[ r = 0.15(1 - \cos\theta) \quad \dot r = 0.15\sin\theta\,\dot\theta \quad \ddot r = 0.15\cos\theta\,\dot\theta^2 + 0.15\sin\theta\,\ddot\theta \]</div></li>
+<li><strong>At \(\theta = 180^\circ\):</strong> \(\sin\theta = 0\) and \(\cos\theta = -1\), so \(r = 0.30\) m, \(\dot r = 0\) and \(\ddot r = -0.15\dot\theta^2\).<span class="why-inline">This is the trig making life easy: \(\sin180^\circ = 0\) wipes out every term with \(\ddot\theta\) or \(\dot r\) in it.</span></li>
+<li><strong>Speed gives \(\dot\theta\):</strong> \(v = \sqrt{\dot r^2 + (r\dot\theta)^2} = 0.3\dot\theta = 1.2\), so \(\dot\theta = 4\) rad/s.</li>
+<li><strong>Acceleration magnitude gives \(\ddot\theta\):</strong> \(a_r = \ddot r - r\dot\theta^2 = -0.15(16) - 0.3(16) = -7.2\) m/s², and \(a_\theta = r\ddot\theta + 0 = 0.3\ddot\theta\).<div class="eq">\[ 9^2 = 7.2^2 + (0.3\ddot\theta)^2 \;\Rightarrow\; 0.3\ddot\theta = 5.4 \;\Rightarrow\; \ddot\theta = 18\ \text{rad/s}^2 \]</div></li>
+</ol>
+<p class="answer">θ̇ = 4 rad/s, θ̈ = 18 rad/s²</p>
+<figure class="slide">{{img:L07-09}}<figcaption>Lecture solution slide.</figcaption></figure>
+</div>
+
+<div class="example" id="l7e4"><div class="ex-head"><h3>L07 Example 4: pin on a circle through O</h3></div>
+<figure class="slide">{{img:L07-10}}<figcaption>Lecture slide L07, Example 4.</figcaption></figure>
+<ol class="work">
+<li><strong>Path:</strong> \(r = 2a\cos\theta\), with \(\dot\theta\) constant (\(\ddot\theta = 0\)).</li>
+<li><strong>Chain rule:</strong> \(\dot r = -2a\sin\theta\,\dot\theta\) and \(\ddot r = -2a\cos\theta\,\dot\theta^2\).</li>
+<li><strong>Velocity:</strong> \(v_r = -2a\sin\theta\,\dot\theta\) and \(v_\theta = r\dot\theta = 2a\cos\theta\,\dot\theta\), so<div class="eq">\[ v = 2a\dot\theta\sqrt{\sin^2\theta + \cos^2\theta} = 2a\dot\theta \]</div><span class="why-inline">The identity \(\sin^2 + \cos^2 = 1\) is what collapses the answer. In polar questions, look for it whenever sines and cosines appear squared.</span></li>
+<li><strong>Acceleration:</strong> \(a_r = -2a\cos\theta\,\dot\theta^2 - 2a\cos\theta\,\dot\theta^2 = -4a\cos\theta\,\dot\theta^2\) and \(a_\theta = 0 + 2(-2a\sin\theta\,\dot\theta)\dot\theta = -4a\sin\theta\,\dot\theta^2\), so \(a = 4a\dot\theta^2\).</li>
+<li><strong>Sanity check with n–t:</strong> B moves round a circle of radius \(a\) at constant speed \(2a\dot\theta\), so \(a = v^2/a = 4a\dot\theta^2\). Same answer.</li>
+</ol>
+<p class="answer">v = 2aθ̇, a = 4aθ̇² (both constant)</p>
+<figure class="slide">{{img:L07-11}}<figcaption>Lecture solution slide.</figcaption></figure>
+</div>
+</section>
+
+<section class="chapter" id="s12">
+<h2>12. Tutorial 2 polar questions (no memo, so worked here)</h2>
+<figure class="slide">{{img:c_t02}}<figcaption>Tutorial 2, Questions 2–5 (Q3, Q4 and Q5 are polar).</figcaption></figure>
+
+<div class="example" id="t2q3"><div class="ex-head"><h3>Tut02 Q3: oscillating rod with a sliding collar</h3></div>
+<p class="problem">\(\theta = \tfrac{3}{\pi}\sin(\pi t)\) and \(r = 6(1 - e^{-2t})\). At \(t = 1.00\) s find the collar’s speed, its acceleration, and its acceleration relative to the rod.</p>
+<ol class="work">
+<li><strong>Differentiate:</strong> \(\dot\theta = 3\cos(\pi t)\) and \(\ddot\theta = -3\pi\sin(\pi t)\); \(\dot r = 12e^{-2t}\) and \(\ddot r = -24e^{-2t}\).</li>
+<li><strong>At \(t = 1\):</strong> \(\theta = 0\), \(\dot\theta = -3\) rad/s, \(\ddot\theta = 0\); \(r = 5.188\) m, \(\dot r = 1.624\) m/s, \(\ddot r = -3.248\) m/s².<span class="why-inline">θ is measured from the vertical here, so \(\hat e_\theta\) points the way that angle opens. Signs still work exactly as before.</span></li>
+<li><strong>Speed:</strong> \(v = \sqrt{1.624^2 + (5.188\times3)^2} = 15.6\) m/s.</li>
+<li><strong>Acceleration:</strong> \(a_r = -3.248 - 5.188(9) = -49.9\) and \(a_\theta = 0 + 2(1.624)(-3) = -9.74\), so \(a = 50.9\) m/s².</li>
+<li><strong>Relative to the rod:</strong> someone riding on the rod only sees the sliding, \(\ddot r\,\hat e_r = -3.25\,\hat e_r\) m/s².</li>
+</ol>
+<p class="answer">v = 15.6 m/s, a = 50.9 m/s², a<sub>rel</sub> = −3.25 e<sub>r</sub> m/s² (matches the answer sheet)</p>
+</div>
+
+<div class="example" id="t2q4"><div class="ex-head"><h3>Tut02 Q4: peg driven along a spiral</h3></div>
+<p class="problem">The slotted link turns at a constant \(\dot\theta = 3\) rad/s and drives peg P along the spiral \(r = 0.4\theta\). Find the velocity and acceleration as it leaves the slot at \(r = 0.5\) m.</p>
+<ol class="work">
+<li><strong>Chain rule:</strong> \(\dot r = 0.4\dot\theta = 1.2\) m/s and \(\ddot r = 0.4\ddot\theta = 0\).</li>
+<li><strong>At \(r = 0.5\):</strong> \(\theta = 1.25\) rad (not needed for magnitudes).</li>
+<li><strong>Velocity:</strong> \(v_r = 1.2\) and \(v_\theta = 0.5(3) = 1.5\), so \(v = 1.92\) m/s.</li>
+<li><strong>Acceleration:</strong> \(a_r = 0 - 0.5(9) = -4.5\) and \(a_\theta = 0 + 2(1.2)(3) = 7.2\), so \(a = 8.49\) m/s².</li>
+</ol>
+<p class="answer">v = 1.92 m/s, a = 8.49 m/s² (matches the answer sheet)</p>
+</div>
+
+<div class="example" id="t2q5"><div class="ex-head"><h3>Tut02 Q5: radar tracking a plane at the bottom of a loop</h3></div>
+<p class="problem">At the bottom of a vertical loop (ρ = 1000 m) a plane flies horizontally at 462 m/s and speeds up at 10 m/s². The radar is at O with \(r_x = 2400\) m and \(r_y = 1800\) m. Find \(r, \dot r, \ddot r, \theta, \dot\theta, \ddot\theta\).</p>
+<ol class="work">
+<li><strong>Geometry:</strong> \(r = \sqrt{2400^2 + 1800^2} = 3000\) m and \(\theta = \tan^{-1}(1800/2400) = 36.9^\circ\).</li>
+<li><strong>Cartesian motion:</strong> \(\vec v = 462\,\hat i\). Acceleration: \(a_t = 10\) along the flight (\(\hat i\)), and \(a_n = v^2/\rho = 462^2/1000 = 213.4\) up towards the loop’s centre. So \(\vec a = 10\,\hat i + 213.4\,\hat j\).</li>
+<li><strong>Project the velocity:</strong> \(\dot r = 462\cos36.9^\circ = 370\) m/s and \(r\dot\theta = -462\sin36.9^\circ = -277\) m/s, so \(\dot\theta = -0.0924\) rad/s.</li>
+<li><strong>Project the acceleration:</strong> \(a_r = 10(0.8) + 213.4(0.6) = 136.1\) and \(a_\theta = -10(0.6) + 213.4(0.8) = 164.8\) m/s².</li>
+<li><strong>Solve for the dot-dots:</strong> \(\ddot r = a_r + r\dot\theta^2 = 136.1 + 25.6 = 161.7\) m/s², and \(\ddot\theta = (a_\theta - 2\dot r\dot\theta)/r = (164.8 + 68.3)/3000 = 0.0777\) rad/s².</li>
+</ol>
+<p class="answer">r = 3000 m, ṙ = 370 m/s, r̈ = 162 m/s², θ = 36.9°, θ̇ = −0.0924 rad/s, θ̈ = 0.0777 rad/s²</p>
+<div class="callout slip"><span class="tag">Check with your tutor</span><p>The answer sheet gives \(\ddot r = 57.9\) m/s² and \(\ddot\theta = 0.0315\) rad/s². Those values come out exactly if the normal acceleration is taken as 40 m/s² (as if \(v = 200\) m/s were used in \(v^2/\rho\)). With the question’s 462 m/s, \(a_n = 213\) m/s² and the answers above follow. \(r\), \(\dot r\), \(\theta\) and \(\dot\theta\) match the sheet. The method is the same either way.</p></div>
+</div>
+</section>
+
+<section class="chapter" id="s13">
+<h2>13. Cylindrical coordinates (L08)</h2>
+<p>Cylindrical coordinates are polar coordinates with a height added. The point P is described by \(r\) and \(\theta\) in the horizontal plane, and \(z\) above it.</p>
+<figure class="panel">{{fig:cyl_geom}}<figcaption>\(\hat e_r\) and \(\hat e_\theta\) are the same horizontal unit vectors as in polar. \(\hat k\) points straight up and never turns.</figcaption></figure>
+<div class="eq key">\[ \begin{gathered} \vec R = r\,\hat e_r + z\,\hat k \\[4pt] \vec v = \dot r\,\hat e_r + r\dot\theta\,\hat e_\theta + \dot z\,\hat k \\[4pt] \vec a = (\ddot r - r\dot\theta^2)\,\hat e_r + (r\ddot\theta + 2\dot r\dot\theta)\,\hat e_\theta + \ddot z\,\hat k \end{gathered} \]</div>
+<div class="callout why"><span class="tag">Why nothing new appears</span><p>\(\hat k\) never changes direction, so \(z\hat k\) differentiates simply to \(\dot z\hat k\) and \(\ddot z\hat k\). All the turning happens in the horizontal plane, and that is exactly polar coordinates. Do the polar part as before and add the \(z\) part.</p></div>
+<p>Magnitudes: \(v = \sqrt{v_r^2 + v_\theta^2 + v_z^2}\) and \(a = \sqrt{a_r^2 + a_\theta^2 + a_z^2}\).</p>
+
+<div class="example" id="l8e1"><div class="ex-head"><h3>L08 Example 1: the extending robot arm</h3></div>
+<figure class="slide">{{img:L08-07}}<figcaption>Lecture slide L08, Example 1.</figcaption></figure>
+<ol class="work">
+<li><strong>Functions of time:</strong> the arm extends at \(\dot r = 1.5\) from \(r = 3\), so \(r = 3 + 1.5t\), \(\ddot r = 0\). \(\theta = 0.5t\), so \(\dot\theta = 0.5\), \(\ddot\theta = 0\). \(z = 4t^2\), so \(\dot z = 8t\), \(\ddot z = 8\).</li>
+<li><strong>At \(t = 3\) s:</strong> \(r = 7.5\), \(\dot r = 1.5\), \(\ddot r = 0\); \(\theta = 1.5\) rad, \(\dot\theta = 0.5\), \(\ddot\theta = 0\); \(z = 36\), \(\dot z = 24\), \(\ddot z = 8\).<span class="why-inline">Nine numbers now (the six polar ones plus three for z). A neat table, as on the lecture slide, prevents mistakes.</span></li>
+<li><strong>Velocity:</strong> \(\vec v = 1.5\,\hat e_r + 7.5(0.5)\,\hat e_\theta + 24\,\hat k = 1.5\,\hat e_r + 3.75\,\hat e_\theta + 24\,\hat k\), so \(v = 24.3\) m/s.</li>
+<li><strong>Acceleration:</strong> \(a_r = 0 - 7.5(0.25) = -1.875\), \(a_\theta = 0 + 2(1.5)(0.5) = 1.5\), \(a_z = 8\), so \(a = 8.35\) m/s².</li>
+</ol>
+<p class="answer">v = 24.3 m/s, a = 8.35 m/s²</p>
+<figure class="slide">{{img:L08-08}}<figcaption>Lecture solution slide, with the nine-number table.</figcaption></figure>
+</div>
+</section>
+
+<section class="chapter" id="s14">
+<h2>14. Spherical coordinates (L08)</h2>
+<p>Spherical coordinates suit anything that points into the sky from a fixed spot, like a radar antenna or a fire-truck ladder. They use the straight-line distance \(R\) from O, the compass angle \(\theta\) in the horizontal plane, and the elevation angle \(\phi\) up from the horizontal (like latitude).</p>
+<figure class="panel">{{fig:sph_geom}}<figcaption>\(\hat e_R\) points along the beam. \(\hat e_\phi\) points “up the sky” in the vertical plane through A. \(\hat e_\theta\) is horizontal, sideways to that plane. The dashed circle has radius \(R\cos\phi\).</figcaption></figure>
+<figure class="slide">{{img:L08-09}}<figcaption>Lecture slide L08: spherical coordinates and unit vectors.</figcaption></figure>
+<h3>Velocity, and why \(\cos\phi\) appears</h3>
+<div class="eq key">\[ \vec v = \dot R\,\hat e_R + R\dot\theta\cos\phi\,\hat e_\theta + R\dot\phi\,\hat e_\phi \]</div>
+<ul>
+<li><strong>\(v_R = \dot R\)</strong>: moving along the beam (like \(\dot r\) in polar).</li>
+<li><strong>\(v_\phi = R\dot\phi\)</strong>: swinging up in the vertical plane, on a circle of radius \(R\) (like \(r\dot\theta\) in polar).</li>
+<li><strong>\(v_\theta = (R\cos\phi)\,\dot\theta\)</strong>: when \(\theta\) changes, A circles the vertical axis on a <em>horizontal</em> circle. That circle’s radius is the horizontal distance from the axis, \(R\cos\phi\) (the dashed circle in the figure). Radius × angular speed gives \(R\cos\phi\,\dot\theta\).</li>
+</ul>
+<div class="callout why"><span class="tag">Sanity check</span><p>At \(\phi = 90^\circ\) (pointing straight up), \(\cos\phi = 0\). Spinning about the vertical axis then does not move A at all, and the formula agrees.</p></div>
+<h3>Acceleration, built from two polar pictures</h3>
+<div class="eq">\[ \begin{gathered} a_R = \ddot R - R\dot\phi^2 - R\dot\theta^2\cos^2\phi \\[4pt] a_\theta = \frac{\cos\phi}{R}\frac{d}{dt}\big(R^2\dot\theta\big) - 2R\dot\theta\dot\phi\sin\phi \\[4pt] a_\phi = \frac{1}{R}\frac{d}{dt}\big(R^2\dot\phi\big) + R\dot\theta^2\sin\phi\cos\phi \end{gathered} \]</div>
+<p>Expanded, as on the L08 ladder slide:</p>
+<div class="eq">\[ \begin{gathered} a_\theta = 2\dot R\dot\theta\cos\phi + R\ddot\theta\cos\phi - 2R\dot\theta\dot\phi\sin\phi \\[4pt] a_\phi = 2\dot R\dot\phi + R\ddot\phi + R\dot\theta^2\sin\phi\cos\phi \end{gathered} \]</div>
+<div class="callout big"><span class="tag">How to rebuild these instead of memorising them</span>
+<p><strong>Picture 1, the vertical plane (R, φ):</strong> this is ordinary polar with \(r \to R\) and \(\theta \to \phi\). It gives \(\ddot R - R\dot\phi^2\) in \(a_R\), and \(R\ddot\phi + 2\dot R\dot\phi\) in \(a_\phi\).</p>
+<p><strong>Picture 2, the horizontal circle (radius \(\rho = R\cos\phi\), angle θ):</strong> this is also polar. Its transverse part \(\rho\ddot\theta + 2\dot\rho\dot\theta\), with \(\dot\rho = \dot R\cos\phi - R\dot\phi\sin\phi\), is exactly \(a_\theta\). Its centripetal part \(\rho\dot\theta^2\) points horizontally towards the vertical axis. That direction is split between \(-\hat e_R\) (a share \(\cos\phi\)) and \(+\hat e_\phi\) (a share \(\sin\phi\)), which gives the \(-R\dot\theta^2\cos^2\phi\) in \(a_R\) and the \(+R\dot\theta^2\sin\phi\cos\phi\) in \(a_\phi\).</p>
+<p>So spherical is two polar problems glued together. If you know polar, you can rebuild every term.</p></div>
+
+<h3>Turning cylindrical components into spherical ones</h3>
+<p>Same trick as Section 8, but now the turn is by \(\phi\) in the vertical plane:</p>
+<div class="eq key">\[ \begin{gathered} u_R = u_r\cos\phi + u_z\sin\phi \\[4pt] u_\phi = -u_r\sin\phi + u_z\cos\phi \\[4pt] u_\theta \text{ unchanged} \end{gathered} \]</div>
+
+<div class="example" id="l8e2"><div class="ex-head"><h3>L08 Example 2: radar antenna tracking a jet</h3></div>
+<figure class="slide">{{img:L08-14}}<figcaption>Lecture slide L08, Example 2.</figcaption></figure>
+<p><strong>Read the picture.</strong> The jet flies level, parallel to the x-axis, along a line a horizontal distance \(b = 2\) km from the x-axis, at height \(h = 1750\) m above P, with \(u = 500\) km/h = 138.9 m/s. The antenna’s compass angle is \(\theta = 60^\circ\).</p>
+<ol class="work">
+<li><strong>Horizontal distance</strong> from P to below the jet: \(r = b/\sin\theta = 2000/0.866 = 2309\) m. Then \(\phi = \tan^{-1}(h/r) = \tan^{-1}(1750/2309) = 37.2^\circ\), and \(R = \sqrt{2309^2 + 1750^2} = 2898\) m.</li>
+<li><strong>Step 1: x–y to horizontal polar (r, θ, z).</strong> \(\vec u = u\,\hat i\), so \(u_r = u\cos\theta = 69.4\), \(u_\theta = -u\sin\theta = -120.3\), \(u_z = 0\) m/s.<span class="why-inline">This is Section 8 again, with \(v_x = u\) and \(v_y = 0\).</span></li>
+<li><strong>Step 2: tilt up by φ to spherical.</strong> \(u_R = u_r\cos\phi = 55.4\) m/s, \(u_\phi = -u_r\sin\phi = -41.9\) m/s, and \(u_\theta = -120.3\) m/s (unchanged).</li>
+<li><strong>Meaning of the signs:</strong> \(R\) is growing (the jet is getting further away), θ is shrinking (it is swinging towards the x-axis), and φ is shrinking (the antenna tilts down as the jet recedes). Check: \(\sqrt{55.4^2 + 120.3^2 + 41.9^2} = 138.9\) m/s. Total speed is unchanged.</li>
+</ol>
+<p class="answer">|v<sub>R</sub>| = 55.4 m/s, |v<sub>θ</sub>| = 120.3 m/s, |v<sub>φ</sub>| = 41.9 m/s (so Ṙ = 55.4 m/s, θ̇ = −0.052 rad/s, φ̇ = −0.0145 rad/s)</p>
+<figure class="slide">{{img:L08-15}}<figcaption>Lecture solution slide: project \(\vec u\) onto the rθ plane, then rotate by φ with the matrix shown.</figcaption></figure>
+</div>
+
+<div class="example" id="l8e3"><div class="ex-head"><h3>L08 Example 3: the fire-truck ladder</h3></div>
+<figure class="slide">{{img:L08-16}}<figcaption>Lecture slide L08, Example 3.</figcaption></figure>
+<ol class="work">
+<li><strong>Nine numbers, in radians:</strong> \(R = 9 + 6 = 15\) m, \(\dot R = 0.5\), \(\ddot R = 0\); \(\dot\theta = 10^\circ/\text{s} = 0.1745\) rad/s, \(\ddot\theta = 0\); \(\phi = 30^\circ\), \(\dot\phi = 7^\circ/\text{s} = 0.1222\) rad/s, \(\ddot\phi = 0\).<span class="why-inline">Converting deg/s to rad/s first is the step most often forgotten.</span></li>
+<li><strong>Velocity:</strong> \(v_R = 0.5\), \(v_\theta = 15(0.1745)\cos30^\circ = 2.27\), \(v_\phi = 15(0.1222) = 1.83\), so \(v = 2.96\) m/s.</li>
+<li><strong>Acceleration:</strong><div class="eq">\[ a_R = 0 - 15(0.1222)^2 - 15(0.1745)^2\cos^2 30^\circ = -0.567 \]\[ a_\theta = 2(0.5)(0.1745)\cos30^\circ + 0 - 2(15)(0.1745)(0.1222)\sin30^\circ = -0.169 \]\[ a_\phi = 2(0.5)(0.1222) + 0 + 15(0.1745)^2\sin30^\circ\cos30^\circ = 0.320 \]</div></li>
+<li>\(a = \sqrt{0.567^2 + 0.169^2 + 0.320^2}\).</li>
+</ol>
+<p class="answer">v = 2.96 m/s, a = 0.672 m/s²</p>
+<figure class="slide">{{img:L08-17}}<figcaption>Lecture solution slide.</figcaption></figure>
+</div>
+</section>
+
+<section class="chapter" id="s15">
+<h2>15. Quick drills (answers underneath)</h2>
+<ol class="work">
+<li>\(r = 2\) m (constant), \(\dot\theta = 3\) rad/s (constant). Find \(\vec a\).<span class="why-inline">Answer: \(a_r = -18\), \(a_\theta = 0\), so 18 m/s² towards O. (A circle at constant speed: \(r\omega^2\).)</span></li>
+<li>\(r = 0.5\), \(\dot r = 1\), \(\ddot r = 0\), \(\dot\theta = 2\), \(\ddot\theta = 0\). Find \(v\) and \(a\).<span class="why-inline">Answer: \(\vec v = 1\,\hat e_r + 1\,\hat e_\theta\), so \(v = 1.41\) m/s. \(\vec a = -2\,\hat e_r + 4\,\hat e_\theta\), so \(a = 4.47\) m/s².</span></li>
+<li>A particle at \(\theta = 90^\circ\) moves with \(\vec v = 3\hat i\) m/s. What are \(v_r\) and \(v_\theta\)?<span class="why-inline">Answer: \(v_r = 3\cos90^\circ = 0\) and \(v_\theta = -3\sin90^\circ = -3\). It moves purely sideways, and θ is decreasing.</span></li>
+<li>Spiral \(r = 3\theta\) with constant \(\dot\theta = 2\). Find \(v\) and \(a\) at \(\theta = \pi\).<span class="why-inline">Answer: \(r = 9.42\), \(\dot r = 6\), \(\ddot r = 0\). \(v = \sqrt{6^2 + 18.85^2} = 19.8\) m/s. \(a_r = -37.7\) and \(a_\theta = 24\), so \(a = 44.7\) m/s².</span></li>
+<li>Why is it \(-\sin\theta\) in \(\hat e_\theta\)?<span class="why-inline">Answer: \(\hat e_\theta\) is \(\hat e_r\) turned 90°, so it leans back past the vertical by θ and its horizontal part points left.</span></li>
+<li>Which term would vanish if the slider stopped sliding but the arm kept accelerating its spin?<span class="why-inline">Answer: \(\dot r = 0\) kills \(2\dot r\dot\theta\). And \(\ddot r = 0\) if it stays still. What remains is \(-r\dot\theta^2\) and \(r\ddot\theta\), which is just circular motion.</span></li>
+<li>In spherical coordinates, why does \(v_\theta\) have \(\cos\phi\) but \(v_\phi\) does not?<span class="why-inline">Answer: turning θ moves A round a horizontal circle of radius \(R\cos\phi\). Turning φ moves it round a vertical circle of full radius \(R\).</span></li>
+</ol>
+</section>
+
+<section class="chapter summary-page" id="s16">
+<h2>16. Formulas to know, and the one-page summary</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Formula</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td>\(\hat e_r = \cos\theta\,\hat i + \sin\theta\,\hat j\)</td><td>Unit arrow along the radial line, away from O.</td></tr>
+<tr><td>\(\hat e_\theta = -\sin\theta\,\hat i + \cos\theta\,\hat j\)</td><td>\(\hat e_r\) turned 90° the way θ grows. It leans back, hence the minus.</td></tr>
+<tr><td>\(\dot{\hat e}_r = \dot\theta\,\hat e_\theta\), \(\dot{\hat e}_\theta = -\dot\theta\,\hat e_r\)</td><td>A turning unit arrow changes sideways, at rate \(\dot\theta\).</td></tr>
+<tr><td>\(\vec v = \dot r\,\hat e_r + r\dot\theta\,\hat e_\theta\)</td><td>Sliding along the arm + being carried round by it.</td></tr>
+<tr><td>\(a_r = \ddot r - r\dot\theta^2\)</td><td>Slide speeding up, minus the centripetal pull towards O.</td></tr>
+<tr><td>\(a_\theta = r\ddot\theta + 2\dot r\dot\theta\)</td><td>Spin speeding up, plus Coriolis (two \(\dot r\dot\theta\) effects).</td></tr>
+<tr><td>\(v_r = v_x\cos\theta + v_y\sin\theta\), \(v_\theta = -v_x\sin\theta + v_y\cos\theta\)</td><td>Dot products with \(\hat e_r\) and \(\hat e_\theta\) (x–y to polar). The same for \(\vec a\).</td></tr>
+<tr><td>\(\dot r = f'\dot\theta\), \(\ddot r = f''\dot\theta^2 + f'\ddot\theta\)</td><td>Chain rule for a path \(r = f(\theta)\).</td></tr>
+<tr><td>Cylindrical: add \(\dot z\,\hat k\), \(\ddot z\,\hat k\)</td><td>\(\hat k\) never turns, so it is just polar plus height.</td></tr>
+<tr><td>\(\vec v = \dot R\,\hat e_R + R\dot\theta\cos\phi\,\hat e_\theta + R\dot\phi\,\hat e_\phi\)</td><td>Along the beam, round the horizontal circle (radius \(R\cos\phi\)), up the vertical circle (radius \(R\)).</td></tr>
+<tr><td>\(a_R, a_\theta, a_\phi\) (Section 14)</td><td>Two polar problems glued together: the vertical plane plus the horizontal circle.</td></tr>
+</tbody></table></div>
+
+<div class="cheat">
+<h3>One-page summary</h3>
+<div class="cheat-grid">
+<div>
+<h4>Draw it</h4>
+<ol><li>Radial line from O through P.</li><li>\(\hat e_r\) along it, away from O.</li><li>\(\hat e_\theta\) ⟂, the way θ grows.</li><li>Mark the right angle.</li></ol>
+<h4>Unit vectors</h4>
+<p>\(\hat e_r = (\cos\theta, \sin\theta)\)<br>\(\hat e_\theta = (-\sin\theta, \cos\theta)\)<br>\(\dot{\hat e}_r = \dot\theta\,\hat e_\theta\), \(\dot{\hat e}_\theta = -\dot\theta\,\hat e_r\)</p>
+<h4>Polar</h4>
+<p>\(v_r = \dot r\), \(v_\theta = r\dot\theta\)<br>\(a_r = \ddot r - r\dot\theta^2\)<br>\(a_\theta = r\ddot\theta + 2\dot r\dot\theta\)</p>
+<h4>x–y ↔ r–θ</h4>
+<p>\(v_r = v_x\cos\theta + v_y\sin\theta\)<br>\(v_\theta = -v_x\sin\theta + v_y\cos\theta\)</p>
+</div>
+<div>
+<h4>Method</h4>
+<ol><li>Fill the six-number table \(r, \dot r, \ddot r, \theta, \dot\theta, \ddot\theta\) (nine with z or φ).</li><li>Get them from \(r(t), \theta(t)\), from \(r = f(\theta)\) by the chain rule, from geometry plus projection, or from a known magnitude.</li><li>Substitute, then combine with Pythagoras.</li><li>Direction = θ + atan2(\(v_\theta\), \(v_r\)).</li></ol>
+<h4>Cylindrical</h4>
+<p>Polar + \(\dot z\,\hat k\), \(\ddot z\,\hat k\)</p>
+<h4>Spherical</h4>
+<p>\(v_R = \dot R\), \(v_\theta = R\dot\theta\cos\phi\), \(v_\phi = R\dot\phi\)<br>\(a_R = \ddot R - R\dot\phi^2 - R\dot\theta^2\cos^2\phi\)<br>\(a_\theta = 2\dot R\dot\theta\cos\phi + R\ddot\theta\cos\phi - 2R\dot\theta\dot\phi\sin\phi\)<br>\(a_\phi = 2\dot R\dot\phi + R\ddot\phi + R\dot\theta^2\sin\phi\cos\phi\)</p>
+<h4>Traps</h4>
+<ul><li>Radians, not degrees.</li><li>\(\dot\theta\) vs \(\ddot\theta\) when substituting.</li><li>\(\vec a = 0\) does not mean \(\ddot r = 0\).</li><li>The “2” in \(2\dot r\dot\theta\).</li><li>\(\cos\phi\) only in the θ terms.</li></ul>
+</div>
+</div>
+</div>
+</section>
+</main>
