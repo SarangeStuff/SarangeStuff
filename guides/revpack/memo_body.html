@@ -1,0 +1,515 @@
+<main class="page">
+<section class="hero" id="top">
+<span class="eyebrow">MEC2047S · 2026 Tutorial revision pack · Explained memo</span>
+<h1>The revision pack, <em>explained</em></h1>
+<p class="lead">Every question in the pack (Tutorials 0, 1, 2, 6, 7 and 8) is worked step by step, with the reason for each step and the formulas behind it. Tutorial 2 has no memo, so it gets full solutions here. The polar questions get extra attention, and there is a short spherical primer before the final formula sheet.</p>
+<nav class="contents" aria-label="Contents">
+<h2 class="nobm">Contents</h2>
+<ol>
+<li><a href="#polar">Polar toolkit (read this first)</a></li>
+<li><a href="#tut0">Tutorial 0: refresher</a></li>
+<li><a href="#tut1">Tutorial 1: rectilinear motion</a></li>
+<li><a href="#tut2">Tutorial 2: curvilinear motion (full solutions, no memo)</a></li>
+<li><a href="#tut6">Tutorial 6: Newton’s second law</a></li>
+<li><a href="#tut7">Tutorial 7: work, energy, power (and polar kinetics)</a></li>
+<li><a href="#tut8">Tutorial 8: impulse, momentum, impact</a></li>
+<li><a href="#sph">Spherical coordinates primer</a></li>
+<li><a href="#sheet">Formula sheet for the whole pack</a></li>
+</ol>
+</nav>
+<div class="callout why"><span class="tag">How each question is laid out</span><p>First a snapshot of the question. Then the <strong>memo answer</strong>. Then the explained solution: numbered steps, each with a <span class="mono">WHY</span> line saying why that step or formula is used. Where the memo rounds or slips, a note says so.</p></div>
+</section>
+
+<!-- ============================================================ POLAR TOOLKIT -->
+<section class="chapter" id="polar">
+<h2>Polar toolkit (read this first)</h2>
+<p>Use polar coordinates whenever something is measured as a <strong>distance r from a fixed point O</strong> and an <strong>angle θ</strong>: a rotating slotted arm, a radar, a spiral guide. In this pack that means Tutorial 2 Q3–Q5 and Tutorial 7 Q1.</p>
+<h3>1. Draw the two unit vectors</h3>
+<figure class="panel">{{fig:pu_unitvec}}<figcaption>\(\hat e_r\) goes along the radial line from O through P, pointing away from O. \(\hat e_\theta\) is perpendicular to it, pointing the way θ increases.</figcaption></figure>
+<div class="eq key">\[ \begin{gathered} \hat e_r = \cos\theta\,\hat i + \sin\theta\,\hat j \\[4pt] \hat e_\theta = -\sin\theta\,\hat i + \cos\theta\,\hat j \end{gathered} \]</div>
+<p><strong>Why the minus:</strong> \(\hat e_\theta\) is \(\hat e_r\) turned 90°, so it points at angle θ + 90°. Since \(\cos(\theta + 90^\circ) = -\sin\theta\), its horizontal part points backwards (left).</p>
+<h3>2. They turn as P moves</h3>
+<figure class="panel">{{fig:pu_derivative}}<figcaption>Rotate a unit arrow by a small Δθ and its tip moves Δθ sideways. So \(\dot{\hat e}_r = \dot\theta\,\hat e_\theta\) and \(\dot{\hat e}_\theta = -\dot\theta\,\hat e_r\).</figcaption></figure>
+<h3>3. Velocity and acceleration (differentiate \(\vec r = r\,\hat e_r\))</h3>
+<div class="eq key">\[ \begin{gathered} \vec v = \dot r\,\hat e_r + r\dot\theta\,\hat e_\theta \\[4pt] \vec a = \big(\ddot r - r\dot\theta^2\big)\,\hat e_r + \big(r\ddot\theta + 2\dot r\dot\theta\big)\,\hat e_\theta \end{gathered} \]</div>
+<div class="tablewrap"><table>
+<thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>\(\dot r\)</td><td>Sliding along the arm (towards or away from O).</td></tr>
+<tr><td>\(r\dot\theta\)</td><td>Being carried round by the arm (radius × angular speed).</td></tr>
+<tr><td>\(\ddot r\)</td><td>The slide speeding up or slowing down.</td></tr>
+<tr><td>\(-r\dot\theta^2\)</td><td>Centripetal: anything carried round O must accelerate towards O.</td></tr>
+<tr><td>\(r\ddot\theta\)</td><td>The arm’s spin speeding up or slowing down.</td></tr>
+<tr><td>\(2\dot r\dot\theta\)</td><td>Coriolis: sliding outward on a spinning arm. One \(\dot r\dot\theta\) comes from \(\hat e_r\) turning, the other from \(r\dot\theta\) growing.</td></tr>
+</tbody></table></div>
+<h3>4. Switching from x–y to r–θ (dot product with each unit vector)</h3>
+<figure class="panel">{{fig:pu_project}}</figure>
+<div class="eq">\[ \begin{gathered} v_r = \vec v\cdot\hat e_r = v_x\cos\theta + v_y\sin\theta \\[4pt] v_\theta = \vec v\cdot\hat e_\theta = -v_x\sin\theta + v_y\cos\theta \end{gathered} \]</div>
+<p>The same works for \(\vec a\), and for <strong>forces</strong>: to get a force’s r and θ parts, dot it with \(\hat e_r\) and \(\hat e_\theta\). That is how gravity and cable tensions are resolved in Tut 7 Q1.</p>
+<h3>5. Polar kinetics (Newton’s second law in r–θ)</h3>
+<div class="eq key">\[ \begin{gathered} \sum F_r = m\big(\ddot r - r\dot\theta^2\big) \\[4pt] \sum F_\theta = m\big(r\ddot\theta + 2\dot r\dot\theta\big) \end{gathered} \]</div>
+<h3>6. The method: fill in six numbers</h3>
+<div class="tablewrap"><table class="six"><thead><tr><th></th><th>value</th><th>rate</th><th>rate of rate</th></tr></thead>
+<tbody><tr><th>distance</th><td>\(r\)</td><td>\(\dot r\)</td><td>\(\ddot r\)</td></tr><tr><th>angle</th><td>\(\theta\)</td><td>\(\dot\theta\)</td><td>\(\ddot\theta\)</td></tr></tbody></table></div>
+<ul>
+<li><strong>\(r(t)\), \(\theta(t)\) given:</strong> differentiate twice (Tut 2 Q3).</li>
+<li><strong>Path \(r = f(\theta)\):</strong> \(\dot r = f'(\theta)\dot\theta\) and \(\ddot r = f''(\theta)\dot\theta^2 + f'(\theta)\ddot\theta\) (Tut 2 Q4).</li>
+<li><strong>Geometry with a constant length</strong> (a cord, a rod): write the length in terms of r and θ, then differentiate the whole equation twice (Tut 7 Q1).</li>
+<li><strong>x–y motion known:</strong> project it onto \(\hat e_r\) and \(\hat e_\theta\) (Tut 2 Q5).</li>
+</ul>
+<div class="callout slip"><span class="tag">Polar traps</span><ul><li>Angles in radians. deg/s × π/180 = rad/s.</li><li>Don’t mix up \(\dot\theta\) and \(\ddot\theta\) when substituting.</li><li>Signs mean directions: negative \(\dot r\) means moving towards O.</li><li>If θ is measured from a different line (for example the vertical), \(\hat e_\theta\) still points the way <em>that</em> θ increases.</li></ul></div>
+</section>
+
+<!-- ============================================================ TUT 0 -->
+<section class="chapter" id="tut0">
+<h2>Tutorial 0: refresher (constant acceleration, projectiles, circles, pulleys)</h2>
+<div class="formulas"><h3 class="nobm">Formulas used</h3><div class="tablewrap"><table><thead><tr><th>Formula</th><th>Meaning</th><th>Used in</th></tr></thead><tbody>
+<tr><td>\(x = x_0 + v_0t + \tfrac12at^2\), \(v^2 = v_0^2 + 2a\Delta x\)</td><td>Constant-acceleration motion</td><td>Q1, Q2</td></tr>
+<tr><td>\(a = g\sin\theta\) on a frictionless slope</td><td>Only the part of gravity along the slope accelerates the body</td><td>Q1</td></tr>
+<tr><td>\(x = v_0\cos\alpha\,t\), \(y = v_0\sin\alpha\,t - \tfrac12gt^2\)</td><td>Projectile: horizontal and vertical motion are independent and share the clock</td><td>Q2</td></tr>
+<tr><td>\(a_n = v^2/r\) towards the centre</td><td>Circular motion</td><td>Q3</td></tr>
+<tr><td>\(\sum F = ma\), \(\sum M = I\alpha\), \(a = \alpha R\), \(I_{\text{disc}} = \tfrac12mR^2\)</td><td>Newton for blocks and for a spinning pulley</td><td>Q4</td></tr>
+</tbody></table></div></div>
+<figure class="slide">{{img:p-02}}<figcaption>Tutorial 0 question sheet.</figcaption></figure>
+
+<div class="example"><div class="ex-head"><h3>Tut 0 Q1: Jill chasing the shopping cart</h3></div>
+<p class="memo">Memo answer: the cart rolls 6.7 m.</p>
+<ol class="work">
+<li><strong>Cart’s acceleration:</strong> on a frictionless 3° slope, \(a_C = g\sin3^\circ = 0.513\) m/s².<span class="why-inline">Gravity points straight down. Only its component along the slope, \(g\sin\theta\), can speed the cart up.</span></li>
+<li><strong>Positions, measured from Jill’s start</strong> (both start from rest at \(t = 0\)): \(x_J = \tfrac12(2.0)t^2\) and \(x_C = 20 + \tfrac12(0.513)t^2\).</li>
+<li><strong>She catches it when \(x_J = x_C\):</strong> \(t^2 = \dfrac{20}{1 - 0.2565}\), so \(t = 5.19\) s.<span class="why-inline">“Catches” means both are at the same place at the same time.</span></li>
+<li><strong>Distance the cart rolled:</strong> \(\tfrac12(0.513)(5.19)^2 = 6.9\) m.</li>
+</ol>
+<p class="answer">The cart rolls about 6.9 m (the memo gets 6.7 m because it rounds a<sub>C</sub> to 0.5 m/s²)</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 0 Q2: the arrow and the ball</h3></div>
+<p class="memo">Memo answers: (a) 30.3 m/s, (b) 2.09 s after the arrow.</p>
+<ol class="work">
+<li><strong>When does the arrow reach the assistant?</strong> Horizontally the speed is constant: \(150 = 45\cos50^\circ\,t\), so \(t_1 = 5.19\) s.<span class="why-inline">No horizontal force, so constant horizontal speed. Use x to find the time.</span></li>
+<li><strong>How high is it then?</strong> \(y = 45\sin50^\circ(5.19) - 4.905(5.19)^2 = 46.9\) m.</li>
+<li><strong>(a) Minimum throw speed:</strong> the ball must just reach 46.9 m, so it arrives there with zero speed: \(0 = v_0^2 - 2(9.81)(46.9)\), giving \(v_0 = 30.3\) m/s.<span class="why-inline">Any slower and it never gets that high. At exactly this speed the arrow meets the ball at the top of its flight.</span></li>
+<li><strong>(b) When to throw:</strong> going up to the top takes \(v_0/g = 3.09\) s, so throw at \(5.19 - 3.09 = 2.09\) s after the arrow.</li>
+</ol>
+<p class="answer">(a) 30.3 m/s, (b) 2.09 s after the arrow is launched</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 0 Q3: the swing ride</h3></div>
+<p class="memo">Memo answers: (a) 10 m/s², (b) 47°.</p>
+<ol class="work">
+<li><strong>Units first:</strong> 25.0 mph × 0.447 = 11.18 m/s.</li>
+<li><strong>(a)</strong> \(a = v^2/r = 11.18^2/12 = 10.4\) m/s², towards the axis.</li>
+<li><strong>(b) FBD of the rider:</strong> the wire tension T at angle θ from the vertical, and the weight mg. Vertical (no vertical acceleration): \(T\cos\theta = mg\). Horizontal (towards the centre): \(T\sin\theta = mv^2/r\).<span class="why-inline">The tension is the only force with a horizontal part, so it must supply the centripetal force.</span></li>
+<li><strong>Divide the two equations:</strong> \(\tan\theta = \dfrac{v^2}{rg} = \dfrac{10.4}{9.81}\), so θ = 46.7°.</li>
+</ol>
+<p class="answer">(a) 10.4 m/s² (the memo rounds to 10), (b) θ = 47°</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 0 Q4: two blocks over a pulley with mass</h3></div>
+<p class="memo">Memo answer: \(a = \dfrac{m_2g}{m_1 + m_2 + \tfrac12m_p}\).</p>
+<ol class="work">
+<li><strong>Block 1</strong> (frictionless table): \(T_1 = m_1a\).</li>
+<li><strong>Block 2</strong> (hanging, down positive): \(m_2g - T_2 = m_2a\).</li>
+<li><strong>Pulley:</strong> \((T_2 - T_1)R = I\alpha = \tfrac12m_pR^2\,\dfrac{a}{R}\), so \(T_2 - T_1 = \tfrac12m_pa\).<span class="why-inline">A pulley with mass needs a net torque to spin up, so the two tensions must differ. The string doesn’t slip, so \(a = \alpha R\).</span></li>
+<li><strong>Add all three equations</strong> so the tensions cancel: \(m_2g = (m_1 + m_2 + \tfrac12m_p)a\).</li>
+</ol>
+<p class="answer">a = m₂g / (m₁ + m₂ + ½m<sub>p</sub>)</p>
+<p>The pulley acts like an extra mass of \(\tfrac12m_p\) that has to be accelerated.</p></div>
+</section>
+
+<!-- ============================================================ TUT 1 -->
+<section class="chapter" id="tut1">
+<h2>Tutorial 1: rectilinear motion</h2>
+<div class="formulas"><h3 class="nobm">Formulas used</h3><div class="tablewrap"><table><thead><tr><th>Formula</th><th>Meaning</th><th>Used in</th></tr></thead><tbody>
+<tr><td>\(v = ds/dt\), \(a = dv/dt\)</td><td>Definitions: slope of s–t is v, slope of v–t is a</td><td>Q1, Q3, Q4</td></tr>
+<tr><td>\(a\,ds = v\,dv\)</td><td>The chain rule version. Use it when a is given in terms of s, or when you want a distance from a(v)</td><td>Q2, Q4, Q5</td></tr>
+<tr><td>\(\int a\,ds = \tfrac12(v^2 - v_0^2)\)</td><td>Area under an a–s graph</td><td>Q2</td></tr>
+<tr><td>\(dt = dv/a\), \(dt = ds/v\)</td><td>Time from a(v), or time from v(s)</td><td>Q3, Q4, Q5</td></tr>
+</tbody></table></div></div>
+<figure class="slide">{{img:p-07}}<figcaption>Tutorial 1 question sheet.</figcaption></figure>
+
+<div class="example"><div class="ex-head"><h3>Tut 1 Q1: from the v–t triangle to s–t and a–t</h3></div>
+<p class="memo">Memo: s = 50t² up to 0.1 s (reaching 0.5 m), then s = −50t² + 20t − 1 (reaching 1.0 m). a = +100 then −100 m/s².</p>
+<ol class="work">
+<li><strong>Read the v–t graph:</strong> v rises from 0 to 10 m/s in 0.1 s, so \(v = 100t\). Then it falls back to 0 at 0.2 s, so \(v = -100t + 20\).</li>
+<li><strong>a–t:</strong> the slope of each straight piece, +100 then −100 m/s².<span class="why-inline">Acceleration is the slope of v–t.</span></li>
+<li><strong>s–t:</strong> integrate each piece. \(s = 50t^2\) gives 0.5 m at 0.1 s, which matches “s = 0.5 m at t′/2”. Starting from there, \(s = -50t^2 + 20t - 1\) gives 1.0 m at 0.2 s.<span class="why-inline">Displacement is the area under v–t. Each piece starts where the last one ended, so the curve never jumps.</span></li>
+<li><strong>Shape:</strong> s–t curves upward (getting steeper) until 0.1 s, then curves over and is flat at 0.2 s, where v = 0.</li>
+</ol></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 1 Q2: from the a–s graph to the v–s graph</h3></div>
+<p class="memo">Memo: v = 0.1s up to 200 m (20 m/s), then v = √(−0.02s² + 12s − 1200), reaching 24.5 m/s at 300 m.</p>
+<ol class="work">
+<li><strong>Write a(s) for each piece:</strong> \(a = 0.01s\) for 0–200 m, and \(a = -0.02s + 6\) for 200–300 m.</li>
+<li><strong>Use \(v\,dv = a\,ds\)</strong>, because a is given against s, not t: \(\int_0^v v\,dv = \int_0^s 0.01s\,ds\) gives \(v = 0.1s\), so 20 m/s at 200 m.</li>
+<li><strong>Second piece:</strong> \(\int_{20}^{v} v\,dv = \int_{200}^{s}(-0.02s + 6)\,ds\) gives \(v^2 = -0.02s^2 + 12s - 1200\), so \(v(300) = 24.5\) m/s.</li>
+<li><strong>Shape:</strong> a straight line up to 200 m, then a curve that flattens to a horizontal tangent at 300 m (where a = 0).<span class="why-inline">\(dv/ds = a/v\), so where a = 0 the v–s curve is flat.</span></li>
+</ol></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 1 Q3: ball sinking in a lake, a = 10 − 0.8v</h3></div>
+<p class="memo">Memo answers: depth 28.4 m, speed 11.8 m/s.</p>
+<ol class="work">
+<li><strong>a depends on v, and time is given</strong>, so use \(a = dv/dt\):<div class="eq">\[ \int_{4.5}^{v}\frac{dv}{10 - 0.8v} = \int_0^t dt \]</div></li>
+<li><strong>Integrate and rearrange:</strong> \(v = 12.5 - 8e^{-0.8t}\).<span class="why-inline">12.5 m/s is the terminal speed, where \(10 - 0.8v = 0\). The ball approaches it but never reaches it.</span></li>
+<li><strong>Depth:</strong> \(x = \int_0^3 v\,dt = 12.5t + 10e^{-0.8t} - 10\), which is 28.4 m at 3 s.</li>
+<li><strong>Speed at the bottom:</strong> \(v(3) = 11.8\) m/s.</li>
+</ol>
+<p class="answer">Depth 28.4 m, v = 11.8 m/s</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 1 Q4: rocket sled and water brake</h3></div>
+<p class="memo">Memo answers: 2300 m, 12.5 s (the memo writes “12.5 m” for the time, a typo).</p>
+<ol class="work">
+<li><strong>Phase 1, a(t) = 30 + 2t:</strong> integrate to get \(v = 30t + t^2\) and \(s = 15t^2 + t^3/3\). It reaches 400 m/s at \(t = 10\) s, after \(s_1 = 1833\) m.</li>
+<li><strong>Phase 2, a(v) = −0.003v², distance:</strong> use \(v\,dv = a\,ds\), so \(ds = -\dfrac{dv}{0.003v}\) and \(\Delta s = \dfrac{1}{0.003}\ln\dfrac{400}{100} = 462\) m.</li>
+<li><strong>Phase 2, time:</strong> use \(dt = dv/a\): \(\Delta t = \dfrac{1}{0.003}\left(\dfrac1{100} - \dfrac1{400}\right) = 2.5\) s.<span class="why-inline">The same a(v) gives distance through \(v\,dv = a\,ds\) and time through \(dt = dv/a\). Pick whichever the question asks for.</span></li>
+<li><strong>Totals:</strong> \(1833 + 462 = 2295 \approx 2300\) m, and \(10 + 2.5 = 12.5\) s.</li>
+</ol></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 1 Q5: air from a vent, v = 0.18v₀/x</h3></div>
+<p class="memo">Memo answers: (a) −0.0525 m/s², (b) 6.17 s.</p>
+<ol class="work">
+<li>\(v = 0.648/x\) (with \(v_0 = 3.6\)).</li>
+<li><strong>(a) v is known as a function of x</strong>, so \(a = v\,\dfrac{dv}{dx} = \dfrac{0.648}{x}\cdot\left(-\dfrac{0.648}{x^2}\right) = -\dfrac{0.420}{x^3}\). At x = 2: −0.0525 m/s².<span class="why-inline">\(a = dv/dt = (dv/dx)(dx/dt) = v\,dv/dx\).</span></li>
+<li><strong>(b) Time:</strong> \(dt = dx/v = \dfrac{x\,dx}{0.648}\), so \(t = \dfrac{3^2 - 1^2}{2(0.648)} = 6.17\) s.</li>
+</ol></div>
+</section>
+
+<!-- ============================================================ TUT 2 -->
+<section class="chapter" id="tut2">
+<h2>Tutorial 2: curvilinear motion (full solutions, no memo)</h2>
+<div class="formulas"><h3 class="nobm">Formulas used</h3><div class="tablewrap"><table><thead><tr><th>Formula</th><th>Meaning</th><th>Used in</th></tr></thead><tbody>
+<tr><td>Projectile: \(v_x\) constant, \(y = v_{y0}t - \tfrac12gt^2\)</td><td>Gravity only acts vertically</td><td>Q1</td></tr>
+<tr><td>\(a_t = \dot v\), \(a_n = v^2/\rho\), \(\rho = \dfrac{[1 + (y')^2]^{3/2}}{|y''|}\)</td><td>n–t components on a curved path</td><td>Q2</td></tr>
+<tr><td>\(v_r = \dot r\), \(v_\theta = r\dot\theta\); \(a_r = \ddot r - r\dot\theta^2\), \(a_\theta = r\ddot\theta + 2\dot r\dot\theta\)</td><td>Polar components (see the <a href="#polar">toolkit</a>)</td><td>Q3–Q5</td></tr>
+<tr><td>\(v_r = v_x\cos\theta + v_y\sin\theta\), \(v_\theta = -v_x\sin\theta + v_y\cos\theta\)</td><td>Turning x–y components into polar ones</td><td>Q5</td></tr>
+</tbody></table></div></div>
+<figure class="slide">{{img:p-13}}<figcaption>Tutorial 2 question sheet.</figcaption></figure>
+
+<div class="example"><div class="ex-head"><h3>Tut 2 Q1: package dropped from a diving aircraft</h3></div>
+<p class="memo">Answer on the sheet: d = 99.6 m.</p>
+<ol class="work">
+<li><strong>The package starts with the plane’s velocity:</strong> 200 m/s at 30° from the vertical, so \(v_x = 200\sin30^\circ = 100\) m/s and \(v_y = -200\cos30^\circ = -173.2\) m/s (downwards).<span class="why-inline">When you let go of something it keeps the velocity it had. Only gravity changes it after that.</span></li>
+<li><strong>Time to fall 1200 m:</strong> \(1200 = 173.2t + 4.905t^2\), so \(t = 5.93\) s (the positive root).</li>
+<li><strong>Horizontal travel:</strong> \(100 \times 5.93 = 593\) m.</li>
+<li><strong>Where the target is:</strong> the plane is diving straight at A, so A lies on the flight line. Its horizontal distance is \(1200\tan30^\circ = 692.8\) m.</li>
+<li><strong>The miss:</strong> \(d = 692.8 - 593.2\).<span class="why-inline">Gravity curves the package’s path down below the straight flight line, so it lands short.</span></li>
+</ol>
+<p class="answer">d = 99.6 m short of the target</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 2 Q2: jet on the parabola y = 0.0004x²</h3></div>
+<p class="memo">Answer on the sheet: a = 0.921 m/s².</p>
+<ol class="work">
+<li><strong>Locate A</strong> from the figure: x = 5 km, y = 0.0004(5000)² = 10 km.</li>
+<li><strong>Derivatives:</strong> \(y' = 0.0008x = 4\) and \(y'' = 0.0008\).</li>
+<li><strong>Radius of curvature:</strong> \(\rho = \dfrac{(1 + 4^2)^{3/2}}{0.0008} = 87\,600\) m.<span class="why-inline">The hint formula measures how sharply the path bends at A. Steep parts of a parabola bend gently, so ρ is large.</span></li>
+<li><strong>Components:</strong> \(a_t = 0.80\) m/s² (given), and \(a_n = 200^2/87\,616 = 0.457\) m/s².</li>
+<li><strong>Combine:</strong> they are perpendicular, so \(a = \sqrt{0.8^2 + 0.457^2}\).</li>
+</ol>
+<p class="answer">a = 0.921 m/s²</p></div>
+
+<figure class="slide">{{img:c_t02}}<figcaption>Tutorial 2, Q3–Q5 (the polar questions).</figcaption></figure>
+
+<div class="example"><div class="ex-head"><h3>Tut 2 Q3 (polar): oscillating rod with a sliding collar</h3></div>
+<p class="memo">Answers on the sheet: 15.6 m/s, 50.8 m/s², −3.25 e<sub>r</sub> m/s².</p>
+<ol class="work">
+<li><strong>Draw it:</strong> the rod hangs from O, and θ is measured from the vertical. \(\hat e_r\) points along the rod, away from O (down the rod). \(\hat e_\theta\) is perpendicular to it, pointing the way θ opens.<span class="why-inline">Polar coordinates don’t care which line θ is measured from. \(\hat e_\theta\) always points the way θ increases.</span></li>
+<li><strong>The six numbers.</strong> \(\theta = \tfrac{3}{\pi}\sin(\pi t)\), so \(\dot\theta = 3\cos(\pi t)\) and \(\ddot\theta = -3\pi\sin(\pi t)\). \(r = 6(1 - e^{-2t})\), so \(\dot r = 12e^{-2t}\) and \(\ddot r = -24e^{-2t}\).</li>
+<li><strong>At t = 1 s:</strong> \(\theta = 0\), \(\dot\theta = -3\) rad/s, \(\ddot\theta = 0\); \(r = 5.188\) m, \(\dot r = 1.624\) m/s, \(\ddot r = -3.248\) m/s².<span class="why-inline">\(\sin\pi = 0\) and \(\cos\pi = -1\). At this instant the rod passes the vertical at full swing speed.</span></li>
+<li><strong>Speed:</strong> \(v_r = 1.624\) and \(v_\theta = r\dot\theta = 5.188(-3) = -15.56\), so \(v = \sqrt{1.624^2 + 15.56^2} = 15.6\) m/s.</li>
+<li><strong>Acceleration:</strong> \(a_r = -3.248 - 5.188(9) = -49.9\) and \(a_\theta = 5.188(0) + 2(1.624)(-3) = -9.74\), so \(a = 50.9\) m/s².<span class="why-inline">The big \(-r\dot\theta^2\) term dominates: the collar is being swung round fast at a large radius.</span></li>
+<li><strong>Relative to the rod:</strong> someone on the rod only sees the sliding, \(\ddot r\,\hat e_r = -3.25\,\hat e_r\) m/s² (3.25 m/s² towards O).</li>
+</ol>
+<p class="answer">v = 15.6 m/s, a = 50.9 m/s², a<sub>rel</sub> = −3.25 e<sub>r</sub> m/s²</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 2 Q4 (polar): peg pushed along a spiral r = 0.4θ</h3></div>
+<p class="memo">Answers on the sheet: v = 1.92 m/s, a = 8.49 m/s².</p>
+<ol class="work">
+<li><strong>The path is \(r = f(\theta)\)</strong>, so use the chain rule: \(\dot r = 0.4\dot\theta = 1.2\) m/s and \(\ddot r = 0.4\ddot\theta = 0\) (the slot turns at a constant rate).</li>
+<li><strong>At r = 0.5 m:</strong> θ = 1.25 rad. You don’t need θ for the magnitudes, only r.</li>
+<li><strong>Velocity:</strong> \(v_r = 1.2\) and \(v_\theta = 0.5(3) = 1.5\), so \(v = 1.92\) m/s.</li>
+<li><strong>Acceleration:</strong> \(a_r = 0 - 0.5(3^2) = -4.5\) and \(a_\theta = 0 + 2(1.2)(3) = 7.2\), so \(a = 8.49\) m/s².<span class="why-inline">Even with a constant spin and \(\ddot r = 0\), there are two accelerations: centripetal \(-r\dot\theta^2\) and Coriolis \(2\dot r\dot\theta\).</span></li>
+</ol>
+<p class="answer">v = 1.92 m/s, a = 8.49 m/s²</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 2 Q5 (polar): radar tracking a plane</h3></div>
+<p class="memo">Answers on the sheet: r = 3000 m, ṙ = 370 m/s, r̈ = 57.9 m/s², θ = 36.9°, θ̇ = −0.0924 rad/s, θ̈ = 0.0315 rad/s².</p>
+<ol class="work">
+<li><strong>Geometry:</strong> \(r = \sqrt{2400^2 + 1800^2} = 3000\) m and \(\theta = \tan^{-1}(1800/2400) = 36.9^\circ\), so \(\cos\theta = 0.8\) and \(\sin\theta = 0.6\).</li>
+<li><strong>The plane’s motion in x–y:</strong> \(\vec v = 462\,\hat i\). At the bottom of the loop \(a_t = 10\) m/s² along \(\hat i\), and \(a_n = 462^2/1000 = 213.4\) m/s² upward, towards the loop’s centre. So \(\vec a = 10\,\hat i + 213.4\,\hat j\).</li>
+<li><strong>Project the velocity</strong> (toolkit §4): \(\dot r = v_r = 462(0.8) = 370\) m/s and \(r\dot\theta = v_\theta = -462(0.6) = -277\) m/s, so \(\dot\theta = -0.0924\) rad/s.<span class="why-inline">θ is shrinking because the plane flies away to the right, so the radar dips towards the horizontal.</span></li>
+<li><strong>Project the acceleration:</strong> \(a_r = 10(0.8) + 213.4(0.6) = 136.1\) and \(a_\theta = -10(0.6) + 213.4(0.8) = 164.8\) m/s².</li>
+<li><strong>Solve the polar formulas backwards:</strong> \(\ddot r = a_r + r\dot\theta^2 = 136.1 + 25.6 = 162\) m/s², and \(\ddot\theta = (a_\theta - 2\dot r\dot\theta)/r = (164.8 + 68.3)/3000 = 0.0777\) rad/s².</li>
+</ol>
+<p class="answer">r = 3000 m, ṙ = 370 m/s, r̈ = 162 m/s², θ = 36.9°, θ̇ = −0.0924 rad/s, θ̈ = 0.0777 rad/s²</p>
+<div class="callout slip"><span class="tag">Check with your tutor</span><p>The sheet’s 57.9 m/s² and 0.0315 rad/s² come out exactly if \(a_n\) is taken as 40 m/s², as if \(v = 200\) m/s were used in \(v^2/\rho\). With the question’s 462 m/s, \(a_n = 213\) m/s² and the answers above follow. Your r, ṙ, θ and θ̇ match the sheet, and the method is the same either way.</p></div></div>
+</section>
+
+<!-- ============================================================ TUT 6 -->
+<section class="chapter" id="tut6">
+<h2>Tutorial 6: Newton’s second law (rectilinear and curvilinear)</h2>
+<div class="formulas"><h3 class="nobm">Formulas used</h3><div class="tablewrap"><table><thead><tr><th>Formula</th><th>Meaning</th><th>Used in</th></tr></thead><tbody>
+<tr><td>\(\sum F_x = ma_x\), \(\sum F_y = ma_y\)</td><td>Newton’s second law along your chosen axes</td><td>all</td></tr>
+<tr><td>\(F_f = \mu_kN\) (sliding), \(F_f \le \mu_sN\) (not sliding)</td><td>Friction</td><td>Q1, Q4, Q6</td></tr>
+<tr><td>Rope length constant, so \(a_A = 2a_B\) on a movable pulley</td><td>Constraint (kinematics)</td><td>Q1</td></tr>
+<tr><td>\(a = dv/dt\), \(v = ds/dt\)</td><td>Integrate a(t) to get v and s</td><td>Q2</td></tr>
+<tr><td>\(\sum F_n = mv^2/\rho\), \(\sum F_t = ma_t\), \(\rho = \dfrac{[1 + (y')^2]^{3/2}}{|y''|}\)</td><td>Newton in n–t components on a curve</td><td>Q3, Q5, Q6</td></tr>
+<tr><td>Loses contact when N = 0</td><td>The road can only push</td><td>Q5</td></tr>
+</tbody></table></div></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 6 Q1: block A pulled by falling mass B</h3></div>
+<figure class="slide">{{img:t6q1}}</figure>
+<p class="memo">Memo answer: μ<sub>k</sub> = 0.349.</p>
+<ol class="work">
+<li><strong>FBDs.</strong> Block A: weight, normal N, friction \(F_f\) (backwards), and cable tension T (forwards). Mass B: weight, and 2T upwards, because it hangs from a pulley held by two cable segments.</li>
+<li><strong>B’s acceleration from its motion:</strong> \(v^2 = 2a_Bs\), so \(4.5^2 = 2a_B(2.5)\) and \(a_B = 4.05\) m/s².<span class="why-inline">A speed and a distance are given, with no time, so use the constant-a equation without t.</span></li>
+<li><strong>Newton for B</strong> (up positive): \(2T - m_Bg = -m_Ba_B\), so \(T = 23.04\) N.</li>
+<li><strong>Constraint:</strong> \(a_A = 2a_B = 8.10\) m/s².<span class="why-inline">The movable pulley halves B’s motion relative to the cable end (Part I, Chapter 5).</span></li>
+<li><strong>Newton for A:</strong> \(N = m_Ag = 19.62\) N, and \(T - \mu_kN = m_Aa_A\), so \(\mu_k = \dfrac{23.04 - 2(8.10)}{19.62}\).</li>
+</ol>
+<p class="answer">μ<sub>k</sub> = 0.349</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 6 Q2: ore car with a time-varying cable force</h3></div>
+<figure class="slide">{{img:t6q2}}</figure>
+<p class="memo">Memo answers: v = 4.08 m/s, s = 12.6 m up the slope.</p>
+<ol class="work">
+<li><strong>Slope angle from the 8–15–17 triangle:</strong> \(\sin\theta = 8/17\).</li>
+<li><strong>Newton along the slope</strong> (frictionless, so N does not appear): \(T - mg\sin\theta = ma\). That is \(20t^2 + 1847 - 400(9.81)(8/17) = 400a\), so \(a = 0.05t^2\).<span class="why-inline">The 1847 N exactly cancels the slope component of the weight (1846.6 N). Only the \(20t^2\) part accelerates the car.</span></li>
+<li><strong>a depends on t</strong>, so integrate in time: \(v = 2 + \dfrac{0.05t^3}{3}\), which is 4.08 m/s at 5 s.</li>
+<li><strong>Integrate again:</strong> \(s = 2t + \dfrac{0.05t^4}{12}\), which is 12.6 m at 5 s.</li>
+</ol>
+<p class="answer">v = 4.08 m/s, s = 12.6 m up the slope</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 6 Q3: package on a car seat, braking over a hill top</h3></div>
+<figure class="slide">{{img:t6q3}}</figure>
+<ol class="work">
+<li><strong>Accelerations.</strong> At the top of the hill the car moves on a curve with ρ = 80 m, so there is \(a_n = v^2/\rho\) pointing <strong>down</strong>, towards the centre of curvature. The car is braking, so there is \(a_t\) pointing <strong>backwards</strong>.</li>
+<li><strong>Forces on the package:</strong> weight W (down), the normal force N (perpendicular to the tilted cushion), and static friction \(F_{f,s}\) along the cushion, pointing backwards.<span class="why-inline">To slow down with the car, something must push the package backwards. Only friction can. “Just stays on” means friction is at its limit, \(F = \mu_sN\).</span></li>
+<li>Draw \(a_n\) (down) and \(a_t\) (backwards) next to the FBD as the kinetic diagram.</li>
+</ol></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 6 Q4: block with a pulley, three cable pulls</h3></div>
+<figure class="slide">{{img:t6q4}}</figure>
+<p class="memo">Memo answer: T = 17.7 N.</p>
+<ol class="work">
+<li><strong>Count the cable pulls on the block:</strong> two horizontal segments (2T) plus the one pulled at 30° (T). This is why the memo writes \(2T + T\cos30^\circ\).</li>
+<li><strong>Vertical</strong> (no vertical acceleration): \(T\sin30^\circ + N - mg = 0\), so \(N = 147.1 - T/2\).<span class="why-inline">The upward part of the pull lifts some weight off the floor, which reduces N and therefore friction.</span></li>
+<li><strong>Horizontal:</strong> \(2T + T\cos30^\circ - \mu_kN = 15(2)\), with \(\mu_k = 0.15\).</li>
+<li><strong>Substitute N:</strong> \(T(2 + 0.866 + 0.075) = 30 + 22.07\).</li>
+</ol>
+<p class="answer">T = 17.7 N</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 6 Q5: sports car over the hill y = −0.005x² + 8</h3></div>
+<figure class="slide">{{img:t6q5}}</figure>
+<p class="memo">Memo answers: (a) 31.3 m/s, (b) F<sub>f</sub> = 4807 N up the slope.</p>
+<ol class="work">
+<li><strong>ρ at the top (x = 0):</strong> \(y' = -0.01x = 0\) and \(|y''| = 0.01\), so \(\rho = 1/0.01 = 100\) m.</li>
+<li><strong>(a) About to lose contact means N = 0.</strong> Then gravity alone provides the centripetal force: \(mg = mv^2/\rho\), so \(v_{max} = \sqrt{g\rho} = 31.3\) m/s.<span class="why-inline">The road can only push up. If the car went faster, the required \(mv^2/\rho\) would exceed mg and it would leave the road.</span></li>
+<li><strong>Braking for 3 s down to 80 km/h (22.2 m/s):</strong> \(a_t = (22.2 - 31.3)/3 = -3.03\) m/s².</li>
+<li><strong>At A (y = 0, so x = 40 m):</strong> \(y' = -0.4\), so the road slopes down at θ = 21.8°.</li>
+<li><strong>Tangential direction</strong> (downhill positive): \(mg\sin\theta - F_f = ma_t\), so \(F_f = 720(9.81)(0.371) + 720(3.03)\).<span class="why-inline">Friction has to cancel the downhill pull of gravity <em>and</em> provide the braking. ρ at A (125 m) would only be needed to find N.</span></li>
+</ol>
+<p class="answer">(a) 31.3 m/s, (b) F<sub>f</sub> = 4807 N, acting up the slope</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 6 Q6: object on a rotating cone</h3></div>
+<figure class="slide">{{img:t6q6}}</figure>
+<p class="memo">Memo answer: ω = 2.73 rad/s.</p>
+<ol class="work">
+<li><strong>Kinematics:</strong> the object moves on a horizontal circle of radius 0.2 m, so it needs \(a_n = r\omega^2\) horizontally <strong>towards the axis</strong>.</li>
+<li><strong>Forces:</strong> weight mg (down), N perpendicular to the 30° surface (leaning outward), and friction F along the surface, pointing up the slope towards the axis.<span class="why-inline">N’s horizontal part points <em>away</em> from the axis, so friction must supply the inward force. At the largest ω it is at its limit, \(F = \mu_sN\).</span></li>
+<li><strong>Vertical</strong> (no vertical acceleration): \(N\cos30^\circ + \mu_sN\sin30^\circ - mg = 0\).</li>
+<li><strong>Horizontal</strong> (towards the axis): \(\mu_sN\cos30^\circ - N\sin30^\circ = mr\omega^2\).</li>
+<li><strong>Divide the two to remove N and m:</strong><div class="eq">\[ \omega = \sqrt{\frac{g}{r}\cdot\frac{\mu_s\cos30^\circ - \sin30^\circ}{\cos30^\circ + \mu_s\sin30^\circ}} = \sqrt{49.05\times\frac{0.193}{1.266}} \]</div></li>
+</ol>
+<p class="answer">ω = 2.73 rad/s</p></div>
+</section>
+
+<!-- ============================================================ TUT 7 -->
+<section class="chapter" id="tut7">
+<h2>Tutorial 7: work, energy, power (and polar kinetics)</h2>
+<div class="formulas"><h3 class="nobm">Formulas used</h3><div class="tablewrap"><table><thead><tr><th>Formula</th><th>Meaning</th><th>Used in</th></tr></thead><tbody>
+<tr><td>\(\sum F_r = m(\ddot r - r\dot\theta^2)\), \(\sum F_\theta = m(r\ddot\theta + 2\dot r\dot\theta)\)</td><td>Newton in polar components</td><td>Q1</td></tr>
+<tr><td>Cosine rule and sine rule</td><td>Geometry of a triangle with a constant side</td><td>Q1</td></tr>
+<tr><td>\(T_1 + V_1 + U'_{1-2} = T_2 + V_2\)</td><td>Energy bookkeeping. \(U'\) is the work of everything except gravity and springs</td><td>Q2–Q4</td></tr>
+<tr><td>\(V_g = mgh\), \(V_e = \tfrac12kx^2\) (x = stretch from the unstretched length)</td><td>Potential energies</td><td>Q3, Q4</td></tr>
+<tr><td>\(U = \int F\,dx\)</td><td>Work of a force that varies with position</td><td>Q2</td></tr>
+<tr><td>\(P = Fv\), \(\varepsilon = P_{out}/P_{in}\)</td><td>Power and efficiency</td><td>Q5</td></tr>
+</tbody></table></div></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 7 Q1 (polar kinetics): slider in a rotating slotted arm</h3></div>
+<figure class="slide">{{img:t7q1}}</figure>
+<p class="memo">Memo answers: T = 2.53 N towards O, R = 1.03 N from the bottom.</p>
+<p>This is the most complete polar question in the pack. It needs the geometry, the kinematics and Newton’s law all together.</p>
+<ol class="work">
+<li><strong>Geometry: the cord BP has a fixed length.</strong> O, B and P form a triangle with OB = 0.3 m, OP = r and angle θ at O. By the cosine rule:<div class="eq">\[ BP^2 = 0.3^2 + r^2 - 2(0.3)\,r\cos\theta = 0.3718^2 \]</div><span class="why-inline">The cord is inextensible, so BP is a constant. That one fact ties r to θ, and it is how we find \(\dot r\) and \(\ddot r\).</span></li>
+<li><strong>Differentiate once</strong> (BP is constant, so its derivative is zero):<div class="eq">\[ 0 = 2r\dot r - 0.6\,\dot r\cos\theta + 0.6\,r\dot\theta\sin\theta \]</div>With r = 0.6, θ = 30° and \(\dot\theta = 4\): \(\dot r = \dfrac{-0.6(0.6)(4)(0.5)}{1.2 - 0.6(0.866)} = -1.058\) m/s.<span class="why-inline">Product rule on \(r\cos\theta\): it gives \(\dot r\cos\theta - r\dot\theta\sin\theta\).</span></li>
+<li><strong>Differentiate again</strong> (with \(\ddot\theta = 0\)):<div class="eq">\[ 0 = 2\dot r^2 + 2r\ddot r - 0.6\,\ddot r\cos\theta + 1.2\,\dot r\dot\theta\sin\theta + 0.6\,r\dot\theta^2\cos\theta \]</div>So \(\ddot r = -\dfrac{2.240 - 2.540 + 4.988}{0.680} = -6.89\) m/s².</li>
+<li><strong>The six numbers are now complete:</strong> \(r = 0.6\), \(\dot r = -1.058\), \(\ddot r = -6.891\); \(\theta = 30^\circ\), \(\dot\theta = 4\), \(\ddot\theta = 0\).</li>
+<li><strong>Accelerations:</strong> \(a_r = \ddot r - r\dot\theta^2 = -6.891 - 0.6(16) = -16.49\) m/s², and \(a_\theta = r\ddot\theta + 2\dot r\dot\theta = 0 + 2(-1.058)(4) = -8.47\) m/s².</li>
+<li><strong>Angle φ at P</strong> between the cord and the direction back towards O (sine rule): \(\dfrac{\sin\varphi}{0.3} = \dfrac{\sin30^\circ}{0.3718}\), so φ = 23.8°.</li>
+</ol>
+<div class="panel"><div class="eqrow">{{fig:t7q1_fbd}}<span class="eqsign">=</span>{{fig:t7q1_kd}}</div><figcaption>Left: the forces on P, with the polar directions marked. Right: \(m\vec a\) in polar components. The arm turns in a vertical plane, so gravity matters.</figcaption></div>
+<ol class="work" start="7">
+<li><strong>Resolve every force into \(\hat e_r\) and \(\hat e_\theta\)</strong> (dot each with the unit vectors):
+<ul><li>Weight (0, −mg): r-part \(= -mg\sin30^\circ\) (down the arm, towards O), θ-part \(= -mg\cos30^\circ\).</li>
+<li>Tension (along P→B): r-part \(= -T\cos\varphi\), θ-part \(= -T\sin\varphi\).</li>
+<li>Slot reaction R (perpendicular to the slot): r-part 0, θ-part \(+R\) (assumed in the \(+\hat e_\theta\) direction).</li></ul>
+<span class="why-inline">Since \(\hat e_r = (\cos30^\circ, \sin30^\circ)\), the weight’s r-part is \((0, -mg)\cdot(0.866, 0.5) = -0.5mg\). That is the dot product doing the trig for you.</span></li>
+<li><strong>Radial equation:</strong> \(-mg\sin30^\circ - T\cos\varphi = m a_r\), so \(-0.981 - 0.915T = 0.2(-16.49)\) and \(T = 2.53\) N.</li>
+<li><strong>Transverse equation:</strong> \(R - mg\cos30^\circ - T\sin\varphi = m a_\theta\), so \(R - 1.699 - 1.022 = 0.2(-8.47)\) and \(R = 1.03\) N.</li>
+<li><strong>Which side of the slot?</strong> R came out positive, so it really does act in \(+\hat e_\theta\). That is the push from the lower (bottom) wall of the slot.</li>
+</ol>
+<p class="answer">T = 2.53 N (pulling P towards B), R = 1.03 N from the bottom side of the slot</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 7 Q2: bakkie stopped by stones and crash barrels</h3></div>
+<figure class="slide">{{img:t7q2}}</figure>
+<p class="memo">Memo answer: x = 0.809 m.</p>
+<ol class="work">
+<li><strong>Choose energy:</strong> speed at one position (A), distance at another (stopped), no time asked.</li>
+<li>\(T_1 = \tfrac12(2300)(12^2) = 165\,600\) J (the memo writes 165 500, a small typo). \(T_2 = 0\), and the ground is level, so V doesn’t change.</li>
+<li><strong>Work of the stones</strong> (constant force, 4 wheels × 800 N, over 10 m): \(-32\,000\) J.</li>
+<li><strong>Work of the barrels</strong> (force varies with x, so integrate): \(-\int_0^x 1.25\times10^6x^3\,dx = -312\,500\,x^4\).<span class="why-inline">When a force changes with position, work is the area under the F–x graph, \(\int F\,dx\).</span></li>
+<li>\(165\,600 - 32\,000 - 312\,500x^4 = 0\), so \(x^4 = 0.4275\).</li>
+</ol>
+<p class="answer">x = 0.809 m</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 7 Q3: block on a semicylinder with an elastic cord</h3></div>
+<figure class="slide">{{img:t7q3}}</figure>
+<p class="memo">Memo answer: δ = 0.933 m.</p>
+<ol class="work">
+<li><strong>Leaving the surface means N = 0.</strong> At angle θ (measured from the horizontal at A), the part of the weight pointing towards the centre is \(mg\sin\theta\). With N = 0 it alone provides \(mv^2/r\), so \(v^2 = gr\sin\theta\).<span class="why-inline">The cord wraps round the surface, so its tension is tangential and has no radial part.</span></li>
+<li><strong>Cord stretch:</strong> at A the cord is wrapped over half the circle, length πr, so the stretch is \(\pi r - \delta\). At θ, the block has moved round by an arc rθ, so the stretch is \(\pi r - r\theta - \delta\).</li>
+<li><strong>Energy from A to θ = 45°</strong> (smooth surface, so U′ = 0):<div class="eq">\[ \tfrac12k(\pi r - \delta)^2 = \tfrac12mv^2 + mgr\sin\theta + \tfrac12k(\pi r - r\theta - \delta)^2 \]</div></li>
+<li><strong>Substitute \(v^2 = gr\sin\theta\)</strong> and write \(L = \pi r - \delta\). The spring terms simplify to \(kr\theta L - \tfrac12kr^2\theta^2 = \tfrac32mgr\sin\theta\), so \(L = 0.638\) m.</li>
+<li>\(\delta = \pi(0.5) - 0.638\).</li>
+</ol>
+<p class="answer">δ = 0.933 m</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 7 Q4: collar between two springs</h3></div>
+<figure class="slide">{{img:t7q4}}</figure>
+<p class="memo">Memo answer: v₂ = 2.26 m/s.</p>
+<ol class="work">
+<li><strong>Datum at B.</strong> At A: \(T_1 = \tfrac12(10)(2^2) = 20\) J and \(V_{g1} = 10(9.81)(0.3) = 29.43\) J.</li>
+<li><strong>Springs at A:</strong> each spring is 0.4 m long and stretched 0.1 m, so its unstretched length is 0.3 m. \(V_{e1} = 2\times\tfrac12(800)(0.1^2) = 8\) J.</li>
+<li><strong>Springs at B:</strong> each spring is now the hypotenuse \(\sqrt{0.3^2 + 0.4^2} = 0.5\) m long, so the stretch is 0.2 m and \(V_{e2} = 2\times\tfrac12(800)(0.2^2) = 32\) J.<span class="why-inline">Always measure stretch from the <em>unstretched</em> length, not from the starting length.</span></li>
+<li>\(20 + 29.43 + 8 = \tfrac12(10)v_2^2 + 32\).</li>
+</ol>
+<p class="answer">v₂ = 2.26 m/s</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 7 Q5: motor lifting a cylinder, with a counterweight</h3></div>
+<figure class="slide">{{img:t7q5}}</figure>
+<p class="memo">Memo answer: ε = 0.892.</p>
+<ol class="work">
+<li><strong>The 300 kg cylinder hangs on two cable segments</strong> and moves at constant speed, so \(2T = 300g\) and \(T = 1471.5\) N.</li>
+<li><strong>The 100 kg counterweight</strong> hangs on the other end of that cable. To balance it, the motor must pull it down with \(F = 1471.5 - 981 = 490.5\) N.</li>
+<li><strong>Speed of the motor’s cable:</strong> the cylinder rises at 2 m/s on two segments, so the cable end moves at 4 m/s (Part I, Chapter 5).</li>
+<li>\(P_{out} = Fv = 490.5 \times 4 = 1962\) W.<span class="why-inline">Check by energy rate: the cylinder gains \(300g \times 2 = 5886\) W while the counterweight gives back \(100g \times 4 = 3924\) W. The difference is 1962 W.</span></li>
+<li>\(\varepsilon = 1962 / 2200\).</li>
+</ol>
+<p class="answer">ε = 0.892</p></div>
+</section>
+
+<!-- ============================================================ TUT 8 -->
+<section class="chapter" id="tut8">
+<h2>Tutorial 8: impulse, momentum and impact</h2>
+<div class="formulas"><h3 class="nobm">Formulas used</h3><div class="tablewrap"><table><thead><tr><th>Formula</th><th>Meaning</th><th>Used in</th></tr></thead><tbody>
+<tr><td>\(m\vec v_1 + \sum\int\vec F\,dt = m\vec v_2\)</td><td>Impulse–momentum (a vector equation)</td><td>Q1</td></tr>
+<tr><td>\(H_O = mvd\), conserved for a central force</td><td>Angular momentum about O</td><td>Q2</td></tr>
+<tr><td>\(\sum mv\) conserved along the line of impact, \(e = \dfrac{\text{separation}}{\text{approach}}\)</td><td>Impact</td><td>Q3, Q4</td></tr>
+<tr><td>Each body keeps its velocity across the line of impact (smooth)</td><td>Oblique impact</td><td>Q3</td></tr>
+<tr><td>Momentum through the impact, energy before and after</td><td>Multi-stage problems</td><td>Q4, Q5</td></tr>
+</tbody></table></div></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 8 Q1: bullet glancing off a steel plate</h3></div>
+<figure class="slide">{{img:t8q1}}</figure>
+<p class="memo">Memo answer: F = 445 kN at 40.1° to the horizontal.</p>
+<ol class="work">
+<li><strong>Contact time:</strong> a 10 mm scratch at an average 500 m/s gives \(\Delta t = 0.01/500 = 2\times10^{-5}\) s.<span class="why-inline">The question gives distance and average speed, so time = distance ÷ speed.</span></li>
+<li><strong>Axes along the plate (x) and normal to it (y).</strong> In: 600 m/s at 15° to the plate. Out: 400 m/s at 20° to the plate.</li>
+<li><strong>x:</strong> \(0.025(600\cos15^\circ) + F_x(2\times10^{-5}) = 0.025(400\cos20^\circ)\), so \(F_x = -254.6\) kN.</li>
+<li><strong>y:</strong> \(0.025(-600\sin15^\circ) + F_y(2\times10^{-5}) = 0.025(400\sin20^\circ)\), so \(F_y = +365.1\) kN.<span class="why-inline">The weight’s impulse over 20 μs is negligible, so it is left out.</span></li>
+<li>\(F = \sqrt{254.6^2 + 365.1^2} = 445\) kN, at 55.1° to the plate. The plate is tilted 15°, so that is 40.1° to the horizontal.</li>
+</ol>
+<p class="answer">F<sub>avg</sub> = 445 kN at 40.1° to the horizontal</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 8 Q2: particle on a spring (angular momentum)</h3></div>
+<figure class="slide">{{img:t8q2}}</figure>
+<p class="memo">Memo answer: v<sub>B</sub> = 5.43 m/s.</p>
+<ol class="work">
+<li><strong>Why angular momentum:</strong> the spring always pulls along the line to O (a central force), so it has no moment about O. Therefore \(H_O\) is conserved.<span class="why-inline">You can’t use energy here because k isn’t given. Angular momentum doesn’t need it.</span></li>
+<li><strong>\(H_O = mvd\)</strong>, where d is the perpendicular distance from O to the velocity line, \(d = r\sin(\text{angle between }\vec r\text{ and }\vec v)\). At A: \(0.35\sin54^\circ = 0.35\cos36^\circ\). At B: \(0.23\sin65^\circ = 0.23\cos25^\circ\).</li>
+<li>\(m(4)(0.35\cos36^\circ) = m\,v_B(0.23\cos25^\circ)\).</li>
+</ol>
+<p class="answer">v<sub>B</sub> = 5.43 m/s</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 8 Q3: two hockey pucks (oblique impact)</h3></div>
+<figure class="slide">{{img:t8q3}}</figure>
+<p class="memo">Memo answer: v<sub>A</sub> = 5.12 m/s at 77.8° to the x-axis.</p>
+<ol class="work">
+<li><strong>Line of impact = x</strong> (through both centres). A: 10 m/s at 30°, so 8.66 along x and 5 along y. B: 6 m/s along y, so 0 along x.</li>
+<li><strong>Momentum along x</strong> (equal masses): \(8.66 + 0 = v_{Ax}' + v_{Bx}'\).</li>
+<li><strong>Restitution along x:</strong> \(v_{Bx}' - v_{Ax}' = 0.75(8.66 - 0) = 6.50\).<span class="why-inline">e only applies along the line of impact, and uses separation ÷ approach with one positive direction throughout.</span></li>
+<li><strong>Solve:</strong> \(v_{Ax}' = 1.08\) m/s and \(v_{Bx}' = 7.58\) m/s.</li>
+<li><strong>Across the line (y):</strong> the pucks are smooth, so there is no force in y and A keeps its 5 m/s.</li>
+<li>\(v_A' = \sqrt{1.08^2 + 5^2} = 5.12\) m/s, at \(\tan^{-1}(5/1.08) = 77.8^\circ\).</li>
+</ol>
+<p class="answer">(v<sub>A</sub>)₂ = 5.12 m/s at 77.8° to the x-axis</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 8 Q4: putty dropped onto a block on springs</h3></div>
+<figure class="slide">{{img:t8q4}}</figure>
+<p class="memo">Memo answer: δ = 65.9 mm.</p>
+<ol class="work">
+<li><strong>Stage 1, the fall (energy):</strong> \(v_P = \sqrt{2(9.81)(2)} = 6.264\) m/s.</li>
+<li><strong>Stage 2, the impact (momentum; the putty sticks):</strong> \(2(6.264) = 20v_3\), so \(v_3 = 0.626\) m/s.<span class="why-inline">A sticking impact loses energy, so energy can’t be used through it. Momentum can.</span></li>
+<li><strong>The springs are already compressed by the block:</strong> \(2kx_0 = 18g\), so \(x_0 = 0.0736\) m.</li>
+<li><strong>Stage 3, the compression (energy, datum at the lowest point):</strong> \(\tfrac12(20)v_3^2 + 20g\delta + \tfrac12(2k)x_0^2 = \tfrac12(2k)(\delta + x_0)^2\), which is \(3.924 + 196.2\delta + 6.496 = 1200(\delta + 0.0736)^2\).</li>
+<li>Solve the quadratic \(1200\delta^2 - 19.62\delta - 3.924 = 0\) and keep the positive root.</li>
+</ol>
+<p class="answer">δ = 65.9 mm</p></div>
+
+<div class="example"><div class="ex-head"><h3>Tut 8 Q5: bullet through a wooden block</h3></div>
+<figure class="slide">{{img:t8q5}}</figure>
+<p class="memo">Memo answer: μ<sub>k</sub> = 0.302.</p>
+<ol class="work">
+<li><strong>The bullet passes through (momentum of bullet + block):</strong> \(0.06(600) = 0.06(400) + 3v\), so the block starts at \(v = 4\) m/s.<span class="why-inline">The pass-through is so quick that friction’s impulse during it is negligible.</span></li>
+<li><strong>The block then slides to a stop (work–energy):</strong> \(\tfrac12(3)(4^2) - \mu_k(3)(9.81)(2.70) = 0\).</li>
+</ol>
+<p class="answer">μ<sub>k</sub> = 0.302</p></div>
+</section>
+
+<!-- ============================================================ SPHERICAL -->
+<section class="chapter" id="sph">
+<h2>Spherical coordinates primer</h2>
+<p>There are no spherical questions in this pack, but L08 examines them. Use spherical coordinates for anything pointing into the sky from a fixed point, like a radar antenna or a fire-truck ladder: \(R\) is the distance along the beam, \(\theta\) is the compass angle in the horizontal plane, and \(\phi\) is the elevation above horizontal.</p>
+<figure class="panel">{{fig:sph_geom}}<figcaption>\(\hat e_R\) points along the beam, \(\hat e_\phi\) points “up the sky”, and \(\hat e_\theta\) is horizontal and sideways. The dashed circle has radius \(R\cos\phi\).</figcaption></figure>
+<div class="eq key">\[ \vec v = \dot R\,\hat e_R + R\dot\theta\cos\phi\,\hat e_\theta + R\dot\phi\,\hat e_\phi \]</div>
+<p><strong>Why \(\cos\phi\):</strong> changing θ swings the point round a horizontal circle whose radius is its horizontal distance from the axis, \(R\cos\phi\). Changing φ swings it round a vertical circle of radius R.</p>
+<div class="eq">\[ \begin{gathered} a_R = \ddot R - R\dot\phi^2 - R\dot\theta^2\cos^2\phi \\[4pt] a_\theta = 2\dot R\dot\theta\cos\phi + R\ddot\theta\cos\phi - 2R\dot\theta\dot\phi\sin\phi \\[4pt] a_\phi = 2\dot R\dot\phi + R\ddot\phi + R\dot\theta^2\sin\phi\cos\phi \end{gathered} \]</div>
+<div class="callout big"><span class="tag">How to rebuild these from polar</span><p><strong>Vertical plane (R, φ):</strong> this is polar with r → R and θ → φ. It gives \(\ddot R - R\dot\phi^2\) and \(R\ddot\phi + 2\dot R\dot\phi\).</p><p><strong>Horizontal circle (radius ρ = R cos φ):</strong> this is also polar. It gives \(a_\theta = \rho\ddot\theta + 2\dot\rho\dot\theta\), and a centripetal \(\rho\dot\theta^2\) towards the axis. That centripetal part splits into \(-R\dot\theta^2\cos^2\phi\) in \(a_R\) and \(+R\dot\theta^2\sin\phi\cos\phi\) in \(a_\phi\).</p></div>
+<p><strong>Method:</strong> fill in nine numbers (\(R, \dot R, \ddot R, \theta, \dot\theta, \ddot\theta, \phi, \dot\phi, \ddot\phi\)) in radians, then substitute. To turn cylindrical components into spherical ones, rotate by φ: \(u_R = u_r\cos\phi + u_z\sin\phi\), \(u_\phi = -u_r\sin\phi + u_z\cos\phi\), and \(u_\theta\) stays the same.</p>
+<p><strong>Quick check (L08 fire-truck ladder):</strong> R = 15 m, Ṙ = 0.5 m/s, θ̇ = 10°/s, φ = 30°, φ̇ = 7°/s give v = 2.96 m/s and a = 0.672 m/s². The full working is in the Polar &amp; 3D guide, Section 14.</p>
+</section>
+
+<!-- ============================================================ SHEET -->
+<section class="chapter summary-page" id="sheet">
+<h2>Formula sheet for the whole pack</h2>
+<div class="cheat"><div class="cheat-grid">
+<div>
+<h4>Straight line (Tut 0, 1)</h4>
+<p>\(v = \dot s\), \(a = \dot v\), \(a\,ds = v\,dv\)<br>Constant a: \(v = v_0 + at\), \(s = v_0t + \tfrac12at^2\), \(v^2 = v_0^2 + 2a\Delta s\)<br>a(t): integrate in t. a(v): \(dt = dv/a\) or \(ds = v\,dv/a\). a(s) or v(s): \(v\,dv = a\,ds\), \(dt = ds/v\)</p>
+<h4>Curves (Tut 0, 2, 6)</h4>
+<p>Projectile: \(a_x = 0\), \(a_y = -g\)<br>\(a_t = \dot v\), \(a_n = v^2/\rho\), \(\rho = [1 + y'^2]^{3/2}/|y''|\)</p>
+<h4>Polar (Tut 2, 7)</h4>
+<p>\(\hat e_r = (\cos\theta, \sin\theta)\), \(\hat e_\theta = (-\sin\theta, \cos\theta)\)<br>\(v_r = \dot r\), \(v_\theta = r\dot\theta\)<br>\(a_r = \ddot r - r\dot\theta^2\), \(a_\theta = r\ddot\theta + 2\dot r\dot\theta\)<br>\(v_r = v_x\cos\theta + v_y\sin\theta\), \(v_\theta = -v_x\sin\theta + v_y\cos\theta\)</p>
+<h4>Spherical (L08)</h4>
+<p>\(v_R = \dot R\), \(v_\theta = R\dot\theta\cos\phi\), \(v_\phi = R\dot\phi\)</p>
+</div>
+<div>
+<h4>Newton (Tut 6, 7)</h4>
+<p>\(\sum F = ma\) along each axis. \(\sum F_n = mv^2/\rho\). \(\sum F_r = ma_r\), \(\sum F_\theta = ma_\theta\)<br>Friction: \(\le\mu_sN\) (static), \(=\mu_kN\) (sliding). Losing contact: N = 0</p>
+<h4>Energy (Tut 7, 8)</h4>
+<p>\(T_1 + V_1 + U' = T_2 + V_2\)<br>\(T = \tfrac12mv^2\), \(V_g = mgh\), \(V_e = \tfrac12kx^2\) (x from the unstretched length)<br>\(U = \int F\,dx\). \(P = Fv\), \(\varepsilon = P_{out}/P_{in}\)</p>
+<h4>Momentum (Tut 8)</h4>
+<p>\(m\vec v_1 + \int\vec F\,dt = m\vec v_2\)<br>\(H_O = mvd\), conserved for central forces<br>Impact: \(\sum mv\) and \(e\) along the line, each body’s \(v_t\) unchanged</p>
+<h4>Traps</h4>
+<ul><li>Radians, and \(\dot\theta\) vs \(\ddot\theta\).</li><li>Energy is not conserved through a sticking impact.</li><li>Spring stretch from the unstretched length, including pre-compression.</li><li>Pulley constraints (factors of 2).</li></ul>
+</div>
+</div></div>
+</section>
+</main>
