@@ -133,8 +133,50 @@
 <p>Often a question gives you a velocity in x–y form (a piston moving horizontally, a crane tip with known \(v_x, v_y\), a plane flying level) and wants polar answers. The component of any vector along a unit vector is its <strong>dot product</strong> with that unit vector:</p>
 <div class="eq key">\[ \begin{gathered} v_r = \vec v\cdot\hat e_r = v_x\cos\theta + v_y\sin\theta \\[4pt] v_\theta = \vec v\cdot\hat e_\theta = -v_x\sin\theta + v_y\cos\theta \end{gathered} \]</div>
 <figure class="panel">{{fig:pu_project}}<figcaption>Drop perpendiculars from the tip of \(\vec v\) onto the r and θ directions. Exactly the same formulas work for accelerations.</figcaption></figure>
-<p>Going back the other way:</p>
+
+<h3 id="s8-steps">Where these two lines come from, step by step</h3>
+<ol class="work">
+<li><strong>Write the velocity in x–y form.</strong> This is what the question usually hands you:<div class="eq">\[ \vec v = v_x\,\hat i + v_y\,\hat j \]</div></li>
+<li><strong>Write the two polar unit vectors in x–y form</strong> (Section 3):<div class="eq">\[ \begin{gathered} \hat e_r = \cos\theta\,\hat i + \sin\theta\,\hat j \\[4pt] \hat e_\theta = -\sin\theta\,\hat i + \cos\theta\,\hat j \end{gathered} \]</div></li>
+<li><strong>Why a dot product gives a component.</strong> For any vector \(\vec v\) and a unit vector \(\hat e\) at angle \(\alpha\) to it:<div class="eq">\[ \vec v\cdot\hat e = |\vec v|\,|\hat e|\cos\alpha = |\vec v|\cos\alpha \qquad (\text{because } |\hat e| = 1) \]</div><span class="why-inline">\(|\vec v|\cos\alpha\) is the length of the “shadow” of \(\vec v\) on the line of \(\hat e\). That shadow is exactly what “the component of \(\vec v\) along \(\hat e\)” means.</span></li>
+<li><strong>The rule for dot products in components.</strong> \(\hat i\) and \(\hat j\) are unit length and at 90° to each other, so \(\hat i\cdot\hat i = \hat j\cdot\hat j = 1\) and \(\hat i\cdot\hat j = \hat j\cdot\hat i = 0\). That gives<div class="eq">\[ (a\,\hat i + b\,\hat j)\cdot(c\,\hat i + d\,\hat j) = ac + bd \]</div><span class="why-inline">Multiply x-part by x-part, y-part by y-part, and add. The mixed terms vanish because \(\hat i\cdot\hat j = 0\).</span></li>
+<li><strong>Radial component:</strong> dot \(\vec v\) with \(\hat e_r\). Expand every pair:<div class="eq">\[ \begin{aligned} v_r = \vec v\cdot\hat e_r &= (v_x\,\hat i + v_y\,\hat j)\cdot(\cos\theta\,\hat i + \sin\theta\,\hat j) \\ &= v_x\cos\theta\,(\hat i\cdot\hat i) + v_x\sin\theta\,(\hat i\cdot\hat j) + v_y\cos\theta\,(\hat j\cdot\hat i) + v_y\sin\theta\,(\hat j\cdot\hat j) \\ &= v_x\cos\theta\,(1) + v_x\sin\theta\,(0) + v_y\cos\theta\,(0) + v_y\sin\theta\,(1) \\ &= v_x\cos\theta + v_y\sin\theta \end{aligned} \]</div></li>
+<li><strong>Transverse component:</strong> the same expansion with \(\hat e_\theta\):<div class="eq">\[ \begin{aligned} v_\theta = \vec v\cdot\hat e_\theta &= (v_x\,\hat i + v_y\,\hat j)\cdot(-\sin\theta\,\hat i + \cos\theta\,\hat j) \\ &= v_x(-\sin\theta)(1) + v_x\cos\theta\,(0) + v_y(-\sin\theta)(0) + v_y\cos\theta\,(1) \\ &= -v_x\sin\theta + v_y\cos\theta \end{aligned} \]</div><span class="why-inline">The minus sign is inherited directly from the \(-\sin\theta\) in \(\hat e_\theta\).</span></li>
+</ol>
+
+<h3 id="s8-picture">The same result from the picture (no dot products)</h3>
+<p>Treat \(\vec v\) as two separate pieces, \(v_x\) along x and \(v_y\) along y, and ask how much of each piece lies along each polar direction.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Piece</th><th>Angle to \(\hat e_r\)</th><th>Shadow on \(\hat e_r\)</th><th>Angle to \(\hat e_\theta\)</th><th>Shadow on \(\hat e_\theta\)</th></tr></thead>
+<tbody>
+<tr><td>\(v_x\) (along x)</td><td>\(\theta\)</td><td>\(v_x\cos\theta\)</td><td>\(90^\circ + \theta\)</td><td>\(v_x\cos(90^\circ + \theta) = -v_x\sin\theta\)</td></tr>
+<tr><td>\(v_y\) (along y)</td><td>\(90^\circ - \theta\)</td><td>\(v_y\cos(90^\circ - \theta) = v_y\sin\theta\)</td><td>\(\theta\)</td><td>\(v_y\cos\theta\)</td></tr>
+</tbody></table></div>
+<p>Add down each “shadow” column: \(v_r = v_x\cos\theta + v_y\sin\theta\) and \(v_\theta = -v_x\sin\theta + v_y\cos\theta\). Same answer.</p>
+<div class="callout why"><span class="tag">Why a rightward velocity gives a negative v_θ</span><p>\(\hat e_\theta\) leans back to the left (Section 3). A push to the right is partly <em>against</em> that direction, so it makes θ smaller. That is the \(-v_x\sin\theta\).</p></div>
+
+<h3 id="s8-checks">Three checks you can do in seconds</h3>
+<ul>
+<li><strong>θ = 0:</strong> \(\hat e_r = \hat i\) and \(\hat e_\theta = \hat j\), and the formulas give \(v_r = v_x\) and \(v_\theta = v_y\). Correct.</li>
+<li><strong>θ = 90°:</strong> \(\hat e_r = \hat j\) and \(\hat e_\theta = -\hat i\), and the formulas give \(v_r = v_y\) and \(v_\theta = -v_x\). Correct.</li>
+<li><strong>Length:</strong> \(v_r^2 + v_\theta^2 = v_x^2(\cos^2 + \sin^2) + v_y^2(\sin^2 + \cos^2) + 2v_xv_y(\cos\theta\sin\theta - \sin\theta\cos\theta) = v_x^2 + v_y^2\). Turning the axes never changes the speed.</li>
+</ul>
+
+<h3 id="s8-number">With numbers (L07 Example 1)</h3>
+<p>\(v_x = 2\) m/s, \(v_y = 8\) m/s, \(\theta = 30^\circ\), so \(\cos30^\circ = 0.866\) and \(\sin30^\circ = 0.5\):</p>
+<div class="eq">\[ \begin{gathered} v_r = 2(0.866) + 8(0.5) = 1.732 + 4 = 5.73\ \text{m/s} \\[4pt] v_\theta = -2(0.5) + 8(0.866) = -1 + 6.93 = 5.93\ \text{m/s} \\[4pt] \text{check: } 5.73^2 + 5.93^2 = 68.0 = 2^2 + 8^2 \end{gathered} \]</div>
+
+<h3 id="s8-matrix">As a rotation matrix</h3>
+<p>Both lines together are one matrix multiplication. The rows of the matrix are just \(\hat e_r\) and \(\hat e_\theta\) written in x–y form:</p>
+<div class="eq">\[ \begin{bmatrix} v_r \\ v_\theta \end{bmatrix} = \begin{bmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} v_x \\ v_y \end{bmatrix} \]</div>
+<p>This same “turn the axes by an angle” matrix comes back in Section 14, where cylindrical components are turned by \(\phi\) to become spherical ones.</p>
+
+<h3 id="s8-back">Going back the other way, step by step</h3>
+<p>Start from \(\vec v = v_r\,\hat e_r + v_\theta\,\hat e_\theta\), substitute the x–y forms of the unit vectors, and collect the \(\hat i\) and \(\hat j\) parts:</p>
+<div class="eq">\[ \begin{aligned} \vec v &= v_r(\cos\theta\,\hat i + \sin\theta\,\hat j) + v_\theta(-\sin\theta\,\hat i + \cos\theta\,\hat j) \\ &= (v_r\cos\theta - v_\theta\sin\theta)\,\hat i + (v_r\sin\theta + v_\theta\cos\theta)\,\hat j \end{aligned} \]</div>
+<p>Reading off the \(\hat i\) and \(\hat j\) parts:</p>
 <div class="eq">\[ \begin{gathered} v_x = v_r\cos\theta - v_\theta\sin\theta \\[4pt] v_y = v_r\sin\theta + v_\theta\cos\theta \\[4pt] r = \sqrt{x^2 + y^2},\quad \tan\theta = \frac{y}{x} \end{gathered} \]</div>
+<p>Every step above works identically with \(\vec a\) in place of \(\vec v\): \(a_r = a_x\cos\theta + a_y\sin\theta\) and \(a_\theta = -a_x\sin\theta + a_y\cos\theta\).</p>
 <p>Once you have \(v_r\) and \(v_\theta\), read off \(\dot r = v_r\) and \(\dot\theta = v_\theta / r\). This one move solves L06 Ex1, L06 Ex2, L07 Ex1 and Tut02 Q5.</p>
 </section>
 
