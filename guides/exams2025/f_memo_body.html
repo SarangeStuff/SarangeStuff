@@ -1,0 +1,221 @@
+<h1 class="title">2025 MEC2047F – Engineering Dynamics<br>Final Exam – Memo</h1>
+<p class="unoff">Unofficial memo written for revision in the style of the MEC2047S 2025 memo. Every answer has been checked numerically;
+the mark allocation (one <span class="tk">✓</span> = 1 mark) is a guide, not the examiners' own.</p>
+
+<h2 class="sec" id="secA">SECTION A [50 marks]</h2>
+
+<section class="q" data-marks="12" id="q1">
+{{crop:Q1}}
+<p class="solh">Solution</p>
+<p class="sub">Question 1a</p>
+<p class="rn">[a is given as a function of v and we want v at a position, so use v dv = a dx]</p>
+<div class="ln">$a = v\dfrac{dv}{dx} = -k\sqrt{v}$ {{t}}</div>
+<div class="ln">$\displaystyle\int_{81}^{v} v^{1/2}\,dv = -k\int_{0}^{x} dx$ {{t}}</div>
+<div class="ln">$\tfrac{2}{3}\left(v^{3/2} - 81^{3/2}\right) = -kx$ {{t}} ……[1]</div>
+<div class="ln">At $x = 18$ m, $v = 36$ m/s: $\tfrac{2}{3}\left(216 - 729\right) = -342 = -18k$ {{t}}</div>
+<div class="ln">$k = 19\ \text{m}^{1/2}/\text{s}^{3/2}$ {{t}}</div>
+<div class="ln">From [1] at $x = 20$ m: $v^{3/2} = 729 - \tfrac{3}{2}(19)(20) = 159$ {{t}}</div>
+<div class="ln">$v = 159^{2/3} = 29.3\ \text{m/s}$ {{t}}</div>
+<p class="sub">Question 1b</p>
+<p class="rn">[now we want time, so use a = dv/dt]</p>
+<div class="ln">$a = \dfrac{dv}{dt} = -k\sqrt{v}$ {{t}}</div>
+<div class="ln">$\displaystyle\int_{81}^{v} v^{-1/2}\,dv = -k\int_{0}^{t} dt \;\Rightarrow\; 2\left(\sqrt{v} - 9\right) = -kt$ {{t2}}</div>
+<div class="ln">At rest, $v = 0$: $t = \dfrac{2(9)}{k} = \dfrac{18}{19}$ {{t}}</div>
+<div class="ln">$t = 0.947\ \text{s}$ {{t}}</div>
+</section>
+
+<section class="q" data-marks="9" id="q2">
+{{crop:Q2}}
+<p class="solh">Solution</p>
+<div class="row">
+<div class="txt">
+<p class="sub">Variables</p>
+<div class="ln">Datum at the fixed ceiling; $y_C$ locates the small moving pulley C and $y_D$ the pulley D carrying W {{t2}}</div>
+<p class="rn">[Other choices of datum are fine. Segments are taken as vertical, as usual for pulley problems.]</p>
+<p class="sub">Cable 1 (blue)</p>
+<div class="ln">Drum → over the top fixed pulley → down to C → up around the second fixed pulley → down to the hub of C.
+Three of its segments end on C:</div>
+<div class="ln">$L_1 = 3y_C + \text{constant}$ {{t}}</div>
+<div class="ln">The drum draws in cable, so $\dot L_1 = -180$ mm/s {{t}}</div>
+<div class="ln">$3\dot y_C = -180 \;\Rightarrow\; \dot y_C = -60$ mm/s (C rises at 60 mm/s) {{t2}}</div>
+<p class="sub">Cable 2 (green)</p>
+<div class="ln">$L_2 = (y_D - y_C) + y_D + \text{constant}$ {{t}}</div>
+<div class="ln">$0 = 2\dot y_D - \dot y_C \;\Rightarrow\; \dot y_D = \tfrac{1}{2}\dot y_C = -30$ mm/s {{t}}</div>
+<div class="ln">Constant speed, so $h = |\dot y_D|\,t = 30(10) = 300$ mm = 0.3 m (upwards) {{t}}</div>
+</div>
+<figure class="side">{{fig:q2_vars}}</figure>
+</div>
+</section>
+
+<section class="q" data-marks="9" id="q3">
+{{crop:Q3}}
+<p class="solh">Solution</p>
+<div class="row">
+<div class="txt">
+<div class="ln">O at the origin, B at $(-75,\ 100)$ mm, so $OB = 125$ mm. Triangle OAB is isosceles ($OA = AB = 300$ mm).</div>
+<div class="ln">OB makes $180^\circ - \tan^{-1}\tfrac{100}{75} = 126.87^\circ$ with the $+x$ axis; $\cos\angle AOB = \dfrac{62.5}{300} \Rightarrow \angle AOB = 77.98^\circ$ {{t}}</div>
+<div class="ln">OA is at $126.87^\circ - 77.98^\circ = 48.89^\circ$ above the horizontal {{t}}</div>
+<div class="ln">$v_A = \omega_{OA}\,r_{OA} = 2(0.3) = 0.6$ m/s {{t}}, perpendicular to OA (down and to the right) {{t}}</div>
+<div class="ln">IC of AB (C): on the line through A perpendicular to $v_A$ (OA extended) and on the line through B perpendicular to $v_B$ (vertical) {{t}}</div>
+<div class="ln">At $x = -75$ mm on line OA: $y = -75\tan 48.89^\circ = -86.0$ mm, so C = $(-75,\ -86.0)$ mm {{t}}</div>
+<div class="ln">$r_{A/C} = 300 + \dfrac{75}{\cos 48.89^\circ} = 300 + 114.1 = 414.1$ mm; $\;r_{B/C} = 100 + 86.0 = 186.0$ mm {{t}}</div>
+<div class="ln">$\omega_{AB} = \dfrac{v_A}{r_{A/C}} = \dfrac{0.6}{0.4141} = 1.449$ rad/s CW {{t}}</div>
+<div class="ln">$v_B = \omega_{AB}\,r_{B/C} = 1.449(0.186) = 0.270$ m/s → {{t}}</div>
+</div>
+<figure class="side">{{fig:q3_ic}}</figure>
+</div>
+</section>
+
+<section class="q" data-marks="20" id="q4">
+{{crop:Q4}}
+<p class="solh">Solution</p>
+<div class="row">
+<div class="txt">
+<p class="rn">[The figure is not to scale; work from the given angles.]</p>
+<div class="ln">BA points at $240^\circ$; with $\beta = 75^\circ$ between the links, BC points at $240^\circ + 75^\circ = 315^\circ$, i.e. CB is $45^\circ$ below the horizontal. {{t}}</div>
+<p class="sub">a)</p>
+<div class="ln">$\vec v_B = \vec v_A + \vec v_{B/A}$ {{t}}</div>
+<div class="ln">$v_A = 1$ m/s ←; $\;\vec v_{B/A} \perp AB$ (along $150^\circ/330^\circ$); $\;\vec v_B \perp CB$ (along $45^\circ/225^\circ$) {{t}}</div>
+</div>
+<figure class="side">{{fig:q4_geom}}</figure>
+</div>
+<div class="row">
+<div class="txt">
+<div class="ln">Velocity polygon (scale 1 cm = 0.5 m/s) {{t}}</div>
+<div class="ln">Angles: $45^\circ$ at o, $30^\circ$ at a, so $105^\circ$ at b.</div>
+<div class="ln">Sine rule: $\dfrac{v_B}{\sin 30^\circ} = \dfrac{v_A}{\sin 105^\circ} = \dfrac{v_{B/A}}{\sin 45^\circ}$</div>
+<div class="ln">$v_{B/A} = \dfrac{1\,\sin 45^\circ}{\sin 105^\circ} = 0.732$ m/s {{t}}</div>
+<div class="ln">$\omega_{AB} = \dfrac{v_{B/A}}{AB} = \dfrac{0.732}{0.5} = 1.46$ rad/s CW {{t}}</div>
+<p class="rn">[$\vec v_{B/A}$ points down-right at B, which turns AB clockwise]</p>
+<p class="sub">b)</p>
+<div class="ln">$v_B = \dfrac{1\,\sin 30^\circ}{\sin 105^\circ} = 0.518$ m/s {{t}}</div>
+<div class="ln">$\omega_{CB} = \dfrac{v_B}{CB} = \dfrac{0.518}{0.25} = 2.07$ rad/s CCW {{t}}</div>
+</div>
+<figure class="side">{{fig:q4_vel}}</figure>
+</div>
+<p class="sub">c)</p>
+<div class="row">
+<div class="txt">
+<div class="ln">$(\vec a_B)_n + (\vec a_B)_t = \vec a_A + (\vec a_{B/A})_n + (\vec a_{B/A})_t$ {{t}}</div>
+<div class="ln">$a_A = 0.25$ m/s² ← {{t}}</div>
+<div class="ln">$(a_{B/A})_n = \omega_{AB}^2\,AB = (1.464)^2(0.5) = 1.072$ m/s², from B towards A ($240^\circ$) {{t}}</div>
+<div class="ln">$(a_B)_n = \omega_{CB}^2\,CB = (2.071)^2(0.25) = 1.072$ m/s², from B towards C ($315^\circ$) {{t}}</div>
+<div class="ln">$(\vec a_{B/A})_t \perp AB$ and $(\vec a_B)_t \perp CB$: directions known, sizes unknown {{t}}</div>
+<div class="ln">Acceleration polygon (scale 1 cm = 0.2 m/s²) {{t3}}</div>
+<div class="figmk"><figure>{{fig:q4_acc}}</figure><div class="mk">Diagram:<br>+1 Direction of $(a_{B/A})_t$<br>+1 Direction of $(a_B)_t$<br>+1 Correct proportion</div></div>
+<div class="ln">From the diagram: $(a_{B/A})_t = 1.01$ m/s² <span class="rn">[Accept: 0.95 – 1.06]</span> {{t}}</div>
+<div class="ln">$\alpha_{AB} = \dfrac{(a_{B/A})_t}{AB} = \dfrac{1.01}{0.5} = 2.01$ rad/s² CW <span class="rn">[Accept: 1.9 – 2.1]</span> {{t}}</div>
+</div>
+</div>
+<p class="sub">d)</p>
+<div class="ln">From the diagram: $(a_B)_t = 0.952$ m/s² <span class="rn">[Accept: 0.90 – 1.00]</span> {{t}}</div>
+<div class="ln">$\alpha_{CB} = \dfrac{(a_B)_t}{CB} = \dfrac{0.952}{0.25} = 3.81$ rad/s² CCW <span class="rn">[Accept: 3.6 – 4.0]</span> {{t}}</div>
+<p class="rn">[Senses: $(a_{B/A})_t$ points down-right at B (CW for AB); $(a_B)_t$ points down-left at B, which is up-left of C (CCW for CB).
+Solving the two component equations exactly gives the same values: $\alpha_{AB} = 2.011$ CW and $\alpha_{CB} = 3.807$ CCW.]</p>
+</section>
+
+<h2 class="sec brk" id="secB">SECTION B [50 marks]</h2>
+
+<section class="q" data-marks="6" id="q5">
+{{crop:Q5}}
+<p class="solh">Solution</p>
+<div class="row">
+<div class="txt">
+<p class="rn">[O is the drum's mass centre, so $\sum M_O = I_O\alpha$ holds even though O moves with the carriage.
+The bearing forces and the weight pass through O.]</p>
+<div class="ln">Angular impulse–momentum about O: $I_O\omega_1 + \displaystyle\int \sum M_O\,dt = I_O\omega_2$ {{t}}</div>
+<div class="ln">$I_O = m k_O^2 = 800(0.48)^2 = 184.3$ kg·m² {{t}}</div>
+<div class="ln">$\sum M_O = -T r = -400(0.5) = -200$ N·m (CW) {{t}}</div>
+<div class="ln">(↺ +ve) $\;184.3(3) - 200(10) = 184.3\,\omega_2$ {{t}}</div>
+<div class="ln">$\omega_2 = -7.85$ rad/s {{t}}</div>
+<div class="ln">$\omega = 7.85$ rad/s CW {{t}}</div>
+<p class="rn">[The carriage's speed and mass only change the linear motion of the system; they do not enter the drum's spin.]</p>
+</div>
+<figure class="side">{{fig:q5_fbd}}</figure>
+</div>
+</section>
+
+<section class="q" data-marks="14" id="q6">
+{{crop:Q6}}
+<p class="solh">Solution</p>
+<div class="row">
+<div class="txt">
+<p class="sub">a)</p>
+<div class="ln">Tension T along cable A {{t}}; weight $W = mg$ at G {{t}}</div>
+<p class="sub">b)</p>
+<div class="ln">$\vec a_A \perp$ cable A (ω = 0 just after the break, so A has no normal component) {{t}}</div>
+<div class="ln">$(\vec a_{G/A})_t = \alpha(l/2)$, vertical at G {{t}}</div>
+</div>
+</div>
+<div class="figs2"><figure>{{fig:q6_fbd}}<figcaption>(a) FBD</figcaption></figure><figure>{{fig:q6_acc}}<figcaption>(b) acceleration diagram</figcaption></figure></div>
+<p class="sub">c)</p>
+<div class="ln">Kinematics with ω = 0: $\vec a_G = \vec a_A + \vec\alpha\times\vec r_{G/A}$, so
+$a_{Gx} = -a_A\cos 30^\circ$ and $a_{Gy} = -a_A\sin 30^\circ - \alpha\,\tfrac{l}{2}$ (taking $a_A$ down-left and α CW) {{t}}</div>
+<div class="ln">(→ +ve) $\sum F_x = m a_{Gx}$: $\;-T\cos 60^\circ = -m a_A\cos 30^\circ$ {{t}}</div>
+<div class="ln">$a_A = 0.5774\,T/m$ {{t}}</div>
+<div class="ln">(↑ +ve) $\sum F_y = m a_{Gy}$: $\;T\sin 60^\circ - mg = m\left(-a_A\sin 30^\circ - \alpha\tfrac{l}{2}\right)$ {{t}}</div>
+<div class="ln">(↻ +ve) $\sum M_G = I_G\alpha$: $\;T\sin 60^\circ\left(\tfrac{l}{2}\right) = \tfrac{1}{12}ml^2\,\alpha$ {{t}} {{t}}</div>
+<div class="ln">$\alpha\tfrac{l}{2} = \dfrac{3T\sin 60^\circ}{m} = 2.598\,T/m$ {{t}}</div>
+<div class="ln">Substituting: $\;0.866\,T - mg = -0.5(0.5774\,T) - 2.598\,T$ {{t}}</div>
+<div class="ln">$3.753\,T = mg$ {{t}}</div>
+<div class="ln">$T = \dfrac{150(9.81)}{3.753} = 392$ N {{t}}</div>
+<p class="rn">[The length l cancels. Check: $a_A = 1.51$ m/s² and $\alpha l/2 = 6.79$ m/s², both positive, so the assumed senses were right.]</p>
+</section>
+
+<section class="q" data-marks="10" id="q7">
+{{crop:Q7}}
+<p class="solh">Solution</p>
+<div class="row">
+<div class="txt">
+<figure class="full">{{fig:q7_states}}</figure>
+<div class="ln">Positions and spring states shown in the diagram above (mm) {{t}}</div>
+<div class="ln">$T_1 + V_1 + U'_{1-2} = T_2 + V_2$, with $T_1 = 0$ and $U'_{1-2} = 0$ (no friction) {{t}}</div>
+<div class="ln">At equilibrium the spring is compressed by $\delta_{st} = \dfrac{mg}{k} = \dfrac{2(9.81)}{1600} = 12.26$ mm {{t}}</div>
+<div class="ln">State 1 (40 mm above equilibrium): stretched by $x_1 = 40 - 12.26 = 27.74$ mm {{t}}</div>
+<div class="ln">State 2 (6 mm below equilibrium): compressed by $x_2 = 6 + 12.26 = 18.26$ mm {{t}}</div>
+<div class="ln">Datum at state 2, so $h = 40 + 6 = 46$ mm: $(V_g)_1 = mgh = 2(9.81)(0.046) = 0.9025$ J {{t}}</div>
+<div class="ln">$(V_e)_1 = \tfrac{1}{2}kx_1^2 = \tfrac{1}{2}(1600)(0.02774)^2 = 0.6155$ J {{t}}</div>
+<div class="ln">$(V_e)_2 = \tfrac{1}{2}(1600)(0.01826)^2 = 0.2668$ J {{t}}</div>
+<div class="ln">$0 + 0.9025 + 0.6155 = \tfrac{1}{2}(2)v^2 + 0.2668$ {{t}}</div>
+<div class="ln">$v = 1.119$ m/s {{t}}</div>
+</div>
+</div>
+<p class="rn">[Shortcut: measure x from the equilibrium position and the weight and spring preload cancel:
+$\tfrac{1}{2}mv^2 = \tfrac{1}{2}k\left(0.040^2 - 0.006^2\right) = 1.251$ J, which gives the same $v = 1.119$ m/s.]</p>
+</section>
+
+<section class="q" data-marks="14" id="q8">
+{{crop:Q8}}
+<p class="solh">Solution</p>
+<div class="row">
+<div class="txt">
+<div class="ln">n along the line of centres ($20^\circ$ above the horizontal), t perpendicular to it {{t2}}</div>
+<div class="ln">Smooth contact, so the ball's t-momentum is conserved: $(v_B)_t = (v'_B)_t = 38\sin 20^\circ = 13.00$ m/s {{t}}</div>
+<div class="ln">$(v_A)_n = 18\cos 20^\circ = 16.91$ m/s; $\;(v_B)_n = -38\cos 20^\circ = -35.71$ m/s {{t}}</div>
+<div class="ln">The bat is held in the slot, which gives it a vertical impulse, so the system's momentum is conserved only horizontally <span class="rn">[not along n]</span> {{t}}</div>
+</div>
+<figure class="side">{{fig:q8_nt}}</figure>
+</div>
+<div class="ln">(→ +ve) $\;m_A v_A + m_B (v_B)_x = m_A v'_A + m_B (v'_B)_x$ {{t}}</div>
+<div class="ln">$0.5(18) + 0.146(-38) = 0.5\,v'_A + 0.146\left[(v'_B)_n\cos 20^\circ - 13.00\sin 20^\circ\right]$ {{t}} ……[1]</div>
+<div class="ln">$e = \dfrac{(v'_B)_n - (v'_A)_n}{(v_A)_n - (v_B)_n}$ {{t}} $\;\Rightarrow\; (v'_B)_n - v'_A\cos 20^\circ = 0.5(16.91 + 35.71) = 26.31$ {{t}} ……[2]</div>
+<div class="ln">Solving [1] and [2]: $v'_A = 0.781$ m/s → {{t}} and $(v'_B)_n = 27.05$ m/s {{t}}</div>
+<div class="ln">$(v'_B)_x = 27.05\cos 20^\circ - 13.00\sin 20^\circ = 20.97$ m/s; $\;(v'_B)_y = 27.05\sin 20^\circ + 13.00\cos 20^\circ = 21.46$ m/s {{t}}</div>
+<div class="ln">$v'_B = \sqrt{20.97^2 + 21.46^2} = 30.0$ m/s {{t}}</div>
+<div class="ln">$\beta = \tan^{-1}\dfrac{21.46}{20.97} = 45.7^\circ$ above the horizontal (up and to the right) {{t}}</div>
+</section>
+
+<section class="q" data-marks="6" id="q9">
+{{crop:Q9}}
+<p class="solh">Solution</p>
+<div class="figs2"><figure>{{fig:q9_fbd}}<figcaption>FBD</figcaption></figure><figure>{{fig:q9_kd}}<figcaption>KD (ω = 0)</figcaption></figure></div>
+<div class="ln">FBD and KD as shown {{t}}</div>
+<div class="ln">Just after B is removed, ω = 0 and the beam turns about the fixed pin O: $\sum M_O = I_O\alpha$ {{t}}</div>
+<div class="ln">$I_G = \tfrac{1}{12}ml^2 = \tfrac{1}{12}(300)(4)^2 = 400$ kg·m² {{t}}</div>
+<div class="ln">$I_O = I_G + md^2 = 400 + 300\left(2^2 + 0.9^2\right) = 1843$ kg·m² {{t}}</div>
+<div class="ln">$\sum M_O = mg(2) = 300(9.81)(2) = 5886$ N·m CW {{t}}</div>
+<div class="ln">$\alpha = \dfrac{5886}{1843} = 3.19$ rad/s² CW {{t}}</div>
+<p class="rn">[Only the 2 m horizontal distance gives the weight a moment about O; the 0.9 m appears only in $I_O$.]</p>
+</section>
+
+<p class="total">TOTAL MARKS: 100</p>
