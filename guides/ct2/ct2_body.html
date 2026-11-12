@@ -1,0 +1,137 @@
+<h1 class="title">MEC2047S 2026 Class Test 2<br><span class="subt">Relative velocity and acceleration: question (reconstructed) and explained memo</span></h1>
+<p class="unoff">Rebuilt from the marked memo. The question wording is reconstructed from the figure and the working, so check it against the original paper.
+The figures are redrawn to true scale, and every value is recomputed and checked a second way.</p>
+
+<h2 class="sec">The question [17 marks]</h2>
+<section class="q">
+<p>End A of the uniform bar AB (length 1.2 m) moves along the horizontal track with a <b>constant</b> velocity
+$v_A = 3$ m/s to the right. End B is guided by a circular track of radius 0.5 m, which blends smoothly into the horizontal track.
+At the instant shown, the radius to B makes 60° with the vertical through the centre of the guide.</p>
+<p>Using <b>scaled vector diagrams</b>, determine:</p>
+<ol class="parts">
+<li>the velocity of B and the angular velocity of AB;</li>
+<li>the tangential acceleration of B and the angular acceleration of AB.</li>
+</ol>
+<div class="figc">{{fig:ct2_q}}</div>
+<p class="rn">[Marker's note on the memo: "Do not award if there is no vector diagram." The numbers only earn marks if they come from a scaled diagram with its scale stated.]</p>
+</section>
+
+<h2 class="sec brk">Explained memo</h2>
+
+<section class="q">
+<p class="solh">Step 0 · Read the constraints before drawing anything</p>
+<div class="howto">
+<b>A rides on a straight track at constant speed.</b> So $\vec v_A = 3$ m/s →, and because the speed never changes, <b>$\vec a_A = 0$</b>.
+<br><b>B rides in a circular guide.</b> B therefore moves on a circle of radius 0.5 m, exactly like the tip of an imaginary crank pinned at the guide's centre:
+<ul class="tight">
+<li>$\vec v_B$ is <b>tangent</b> to the guide (⊥ to the radius).</li>
+<li>$\vec a_B$ has a normal part $v_B^2/0.5$ pointing <b>at the guide's centre</b>, plus an unknown tangential part along the guide.</li>
+</ul>
+<b>AB is rigid.</b> Seen from A, B can only swing around A, so:
+<ul class="tight">
+<li>$\vec v_{B/A}$ is <b>⊥ AB</b>.</li>
+<li>$(\vec a_{B/A})_n = \omega_{AB}^2 AB$ points <b>from B to A</b>, and $(\vec a_{B/A})_t$ is ⊥ AB.</li>
+</ul>
+That's every direction you need. The rest is geometry and drawing.
+</div>
+</section>
+
+<section class="q">
+<p class="solh">Step 1 · Geometry: the angle of AB</p>
+<div class="figc">{{fig:ct2_geom}}</div>
+<div class="ln">The guide's centre is 0.5 m above the track (that's how the circle meets the track smoothly). B sits on the 60° radius, so it is
+$h_1 = 0.5\cos 60° = 0.25$ m below the centre.</div>
+<div class="ln">B is therefore $h_2 = 0.5 - 0.25 = 0.25$ m above the track, which is where A is.</div>
+<div class="ln">The bar is the hypotenuse of a right triangle with height 0.25 m and length 1.2 m: $\;\beta = \sin^{-1}\dfrac{0.25}{1.2} = 12.0°$ below the horizontal (from B down to A).</div>
+<p class="sub">The four direction lines at B (dashed on the drawing)</p>
+<table class="ku"><tr><th>Line</th><th>Why</th><th>Angle from +x</th></tr>
+<tr><td>radius, from B to the centre</td><td>60° from the vertical, so 30° above the horizontal, pointing up-right</td><td>30°</td></tr>
+<tr><td>tangent to the guide ($\vec v_B$, $(\vec a_B)_t$)</td><td>radius + 90°. B is sliding down the curve, so $\vec v_B$ points down-right</td><td>300° (or 120°)</td></tr>
+<tr><td>bar, from B to A</td><td>12° below the horizontal, pointing right</td><td>348°</td></tr>
+<tr><td>⊥ AB ($\vec v_{B/A}$, $(\vec a_{B/A})_t$)</td><td>bar direction ± 90°</td><td>258° (or 78°)</td></tr>
+</table>
+</section>
+
+<section class="q">
+<p class="solh">Step 2 · (a) Velocities</p>
+<div class="row"><div class="txt">
+<div class="ln"><b>Equation:</b> $\vec v_B = \vec v_A + \vec v_{B/A}$. Start from the point you know completely (A) and step to B.</div>
+<table class="ku"><tr><th>Term</th><th>Size</th><th>Direction</th></tr>
+<tr><td>$\vec v_B$</td><td>?</td><td>300° (tangent)</td></tr>
+<tr><td>$\vec v_A$</td><td>3 m/s</td><td>0° (→)</td></tr>
+<tr><td>$\vec v_{B/A}$</td><td>?</td><td>258° (⊥ AB)</td></tr></table>
+<div class="ln">Two unknown sizes and two known directions, so the triangle closes.</div>
+<p class="sub">How to draw it (scale 1 cm = 1 m/s)</p>
+<ol class="flow">
+<li>From the pole o, draw $\vec v_A$: 3 cm to the right, ending at a.</li>
+<li>Through a, draw a long line at 258° (the ⊥-AB direction).</li>
+<li>Through o, draw a long line at 300° (the tangent direction).</li>
+<li>They cross at b. Measure ob = $v_B$ and ab = $v_{B/A}$.</li>
+</ol>
+</div><figure class="side">{{fig:ct2_vel}}</figure></div>
+<div class="ln"><b>Angles in the triangle</b> (to use the sine rule instead of measuring): at o, the angle between 0° and 300° is 60°; at a, it's between 180° and 258°, so 78°; at b, 180 − 60 − 78 = 42°.</div>
+<div class="ln">$v_B = \dfrac{3\sin 78°}{\sin 42°} = 4.38$ m/s @ 300° (down-right along the guide)</div>
+<div class="ln">$v_{B/A} = \dfrac{3\sin 60°}{\sin 42°} = 3.88$ m/s @ 258°</div>
+<div class="ln">$\omega_{AB} = \dfrac{v_{B/A}}{AB} = \dfrac{3.88}{1.2} = 3.23$ rad/s, <b>CCW</b></div>
+<p class="rn">[Sense: B is up-left of A, and $\vec v_{B/A}$ points down (258°). That swings B anticlockwise around A.
+B also travels round its guide at $\omega_{OB} = v_B/0.5 = 8.77$ rad/s, which you'll need for its normal acceleration.]</p>
+
+<p class="sub">Check with the instantaneous centre</p>
+<div class="row"><div class="txt">
+<div class="ln">Draw the line ⊥ $\vec v_A$ (the vertical through A) and the line ⊥ $\vec v_B$ (the radius through B, extended). They meet at the IC, 0.928 m above A.</div>
+<div class="ln">$\omega_{AB} = v_A/0.928 = 3.23$ rad/s ✓; $\;v_B = 3.23 \times 1.355 = 4.38$ m/s ✓</div>
+<div class="ln">A is directly below the IC and moves right, which confirms the rotation is CCW.</div>
+</div><figure class="side">{{fig:ct2_ic}}</figure></div>
+</section>
+
+<section class="q">
+<p class="solh">Step 3 · (b) Accelerations</p>
+<div class="ln"><b>Equation:</b> $\vec a_B = \vec a_A + \vec a_{B/A}$. Split each side into the parts whose directions you know:</div>
+<div class="ln">$\underbrace{(\vec a_B)_n + (\vec a_B)_t}_{\text{B on its circle}} = \underbrace{\vec a_A}_{=\,0} + \underbrace{(\vec a_{B/A})_n + (\vec a_{B/A})_t}_{\text{B swinging about A}}$</div>
+<p class="sub">Work out every normal term first: they only need the velocities</p>
+<div class="ln">$(a_B)_n = \dfrac{v_B^2}{r} = \dfrac{4.38^2}{0.5} = 38.4$ m/s², pointing from B <b>to the guide centre</b> (30°)</div>
+<div class="ln">$(a_{B/A})_n = \omega_{AB}^2\,AB = 3.23^2(1.2) = 12.55$ m/s², pointing from B <b>to A</b> (348°)</div>
+<table class="ku"><tr><th>Term</th><th>Size</th><th>Direction</th></tr>
+<tr><td>$(\vec a_B)_n$</td><td>38.4</td><td>30° (to the centre)</td></tr>
+<tr><td>$(\vec a_B)_t$</td><td><b>?</b></td><td>along the tangent: 120°/300° line</td></tr>
+<tr><td>$\vec a_A$</td><td>0</td><td>(constant $v_A$)</td></tr>
+<tr><td>$(\vec a_{B/A})_n$</td><td>12.55</td><td>348° (B → A)</td></tr>
+<tr><td>$(\vec a_{B/A})_t$</td><td><b>?</b></td><td>⊥ AB: 78°/258° line</td></tr></table>
+<div class="ln">Two unknown sizes (the two tangential terms), so the diagram closes.</div>
+<p class="sub">How to draw it (scale 1 cm = 5 m/s²)</p>
+<ol class="flow">
+<li>Pole o. Because $\vec a_A = 0$, the point a sits on o.</li>
+<li><b>Right-hand side:</b> from o, draw $(\vec a_{B/A})_n$, 2.51 cm at 348°. Through its tip, draw a long line at 78° for $(\vec a_{B/A})_t$.</li>
+<li><b>Left-hand side:</b> from o, draw $(\vec a_B)_n$, 7.68 cm at 30°. Through its tip, draw a long line at 120° for $(\vec a_B)_t$.</li>
+<li>The two lines cross at b. o → b is the total $\vec a_B$. Measure both tangential pieces up to b.</li>
+</ol>
+<div class="figc">{{fig:ct2_acc}}</div>
+<div class="ln"><b>Read off:</b> $(a_B)_t = 23.9$ m/s² @ 120° and $(a_{B/A})_t = 43.5$ m/s² @ 78°</div>
+<div class="ln">$\alpha_{AB} = \dfrac{(a_{B/A})_t}{AB} = \dfrac{43.5}{1.2} = 36.2$ rad/s², <b>CW</b></div>
+<p class="rn">[What the senses mean:
+$(\vec a_{B/A})_t$ points up (78°) at B, which is up-left of A, so it turns AB <b>clockwise</b>. AB spins CCW but with a CW α, so its rotation is <b>slowing down</b>.
+$(\vec a_B)_t$ at 120° is opposite to $\vec v_B$ at 300°, so <b>B is slowing down</b> along the guide too.
+The total: $a_B = \sqrt{38.4^2 + 23.9^2} = 45.2$ m/s².]</p>
+</section>
+
+<section class="q">
+<p class="solh">Step 4 · Check with components</p>
+<div class="ln">Velocity: $(3,\ 0) + 3.881(\cos 258°, \sin 258°) = (2.19,\ -3.80)$, and $4.383(\cos 300°, \sin 300°) = (2.19,\ -3.80)$ ✓</div>
+<div class="ln">Acceleration, left side: $38.42(\cos 30°, \sin 30°) + 23.89(\cos 120°, \sin 120°) = (21.33,\ 39.90)$</div>
+<div class="ln">Acceleration, right side: $12.55(\cos 348°, \sin 348°) + 43.46(\cos 78°, \sin 78°) = (21.33,\ 39.90)$ ✓</div>
+<p class="rn">[Rounding: the handwritten memo gets 24.05 m/s² and 36.38 rad/s² because it rounds β to 12° and ω<sub>OB</sub> to 8.78 rad/s before squaring.
+The exact values (23.9 and 36.2) are well within the tolerance for a scaled diagram, so either is accepted.]</p>
+</section>
+
+<section class="q">
+<p class="solh">Where the marks are, and the traps</p>
+<ul class="tight">
+<li><b>Geometry:</b> h₁ and β, with a sketch.</li>
+<li><b>Velocity:</b> the equation, a scaled diagram with the scale stated, v<sub>A</sub> drawn correctly, then v<sub>B</sub> and v<sub>B/A</sub> with their directions.</li>
+<li><b>Acceleration:</b> the full expanded equation, the unknown directions marked, a<sub>A</sub> = 0, both normal terms calculated <i>and</i> drawn correctly, the scale, both tangential terms with their angles, then α with its sense.</li>
+<li><b>Trap 1:</b> forgetting $(\vec a_B)_n$. B is on a curve, so it always has a normal acceleration towards the guide's centre.</li>
+<li><b>Trap 2:</b> drawing $(\vec a_{B/A})_n$ the wrong way. It points from B <b>to A</b> (towards the reference point).</li>
+<li><b>Trap 3:</b> giving a value with no vector diagram. The memo says those get no marks.</li>
+</ul>
+<p class="ansl">(a) v<sub>B</sub> = 4.38 m/s @ 300° · ω<sub>AB</sub> = 3.23 rad/s CCW &nbsp;·&nbsp; (b) (a<sub>B</sub>)<sub>t</sub> = 23.9 m/s² @ 120° · α<sub>AB</sub> = 36.2 rad/s² CW</p>
+</section>
