@@ -1,0 +1,337 @@
+<header class="hero">
+  <p class="kicker">MEC2047S Dynamics · Constrained motion + coordinate vectors</p>
+  <h1>Pulleys, cables, and the vector view of n–t, polar and spherical</h1>
+  <p class="lede">Part A: the two ways to do pulley problems, the length (distance) method and the velocity-line trick, with every example solved both ways.
+  Part B: n–t, polar, cylindrical and spherical coordinates as plain vectors in i, j, k, so you can check any answer with dot products.
+  Includes the full CT1 2025 paper.</p>
+</header>
+
+<!-- ================================================================== PART A -->
+<h2 class="part p1" id="partA">Part A · Constrained motion</h2>
+
+<section class="card p1" id="a1">
+<h3><span class="n">1</span>Two methods: which one when?</h3>
+<table class="cmp">
+<thead><tr><th></th><th>Length method (distances, then differentiate)</th><th>Velocity-line trick</th></tr></thead>
+<tbody>
+<tr><td>Idea</td><td>Each cable has a fixed length: write it with position coordinates and differentiate.</td><td>A pulley is a rigid wheel: speeds vary linearly across it, so the centre moves at the average of its two strands.</td></tr>
+<tr><td>Works for</td><td><b>Everything</b>, including slanted strands (Pythagoras) and accelerations</td><td>Parallel strands (all vertical or all horizontal)</td></tr>
+<tr><td>Use it when</td><td>The question says "define variables" or "find the function for the length" (S25 Q2: those are marks), or a strand is slanted</td><td>Fast answers, MCQs, and <b>checking</b> the length method</td></tr>
+<tr><td>Gives</td><td>Velocities and accelerations, with signs from your coordinates</td><td>Velocities, and accelerations along the strands (the same rule)</td></tr>
+</tbody></table>
+</section>
+
+<section class="card p1" id="a2">
+<h3><span class="n">2</span>The velocity-line trick (your sketch)</h3>
+<div class="figrow">{{fig:hack_cases}}</div>
+<div class="grid"><div>
+<p class="key">$$v_{\text{centre}} = \frac{v_{\text{left strand}} + v_{\text{right strand}}}{2}\qquad(\text{up} = +)$$
+Draw the two strand speeds as arrows on the ends of a horizontal diameter. The straight line through their tips crosses the centre at the axle's speed.
+Where it crosses zero is the pulley's instantaneous centre.</p>
+<h4>Why it works</h4>
+<p>The rope grips the pulley, so each rim point where a strand leaves moves with that strand. A pulley is a rigid disc, so its velocity varies linearly across a diameter
+(it's a wheel "rolling" on its own rope). The centre is halfway along, so it gets the average.</p>
+</div><div>
+<h4>Rules for chaining pulleys</h4>
+<ol class="flow">
+<li>A strand <b>tied to the ceiling</b> or anything fixed: v = 0.</li>
+<li>A <b>fixed-axle</b> pulley: centre 0, so its two strands move <b>equal and opposite</b>. A rope pulled down on one side rises on the other.</li>
+<li>A strand <b>tied to a moving body</b> (a block, a pulley's hub) moves with that body.</li>
+<li>One straight strand has <b>one velocity</b> along its whole length, so carry it from pulley to pulley.</li>
+<li>Start from the known input (motor, drum, pulled end) and work outwards.</li>
+<li>Accelerations: the same rule, $a_{\text{centre}} = \tfrac12(a_L + a_R)$.</li>
+<li>Only for <b>parallel</b> strands. If a strand is slanted, use the length method.</li>
+</ol>
+</div></div>
+</section>
+
+<section class="card p1" id="a3">
+<h3><span class="n">3</span>The length method, step by step</h3>
+<div class="grid"><div>
+<ol class="flow">
+<li><b>Datum:</b> a fixed line, usually the ceiling or a fixed pulley's axle.</li>
+<li><b>Coordinates:</b> one for every moving thing (block, moving pulley's centre, rope end), measured <b>from the datum</b>, positive down. Draw them: this is often a marked step.</li>
+<li><b>One equation per cable:</b> add its straight segments. Arcs around pulleys are constant: drop them.
+  A segment between two moving things has length = the <b>difference</b> of their coordinates.</li>
+<li><b>Count the segments ending on each pulley.</b> A pulley hanging in a loop has 2; the pulley B in CT1 Q1 has 3.</li>
+<li><b>Differentiate</b> once for v and twice for a. Constants vanish.</li>
+<li><b>Signs to words:</b> positive = moving away from the datum (down here); negative = up.</li>
+</ol>
+</div><div>
+<h4>Why the factor of 2 (or 3)</h4>
+<p>If a pulley hanging in a loop drops 1 cm, <i>both</i> its segments get 1 cm longer. That 2 cm has to come from the rest of the rope, so the free end moves 2 cm.</p>
+<h4>Differentiation toolkit</h4>
+<p>$\dfrac{d}{dt}(s_B - s_C) = v_B - v_C$</p>
+<p>Slanted segment $\sqrt{x^2 + b^2}$ (b constant):</p>
+<p>$\dfrac{d}{dt}\sqrt{x^2 + b^2} = \dfrac{x\dot x}{\sqrt{x^2 + b^2}}$</p>
+<p>$\dfrac{d^2}{dt^2}\sqrt{x^2 + b^2} = \dfrac{\dot x^2 + x\ddot x}{\sqrt{x^2 + b^2}} - \dfrac{x^2\dot x^2}{(x^2 + b^2)^{3/2}}$</p>
+<p class="small">Degrees of freedom = (number of coordinates) − (number of cables) = how many motions the question must give you.</p>
+</div></div>
+</section>
+
+<section class="card p1" id="a4">
+<h3><span class="n">4</span>Traps</h3>
+<ul class="tight">
+<li>Trace each cable with your finger from end to end. Mixing up which cable a segment belongs to is the most common mistake.</li>
+<li>"Reels in at 100 mm/s" means the cable's length <i>outside</i> the drum shrinks: $\dot L = -100$ mm/s.</li>
+<li>Relative velocity: $v_{B/L} = v_B - v_L$, using the same sign convention for both.</li>
+<li>Constant input speed does <b>not</b> mean zero acceleration everywhere: with a slanted strand the crate still accelerates (S25 Q2c).</li>
+<li>Give a direction with every answer (↑ ↓), not just a signed number.</li>
+</ul>
+</section>
+
+<section class="card p1" id="ea1">
+<h3><span class="n">E1</span>The basic movable pulley</h3>
+<div class="grid"><div>
+{{fig:ea1}}
+</div><div>
+<h4>Length method</h4>
+<p>$L = s_P + (s_P - s_E) = 2s_P - s_E$</p>
+<p>$0 = 2v_P - v_E \Rightarrow v_P = \tfrac12 v_E$</p>
+<p>Pulled up: $v_E = -v$, so $v_P = -v/2$ → <b>the load rises at v/2</b>.</p>
+<h4>Velocity line</h4>
+{{fig:ea1_line}}
+<p>$v_P = \tfrac12(0 + v) = v/2$ ↑ ✓</p>
+</div></div>
+</section>
+
+<section class="card p1" id="ea2">
+<h3><span class="n">E2</span>Two ropes (L10 Example 2): A pulled down at 2 m/s</h3>
+<div class="grid"><div>
+{{fig:ea2}}
+<p class="small">Green = rope 1 (A → over F → under C → ceiling). Orange = rope 2 (hub of C → under B → ceiling).</p>
+</div><div>
+<h4>Length method</h4>
+<p>Rope 1: $s_A + 2s_C = l_1$ (C hangs in a loop) → $v_A + 2v_C = 0$</p>
+<p>Rope 2: $s_B + (s_B - s_C) = l_2$ → $2v_B - v_C = 0$</p>
+<p>$v_C = -1$ m/s, $\;v_B = \tfrac12 v_C = -0.5$ m/s → <b>B rises at 0.5 m/s</b></p>
+<h4>Velocity line</h4>
+<ol class="flow">
+<li>F is fixed: A's strand goes down at 2, so the strand down to C goes <b>up</b> at 2.</li>
+<li>C: left strand 2 ↑, right strand tied (0) → $v_C = 1$ ↑.</li>
+<li>Rope 2 starts at C's hub, so B's left strand moves 1 ↑; B's right strand is tied → $v_B = 0.5$ ↑ ✓</li>
+</ol>
+</div></div>
+</section>
+
+<section class="card p1" id="ea3">
+<h3><span class="n">E3</span>Both strands moving (L10 Example 4 style)</h3>
+<div class="grid"><div>
+{{fig:ea3}}
+</div><div>
+<h4>Length method</h4>
+<p>$s_A + s_P + (s_P - s_C) = L$</p>
+<p>$v_A + 2v_P - v_C = 0 \Rightarrow v_P = \tfrac12(v_C - v_A) = \tfrac12(2 - 4) = -1$ m/s</p>
+<p><b>W rises at 1 m/s.</b></p>
+<h4>Velocity line</h4>
+{{fig:ea3_line}}
+<p>A's strand down 4 → over the fixed pulley, P's left strand goes up 4. P's right strand moves with C: down 2.
+$v_P = \tfrac12(4 - 2) = 1$ ↑ ✓. The zero crossing lies inside the pulley, as in your third sketch.</p>
+<p><b>Accelerations, same rule:</b> if A accelerates down at 1 m/s² and C moves at constant speed, $a_P = \tfrac12(0 - 1) = -0.5$, i.e. 0.5 m/s² ↑.</p>
+</div></div>
+</section>
+
+<section class="card p1" id="ea4">
+<h3><span class="n">E4</span>CT1 2025 Q1: motor reels in 100 mm/s (and its twin, F25 Q2)</h3>
+<div class="qrow tall">{{crop:ct1q1}}<p class="qtext">The motor reels in cable at 100 mm/s. Find (a) the velocity of the load, v<sub>L</sub>, and (b) the velocity of pulley B relative to the load, v<sub>B/L</sub>. [6 marks]</p></div>
+<div class="grid"><div>
+{{fig:ea4}}
+</div><div>
+<h4>Length method (datum: ceiling, y down +)</h4>
+<p><b>Cable 1</b> (green): motor → over the top-left fixed pulley → down to B → under B → up around the small fixed pulley → down to B's hub. <b>Three segments end on B:</b></p>
+<p>$L_1 = 3y_B + \text{const}$; reeled in, so $\dot L_1 = -100$ → $3\dot y_B = -100$ → $\dot y_B = -33.3$ mm/s (<b>B rises at 33.3 mm/s</b>)</p>
+<p><b>Cable 2</b> (orange): B's hub → under the load pulley → ceiling:</p>
+<p>$L_2 = (y_L - y_B) + y_L$ → $2\dot y_L = \dot y_B$ → $\dot y_L = -16.7$ mm/s</p>
+<p class="ans">(a) v<sub>L</sub> = 16.7 mm/s ↑</p>
+<p>(b) $v_{B/L} = \dot y_B - \dot y_L = -33.3 - (-16.7) = -16.7$ mm/s</p>
+<p class="ans">(b) v<sub>B/L</sub> = 16.7 mm/s ↑</p>
+</div></div>
+<h4>Velocity-line check</h4>
+<div class="grid"><div>
+{{fig:ea4_lines}}
+</div><div>
+<ol class="flow">
+<li>The motor strand runs down into the motor at 100, so over the fixed pulley, B's left strand goes <b>up 100</b>.</li>
+<li>B's right strand goes up over the small fixed pulley and comes back down to B's hub. Its speed is therefore <b>minus</b> B's: $-v_B$.</li>
+<li>$v_B = \tfrac12(100 - v_B)$ → $3v_B = 100$ → $v_B = 33.3$ ↑ ✓</li>
+<li>Load pulley: left strand 33.3 ↑ (B's hub), right strand tied → $v_L = 16.7$ ↑ ✓</li>
+</ol>
+<p class="key"><b>Same pattern as F25 Q2</b>: the drum draws in 180 mm/s, giving 180/3 = 60 mm/s for the middle pulley and 30 mm/s for W, so h = 30 × 10 = 300 mm.
+Spot the "three segments on one pulley" layout and you have the answer in seconds.</p>
+</div></div>
+</section>
+
+<section class="card p1" id="ea5">
+<h3><span class="n">E5</span>S25 Q2: slanted rope, roller A moving down at 2.5 m/s</h3>
+<div class="grid"><div>
+<h4>Geometry at s = 2 m (TRUE SCALE)</h4>
+{{fig:ea5}}
+</div><div>
+<p class="key">The rope to A is slanted, so the velocity line doesn't apply. Use the length method with Pythagoras.</p>
+<ol class="flow">
+<li><b>Variables:</b> datum at the pulley level. $x_C$ is from the pulley down to the crate; $x_A$ is from B down to A. Draw them (2 marks).</li>
+<li><b>Length:</b> $l = x_C + \sqrt{x_A^2 + 3^2} = 8$ m</li>
+<li>At s = 2 m, $x_C = 5 - 2 = 3$ m, so $\sqrt{x_A^2 + 9} = 5$ and $x_A = 4$ m.</li>
+<li><b>Velocity:</b> $0 = \dot x_C + \dfrac{x_A\dot x_A}{\sqrt{x_A^2 + 9}}$, so $\dot x_C = -\dfrac{4(2.5)}{5} = -2$ m/s → <b>2 m/s ↑</b></li>
+<li><b>Acceleration</b> ($\ddot x_A = 0$): $\ddot x_C = -\dfrac{\dot x_A^2}{5} + \dfrac{x_A^2\dot x_A^2}{5^3} = -1.25 + 0.80 = -0.45$ m/s²</li>
+</ol>
+<div class="flag"><b>Direction check.</b> $x_C$ is measured <i>downwards</i>, so −0.45 means <b>0.45 m/s² upwards</b>.
+The memo writes "0.45 m/s² ↓". Physically, the crate's upward speed is $v_C = v_A x_A/\sqrt{x_A^2+9}$, which grows as A goes lower (1.90 → 2.00 → 2.08 m/s at x<sub>A</sub> = 3.5, 4, 4.5 m), so the crate is speeding up upwards.</div>
+</div></div>
+</section>
+
+<!-- ================================================================== PART B -->
+<h2 class="part p2" id="partB">Part B · n–t, polar, cylindrical and spherical as vectors</h2>
+
+<section class="card p2" id="b1">
+<h3><span class="n">B1</span>The one idea: unit vectors are just directions</h3>
+<p>Every coordinate system in this course is a set of unit vectors that <b>turn as the particle moves</b>. Write them in fixed i, j, k components and two tools do everything:</p>
+<ul class="tight">
+<li><b>Dot product = projection:</b> the component of any vector along a unit vector is $\vec v\cdot\hat e$. That's how you switch between systems.</li>
+<li><b>Magnitude check:</b> $|\vec a|$ must come out the same in every system. If it doesn't, a sign is wrong.</li>
+</ul>
+<table class="cmp">
+<thead><tr><th>System</th><th>Unit vectors in i, j, k</th><th>Velocity</th><th>Acceleration</th></tr></thead>
+<tbody>
+<tr><td>n–t</td><td>$\hat e_t$ = direction of $\vec v$; $\hat e_n$ = $\hat e_t$ turned 90° towards the centre of curvature</td><td>$v\hat e_t$</td><td>$\dot v\,\hat e_t + \dfrac{v^2}{\rho}\hat e_n$</td></tr>
+<tr><td>Polar</td><td>$\hat e_r = (\cos\theta, \sin\theta)$, $\;\hat e_\theta = (-\sin\theta, \cos\theta)$</td><td>$\dot r\hat e_r + r\dot\theta\hat e_\theta$</td><td>$(\ddot r - r\dot\theta^2)\hat e_r + (r\ddot\theta + 2\dot r\dot\theta)\hat e_\theta$</td></tr>
+<tr><td>Cylindrical</td><td>polar + $\hat e_z = \vec k$</td><td>add $\dot z\hat e_z$</td><td>add $\ddot z\hat e_z$</td></tr>
+<tr><td>Spherical (φ = elevation)</td><td>$\hat e_R = (\cos\varphi\cos\theta,\ \cos\varphi\sin\theta,\ \sin\varphi)$<br>$\hat e_\theta = (-\sin\theta,\ \cos\theta,\ 0)$<br>$\hat e_\varphi = (-\sin\varphi\cos\theta,\ -\sin\varphi\sin\theta,\ \cos\varphi)$</td><td>$\dot R\hat e_R + R\dot\theta\cos\varphi\,\hat e_\theta + R\dot\varphi\,\hat e_\varphi$</td><td>see B6 (formula sheet)</td></tr>
+</tbody></table>
+<p class="small">Where the polar formulas come from: $\dot{\hat e}_r = \dot\theta\hat e_\theta$ and $\dot{\hat e}_\theta = -\dot\theta\hat e_r$ (differentiate the components). Then $\vec r = r\hat e_r$ gives $\vec v = \dot r\hat e_r + r\dot\theta\hat e_\theta$; differentiate once more for $\vec a$.</p>
+</section>
+
+<section class="card p2" id="b2">
+<h3><span class="n">B2</span>n–t with vectors: S25 Q1b (aircraft with airbrakes)</h3>
+<div class="grid"><div>
+<p>Given: v = 75 m/s at β = 15° below the horizontal, moving right; ρ = 600 m, with the centre of curvature below the path; airbrakes give $a_x = -9.81$ m/s².</p>
+<ol class="flow">
+<li>$\hat e_t = (\cos 15°, -\sin 15°) = (0.966,\ -0.259)$, along the motion.</li>
+<li>$\hat e_n$ = $\hat e_t$ turned 90° clockwise (towards the centre, below): $(-0.259,\ -0.966)$.</li>
+<li>$a_n = v^2/\rho = 75^2/600 = 9.375$ m/s²</li>
+<li>x-component: $-9.81 = a_t(0.966) + 9.375(-0.259)$, so $a_t = -7.64$ m/s². Negative means slowing, as airbrakes should.</li>
+<li>y-component: $a_y = a_t(-0.259) + 9.375(-0.966) = +1.98 - 9.06 = -7.08$ m/s²</li>
+<li><b>Magnitude check:</b> $\sqrt{a_t^2 + a_n^2} = 12.10$ and $\sqrt{9.81^2 + 7.08^2} = 12.10$ ✓</li>
+</ol>
+</div><div>
+<h4>Head-to-tail (TRUE SCALE)</h4>
+{{fig:b_nt}}
+</div></div>
+<div class="flag"><b>The memo's a_y = −11.03 m/s² fails this check:</b> $\sqrt{9.81^2 + 11.03^2} = 14.76 \ne 12.10$.
+It writes $a_y = -|a_t|\sin 15° - |a_n|\cos 15°$, which treats the tangential acceleration as pointing <i>forward</i> (down-right).
+But a<sub>t</sub> = −7.64 points <i>backwards</i> (up-left), so its y-part is +1.98, not −1.98. The conclusion doesn't change: |a<sub>y</sub>| = 7.08 &lt; 20 m/s², so no emergency landing.</div>
+</section>
+
+<section class="card p2" id="b3">
+<h3><span class="n">B3</span>Polar with vectors: S25 Q1a (radar tracking)</h3>
+<div class="grid"><div>
+<p>Given: r = 800 m, θ = 45°, v = 75 m/s at 15° below the horizontal.</p>
+<ol class="flow">
+<li>$\vec v = 75(\cos(-15°), \sin(-15°))$</li>
+<li>$\hat e_r = (\cos 45°, \sin 45°)$, $\;\hat e_\theta = (-\sin 45°, \cos 45°)$</li>
+<li>$v_r = \vec v\cdot\hat e_r = 75\cos(45° + 15°) = 37.5$ m/s</li>
+<li>$v_\theta = \vec v\cdot\hat e_\theta = 75\sin(-15° - 45°) = -64.95$ m/s</li>
+<li>$\dot r = v_r = 37.5$ m/s; $\;\dot\theta = v_\theta/r = -64.95/800 = -0.0812$ rad/s (CW)</li>
+</ol>
+<p class="key">The dot products handle the angles and signs for you. The memo uses 30°, the angle between $\vec v$ and $-\hat e_\theta$:
+$v_r = v\sin 30° = v\cos 60°$ and $v_\theta = -v\cos 30°$. Same numbers; the dot product just saves you from picking the angle.</p>
+</div><div>
+{{fig:b_polar}}
+</div></div>
+</section>
+
+<section class="card p2" id="b4">
+<h3><span class="n">B4</span>CT1 2025 Q2: two cars on a circular track (relative motion + n–t)</h3>
+<div class="qrow tall">{{crop:ct1q2}}<p class="qtext">v<sub>A</sub> = 96 km/h constant; v<sub>B</sub> = 96 km/h, increasing at 0.762 m/s². Draw the relative velocity and acceleration diagrams, and find v<sub>A/B</sub>, then a<sub>A/B</sub> and its direction. [9 marks]</p></div>
+<div class="grid"><div>
+{{fig:b_cars_geom}}
+<h4>Vectors (x right, y up, O at the centre)</h4>
+<p>v = 96/3.6 = 26.67 m/s for both cars.</p>
+<p>$\vec v_A = 26.67(\cos 115°, \sin 115°) = (-11.27,\ 24.17)$; $\;\vec v_B = (0,\ 26.67)$</p>
+<p>$\vec v_{A/B} = \vec v_A - \vec v_B = (-11.27,\ -2.50)$ → <b>11.54 m/s</b> (check: $2v\sin 12.5° = 11.54$ ✓)</p>
+<p>$\vec a_A$: n only (constant speed), $26.67^2/375 = 1.896$ towards O, which is 25° below the −x axis: $(-1.719,\ -0.801)$</p>
+<p>$\vec a_B$: n part $26.67^2/360 = 1.975$ ← (towards O), plus t part $0.762$ ↑: $(-1.975,\ 0.762)$</p>
+<p>$\vec a_{A/B} = \vec a_A - \vec a_B = (0.257,\ -1.563)$ → <b>1.584 m/s²</b>, at $\tan^{-1}(1.563/0.257) = $ <b>80.7° below the horizontal</b> (pointing down and to the right)</p>
+</div><div>
+<h4>Velocity diagram (TRUE SCALE)</h4>
+{{fig:b_cars_v}}
+<h4>Acceleration diagram (TRUE SCALE)</h4>
+{{fig:b_cars_a}}
+<p class="small">On paper: v<sub>A/B</sub> should measure 2.31 cm; a<sub>A/B</sub> should measure 6.34 cm at 80.7°.</p>
+</div></div>
+<p class="key">Recipe: $\vec v_A = \vec v_B + \vec v_{A/B}$, so on the diagram $\vec v_{A/B}$ runs <b>from the tip of $\vec v_B$ to the tip of $\vec v_A$</b>. The same goes for accelerations.
+Each car's acceleration = $v^2/\rho$ towards the centre + $\dot v$ along its motion.</p>
+</section>
+
+<section class="card p2" id="b5">
+<h3><span class="n">B5</span>CT1 2025 Q3: car on a helical ramp (cylindrical coordinates), fully explained</h3>
+<div class="qrow">{{crop:ct1q3}}<p class="qtext">Helix radius 7.2 m, rising 3 m per half-turn. Speed 25 km/h, decreasing at 3 km/h per second. Find a<sub>R</sub>, a<sub>θ</sub> and a<sub>z</sub>. [13 marks]</p></div>
+<div class="grid"><div>
+<h4>1 · Unroll the helix to get its angle</h4>
+{{fig:b_helix}}
+<p>Half a turn is an arc of $r\pi = 22.62$ m in the horizontal direction while rising 3 m:</p>
+<p>$\tan\gamma = \dfrac{3}{7.2\pi} = 0.1326 \Rightarrow \gamma = 7.56°$</p>
+<p>The velocity is tangent to the helix: it points along the slope of the unrolled triangle.</p>
+<h4>2 · Split the speed and its rate</h4>
+<p>$v = 25/3.6 = 6.944$ m/s; $\;\dot v = -3/3.6 = -0.833$ m/s²</p>
+<p>$v_\theta = r\dot\theta = v\cos\gamma = 6.884$ m/s → $\dot\theta = 0.956$ rad/s</p>
+<p>$v_z = \dot z = v\sin\gamma = 0.913$ m/s; $\;\dot r = 0$ (constant radius)</p>
+<p>Because γ is fixed, the rates split the same way: $r\ddot\theta = \dot v\cos\gamma$ and $\ddot z = \dot v\sin\gamma$.</p>
+</div><div>
+<h4>3 · Cylindrical components</h4>
+<p>$a_R = \ddot r - r\dot\theta^2 = 0 - 7.2(0.956)^2 = $ <b>−6.58 m/s²</b> (towards the axis)</p>
+<p>$a_\theta = r\ddot\theta + 2\dot r\dot\theta = \dot v\cos\gamma + 0 = $ <b>−0.826 m/s²</b></p>
+<p>$a_z = \ddot z = \dot v\sin\gamma = $ <b>−0.110 m/s²</b></p>
+{{fig:b_helix_top}}
+<h4>4 · Vector check with n–t</h4>
+<p>The helix's radius of curvature is $\rho = r/\cos^2\gamma = 7.327$ m, so $a_n = v^2/\rho = 6.58$ (that's −a<sub>R</sub> ✓) and $a_t = \dot v = -0.833$.</p>
+<p>$|\vec a| = \sqrt{6.58^2 + 0.833^2} = 6.635$ and $\sqrt{6.58^2 + 0.826^2 + 0.110^2} = 6.635$ ✓</p>
+</div></div>
+<div class="watch"><h4>Why each term</h4><ul>
+<li>$a_R$ is the centripetal part: the car circles the axis at θ̇, so $-r\dot\theta^2$ points inwards. It's there even at constant speed.</li>
+<li>$a_\theta$ and $a_z$ come only from the <b>slowing down</b>: the tangential deceleration −0.833 splits along the helix direction into horizontal (cos γ) and vertical (sin γ) parts.</li>
+<li>$2\dot r\dot\theta = 0$ because the radius never changes. Signs assume θ increases in the direction the car drives.</li>
+</ul></div>
+<p class="ans">a<sub>R</sub> = −6.58 m/s² · a<sub>θ</sub> = −0.826 m/s² · a<sub>z</sub> = −0.110 m/s²</p>
+</section>
+
+<section class="card p2" id="b6">
+<h3><span class="n">B6</span>Spherical with vectors</h3>
+<div class="grid"><div>
+<p><b>Building the unit vectors.</b> Let $\hat e_h = (\cos\theta, \sin\theta, 0)$ be the horizontal direction under the particle. Tilt it up by φ:</p>
+<p>$\hat e_R = \cos\varphi\,\hat e_h + \sin\varphi\,\vec k$, $\;\hat e_\varphi = -\sin\varphi\,\hat e_h + \cos\varphi\,\vec k$, $\;\hat e_\theta = (-\sin\theta, \cos\theta, 0)$</p>
+<p><b>Velocity</b> (formula sheet): $\vec v = \dot R\hat e_R + R\dot\theta\cos\varphi\,\hat e_\theta + R\dot\varphi\,\hat e_\varphi$. The θ-motion happens on a horizontal circle of radius $R\cos\varphi$, hence the cos φ.</p>
+<p><b>Acceleration</b> (formula sheet):<br>
+$a_R = \ddot R - R\dot\theta^2\cos^2\varphi - R\dot\varphi^2$<br>
+$a_\theta = 2\dot R\dot\theta\cos\varphi + R\ddot\theta\cos\varphi - 2R\dot\theta\dot\varphi\sin\varphi$<br>
+$a_\varphi = 2\dot R\dot\varphi + R\ddot\varphi + R\dot\theta^2\cos\varphi\sin\varphi$</p>
+</div><div>
+{{fig:sph_geom}}
+<h4>Worked example (my own, to practise the projections)</h4>
+<p>An aircraft flies east at 250 m/s ($\vec v = 250\vec i$). A radar sees it at R = 4000 m, θ = 30°, φ = 20°. Find Ṙ, θ̇ and φ̇.</p>
+<p>$\hat e_R = (0.814,\ 0.470,\ 0.342)$, $\;\hat e_\theta = (-0.5,\ 0.866,\ 0)$, $\;\hat e_\varphi = (-0.296,\ -0.171,\ 0.940)$</p>
+<p>$\dot R = \vec v\cdot\hat e_R = 203.4$ m/s</p>
+<p>$R\dot\theta\cos\varphi = \vec v\cdot\hat e_\theta = -125$ → $\dot\theta = -0.0333$ rad/s</p>
+<p>$R\dot\varphi = \vec v\cdot\hat e_\varphi = -74.05$ → $\dot\varphi = -0.0185$ rad/s</p>
+<p>Check: $\sqrt{203.4^2 + 125^2 + 74.05^2} = 250$ ✓</p>
+</div></div>
+</section>
+
+<section class="card p1" id="sum">
+<h3><span class="n">✓</span>Summary</h3>
+<div class="grid"><div>
+<ol class="flow">
+<li><b>Pulleys:</b> datum, coordinates, one length equation per cable; count the segments on each pulley; differentiate.</li>
+<li><b>Velocity line:</b> centre = average of its two strands; tied strand = 0; fixed axle → equal and opposite. Parallel strands only.</li>
+<li><b>Slanted strand:</b> Pythagoras, then the chain rule (twice for acceleration).</li>
+<li>Translate signs into ↑ ↓ using your coordinate directions.</li>
+</ol>
+</div><div>
+<ol class="flow" start="5">
+<li>Write unit vectors in i, j, k; switch systems with <b>dot products</b>.</li>
+<li>n–t: $\hat e_n$ points towards the centre; a negative $a_t$ points backwards.</li>
+<li>Helix: unroll it to get γ; split v and v̇ with cos γ and sin γ.</li>
+<li><b>Always check</b> |a| in two systems, and that each direction makes physical sense. These checks caught the memo slips in S25 Q1b (magnitude) and Q2c (direction).</li>
+</ol>
+</div></div>
+</section>
