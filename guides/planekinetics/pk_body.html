@@ -1,0 +1,458 @@
+<header class="hero">
+  <p class="kicker">MEC2047S Dynamics · Tutorials 10 and 11</p>
+  <h1>Plane Kinetics of Rigid Bodies: a workthrough</h1>
+  <p class="lede">What changes once forces get involved: the moment of inertia, the kinetic diagram, choosing the moment point, and whether
+  the body has an angular acceleration at all. Then every tutorial question, solved the memo way <i>and</i> with vectors, so you can be
+  sure your answer isn't a fluke.</p>
+</header>
+
+<div class="legend">
+  <span><i class="sw ans"></i>FBD: real forces</span>
+  <span><i class="sw abs"></i>KD: m a<sub>G</sub> and I<sub>G</sub>α</span>
+  <span><i class="sw t"></i><i class="sw n"></i>kinematics: accelerations</span>
+  <span><i class="sw muted"></i>geometry and dimensions</span>
+  <span class="ruler">📏 Diagrams marked <b>TRUE SCALE</b> are exact on paper when printed at 100 % (“actual size”). Measure them with a ruler.</span>
+</div>
+
+<!-- ============================================================ PART 1 -->
+<h2 class="part p1" id="ideas">Part 1 · The ideas</h2>
+
+<section class="card p1" id="three">
+<h3><span class="n">1</span>Three diagrams, three jobs</h3>
+<p>Most mix-ups come from putting the right arrow on the wrong diagram. Each diagram answers one question:</p>
+<table class="cmp">
+<thead><tr><th></th><th class="c-ans">Free-body diagram (FBD)</th><th class="c-abs">Kinetic diagram (KD)</th><th class="c-t">Kinematic diagram</th></tr></thead>
+<tbody>
+<tr><td>Answers</td><td>What <b>pushes and pulls</b> on the body?</td><td>What do those forces <b>achieve</b>?</td><td>How do the points <b>move</b>?</td></tr>
+<tr><td>Arrows</td><td>weight, normal forces, friction, tension, pin components, applied loads, springs</td><td>$m(a_G)_x$ and $m(a_G)_y$ (or n–t parts) at G, and the curl $I_G\alpha$</td><td>$\vec a_A$, $(\vec a_{B/A})_n$, $(\vec a_{B/A})_t$, $\vec a_G$ (and velocities first)</td></tr>
+<tr><td>Never put</td><td>velocities, accelerations, "ma"</td><td>forces</td><td>forces or masses</td></tr>
+<tr><td>Feeds</td><td>the <b>left</b> side of every equation</td><td>the <b>right</b> side</td><td>the link between $\vec a_G$ and α</td></tr>
+</tbody></table>
+<div class="figrow three">
+<figure>{{fig:w2_fbd}}<figcaption>FBD: forces only</figcaption></figure>
+<figure>{{fig:w2_kd}}<figcaption>KD: what the forces produce</figcaption></figure>
+<figure>{{fig:w2_acc}}<figcaption>Kinematics: a<sub>G</sub> from α (true scale)</figcaption></figure>
+</div>
+<p class="key"><b>FBD = KD</b> means the two systems are <i>equivalent</i>: the same total push ($\sum\vec F = m\vec a_G$) and the same total twist about <b>any</b> point you choose.
+Velocities never appear on either. They only enter through ω (the normal terms $r\omega^2$) and through the direction a body is slipping, which sets friction's direction.</p>
+</section>
+
+<section class="card p1" id="eqns">
+<h3><span class="n">2</span>The equations (from your formula sheet)</h3>
+<div class="grid"><div>
+<p>$\sum\vec F = m\vec a_G$ — <i>always</i>, for every body.</p>
+<p>$\sum M_G = I_G\alpha$ — moments about the <b>mass centre</b>.</p>
+<p>$\sum M_O = I_O\alpha$ — about a <b>fixed pivot</b> O only.</p>
+<p>$\sum M_P = I_G\alpha + m a_G d$ — about <b>any</b> point P, where d is the ⊥ distance from P to the line of $m\vec a_G$.</p>
+</div><div>
+<p class="key">Read the last one as: <b>moments of the FBD about P = moments of the KD about P</b>.
+The KD has two things that can twist about P: the curl $I_G\alpha$ (the same about every point) and the arrow $m\vec a_G$ (which has a moment unless it passes through P).</p>
+<p>Vector form of the same thing: $\sum(\vec r_{i/P}\times\vec F_i) = I_G\vec\alpha + \vec r_{G/P}\times m\vec a_G$, with $(x\vec i + y\vec j)\times(F_x\vec i + F_y\vec j) = (xF_y - yF_x)\vec k$.</p>
+</div></div>
+</section>
+
+<section class="card p1" id="paxis">
+<h3><span class="n">3</span>Where I and the parallel-axis theorem come in</h3>
+<div class="grid"><div>
+<p><b>I is rotational mass.</b> $m$ resists $\vec a_G$; $I_G$ resists α. It depends on how far the mass sits from the axis (∑ m r²), which is why a body's shape matters.</p>
+<p><b>Why $I_O = I_G + md^2$ is not just a rule.</b> Take a body pinned at a fixed O, with G at distance r. Its KD has three items:</p>
+<ul class="tight">
+<li>$I_G\alpha$ → moment $I_G\alpha$ about O</li>
+<li>$m(a_G)_t = m r\alpha$, ⊥ OG → moment $(mr\alpha)\,r$ about O</li>
+<li>$m(a_G)_n = m r\omega^2$, along GO → passes <b>through O</b> → no moment</li>
+</ul>
+<p>Add them: $\sum M_O = I_G\alpha + mr^2\alpha = (I_G + mr^2)\alpha = I_O\alpha$.</p>
+<p class="key">So the parallel-axis theorem <b>is</b> the moment of the $m\,r\alpha$ arrow, folded into one number. Use $\sum M_O = I_O\alpha$ only where that derivation holds: a fixed O (or G itself).</p>
+</div><div>
+{{fig:c_paxis}}
+</div></div>
+</section>
+
+<section class="card p1" id="alpha">
+<h3><span class="n">4</span>Is there an angular acceleration? Classify the motion first</h3>
+<table class="cmp">
+<thead><tr><th>Motion</th><th>How you recognise it</th><th>α?</th><th>Equations</th><th>Tutorial</th></tr></thead>
+<tbody>
+<tr><td><b>Translation</b> (straight or curved path)</td><td>The body never turns: every line on it keeps its direction. Parallelogram linkages, sliding crates.</td><td><b>α = 0</b>, ω = 0. Every point has the same $\vec a$.</td><td>$\sum\vec F = m\vec a_G$; $\sum M_G = 0$ or $\sum M_P = m a_G d$</td><td>T10 Q1 pipe</td></tr>
+<tr><td><b>Fixed-axis rotation</b></td><td>Pinned at a point that doesn't move.</td><td>yes. $(a_G)_t = r\alpha$, $(a_G)_n = r\omega^2$</td><td>$\sum M_O = I_O\alpha$ (+ $\sum\vec F = m\vec a_G$ for the pin)</td><td>T10 Q2, Q3 · T11 Q1</td></tr>
+<tr><td><b>General plane motion</b></td><td>Translates <i>and</i> rotates: free bodies, rolling or slipping wheels, connecting rods.</td><td>yes, and $\vec a_G$ needs a kinematic link (rolling or relative acceleration)</td><td>$\sum\vec F = m\vec a_G$; $\sum M_G = I_G\alpha$ or $\sum M_P$</td><td>T10 Q4, Q5 · T11 Q3, Q4</td></tr>
+</tbody></table>
+<div class="watch"><h4>How this differs from plain rotation in kinematics</h4><ul>
+<li>In kinematics you were <i>given</i> ω and α and found velocities and accelerations. In kinetics α is an <b>unknown that the moments produce</b>, so you need I.</li>
+<li>A body moving on a circular path isn't necessarily rotating. The T10 Q1 pipe travels on an arc, but it translates.</li>
+<li>"Released from rest" means <b>ω = 0, not α = 0</b>. ω = 0 kills the normal terms ($r\omega^2$); α is exactly what you're solving for.</li>
+<li>ω can be zero while α isn't (T11 Q4: ω<sub>AB</sub> = 0, α<sub>AB</sub> = 0.667 rad/s²).</li>
+</ul></div>
+</section>
+
+<section class="card p1" id="point">
+<h3><span class="n">5</span>Choosing the moment point</h3>
+<ol class="flow">
+<li><b>Fixed pivot O?</b> Take moments about O: the pin reactions vanish and $\sum M_O = I_O\alpha$ gives α in one line (T10 Q2, Q3, T11 Q1).</li>
+<li><b>Several unknown forces meet at one point</b> (a contact point carrying F and N, or a pin carrying A<sub>x</sub> and A<sub>y</sub>)? Take moments there, but use the full $\sum M_P = I_G\alpha + m a_G d$ (T10 Q1 about A, T11 Q3 about C, T11 Q4 about A).</li>
+<li><b>Otherwise use G.</b> $\sum M_G = I_G\alpha$ is always valid and always safe (T10 Q4, Q5).</li>
+<li>Count unknowns: in the plane you get 3 equations ($\sum F_x$, $\sum F_y$, one moment equation) plus the kinematic links.</li>
+</ol>
+<div class="watch"><h4>The one illegal move</h4><ul>
+<li>$\sum M_P = I_P\alpha$ about an accelerating point P is <b>wrong</b> in general, because it drops the $m a_G d$ term.
+(The exception you'll meet is a round body rolling without slip, about its contact point.)</li>
+</ul></div>
+</section>
+
+<section class="card p1" id="ilist">
+<h3><span class="n">6</span>The I formulas, quoted from the formula sheet, and which one to use</h3>
+<p>For plane motion the axis is always <b>⊥ to the page</b>. Pick the formula whose axis is the out-of-page axis: the lengths in the bracket are the dimensions you can see in the drawing.</p>
+<div class="grid"><div>
+<table class="moi">
+<thead><tr><th>Formula-sheet entry</th><th>I</th><th>Axis</th></tr></thead>
+<tbody>
+<tr><td>Uniform slender rod, $I_{yy}$</td><td>$\tfrac{1}{12}ml^2$</td><td>through G, ⊥ rod</td></tr>
+<tr><td>Uniform slender rod, $I_{y_1y_1}$</td><td>$\tfrac{1}{3}ml^2$</td><td>through an end, ⊥ rod</td></tr>
+<tr><td>Rectangular parallelepiped, $I_{zz}$</td><td>$\tfrac{1}{12}m(a^2 + b^2)$</td><td>through G, ⊥ the a × b face</td></tr>
+<tr><td>Circular cylinder, $I_{zz}$</td><td>$\tfrac12 mr^2$</td><td>its own axis</td></tr>
+<tr><td>Cylindrical shell, $I_{zz}$</td><td>$mr^2$</td><td>its own axis</td></tr>
+<tr><td>Sphere, $I_{zz}$</td><td>$\tfrac25 mr^2$</td><td>a diameter</td></tr>
+<tr><td>Parallel axis</td><td>$I = I_G + md^2$</td><td>d = G to the new axis</td></tr>
+<tr><td>Radius of gyration</td><td>$k = \sqrt{I/m}$, so $I = mk^2$</td><td>whatever axis k is quoted about</td></tr>
+</tbody></table>
+</div><div>
+<table class="moi">
+<thead><tr><th>Question</th><th>I used, and why</th></tr></thead>
+<tbody>
+<tr><td>T10 Q1 pipe</td><td>none: it translates, so α = 0</td></tr>
+<tr><td>T10 Q2 mast</td><td>rod about an end: $I_O = \tfrac13 ml^2$</td></tr>
+<tr><td>T10 Q3 L-body</td><td>rod about an end + (rod about G + md²)</td></tr>
+<tr><td>T10 Q4 / T11 Q2 plate</td><td>$I_{zz}$ with a = b: $\tfrac{1}{12}m(b^2 + b^2)$</td></tr>
+<tr><td>T10 Q5 ball</td><td>$I_G = mk^2$ with the given k (the ball isn't uniform, so not $\tfrac25 mr^2$)</td></tr>
+<tr><td>T11 Q1 plate</td><td>$I_{zz}$ with sides b and 2b, then + m r²</td></tr>
+<tr><td>T11 Q3 rod + hoop</td><td>rod about G: $\tfrac{1}{12}ml^2$ (massless hoop adds 0)</td></tr>
+<tr><td>T11 Q4 bar AB</td><td>rod about G: $\tfrac{1}{12}ml^2$</td></tr>
+</tbody></table>
+</div></div>
+<p class="small">Not on the sheet but needed in T10 Q1: the centroid of a thin semicircular arc or pipe sits $\bar y = 2r/\pi$ from the diameter (Meriam Table D/4). Don't confuse it with a solid half-disc, which is $4r/3\pi$.</p>
+</section>
+
+<section class="card p1" id="scale">
+<h3><span class="n">7</span>Drawing to scale without fluking it</h3>
+<ol class="flow cols2">
+<li><b>Compute every angle first</b> with trig (tan⁻¹ from the dimensions) and write it on the sketch. Never eyeball angles.</li>
+<li>Choose a scale that makes the biggest vector 5–10 cm long, and write it down (e.g. 1 cm = 0.1 m/s²).</li>
+<li>Draw the <b>fully known</b> vectors first, measured with a ruler and placed with a protractor at the computed angle.</li>
+<li>For unknown sizes, draw the <b>direction line</b> only (⊥ to the link, along the guide), long and thin.</li>
+<li>The crossing closes the diagram. Measure it, then convert with the scale.</li>
+<li><b>Confirm with vectors:</b> write each arrow in i, j components and check that the sums close. If they don't, your drawing has an angle wrong.</li>
+</ol>
+</section>
+
+<section class="card p1" id="recipe">
+<h3><span class="n">8</span>The master recipe</h3>
+<ol class="flow cols2">
+<li><b>Classify</b> the motion (card 4). That decides whether α exists and which moment equation is legal.</li>
+<li><b>Kinematics:</b> velocities first (for ω), then $\vec a_G$ in terms of α.</li>
+<li><b>FBD</b> (forces) and <b>KD</b> ($m\vec a_G$, $I_G\alpha$) side by side, same geometry.</li>
+<li><b>Moment point</b> (card 5) and <b>I</b> (card 6).</li>
+<li><b>Equations:</b> $\sum F_x$, $\sum F_y$, one moment equation, plus the kinematic link.</li>
+<li><b>Solve</b> and state directions (CW/CCW, ↑↓←→).</li>
+<li><b>Vector check:</b> redo it in components.</li>
+<li><b>Sanity check:</b> assumptions (no slip: F ≤ μN), signs, sizes.</li>
+</ol>
+</section>
+
+<!-- ============================================================ PART 2 -->
+<h2 class="part p2" id="worked">Part 2 · The tutorial questions, worked</h2>
+
+<!-- ---------------------------------------------------------- W1 -->
+<section class="card p2" id="w1">
+<h3><span class="n">W1</span>Tutorial 10 Q2: winch lifting a mast</h3>
+<div class="tags"><span>Fixed-axis rotation</span><span>ω = 0 (starts to lift), α ≠ 0</span><span>I: rod about an end, ⅓ml²</span><span>Moments about O</span></div>
+<div class="qrow">{{crop:t10q2}}<p class="qtext">24 m, 300 kg uniform mast hinged at O, at 30°. Winch torque 1300 N·m on a 1200 mm drum; the cable at A (16 m up) is horizontal and carries 2T.
+Find α and the pin force at O as it lifts off B.</p></div>
+<h4>Geometry (TRUE SCALE)</h4>
+{{fig:w1_geom}}
+<p class="small">Moment arms: the horizontal 2T acts at height 16 sin 30° = 8 m above O. The weight acts at horizontal distance 12 cos 30° = 10.39 m from O.</p>
+<div class="figrow two"><figure>{{fig:w1_fbd}}<figcaption>FBD</figcaption></figure><figure>{{fig:w1_kd}}<figcaption>KD</figcaption></figure><figure>{{fig:w1_acc}}<figcaption>a<sub>G</sub> (TRUE SCALE)</figcaption></figure></div>
+<div class="grid"><div>
+<h4>Scalar (memo route)</h4>
+<ol class="flow">
+<li>Tension: $\tau = T r_{drum}$, so $T = 1300/0.6 = 2167$ N and the cable at A carries $2T = 4333$ N.</li>
+<li>$I_O = \tfrac13 ml^2 = \tfrac13(300)(24)^2 = 57\,600$ kg·m²</li>
+<li>(↺ +) $\sum M_O = I_O\alpha$: $\;2T(8) - mg(10.39) = 57\,600\,\alpha$</li>
+<li>$34\,667 - 30\,585 = 57\,600\,\alpha \Rightarrow \alpha = 0.0709$ rad/s² CCW</li>
+<li>$a_G = (a_G)_t = 12\alpha = 0.850$ m/s², ⊥ mast (120°); $(a_G)_n = 0$.</li>
+<li>(→ +) $\;O_x - 2T = m(a_G)_x = 300(-0.850\cos 60°)$, so $O_x = 4.21$ kN</li>
+<li>(↑ +) $\;O_y - mg = 300(0.850\sin 60°)$, so $O_y = 3.16$ kN</li>
+<li>$F_O = \sqrt{4206^2 + 3164^2} = 5.26$ kN</li>
+</ol>
+</div><div>
+<h4>Vector check</h4>
+<p>$\vec r_{G/O} = 12(\cos 30°, \sin 30°) = (10.39,\ 6)$ m</p>
+<p>$\vec a_G = \alpha\vec k\times\vec r_{G/O} - \omega^2\vec r = 0.0709(-6,\ 10.39) = (-0.425,\ 0.737)$ m/s²</p>
+<p>$\sum M_O$: $\;(0, 8)\times(-4333, 0) + (10.39, 6)\times(0, -2943)$<br>$= 34\,667 - 30\,585 = 4082$ N·m ✓</p>
+<p>$\vec O = m\vec a_G - \vec W - 2\vec T = (-127.6 + 4333,\ 220.9 + 2943)$<br>$= (4206,\ 3164)$ N ✓</p>
+</div></div>
+<p class="ans">α = 0.0709 rad/s² CCW · F<sub>O</sub> = 5.26 kN</p>
+</section>
+
+<!-- ---------------------------------------------------------- W2 -->
+<section class="card p2" id="w2">
+<h3><span class="n">W2</span>Tutorial 11 Q1: rectangular plate pinned at a corner</h3>
+<div class="tags"><span>Fixed-axis rotation</span><span>released from rest: ω = 0</span><span>I: $I_{zz} = \tfrac{1}{12}m(a^2+b^2)$ + parallel axis</span><span>Moments about O</span></div>
+<div class="qrow">{{crop:t11q1}}<p class="qtext">3 kg plate, 2b × b with b = 200 mm, pinned at the top-left corner O and released from rest. Find $I_O$ and the pin force.</p></div>
+<h4>Geometry (TRUE SCALE)</h4>
+{{fig:w2_geom}}
+<div class="grid"><div>
+<p>G is at (b, −b/2) from O:<br>$r = \sqrt{b^2 + (b/2)^2} = \tfrac{\sqrt5}{2}b = 0.2236$ m<br>$\theta = \tan^{-1}\dfrac{b/2}{b} = 26.6°$ below the horizontal</p>
+<p>$I_G = \tfrac{1}{12}m\left[b^2 + (2b)^2\right] = \tfrac{5}{12}mb^2 = 0.05$ kg·m²<br>
+$I_O = I_G + mr^2 = \tfrac{5}{12}mb^2 + \tfrac54 mb^2 = \tfrac53 mb^2 = 0.2$ kg·m²</p>
+</div></div>
+<p class="small">The FBD, KD and acceleration diagram for this question are the three pictures in card 1.</p>
+<div class="grid"><div>
+<h4>Scalar (memo route, n–t axes)</h4>
+<ol class="flow">
+<li>(↻ +) $\sum M_O = I_O\alpha$: $\;mg\,b = \tfrac53 mb^2\alpha$ (the weight's arm is the horizontal distance b)</li>
+<li>$\alpha = \dfrac{3g}{5b} = 29.4$ rad/s² CW</li>
+<li>t-direction (⊥ OG): $\;-(F_O)_t + mg\cos\theta = m r\alpha \Rightarrow (F_O)_t = 26.32 - 19.74 = 6.58$ N</li>
+<li>n-direction (along OG): $\;(F_O)_n - mg\sin\theta = m r\omega^2 = 0 \Rightarrow (F_O)_n = 13.2$ N</li>
+<li>$F_O = \sqrt{6.58^2 + 13.2^2} = 14.7$ N</li>
+</ol>
+</div><div>
+<h4>Vector check (x–y axes)</h4>
+<p>$\vec r_{G/O} = (0.2,\ -0.1)$; α CW, so $\vec\alpha = -29.43\vec k$</p>
+<p>$\vec a_G = -29.43\vec k\times(0.2, -0.1) = (-2.94,\ -5.89)$ m/s²</p>
+<p>$\vec O = m\vec a_G - \vec W = (3(-2.94),\ 3(-5.89) + 29.43)$<br>$= (-8.83,\ 11.77)$ N</p>
+<p>$|\vec O| = \sqrt{8.83^2 + 11.77^2} = 14.7$ N ✓ (8.83 N ←, 11.77 N ↑)</p>
+</div></div>
+<p class="ans">I<sub>O</sub> = 0.2 kg·m² · α = 29.4 rad/s² CW · F<sub>O</sub> = 14.7 N</p>
+</section>
+
+<!-- ---------------------------------------------------------- W3 -->
+<section class="card p2" id="w3">
+<h3><span class="n">W3</span>Tutorial 10 Q3: L-shaped body released from rest</h3>
+<div class="tags"><span>Fixed-axis rotation</span><span>ω = 0, α ≠ 0</span><span>I: composite (rod about end + rod about G + md²)</span><span>Moments about O</span></div>
+<div class="qrow">{{crop:t10q3}}<p class="qtext">Uniform bent bar, total m = 3 kg and L = 250 mm: 3L/4 horizontal from O, then L/4 vertical. Released from rest; find the initial α.</p></div>
+<h4>Geometry (TRUE SCALE)</h4>
+{{fig:w3_geom}}
+<div class="grid"><div>
+<h4>Step by step</h4>
+<ol class="flow">
+<li>Split by length: $m_1 = \tfrac34(3) = 2.25$ kg, $l_1 = 0.1875$ m; $m_2 = 0.75$ kg, $l_2 = 0.0625$ m.</li>
+<li>Centroids: $G_1 = (93.75,\ 0)$ mm, $G_2 = (187.5,\ 31.25)$ mm.<br>$\bar x = \dfrac{2.25(93.75) + 0.75(187.5)}{3} = 117.2$ mm $= \tfrac{15}{32}L$</li>
+<li>$I_O$ by parts:
+ <ul><li>horizontal rod about its end: $\tfrac13(2.25)(0.1875)^2 = 0.02637$</li>
+ <li>vertical rod: $\tfrac{1}{12}(0.75)(0.0625)^2 + 0.75\,d_2^2$, with $d_2^2 = 0.1875^2 + 0.03125^2$, giving $0.00024 + 0.02710$</li></ul>
+ $I_O = 0.05371$ kg·m²</li>
+<li>(↺ +) $\sum M_O = I_O\alpha$: $\;-mg\,\bar x = -29.43(0.1172) = -3.449$ N·m</li>
+<li>$\alpha = 3.449/0.05371 = 64.2$ rad/s² CW</li>
+</ol>
+</div><div>
+<div class="flag"><b>Memo typo.</b> The memo prints $I_O = 0.005371$ kg·m². It should be <b>0.05371</b>.
+Its final α = 64.2 rad/s² uses the correct value: 3.449 ÷ 0.005371 would give 642.</div>
+<h4>Vector check</h4>
+<p>Moment of each weight about O, as $(x F_y - yF_x)$:<br>
+$G_1$: $0.09375(-22.07) = -2.069$<br>$G_2$: $0.1875(-7.358) = -1.380$<br>Sum $= -3.449$ N·m ✓, the same as $W\bar x$</p>
+<p>Only the horizontal distances matter. The vertical leg changes $\bar y$ but not the moment, because the weight is vertical.</p>
+</div></div>
+<p class="ans">α = 64.2 rad/s² CW (I<sub>O</sub> = 0.05371 kg·m²)</p>
+</section>
+
+<!-- ---------------------------------------------------------- W4 -->
+<section class="card p2" id="w4">
+<h3><span class="n">W4</span>Tutorial 10 Q1: semicircular pipe on a swinging platform</h3>
+<div class="tags"><span>Curvilinear TRANSLATION</span><span>pipe: α = 0, ω = 0</span><span>I: not needed</span><span>Moments about A</span></div>
+<div class="qrow">{{crop:t10q1}}<p class="qtext">80 kg semicircular pipe (radius 500 mm, ends A and B 1 m apart) on a platform carried by two equal 1 m links at θ = 45°, μ<sub>s</sub> = 0.3.
+Starting from rest, find the largest α of the links with no slip, and N<sub>B</sub>.</p></div>
+<div class="grid"><div>
+{{fig:w4_mech}}
+</div><div>
+<p class="key">The two equal parallel links make a parallelogram, so the platform never turns: it <b>translates</b> on a circular path.
+If the pipe doesn't slip, it translates with it. The <i>links</i> have α; the <i>pipe</i> has α = 0.</p>
+<p>From rest, ω = 0, so each link tip has only $a_t = r\alpha$, ⊥ to the link: up and to the left at 45°. The pipe has exactly this acceleration.</p>
+{{fig:w4_acc}}
+</div></div>
+<div class="figrow two"><figure>{{fig:w4_fbd}}<figcaption>FBD (friction opposes the tendency to slip)</figcaption></figure><figure>{{fig:w4_kd}}<figcaption>KD: m a only. d = arm of m a about A</figcaption></figure></div>
+<div class="grid"><div>
+<h4>Scalar (memo route)</h4>
+<ol class="flow">
+<li>(← +) $\;F_A + F_B = m r\alpha\sin 45°$</li>
+<li>(↑ +) $\;N_A + N_B - mg = m r\alpha\cos 45°$</li>
+<li>About to slip: $F_A + F_B = 0.3(N_A + N_B)$. Combine:<br>$0.3mg = mr\alpha(\sin 45° - 0.3\cos 45°)$</li>
+<li>$\alpha = \dfrac{0.3(9.81)}{1(0.7071 - 0.2121)} = 5.95$ rad/s² CCW</li>
+<li>(↺ +) $\sum M_A = m a_G d$ (no $I_G\alpha$ term because α = 0). The friction forces lie on the line through A, so they have no moment:<br>$N_B(1) - mg(0.5) = m(r\alpha)(0.5786)$</li>
+<li>$N_B = 392.4 + 80(5.946)(0.5786) = 668$ N</li>
+</ol>
+</div><div>
+<h4>Where d = 0.5786 m comes from</h4>
+<p>$\vec r_{G/A} = (0.5,\ 0.318)$; the line of $m\vec a$ points along $(-0.7071,\ 0.7071)$.</p>
+<p>$d = 0.5(0.7071) - 0.318(-0.7071) = 0.5786$ m. The memo's version: AG is at 32.5° from the horizontal and $|AG| = 0.593$ m, so $d = 0.593\sin(135° - 32.5°)$.</p>
+<h4>Vector check</h4>
+<p>$\vec a = 5.946(\cos 135°, \sin 135°) = (-4.20,\ 4.20)$</p>
+<p>$\sum F_x$: $F = 80(4.20) = 336.3$ N; $\;\sum F_y$: $N_A + N_B = 784.8 + 336.3 = 1121.1$ N; $\;0.3 \times 1121.1 = 336.3$ ✓</p>
+<p>With $N_B = 667.6$ and $N_A = 453.5$, the moments of all forces about G sum to zero, as they must when α = 0 ✓</p>
+</div></div>
+<p class="ans">α = 5.95 rad/s² CCW (links) · N<sub>B</sub> = 668 N</p>
+</section>
+
+<!-- ---------------------------------------------------------- W5 -->
+<section class="card p2" id="w5">
+<h3><span class="n">W5</span>Tutorial 10 Q4 = Tutorial 11 Q2: square plate pushed on a frictionless table</h3>
+<div class="tags"><span>General plane motion (free body)</span><span>at rest: ω = 0, α ≠ 0</span><span>I: $I_{zz} = \tfrac{1}{12}m(b^2+b^2)$</span><span>Moments about G</span></div>
+<div class="qrow">{{crop:t10q4}}<p class="qtext">6 kg square plate, b = 200 mm, at rest on a smooth horizontal surface. P = 120 N acts at corner A along the edge AB. Find the initial acceleration of corner B.</p></div>
+<div class="grid"><div>
+<h4>Top view (TRUE SCALE)</h4>
+{{fig:w5_geom}}
+<div class="figrow two"><figure>{{fig:w5_fbd}}<figcaption>FBD (in the table's plane)</figcaption></figure><figure>{{fig:w5_kd}}<figcaption>KD</figcaption></figure></div>
+</div><div>
+<h4>Acceleration diagram (TRUE SCALE)</h4>
+{{fig:w5_acc}}
+</div></div>
+<p class="key">No pin, but P's line of action misses G by b/2, so the plate <b>must</b> rotate as well as translate: α ≠ 0.</p>
+<div class="grid"><div>
+<h4>Scalar (memo route)</h4>
+<ol class="flow">
+<li>$\sum F_y = m a_G$: $\;120 = 6a_G \Rightarrow a_G = 20$ m/s² (y-direction)</li>
+<li>(↺ +) $\sum M_G = I_G\alpha$: $\;P\tfrac{b}{2} = \tfrac{1}{12}m(b^2 + b^2)\alpha \Rightarrow 12 = 0.04\,\alpha$</li>
+<li>$\alpha = 300$ rad/s² CCW</li>
+<li>$\vec a_B = \vec a_G + \vec a_{B/G}$, where $a_{B/G} = r\alpha = 0.1414(300) = 42.43$ m/s², ⊥ GB (tangential only, ω = 0)</li>
+<li>Triangle: the interior angle between $\vec a_G$ and $\vec a_{B/G}$ is 135°. Cosine rule:<br>$a_B^2 = 20^2 + 42.43^2 - 2(20)(42.43)\cos 135°$, so $a_B = 58.3$ m/s²</li>
+</ol>
+<p class="small">On the true-scale diagram: og = 2.0 cm, gb = 4.24 cm, ob should measure 5.83 cm.</p>
+</div><div>
+<h4>Vector check</h4>
+<p>$\vec r_{B/G} = (0.1,\ 0.1)$, $\;\vec\alpha = 300\vec k$</p>
+<p>$\vec a_{B/G} = 300\vec k\times(0.1, 0.1) = (-30,\ 30)$</p>
+<p>$\vec a_B = (0, 20) + (-30, 30) = (-30,\ 50)$ m/s²</p>
+<p>$|\vec a_B| = \sqrt{30^2 + 50^2} = 58.3$ m/s² ✓, at 121° from +x</p>
+<p>Moment check: $\vec r_{A/G}\times\vec P = (0.1)(120) - (-0.1)(0) = 12$ N·m ✓</p>
+</div></div>
+<p class="ans">a<sub>G</sub> = 20 m/s² · α = 300 rad/s² CCW · a<sub>B</sub> = 58.3 m/s²</p>
+</section>
+
+<!-- ---------------------------------------------------------- W6 -->
+<section class="card p2" id="w6">
+<h3><span class="n">W6</span>Tutorial 10 Q5: bowling ball that slips, then rolls</h3>
+<div class="tags"><span>General plane motion WITH slip</span><span>a<sub>G</sub> and α independent</span><span>I: $I_G = mk^2$ (k given)</span><span>Moments about G</span></div>
+<div class="qrow">{{crop:t10q5}}<p class="qtext">6.4 kg ball, r = 120 mm, k = 83 mm, released at 6 m/s with ω = 0, μ = 0.2. Find the distance it slides before it rolls without slipping.</p></div>
+<div class="grid"><div>
+<div class="figrow two"><figure>{{fig:w6_fbd}}<figcaption>FBD</figcaption></figure><figure>{{fig:w6_kd}}<figcaption>KD</figcaption></figure></div>
+<p class="key">While slipping, the contact point slides forward ($v_C = v - r\omega > 0$), so friction acts <b>backwards</b> with its full value $F = \mu N$.
+It slows G and spins the ball up. Because the ball slips, <b>don't use</b> $a_G = r\alpha$.</p>
+</div><div class="wide">
+{{fig:w6_graph}}
+<p class="small">Slipping ends where the two lines meet: t = 0.990 s, v = rω = 4.06 m/s.</p>
+</div></div>
+<div class="grid"><div>
+<h4>Scalar (memo route)</h4>
+<ol class="flow">
+<li>(↑ +) $N = mg$; (→ +) $-\mu N = ma_G$, so $a_G = \mu g = 1.962$ m/s² (slowing)</li>
+<li>(↻ +) $\sum M_G = I_G\alpha$: $\;\mu mg\,r = mk^2\alpha \Rightarrow \alpha = \dfrac{\mu g r}{k^2} = 34.2$ rad/s²</li>
+<li>$v = v_0 - \mu g\,t$ and $\omega = \alpha t$</li>
+<li>Rolling starts when $v = r\omega$: $\;6 - 1.962t = 0.12(34.18)t$, so $t = 0.990$ s and $v = 4.06$ m/s<br>(the memo's form: $v = v_0/(1 + k^2/r^2)$)</li>
+<li>$s = \dfrac{v_0^2 - v^2}{2\mu g} = \dfrac{36 - 16.47}{3.924} = 4.98$ m</li>
+</ol>
+</div><div>
+<h4>Why this I?</h4>
+<p>A real bowling ball has finger holes and a dense core, so it isn't a uniform sphere. The question gives k, so $I_G = mk^2 = 6.4(0.083)^2 = 0.0441$ kg·m².</p>
+<p>Using the sphere formula $\tfrac25 mr^2 = 0.0369$ kg·m² would give s = 4.49 m, which is wrong. Always use the k you're given.</p>
+<h4>Check</h4>
+<p>$s = v_0t - \tfrac12\mu g t^2 = 6(0.9896) - \tfrac12(1.962)(0.9896)^2 = 4.98$ m ✓</p>
+</div></div>
+<p class="ans">s = 4.98 m (v = 4.06 m/s when rolling begins)</p>
+</section>
+
+<!-- ---------------------------------------------------------- W7 -->
+<section class="card p2" id="w7">
+<h3><span class="n">W7</span>Tutorial 11 Q3: rod fixed inside a massless hoop</h3>
+<div class="tags"><span>General plane motion, rolling without slip</span><span>ω = 0, α ≠ 0</span><span>I: rod about G, $\tfrac{1}{12}ml^2$</span><span>Moments about G (memo) or C (shortcut)</span></div>
+<div class="qrow">{{crop:t11q3}}<p class="qtext">Uniform rod, l = 250 mm, m = 0.5 kg, fixed from the centre O of a massless hoop of radius l out to the rim. Released from rest with the rod horizontal; find the initial α.</p></div>
+<h4>Geometry (TRUE SCALE)</h4>
+{{fig:w7_geom}}
+<div class="grid"><div>
+<h4>Kinematics (TRUE SCALE)</h4>
+{{fig:w7_acc}}
+</div><div>
+<p>Rolling without slip: the hoop centre has $a_O = l\alpha$ →. Relative: $a_{G/O} = (l/2)\alpha$ ↓ (tangential only, because ω = 0). So $\vec a_G = (l\alpha,\ -\tfrac{l}{2}\alpha)$.</p>
+<p class="small">Drawn for α = 14.7 rad/s², the answer, so the arrows have real lengths.</p>
+</div></div>
+<div class="figrow two"><figure>{{fig:w7_fbd}}<figcaption>FBD</figcaption></figure><figure>{{fig:w7_kd}}<figcaption>KD with the arms about C</figcaption></figure></div>
+<div class="grid"><div>
+<h4>Scalar, moments about G (memo)</h4>
+<ol class="flow">
+<li>(→ +) $\;F = m a_O = ml\alpha$ ……(1)</li>
+<li>(↑ +) $\;N - mg = -m\tfrac{l}{2}\alpha$ ……(2)</li>
+<li>(↺ +) $\sum M_G = I_G\alpha$ with α CW: $\;-N\tfrac{l}{2} + Fl = -\tfrac{1}{12}ml^2\alpha$</li>
+<li>Substitute (1) and (2): $\;\alpha\,l\left(\tfrac14 + 1 + \tfrac{1}{12}\right) = \tfrac{g}{2}$</li>
+<li>$\alpha = \dfrac{3g}{8l} = 14.7$ rad/s² CW</li>
+</ol>
+</div><div>
+<h4>Shortcut: moments about C</h4>
+<p>F and N act at C, so they drop out. Only the weight has a moment (arm l/2). On the KD, every arrow has a moment:</p>
+<p>(↻ +) $\;mg\tfrac{l}{2} = I_G\alpha + m(l\alpha)(l) + m(\tfrac{l}{2}\alpha)(\tfrac{l}{2})$</p>
+<p>$\tfrac{g}{2} = l\alpha\left(\tfrac{1}{12} + 1 + \tfrac14\right) = \tfrac43 l\alpha \Rightarrow \alpha = \dfrac{3g}{8l}$ ✓</p>
+<h4>Vector check and slip check</h4>
+<p>$\vec a_G = (3.68,\ -1.84)$, so $F = 0.5(3.68) = 1.84$ N and $N = 0.5(9.81 - 1.84) = 3.98$ N.</p>
+<p>No slip needs $\mu \ge F/N = 0.46$. The memo assumes it rolls; with less friction than that, it would slip.</p>
+</div></div>
+<p class="ans">α = 14.7 rad/s² CW</p>
+</section>
+
+<!-- ---------------------------------------------------------- W8 -->
+<section class="card p2" id="w8">
+<h3><span class="n">W8</span>Tutorial 11 Q4: bar AB driven by crank OA, guided by link CB</h3>
+<div class="tags"><span>General plane motion (connecting bar)</span><span>ω<sub>AB</sub> = 0 but α<sub>AB</sub> ≠ 0</span><span>I: rod about G, $\tfrac{1}{12}ml^2$</span><span>Moments about G (memo) or A (shortcut)</span></div>
+<div class="qrow">{{crop:t11q4}}<p class="qtext">0.8 kg uniform bar AB (300 mm). Crank OA (100 mm) has ω = 2 rad/s and α = 4 rad/s²; link CB (200 mm) is massless. OA and CB are both ⊥ to AB. Find the force in CB.</p></div>
+<h4>Geometry (TRUE SCALE)</h4>
+{{fig:w8_geom}}
+<div class="grid"><div>
+<h4>Kinematics first</h4>
+<ol class="flow">
+<li>$v_A = \omega_{OA}r = 2(0.1) = 0.2$ m/s →. $\vec v_B$ is ⊥ CB, so also horizontal. Then $\vec v_{B/A}$ (which is ⊥ AB, vertical) must be zero, so <b>ω<sub>AB</sub> = 0</b> and ω<sub>CB</sub> = 0.2/0.2 = 1 rad/s.</li>
+<li>$(a_A)_n = \omega^2 r = 0.4$ ↑ (towards O); $(a_A)_t = \alpha r = 0.4$ →</li>
+<li>$(a_B)_n = \omega_{CB}^2(0.2) = 0.2$ ↑ (towards C); $(a_B)_t$ is horizontal, size unknown</li>
+<li>$(a_{B/A})_n = \omega_{AB}^2 l = 0$; $(a_{B/A})_t$ is vertical, size unknown</li>
+<li>Polygon: $(a_{B/A})_t = 0.2$ ↓, so <b>α<sub>AB</sub> = 0.2/0.3 = 0.667 rad/s² CW</b>; $(a_B)_t = 0.4$ →</li>
+<li>G is the midpoint of AB, so g is the midpoint of ab: $\vec a_G = (0.4,\ 0.3)$ m/s²</li>
+</ol>
+</div><div>
+<h4>Acceleration polygon (TRUE SCALE)</h4>
+{{fig:w8_acc}}
+<p class="small">g sits at the midpoint of ab because G is the midpoint of AB (the acceleration image). Vector check: $\vec a_B = (0.4, 0.4) + \alpha_{AB}\vec k\times(0.3, 0) = (0.4,\ 0.4 + 0.3\alpha_{AB})$, and also $\vec a_B = (0.2\alpha_{CB},\ 0.2)$.
+So $\alpha_{CB} = 2$ rad/s² CCW and $\alpha_{AB} = -0.667$ (CW) ✓</p>
+</div></div>
+<div class="figrow two"><figure>{{fig:w8_fbd}}<figcaption>FBD (CB is a massless two-force link, so its force acts along CB)</figcaption></figure><figure>{{fig:w8_kd}}<figcaption>KD</figcaption></figure></div>
+<div class="grid"><div>
+<h4>Scalar, moments about G (memo)</h4>
+<ol class="flow">
+<li>$I_G = \tfrac{1}{12}(0.8)(0.3)^2 = 0.006$ kg·m², so $I_G\alpha = 0.004$ N·m (CW)</li>
+<li>(↑ +) $\;A_y + B - mg = m(a_G)_y = 0.8(0.3)$, so $A_y + B = 8.088$</li>
+<li>(↺ +) $\;B(0.15) - A_y(0.15) = -0.004$, so $B - A_y = -0.0267$</li>
+<li>Add: $2B = 8.061 \Rightarrow B = 4.03$ N ↑ (CB pulls up: tension)</li>
+</ol>
+</div><div>
+<h4>Shortcut: moments about A (one equation)</h4>
+<p>$A_x$ and $A_y$ drop out:</p>
+<p>(↺ +) $\;B(0.3) - mg(0.15) = -I_G\alpha + (\vec r_{G/A}\times m\vec a_G)_z$</p>
+<p>$0.3B - 1.177 = -0.004 + 0.15(0.24) = 0.032$</p>
+<p>$B = 4.03$ N ✓. Also $A_x = m(a_G)_x = 0.32$ N and $A_y = 4.06$ N.</p>
+</div></div>
+<p class="ans">Force in CB = 4.03 N (tension) · α<sub>AB</sub> = 0.667 rad/s² CW</p>
+</section>
+
+<section class="card p1" id="summary">
+<h3><span class="n">✓</span>One-page summary</h3>
+<div class="grid"><div>
+<ol class="flow">
+<li><b>Classify:</b> translation (α = 0) · fixed axis (ΣM<sub>O</sub> = I<sub>O</sub>α) · general plane motion (ΣF and ΣM<sub>G</sub>, plus a kinematic link).</li>
+<li><b>From rest:</b> ω = 0, so the normal terms vanish. α ≠ 0.</li>
+<li><b>Kinematics before kinetics:</b> get $\vec a_G$ in terms of α (rolling: a = rα; relative: $\vec a_G = \vec a_A + \vec\alpha\times\vec r - \omega^2\vec r$).</li>
+<li><b>FBD</b> (red, forces) and <b>KD</b> (blue, $m\vec a_G$ and $I_G\alpha$), side by side.</li>
+<li><b>Moment point:</b> fixed pivot → $I_O\alpha$; a point where unknowns meet → $I_G\alpha + m a_G d$; otherwise G.</li>
+</ol>
+</div><div>
+<ol class="flow" start="6">
+<li><b>I:</b> quote the formula-sheet entry, and use the axis ⊥ to the page. Add md² when the axis isn't through G. Use $I = mk^2$ when k is given.</li>
+<li><b>Slip?</b> Assume no slip, solve, then check F ≤ μN. If it slips: F = μN, and $a_G$ and α become independent.</li>
+<li><b>Check with vectors:</b> components and cross products, $(xF_y - yF_x)$.</li>
+<li><b>Answer</b> with units and a direction (CW/CCW, ↑↓←→).</li>
+</ol>
+</div></div>
+</section>
