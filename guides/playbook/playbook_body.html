@@ -1,0 +1,665 @@
+<header class="hero">
+  <p class="kicker">MEC2047S Dynamics</p>
+  <h1>Problem-Solving Playbook</h1>
+  <p class="lede">Spot the topic, then run the flow. Each card tells you how to recognise the topic in a question, the steps in order,
+  the formulas, the visual checks, and where it showed up in the 2025 papers (S25 = MEC2047S Nov 2025, F25 = MEC2047F June 2025).</p>
+</header>
+
+<section class="front">
+<h2 id="start">Start here: the first 30 seconds</h2>
+<ol class="routine">
+  <li><b>Circle what is asked.</b> A rate (ω, v, a)? A force? A time? A speed after something happens?</li>
+  <li><b>Particle or rigid body?</b> If the size or rotation of the object matters (links, wheels, beams, plates), it's a rigid body.</li>
+  <li><b>Kinematics or kinetics?</b> No masses or forces in the question → kinematics (motion only). Masses, forces, springs or friction → kinetics.</li>
+  <li><b>Scan for trigger words</b> in the table below to pick the topic card.</li>
+  <li><b>Kinetics? Pick the principle</b> with the method chooser.</li>
+  <li><b>Draw first.</b> The diagram earns marks and tells you every direction before you write a single equation.</li>
+</ol>
+
+<h2 id="detector">Topic detector</h2>
+<table class="detect">
+<thead><tr><th>If the question has…</th><th>It's testing…</th><th>Card</th></tr></thead>
+<tbody>
+<tr class="pa"><td>a given as a function of t, v or x · "comes to rest" · straight-line motion · v–t or a–t graphs</td><td>Rectilinear motion</td><td>1</td></tr>
+<tr class="pa"><td>ρ, "radius of curvature" · bend, hump, loop · speed changing along a curve</td><td>Normal–tangential (n–t)</td><td>2</td></tr>
+<tr class="pa"><td>radar / tracking · r and θ · rotating or slotted arm · collar sliding on a rotating rod · r = f(θ)</td><td>Polar (r–θ)</td><td>3</td></tr>
+<tr class="pa"><td>helix, spiral ramp, height z changing · elevation angle φ · R, θ, φ</td><td>Cylindrical / spherical</td><td>4</td></tr>
+<tr class="pa"><td>cables, pulleys, drum winding, "drawn in at"</td><td>Constrained (pulley) motion</td><td>5</td></tr>
+<tr class="pa"><td>"relative to", "as seen from", "appears to" · two vehicles, rain, boats</td><td>Relative motion of particles</td><td>6</td></tr>
+<tr class="pb"><td>wheel, gear, drum or arm on a fixed axle · rpm · belts and meshing gears</td><td>Fixed-axis rotation</td><td>7</td></tr>
+<tr class="pb"><td>crank, connecting rod, link, slider, four-bar · "angular velocity of AB" · "at the instant shown"</td><td>Relative velocity</td><td>8</td></tr>
+<tr class="pb"><td>"by the method of instantaneous centre" · velocity-only question on one link</td><td>Instantaneous centre</td><td>9</td></tr>
+<tr class="pb"><td>"angular acceleration of AB" · "acceleration of the slider/piston" · "scaled vector diagram"</td><td>Relative acceleration</td><td>10</td></tr>
+<tr class="pb"><td>"rolls without slipping" · wheel on ground, gear on a rack</td><td>Rolling (kinematics)</td><td>11</td></tr>
+<tr class="pb"><td>"Hint: use the cosine rule" · a rate found from a fixed geometry (θ̇ from φ̇)</td><td>Geometry, then differentiate</td><td>12</td></tr>
+<tr class="pc"><td>force and acceleration at one instant: tension, normal force, friction, banked track, "loses contact"</td><td>ΣF = ma</td><td>13</td></tr>
+<tr class="pc"><td>speed ↔ distance or height · spring compressed/stretched · "released from rest" · speed at a position</td><td>Work–energy</td><td>14</td></tr>
+<tr class="pc"><td>"after t seconds" · force applied for a time · F(t) graph · impulse · average force</td><td>Impulse–momentum</td><td>15</td></tr>
+<tr class="pc"><td>collide, strikes, rebounds · coefficient of restitution e</td><td>Impact</td><td>16</td></tr>
+<tr class="pc"><td>string through a hole · central force · no moment about a point</td><td>Angular momentum (particles)</td><td>17</td></tr>
+<tr class="pd"><td>radius of gyration · composite body · "moment of inertia about"</td><td>Mass moment of inertia</td><td>18</td></tr>
+<tr class="pd"><td>"immediately after" · cable breaks / support removed / released · pin reaction · α of a body</td><td>Rigid-body ΣF and ΣM</td><td>19</td></tr>
+<tr class="pd"><td>disk, cylinder or wheel with friction · "does it slip?" · minimum μ</td><td>Rolling (kinetics)</td><td>20</td></tr>
+<tr class="pd"><td>rigid body "ω when θ = …" · released from rest · spring on a rotating body</td><td>Rigid-body work–energy</td><td>21</td></tr>
+<tr class="pd"><td>drum or flywheel "ω after t s" · torque or tension applied for a time</td><td>Rigid-body impulse–momentum</td><td>22</td></tr>
+</tbody></table>
+
+<h2 id="chooser">Kinetics method chooser</h2>
+<table class="choose">
+<thead><tr><th>The question links…</th><th>Principle</th><th>Particle</th><th>Rigid body</th></tr></thead>
+<tbody>
+<tr><td>force ↔ acceleration at one instant</td><td>Newton's 2nd law</td><td>$\sum\vec F = m\vec a$</td><td>$\sum\vec F = m\vec a_G,\ \sum M_G = I_G\alpha$</td></tr>
+<tr><td>speed ↔ position (distance, height, spring deformation, angle turned)</td><td>Work–energy</td><td>$T_1 + V_1 + U'_{1\text{-}2} = T_2 + V_2$, $T = \tfrac12 mv^2$</td><td>$T = \tfrac12 m v_G^2 + \tfrac12 I_G\omega^2$</td></tr>
+<tr><td>velocity ↔ time</td><td>Impulse–momentum</td><td>$m\vec v_1 + \sum\!\int\!\vec F\,dt = m\vec v_2$</td><td>add $I_G\omega_1 + \sum\!\int\! M_G\,dt = I_G\omega_2$</td></tr>
+<tr><td>a collision</td><td>Momentum + restitution</td><td>momentum along n, e along n, t unchanged</td><td>angular momentum about the impact point or pin</td></tr>
+</tbody></table>
+<p class="tip">Energy can't give you a time or a force at an instant; Newton can't easily give you a speed after a distance unless a is constant.
+If the question asks for <i>two</i> things (say a speed then a force), you often use energy first, then Newton.</p>
+</section>
+
+<!-- ===================================================== PART A -->
+<h2 class="part pa" id="partA">Part A · Kinematics of particles</h2>
+
+<section class="card pa" id="c1">
+<h3><span class="n">1</span>Rectilinear motion</h3>
+<p class="spot"><b>Spot it</b> straight-line motion with a given as a function of t, v or x · "when x = …" · "time to come to rest" · graphs</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>Ask: <b>what does a depend on?</b> t, v or x (s).</li>
+<li>Pick the relation that holds only that variable and the one you want:
+  <ul><li>a(t): $dv = a\,dt$, then $ds = v\,dt$</li>
+  <li>a(v), want t: $dt = \dfrac{dv}{a(v)}$; want x: $dx = \dfrac{v\,dv}{a(v)}$</li>
+  <li>a(x): $v\,dv = a(x)\,dx$</li></ul></li>
+<li>Separate variables and integrate with limits (lower limits = the known starting values).</li>
+<li>An unknown constant (like k)? Use the second data point to find it first.</li>
+<li>Solve, then check signs and units.</li>
+</ol>
+</div><div>
+<h4>Formulas</h4>
+<p>$v = \dfrac{ds}{dt}\qquad a = \dfrac{dv}{dt} = v\dfrac{dv}{ds}$</p>
+<p>Constant a only:<br>$v = v_0 + at$<br>$s = s_0 + v_0t + \tfrac12at^2$<br>$v^2 = v_0^2 + 2a(s - s_0)$</p>
+<p>Graphs: slope of s–t = v · slope of v–t = a · area under v–t = Δs · area under a–t = Δv</p>
+</div></div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>Constant-a formulas only when a really is constant.</li>
+<li>"Comes to rest" means v = 0.</li>
+<li>Distance travelled ≠ displacement if v changes sign: split the integral at v = 0.</li>
+</ul></div>
+<p class="seen">Seen in: F25 Q1 (a = −k√v)</p>
+</section>
+
+<section class="card pa" id="c2">
+<h3><span class="n">2</span>Normal–tangential (n–t)</h3>
+<p class="spot"><b>Spot it</b> a known curved path · ρ or "radius of curvature" · "speed increasing at…" · bend, hump, loop</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>Draw the path at the point. $\vec e_t$ along the velocity (tangent); $\vec e_n$ towards the <b>centre of curvature</b> (inside of the bend).</li>
+<li>$a_t = \dot v$: the rate of change of <i>speed</i> (negative if slowing down).</li>
+<li>$a_n = v^2/\rho$: always towards the centre, never negative.</li>
+<li>Total: $a = \sqrt{a_t^2 + a_n^2}$, angle from $\tan^{-1}(a_n/a_t)$.</li>
+<li>Need x–y components? Project $a_t$ and $a_n$ using the angle the tangent makes with the horizontal.</li>
+</ol>
+</div><div>
+<h4>Formulas</h4>
+<p>$\vec v = v\,\vec e_t\qquad \vec a = \dot v\,\vec e_t + \dfrac{v^2}{\rho}\vec e_n$</p>
+<p>For a path $y = f(x)$:<br>$\rho = \dfrac{\left[1 + (dy/dx)^2\right]^{3/2}}{\left|d^2y/dx^2\right|}$</p>
+{{fig:nt_path}}
+</div></div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>km/h ÷ 3.6 = m/s.</li>
+<li>ρ is the curvature of the <i>path</i>, not the distance to an observer (radar r ≠ ρ).</li>
+<li>Constant speed still has $a_n \ne 0$.</li>
+</ul></div>
+<p class="seen">Seen in: S25 Q1b (aircraft, a_y from a_t and a_n) · S25 Q5 (car on a bend)</p>
+</section>
+
+<section class="card pa" id="c3">
+<h3><span class="n">3</span>Polar coordinates (r–θ)</h3>
+<p class="spot"><b>Spot it</b> measured from a fixed point: radar "tracks" · r and θ given · rotating or slotted arm · collar on a rotating rod · r = f(θ)</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>Draw the radial line from O to the particle; mark θ from the reference line (usually +x).</li>
+<li>Draw $\vec e_r$ along r, pointing <b>away from O</b>. Draw $\vec e_\theta$ by rotating $\vec e_r$ <b>90° CCW</b> (the way θ increases).</li>
+<li>List the six numbers: $r, \dot r, \ddot r, \theta, \dot\theta, \ddot\theta$ (θ in rad). If $r = f(\theta)$, use the chain rule:
+  $\dot r = \dfrac{dr}{d\theta}\dot\theta$, $\;\ddot r = \dfrac{d^2r}{d\theta^2}\dot\theta^2 + \dfrac{dr}{d\theta}\ddot\theta$.</li>
+<li>Plug into $v_r, v_\theta, a_r, a_\theta$.</li>
+<li><b>Going the other way</b> (v or a given in x–y or n–t): project onto $\vec e_r, \vec e_\theta$, then back out
+  $\dot r = v_r$, $\dot\theta = v_\theta/r$, $\ddot r = a_r + r\dot\theta^2$, $\ddot\theta = (a_\theta - 2\dot r\dot\theta)/r$.</li>
+<li>Signs come from the diagram: a component pointing against $\vec e_\theta$ is negative (θ decreasing = CW).</li>
+</ol>
+</div><div>
+<h4>Formulas</h4>
+<p>$\vec e_r = (\cos\theta,\ \sin\theta)$<br>$\vec e_\theta = (-\sin\theta,\ \cos\theta)$</p>
+<p>$v_r = \dot r\qquad v_\theta = r\dot\theta$</p>
+<p>$a_r = \ddot r - r\dot\theta^2$<br>$a_\theta = r\ddot\theta + 2\dot r\dot\theta$</p>
+<p>Projection:<br>$v_r = v_x\cos\theta + v_y\sin\theta$<br>$v_\theta = -v_x\sin\theta + v_y\cos\theta$</p>
+{{fig:polar}}
+</div></div>
+<div class="figrow">{{fig:pu_project}}</div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>$-r\dot\theta^2$ is the pull towards O; $2\dot r\dot\theta$ (Coriolis) is the term people forget.</li>
+<li>rpm × 2π/60 = rad/s.</li>
+<li>Draw the diagram with <i>every</i> angle: it carries marks (S25 Q1a).</li>
+<li>Kinetics in polar: $\sum F_r = m a_r$, $\sum F_\theta = m a_\theta$. A slot's normal force acts along $\vec e_\theta$.</li>
+</ul></div>
+<p class="seen">Seen in: S25 Q1a (radar and aircraft) · revision pack Tut 7 Q1 (slider in a rotating slot)</p>
+</section>
+
+<section class="card pa" id="c4">
+<h3><span class="n">4</span>Cylindrical and spherical coordinates</h3>
+<p class="spot"><b>Spot it</b> 3-D motion: helix or spiral ramp with z changing → cylindrical · radar dish with an elevation angle φ, or R, θ, φ → spherical</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>Same as polar: draw it, then list every coordinate and its two time derivatives.</li>
+<li><b>Cylindrical</b> = polar + a vertical z: add $v_z = \dot z$, $a_z = \ddot z$.</li>
+<li><b>Spherical</b>: θ is measured in the horizontal plane, φ is the elevation above it. Plug into the formulas on the right.</li>
+<li>Speed $= \sqrt{\text{sum of the three components squared}}$.</li>
+</ol>
+<p class="why">Why $\cos\varphi$? When θ changes, the point moves on a horizontal circle of radius $R\cos\varphi$, so $v_\theta = (R\cos\varphi)\dot\theta$.</p>
+</div><div>
+<h4>Formulas (φ from the horizontal)</h4>
+<p>$v_R = \dot R,\quad v_\theta = R\dot\theta\cos\varphi,\quad v_\varphi = R\dot\varphi$</p>
+<p>$a_R = \ddot R - R\dot\varphi^2 - R\dot\theta^2\cos^2\varphi$</p>
+<p>$a_\theta = \dfrac{\cos\varphi}{R}\dfrac{d}{dt}(R^2\dot\theta) - 2R\dot\theta\dot\varphi\sin\varphi$</p>
+<p>$a_\varphi = \dfrac{1}{R}\dfrac{d}{dt}(R^2\dot\varphi) + R\dot\theta^2\sin\varphi\cos\varphi$</p>
+<p>$\dfrac{d}{dt}(R^2\dot\theta) = 2R\dot R\dot\theta + R^2\ddot\theta$</p>
+</div></div>
+<div class="figrow">{{fig:sph_geom}}</div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>Check whether φ is measured from the horizontal (as here) or from the vertical, which swaps sin and cos.</li>
+<li>On a helix, the climb rate is linked to θ̇ through the helix angle: $\dot z = r\dot\theta\tan\gamma$.</li>
+</ul></div>
+</section>
+
+<section class="card pa" id="c5">
+<h3><span class="n">5</span>Constrained motion (pulleys and cables)</h3>
+<p class="spot"><b>Spot it</b> cables and pulleys · drum winding · blocks tied together · "drawn in at a constant rate"</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>Choose a <b>fixed datum</b> (ceiling, fixed pulley axle, wall).</li>
+<li>Give every moving pulley, block or cable end a position coordinate measured from the datum. Draw them: this is a marked step.</li>
+<li>For <b>each separate cable</b>, write its length as the sum of its straight segments. Arcs around pulleys are constant: ignore them.
+  A pulley hanging on n segments of one cable contributes $n\,y$.</li>
+<li>Differentiate once for velocities and again for accelerations.</li>
+<li>Convert signs to words: positive = moving away from the datum.</li>
+</ol>
+</div><div>
+<h4>Formulas</h4>
+<p>$L = \sum(\text{segments}) = \text{const} \Rightarrow \sum \dot y_i = 0$</p>
+<p>Slanted segment (S25 Q2): $\sqrt{x^2 + b^2}$<br>$\dfrac{d}{dt}\sqrt{x^2+b^2} = \dfrac{x\dot x}{\sqrt{x^2+b^2}}$</p>
+<p>Cable reeled in at rate u: $\dot L = -u$</p>
+</div></div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>Trace each cable with your finger and count the segments that end on each moving pulley.</li>
+<li>One length equation per cable: two cables give two equations.</li>
+<li>A roller moving at constant speed can still give the crate an acceleration when the rope is slanted (S25 Q2c).</li>
+</ul></div>
+<p class="seen">Seen in: S25 Q2 (crate and roller) · F25 Q2 (hoisting drum, h = 0.3 m)</p>
+</section>
+
+<section class="card pa" id="c6">
+<h3><span class="n">6</span>Relative motion of particles (translating axes)</h3>
+<p class="spot"><b>Spot it</b> "relative to", "as seen by", "appears to" · two moving vehicles · rain, boats, rivers</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>Write $\vec v_A = \vec v_B + \vec v_{A/B}$ ("A as seen from B" $= \vec v_A - \vec v_B$). Same form for accelerations.</li>
+<li>Draw the triangle head to tail, or work in i, j components.</li>
+<li>At most two unknowns (magnitudes or directions): solve with components, or with the sine and cosine rules.</li>
+</ol>
+</div><div>
+{{fig:cars_tri}}
+</div></div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>$\vec v_{A/B} = -\vec v_{B/A}$: the observer is the one you subtract.</li>
+<li>This simple form is only for observers that translate (don't rotate).</li>
+</ul></div>
+</section>
+
+<!-- ===================================================== PART B -->
+<h2 class="part pb" id="partB">Part B · Kinematics of rigid bodies</h2>
+
+<section class="card pb" id="c7">
+<h3><span class="n">7</span>Rotation about a fixed axis</h3>
+<p class="spot"><b>Spot it</b> wheel, gear, drum or arm on a fixed axle · rpm · belts or meshing gears · rope unwinding from a drum</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>Treat θ, ω, α exactly like s, v, a in card 1: $\omega = \dot\theta$, $\alpha = \dot\omega$, $\omega\,d\omega = \alpha\,d\theta$.</li>
+<li>For a point P at radius r: v = rω ⊥ OP (in the sense of rotation); $a_t = r\alpha$ ⊥ OP; $a_n = r\omega^2$ towards O.</li>
+<li>Gears or belts in contact share their contact velocity and tangential acceleration: $r_A\omega_A = r_B\omega_B$.</li>
+<li>Rope off a drum: the block has v = rω and a = rα.</li>
+</ol>
+</div><div>
+<h4>Formulas</h4>
+<p>$\vec v = \vec\omega\times\vec r$<br>$\vec a = \vec\alpha\times\vec r - \omega^2\vec r$</p>
+<p>Constant α: $\omega = \omega_0 + \alpha t$, $\;\omega^2 = \omega_0^2 + 2\alpha\Delta\theta$</p>
+{{fig:rot_point}}
+</div></div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>rpm × 2π/60 → rad/s; revolutions × 2π → rad.</li>
+<li>Meshing gears turn in opposite senses; an open belt keeps the same sense.</li>
+</ul></div>
+</section>
+
+<section class="card pb" id="c8">
+<h3><span class="n">8</span>Relative velocity (vector and graphical)</h3>
+<p class="spot"><b>Spot it</b> crank, connecting rod, link, slider, four-bar · "angular velocity of link AB" · "at the instant shown"</p>
+<p class="big"><b>The one idea.</b> Two points on a rigid link can't get closer or further apart. Seen from A, point B can only move on a circle around A,
+so $\vec v_{B/A}$ is <b>always ⊥ to AB</b>, with size $\omega_{AB}\cdot AB$.</p>
+<div class="grid"><div>
+<h4>Directions you always know</h4>
+<ul class="tight">
+<li>Point on a link pinned to the ground at O: v ⊥ the radius to O, size ωr.</li>
+<li>Slider: along its guide.</li>
+<li>Rolling wheel: centre moves parallel to the surface at rω; contact point has v = 0.</li>
+<li>Relative term: ⊥ the line joining the two points.</li>
+<li>A pin shared by two links has one velocity: it's the hand-over point between links.</li>
+</ul>
+<h4>Vector method</h4>
+<ol class="flow">
+<li>Write $\vec v_B = \vec v_A + \omega_{AB}\vec k\times\vec r_{B/A}$. Start from a point with a <b>known</b> velocity.</li>
+<li>Write $\vec r_{B/A} = (x_B - x_A)\vec i + (y_B - y_A)\vec j$ from the geometry.</li>
+<li>Cross product shortcut: $\omega\vec k\times(x\vec i + y\vec j) = \omega(-y\,\vec i + x\,\vec j)$.</li>
+<li>Equate the i and j parts: two equations, two unknowns.</li>
+<li>Assume CCW positive; a negative ω means CW.</li>
+</ol>
+</div><div>
+{{fig:rel_concept}}
+<h4>Known/unknown table (F25 Q4)</h4>
+<table class="ku"><tr><th>Term</th><th>Size</th><th>Direction</th></tr>
+<tr><td>$\vec v_B$</td><td>?</td><td>⊥ CB</td></tr>
+<tr><td>$\vec v_A$</td><td>1 m/s</td><td>←</td></tr>
+<tr><td>$\vec v_{B/A}$</td><td>?</td><td>⊥ AB</td></tr></table>
+<p class="small">Two unknowns, so the triangle closes. ✓</p>
+</div></div>
+<h4>Graphical method (velocity polygon)</h4>
+<ol class="flow cols2">
+<li>Draw the mechanism with all angles. Angle-chase the direction of every link.</li>
+<li>Write the equation and fill in the known/unknown table. You need <b>exactly two unknowns</b>.</li>
+<li>Pick a scale (e.g. 1 cm = 0.5 m/s). From the pole <b>o</b>, draw the fully known vector ($\vec v_A$ to a).</li>
+<li>From its tip, draw a <b>line</b> in the direction of $\vec v_{B/A}$ (⊥ AB), length unknown.</li>
+<li>From o, draw a line in the direction of $\vec v_B$ (slider guide, or ⊥ its pivot radius).</li>
+<li>Where the lines cross is <b>b</b>. Measure ob = $v_B$ and ab = $v_{B/A}$, or compute them with the sine rule.</li>
+<li>$\omega_{AB} = v_{B/A}/AB$.</li>
+<li><b>Sense:</b> place the $\vec v_{B/A}$ arrow at B and see which way it turns AB about A.</li>
+</ol>
+<div class="watch"><h4>Visual rules</h4><ul>
+<li>"⊥ to the link" is the whole game: turn each link's direction through 90°.</li>
+<li>Angles in the polygon come from the mechanism: the angle between two perpendiculars equals the angle between the original lines.</li>
+<li>Head to tail: $\vec v_A$ then $\vec v_{B/A}$ lands on the tip of $\vec v_B$. Absolute velocities all start at o.</li>
+<li>A point C on link AB: c divides ab in the same ratio as C divides AB (the velocity image).</li>
+<li>Label the polygon (o, a, b), give the scale, and state CW/CCW in the answer.</li>
+</ul></div>
+<p class="seen">Seen in: S25 Q4a (wheel + link, sine rule) · F25 Q4a, b (four-bar: ω_AB = 1.46 CW, ω_CB = 2.07 CCW)</p>
+</section>
+
+<section class="card pb" id="c9">
+<h3><span class="n">9</span>Instantaneous centre of zero velocity (IC)</h3>
+<p class="spot"><b>Spot it</b> "by the method of instantaneous centre" · velocity-only question about one link · rolling wheels</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>On the link, take two points whose velocity <b>directions</b> you know (A and B).</li>
+<li>Through each, draw a line ⊥ to its velocity. Where they cross is the IC (C).
+  <ul><li>Rolling without slipping: IC = contact point.</li>
+  <li>Parallel velocities: use the magnitudes (similar triangles). Parallel and equal: translation, ω = 0.</li></ul></li>
+<li>Geometry: find $r_{A/C}$ and $r_{B/C}$ (trig, sine or cosine rule).</li>
+<li>$\omega = v_A/r_{A/C}$, then $v_B = \omega\,r_{B/C}$ (⊥ CB). Any point: $v_P = \omega\,r_{P/C}$.</li>
+<li>Sense: the link turns about C as if it were pinned there.</li>
+</ol>
+</div><div>
+{{fig:ic_ladder}}
+</div></div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li><b>Velocities only.</b> The IC usually has an acceleration, so never use it for accelerations.</li>
+<li>Each link has its own IC, and it moves from instant to instant.</li>
+</ul></div>
+<p class="seen">Seen in: F25 Q3 (IC of AB, v_B = 0.270 m/s) · S25 Q4a (wheel contact point as IC)</p>
+</section>
+
+<section class="card pb" id="c10">
+<h3><span class="n">10</span>Relative acceleration (vector and graphical)</h3>
+<p class="spot"><b>Spot it</b> "angular acceleration of AB" · "acceleration of the slider/piston" · "accelerating at this instant" · "scaled vector diagram"</p>
+<p class="big"><b>Always do velocities first.</b> Every normal term needs the ω of its link.</p>
+<div class="grid"><div>
+<p>$\vec a_B = \vec a_A + (\vec a_{B/A})_n + (\vec a_{B/A})_t$</p>
+<ul class="tight">
+<li>$(a_{B/A})_n = \omega_{AB}^2\,AB$, pointing from B <b>towards A</b> along the link. Known once ω is known.</li>
+<li>$(a_{B/A})_t = \alpha_{AB}\,AB$, <b>⊥ AB</b>. Usually the unknown.</li>
+</ul>
+<h4>Directions you always know</h4>
+<ul class="tight">
+<li>Point pinned to the ground: $a_n = \omega^2 r$ towards the pivot, $a_t = \alpha r$ ⊥ the radius.</li>
+<li>Slider: along its guide.</li>
+<li>Rolling wheel: centre $a_O = r\alpha$ along the surface; contact point $a = r\omega^2$ towards the centre (not zero!).</li>
+</ul>
+<h4>Vector method</h4>
+<p>$\vec a_B = \vec a_A + \alpha\vec k\times\vec r_{B/A} - \omega^2\vec r_{B/A}$; equate the i and j parts.</p>
+</div><div>
+{{fig:acc_concept}}
+</div></div>
+<h4>Graphical method (acceleration polygon)</h4>
+<ol class="flow cols2">
+<li>Compute every normal component from your velocity answers.</li>
+<li>Write the full equation, e.g. $(\vec a_B)_n + (\vec a_B)_t = \vec a_A + (\vec a_{B/A})_n + (\vec a_{B/A})_t$. The table should leave <b>two unknown sizes</b> (usually the two tangential terms).</li>
+<li>Pick a scale. From o, draw the known right-hand terms head to tail: $\vec a_A$, then $(\vec a_{B/A})_n$ pointing B→A.</li>
+<li>Through that tip, draw a line ⊥ AB for $(\vec a_{B/A})_t$.</li>
+<li>From o, draw the known left-hand term, $(\vec a_B)_n$ pointing B→C, then a line ⊥ CB through its tip.</li>
+<li>The crossing is <b>b</b>. Measure both tangential components; $\alpha = a_t/\text{length}$.</li>
+<li>o→b is the absolute $\vec a_B$.</li>
+<li><b>Sense of α:</b> place the tangential arrow at the point and see which way it turns the link.</li>
+</ol>
+<div class="watch"><h4>Visual rules and traps</h4><ul>
+<li>Normal arrows lie <b>along</b> links and point towards the reference point or pivot; tangential arrows are <b>⊥</b> to links.</li>
+<li>Don't drop $\vec a_A$ when the reference point accelerates (F25 Q4: $a_A$ = 0.25 m/s² ←).</li>
+<li>From the velocity polygon, $a_n = v_{rel}^2/L$ gives the same number as $\omega^2 L$.</li>
+<li>Diagram marks: the direction of each tangential component plus correct proportion. Memos accept a ±5 % range.</li>
+<li>"Irrespective of your answer to (a), use ω = …" → use the given values.</li>
+</ul></div>
+<p class="seen">Seen in: S25 Q4b (wheel + link, scaled diagram) · F25 Q4c, d (α_AB = 2.01 CW, α_CB = 3.81 CCW)</p>
+</section>
+
+<section class="card pb walk" id="walk">
+<h3><span class="n">★</span>Polygon walkthrough at a glance: slider-crank</h3>
+<p>Crank OB turns at a known ω; rod AB joins it to slider A. Read left to right: mechanism → velocity polygon → acceleration polygon.</p>
+<div class="figrow three"><figure>{{fig:sc_mech}}<figcaption>1 · Angles first: rod direction from the sine rule</figcaption></figure>
+<figure>{{fig:sc_vpoly}}<figcaption>2 · $\vec v_B$ ⊥ OB known; $\vec v_{A/B}$ ⊥ AB and $\vec v_A$ along the guide close the triangle</figcaption></figure>
+<figure>{{fig:sc_apoly}}<figcaption>3 · Normals first (along links), then the two unknown directions cross</figcaption></figure></div>
+</section>
+
+<section class="card pb" id="c11">
+<h3><span class="n">11</span>Rolling without slipping (kinematics)</h3>
+<p class="spot"><b>Spot it</b> "rolls without slipping" · wheel on the ground · gear on a fixed rack · cable unwinding from a spool</p>
+<div class="grid"><div>
+<h4>Facts to use</h4>
+<ul class="tight">
+<li>Centre: $v_O = r\omega$, $a_O = r\alpha$, both parallel to the surface.</li>
+<li>Contact point C is the IC: $v_C = 0$, but $a_C = r\omega^2$ towards O.</li>
+<li>Top point: $v = 2r\omega$. Any point P: $v_P = \omega\cdot CP$, ⊥ CP.</li>
+<li>Spool with a cable: the cable speed = ω × (distance from the contact point to the cable line).</li>
+<li>Clockwise rolling on the ground → the wheel moves to the right.</li>
+</ul>
+</div><div>
+{{fig:gear_mech}}
+</div></div>
+<p class="seen">Seen in: S25 Q4 (wheel rolling clockwise, joined to link AB)</p>
+</section>
+
+<section class="card pb" id="c12">
+<h3><span class="n">12</span>Geometry, then differentiate (absolute motion)</h3>
+<p class="spot"><b>Spot it</b> "Hint: the cosine rule will be useful" · lengths and angles tied by a fixed geometry · find θ̇ from a given φ̇</p>
+<ol class="flow">
+<li>Write one geometric relation linking the variables: sine rule, cosine rule, Pythagoras, or $x = L\cos\theta$.</li>
+<li>Differentiate with respect to time using the chain rule: $\dfrac{d}{dt}\sin\theta = \cos\theta\,\dot\theta$ and $\dfrac{d}{dt}\cos\theta = -\sin\theta\,\dot\theta$.</li>
+<li>Substitute the values at the instant and solve for the unknown rate. Differentiate again for accelerations.</li>
+</ol>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>Link lengths are constants; angles and the distances between moving points are variables.</li>
+<li>Work in radians. Keep the given sense (CW or CCW) as a sign.</li>
+</ul></div>
+<p class="seen">Seen in: S25 Q3 (crank CB and rod AB, θ̇ = 0 at the instant)</p>
+</section>
+
+<!-- ===================================================== PART C -->
+<h2 class="part pc" id="partC">Part C · Kinetics of particles</h2>
+
+<section class="card pc" id="c13">
+<h3><span class="n">13</span>Newton's second law (ΣF = ma)</h3>
+<p class="spot"><b>Spot it</b> a force and an acceleration at one instant: tension, normal reaction, friction · banked track · "maximum speed before slipping" · "loses contact"</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li><b>FBD:</b> isolate the particle and draw every force: weight, normals, friction, tensions, springs.</li>
+<li><b>KD:</b> draw $m\vec a$ in your chosen components.</li>
+<li>Choose axes that match the motion: along/⊥ an incline (rectilinear), $m v^2/\rho$ towards the centre (n–t), or $m a_r$ and $m a_\theta$ (polar).</li>
+<li>Write ΣF = ma in each direction, fill in the a's from kinematics, and solve.</li>
+<li>Friction: no slip → F ≤ μ<sub>s</sub>N (unknown, check it); slipping → F = μ<sub>k</sub>N, opposing the relative motion.</li>
+</ol>
+</div><div>
+{{fig:k_bank_kd}}
+</div></div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>On a banked bend, N ≠ mg. Take n horizontal, towards the centre of the bend (S25 Q5).</li>
+<li>Unsure of friction's direction? Assume one; a negative answer flips it.</li>
+<li>Connected bodies: a separate FBD for each, plus the cable constraint (card 5).</li>
+<li>"Loses contact" means N = 0.</li>
+</ul></div>
+<p class="seen">Seen in: S25 Q5 (F1 car on a 10° bank, F_f = 1437 N down the slope)</p>
+</section>
+
+<section class="card pc" id="c14">
+<h3><span class="n">14</span>Work–energy (particles)</h3>
+<p class="spot"><b>Spot it</b> speed after moving x or falling h · spring compressed or stretched · "released from rest" · maximum compression · speed at a position</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>Define states 1 and 2 and sketch both. Pick a datum for gravity.</li>
+<li>$T = \tfrac12 mv^2$ in each state.</li>
+<li>$V_g = mgh$ (h above the datum). $V_e = \tfrac12 kx^2$, with x measured from the spring's <b>natural length</b>.</li>
+<li>$U'_{1\text{-}2}$ = work by every other force: friction $-\mu_k N d$, applied forces $F d$. Normal forces ⊥ to the motion do no work.</li>
+<li>$T_1 + V_1 + U'_{1\text{-}2} = T_2 + V_2$, then solve.</li>
+</ol>
+</div><div>
+<h4>Formulas</h4>
+<p>$U = \displaystyle\int \vec F\cdot d\vec r$</p>
+<p>Power: $P = \vec F\cdot\vec v$<br>Efficiency: $e = P_{out}/P_{in}$</p>
+<p>Non-linear spring: $V_e = \displaystyle\int F\,dx$</p>
+</div></div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>Vertical spring resting at equilibrium: first find $\delta_{st} = mg/k$, then the real stretch in each state (F25 Q7).</li>
+<li>Shortcut: measure x from <i>equilibrium</i> and drop gravity: $\tfrac12 m v^2 = \tfrac12 k(x_1^2 - x_2^2)$.</li>
+<li>Energy gives a speed, not a direction or a time.</li>
+</ul></div>
+<p class="seen">Seen in: F25 Q7 (plunger, v = 1.119 m/s)</p>
+</section>
+
+<section class="card pc" id="c15">
+<h3><span class="n">15</span>Impulse–momentum (particles)</h3>
+<p class="spot"><b>Spot it</b> "after t seconds" · force applied for a time · F(t) graph · impulse · average force during contact</p>
+<ol class="flow">
+<li>Choose positive directions. Draw the impulse–momentum diagram: $m\vec v_1 + \sum\int\vec F\,dt = m\vec v_2$.</li>
+<li>$\int F\,dt$ = area under the F–t graph. A constant force gives $F\,\Delta t$; include the weight × t and normal forces if they act.</li>
+<li>Solve each direction separately. With no external impulse in a direction, momentum is conserved in that direction.</li>
+</ol>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>It's a vector equation: keep the signs per direction.</li>
+<li>During a short impact, ignore non-impulsive forces like the weight.</li>
+</ul></div>
+</section>
+
+<section class="card pc" id="c16">
+<h3><span class="n">16</span>Impact (direct and oblique)</h3>
+<p class="spot"><b>Spot it</b> "collide", "strikes", "rebounds" · coefficient of restitution e</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>Draw the <b>line of impact n</b> through the two centres (or ⊥ the contact surface), with t ⊥ n.</li>
+<li>Resolve every initial velocity into n and t components with consistent signs.</li>
+<li><b>t:</b> on smooth contact, each body keeps its <i>own</i> t-velocity.</li>
+<li><b>n, momentum:</b> $m_A(v_A)_n + m_B(v_B)_n = m_A(v'_A)_n + m_B(v'_B)_n$.</li>
+<li><b>n, restitution:</b> $e = \dfrac{(v'_B)_n - (v'_A)_n}{(v_A)_n - (v_B)_n}$ (separation ÷ approach).</li>
+<li>Solve the two equations, then recombine: speed $= \sqrt{n^2 + t^2}$, angle from tan⁻¹.</li>
+</ol>
+</div><div>
+<h4>Special cases</h4>
+<ul class="tight">
+<li><b>Constrained body</b> (a bat in a slot, F25 Q8): the guide supplies an impulse, so conserve momentum only along the free direction. Restitution still acts along n.</li>
+<li>Fixed wall: $(v')_n = -e\,v_n$, and t is unchanged.</li>
+<li>e = 1 is elastic; e = 0 means they stick together.</li>
+</ul>
+</div></div>
+<div class="figrow">{{fig:k_oblique}}</div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>Kinetic energy is lost unless e = 1.</li>
+<li>"Speeds" means magnitudes only (S25 Q6).</li>
+</ul></div>
+<p class="seen">Seen in: S25 Q6 (two disks, 5-12-13 line) · F25 Q8 (bat and ball, v′ = 30.0 m/s at 45.7°)</p>
+</section>
+
+<section class="card pc" id="c17">
+<h3><span class="n">17</span>Angular momentum of particles</h3>
+<p class="spot"><b>Spot it</b> string through a hole · central force · a moment about O that is zero or given</p>
+<ol class="flow">
+<li>$H_O = m v\,d$, where d is the ⊥ distance from O to the velocity line. Equivalently $H_O = m r v_\theta = m r^2\dot\theta$.</li>
+<li>$\sum M_O = \dot H_O$. If $\sum M_O = 0$ (central force), $H_O$ is conserved: $r_1 v_{\theta 1} = r_2 v_{\theta 2}$.</li>
+<li>Pair it with energy when the speed also changes.</li>
+</ol>
+</section>
+
+<!-- ===================================================== PART D -->
+<h2 class="part pd" id="partD">Part D · Kinetics of rigid bodies</h2>
+
+<section class="card pd" id="c18">
+<h3><span class="n">18</span>Mass moment of inertia</h3>
+<p class="spot"><b>Spot it</b> "radius of gyration" · composite body · "moment of inertia about O"</p>
+<div class="grid"><div>
+<table class="moi">
+<tr><th>Body</th><th>I</th></tr>
+<tr><td>Slender rod about G</td><td>$\tfrac{1}{12}ml^2$</td></tr>
+<tr><td>Slender rod about an end</td><td>$\tfrac13 ml^2$</td></tr>
+<tr><td>Thin ring or thin tube</td><td>$mr^2$</td></tr>
+<tr><td>Solid disk or cylinder</td><td>$\tfrac12 mr^2$</td></tr>
+<tr><td>Rectangular plate a × b, about G (⊥ plate)</td><td>$\tfrac{1}{12}m(a^2 + b^2)$</td></tr>
+<tr><td>Solid sphere</td><td>$\tfrac25 mr^2$</td></tr>
+<tr><td>Radius of gyration</td><td>$I = mk^2$</td></tr>
+</table>
+</div><div>
+<p><b>Parallel axis:</b> $I_O = I_G + m d^2$</p>
+<p><b>Composite:</b> add each part's I about the <i>same</i> axis (each with its own md²); subtract holes.</p>
+<p><b>Mass centre:</b> $\bar r = \dfrac{\sum m_i r_i}{\sum m_i}$</p>
+{{fig:k_paxis}}
+</div></div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>The parallel-axis theorem only works from an axis through G, never between two arbitrary axes.</li>
+<li>If k is given about O, then $I_O = mk_O^2$ directly, with no md² (S25 Q7a).</li>
+</ul></div>
+<p class="seen">Seen in: S25 Q7a (link + tube, I = 0.02558 kg·m²) · S25 Q8 (square plate about a corner)</p>
+</section>
+
+<section class="card pd" id="c19">
+<h3><span class="n">19</span>Rigid-body equations of motion</h3>
+<p class="spot"><b>Spot it</b> "angular acceleration of the body" · "reaction at the pin" · "tension in the cable" · "immediately after" · cable breaks / support removed / released</p>
+<div class="grid"><div>
+<h4>Classify the motion first</h4>
+<ul class="tight">
+<li><b>Translation</b> (α = 0): $\sum\vec F = m\vec a_G$, $\sum M_G = 0$.</li>
+<li><b>Fixed axis about O:</b> $\sum M_O = I_O\alpha$, with $(a_G)_t = \bar r\alpha$ and $(a_G)_n = \bar r\omega^2$ towards O.</li>
+<li><b>General plane motion:</b> $\sum\vec F = m\vec a_G$ and $\sum M_G = I_G\alpha$, or about any point P: $\sum M_P = I_G\alpha + (\text{moment of } m\vec a_G \text{ about P})$.</li>
+</ul>
+<h4>Flow</h4>
+<ol class="flow">
+<li>Draw the FBD (including pin reactions $O_x$, $O_y$) and the KD ($m\bar a_x$, $m\bar a_y$ or n–t parts, plus $I_G\alpha$).</li>
+<li>Take moments about a pin so the unknown reactions drop out.</li>
+<li>Kinematics: tie $\vec a_G$ to α (fixed axis, relative acceleration, or rolling).</li>
+<li>Count: 3 equations plus the kinematic links must match the unknowns.</li>
+</ol>
+</div><div>
+{{fig:k_rod_fbd}}
+{{fig:k_rod_kd}}
+</div></div>
+<div class="watch"><h4>"Suddenly released" special case</h4><ul>
+<li>At that instant <b>ω = 0</b>: every normal acceleration is zero and only the α terms remain (F25 Q6, Q9).</li>
+<li>A cable end that's still attached accelerates ⊥ to its cable.</li>
+<li>$\sum M_O = I_O\alpha$ is valid only about a fixed axis O or about G.</li>
+</ul></div>
+<p class="seen">Seen in: S25 Q7b (pin reaction F_O = 3.58 N) · F25 Q6 (T = 392 N) · F25 Q9 (α = 3.19 rad/s²)</p>
+</section>
+
+<section class="card pd" id="c20">
+<h3><span class="n">20</span>Rolling bodies (kinetics)</h3>
+<p class="spot"><b>Spot it</b> disk, cylinder or wheel on a surface with friction · "rolls" · "does it slip?" · minimum μ</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>FBD: W, N, friction F at the contact (assume a direction), plus applied forces.</li>
+<li><b>Assume no slip:</b> $a_G = r\alpha$.</li>
+<li>$\sum F_{\parallel} = m a_G$; $\sum F_{\perp} = 0$ gives N; $\sum M_G = I_G\alpha$.</li>
+<li>Solve for F, then <b>check</b> $|F| \le \mu_s N$.</li>
+<li>If the check fails, it slips: set $F = \mu_k N$, and $a_G$ and α become independent.</li>
+</ol>
+</div><div>
+{{fig:k_roll_fbd}}
+</div></div>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>Friction does no work when rolling without slip, so energy methods still work.</li>
+<li>Friction's direction is not always obvious: assume it, and let the sign tell you.</li>
+</ul></div>
+</section>
+
+<section class="card pd" id="c21">
+<h3><span class="n">21</span>Rigid-body work–energy</h3>
+<p class="spot"><b>Spot it</b> "angular velocity when θ = 90°" · released from rest · rotates through an angle · spring attached · speed after rolling a distance</p>
+<div class="grid"><div>
+<h4>Flow</h4>
+<ol class="flow">
+<li>States 1 and 2; datum for gravity at a convenient level.</li>
+<li>T for every moving body. Use the kinematics to write all of them in one unknown (v_G = rω, etc.).</li>
+<li>$V_g = m g h_G$, using the height of the <b>mass centre</b>.</li>
+<li>$V_e = \tfrac12 kx^2$, with x from the natural length. Use geometry (sine rule) for the spring length in each state (S25 Q8).</li>
+<li>$T_1 + V_1 + U'_{1\text{-}2} = T_2 + V_2$, then solve.</li>
+</ol>
+</div><div>
+<h4>Kinetic energy</h4>
+<p>General: $T = \tfrac12 m v_G^2 + \tfrac12 I_G\omega^2$</p>
+<p>Fixed axis O: $T = \tfrac12 I_O\omega^2$</p>
+<p>Rolling, no slip: $T = \tfrac12 I_C\omega^2$ (C = contact point)</p>
+</div></div>
+<p class="seen">Seen in: S25 Q8 (square plate and spring, ω = 6.95 rad/s)</p>
+</section>
+
+<section class="card pd" id="c22">
+<h3><span class="n">22</span>Rigid-body impulse–momentum</h3>
+<p class="spot"><b>Spot it</b> "angular velocity after t s" · drum or flywheel · torque or tension applied for a time</p>
+<ol class="flow">
+<li>Linear: $m\vec v_{G1} + \sum\int\vec F\,dt = m\vec v_{G2}$.</li>
+<li>Angular: $I_G\omega_1 + \sum\int M_G\,dt = I_G\omega_2$ (or about a fixed axis O with $I_O$).</li>
+<li>No external moment about an axis → angular momentum about it is conserved (e.g. about a pin during an impact).</li>
+</ol>
+<div class="watch"><h4>Watch-outs</h4><ul>
+<li>Moments about G are valid even when G accelerates (F25 Q5: the drum rides on a moving carriage).</li>
+<li>Ignore the distractors: the carriage's speed doesn't change the drum's spin.</li>
+<li>Keep one sign convention (CCW +) all the way through.</li>
+</ul></div>
+<p class="seen">Seen in: F25 Q5 (drum, ω = 7.85 rad/s CW)</p>
+</section>
+
+<!-- ===================================================== TOOLKIT -->
+<h2 class="part pt" id="toolkit">Geometry toolkit and exam habits</h2>
+<section class="card pt" id="geo">
+<h3><span class="n">⚙</span>Geometry and maths you'll use everywhere</h3>
+<div class="grid"><div>
+<ul class="tight">
+<li><b>Sine rule:</b> $\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}$. Use it when you know two angles and a side (velocity triangles).</li>
+<li><b>Cosine rule:</b> $c^2 = a^2 + b^2 - 2ab\cos C$. Use it for two sides and the angle between them.</li>
+<li><b>Angle sum:</b> the angles of a triangle add to 180°.</li>
+<li><b>Perpendicular rule:</b> the angle between two lines equals the angle between their perpendiculars.</li>
+<li><b>Projection:</b> component = size × cos(angle to that axis).</li>
+<li><b>Cross product:</b> $\vec k\times\vec i = \vec j$, $\;\vec k\times\vec j = -\vec i$.</li>
+<li><b>Chain rule:</b> $\dfrac{d}{dt}f(\theta) = f'(\theta)\,\dot\theta$.</li>
+</ul>
+<h4>Unit traps</h4>
+<p>km/h ÷ 3.6 → m/s · rpm × 2π/60 → rad/s · rev × 2π → rad · mm → m · g → kg · kN/m × 1000 → N/m</p>
+</div><div>
+{{fig:tri_rules}}
+</div></div>
+</section>
+
+<section class="card pt" id="habits">
+<h3><span class="n">✓</span>Exam habits that collect marks</h3>
+<ol class="flow cols2">
+<li>Draw the diagram first: FBD, KD, datum, coordinates, e_r and e_θ, or n and t. Diagrams carry marks.</li>
+<li>State your positive directions and assumptions (no slip, smooth contact, slender rod).</li>
+<li>Write the general equation before the numbers: that's the method mark.</li>
+<li>Answers need units <b>and</b> a direction: CW/CCW, an angle, or ↑ ↓ ← →.</li>
+<li>Sanity-check signs and sizes. A cable can't push. A speed can't be negative.</li>
+<li>Stuck on part (a)? Use the values the paper gives for part (b) and keep going.</li>
+<li>Graphical answers: label the points (o, a, b), state the scale, and measure carefully. Small differences are accepted.</li>
+<li>Keep 3–4 significant figures through the working; round only the final answer.</li>
+</ol>
+</section>
