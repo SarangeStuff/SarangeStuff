@@ -1,0 +1,218 @@
+<header class="hero">
+  <p class="kicker">MEC2047S Dynamics · Oblique impact, slowly</p>
+  <h1>The n–t idea, from zero</h1>
+  <p class="lede">You already know direct (head-on) impact: momentum plus restitution. Oblique impact is <b>that same head-on impact</b>, done along one tilted direction,
+  while the other direction does nothing at all. This doc builds the tilted directions up from scratch, then walks through S25 Q6 and F25 Q8 one small step at a time.</p>
+</header>
+
+<h2 class="part p1">Part 1 · What n and t actually are</h2>
+
+<section class="card p1">
+<h3><span class="n">1</span>Two directions, nothing more</h3>
+<div class="grid"><div>
+<p><b>n and t are just a pair of directions</b>, like x and y, but tilted to suit the collision:</p>
+<ul class="tight">
+<li><b>n</b> (for "normal"): the line through <b>both centres</b>. That's the direction the balls push each other.</li>
+<li><b>t</b> (for "tangent"): <b>90°</b> to n, along the surfaces where they touch.</li>
+</ul>
+<p class="key">That's it: no new physics. "n–t coordinates" just means <b>measuring every velocity along these two tilted directions</b> instead of along x and y.
+Each velocity gets an "n part" and a "t part", its <b>components</b>.</p>
+<p><b>Why bother tilting?</b> Because when two <i>smooth</i> balls hit, the push between them acts <b>only along n</b>.
+So the n direction is where all the action is, and the t direction is boring: nothing happens there.</p>
+</div><div>
+{{fig:idea}}
+</div></div>
+</section>
+
+<section class="card p1">
+<h3><span class="n">2</span>The whole method in two sentences</h3>
+<div class="big"><b>Along t:</b> nothing pushes, so <b>each ball keeps its own t-speed</b>. Copy it across.<br>
+<b>Along n:</b> it's an ordinary <b>head-on impact</b>: momentum conserved, plus e. Use exactly the equations you already know, but with n-parts only.</div>
+<p>Then put each ball's n and t parts back together to get its final speed and direction. Everything below is just practice at that.</p>
+</section>
+
+<section class="card p1">
+<h3><span class="n">3</span>Splitting an arrow into its n and t parts (components)</h3>
+<div class="grid"><div>
+<p>Imagine shining a light straight down onto each axis: the arrow's "shadow" on that axis is its component.</p>
+<ol class="flow">
+<li>Find <b>φ, the angle between the velocity and the n axis</b>.</li>
+<li><b>n part</b> = $v\cos\varphi$ (cos goes with the axis the angle is measured <b>from</b>).</li>
+<li><b>t part</b> = $v\sin\varphi$ (the other one).</li>
+<li><b>Signs:</b> a part that points the opposite way to your chosen +n or +t gets a <b>minus</b>.</li>
+</ol>
+<p><b>Even easier with a horizontal velocity</b> (both exam questions use one): if n is tilted θ from the <b>vertical</b>, a horizontal speed v splits as</p>
+<p>n part $= v\sin\theta$, $\;$ t part $= v\cos\theta$</p>
+<p class="small">Sanity test: if θ were 0 (n vertical), a horizontal velocity would have no n part at all, and sin 0 = 0 ✓. If θ were 90° (n horizontal), it would be all n part, and sin 90° = 1 ✓.</p>
+</div><div>
+<p class="small">The vector way gives the same thing: n part $= \vec v\cdot\hat n$ and t part $= \vec v\cdot\hat t$, where $\hat n$ and $\hat t$ are the tilted unit arrows in x–y form.</p>
+</div></div>
+<div class="figrow">{{fig:resolve}}</div>
+</section>
+
+<section class="card p1">
+<h3><span class="n">4</span>Warm-up: a ball bouncing off a wall</h3>
+<div class="grid"><div>
+<p>A ball hits a smooth wall at 10 m/s, at 30° to the wall, with e = 0.6.</p>
+<ol class="flow">
+<li><b>n</b> is ⊥ to the wall; <b>t</b> runs along it.</li>
+<li>Split: t part $= 10\cos 30° = 8.66$ m/s (along the wall); n part $= 10\sin 30° = 5$ m/s (into the wall).</li>
+<li><b>t:</b> the wall can't push along itself, so the t part stays <b>8.66</b>.</li>
+<li><b>n:</b> it bounces back with $e \times 5 = 3$ m/s, now <b>away</b> from the wall.</li>
+<li>Rebuild: speed $= \sqrt{8.66^2 + 3^2} = 9.17$ m/s, at $\tan^{-1}(3/8.66) = 19.1°$ to the wall.</li>
+</ol>
+<p class="key">See the pattern? t untouched, n reversed and shrunk. Two balls work the same way, except that along n you share momentum between them.</p>
+</div><div>
+{{fig:wall}}
+</div></div>
+</section>
+
+<section class="card p1">
+<h3><span class="n">5</span>The recipe (use it every time)</h3>
+<ol class="flow">
+<li><b>Draw n</b> through both centres and <b>t</b> at 90° to it. Mark which way is + for each. Find the angle of n from the figure.</li>
+<li><b>Make a table:</b> each body, its n part and its t part <b>before</b> the impact (with signs).</li>
+<li><b>t:</b> copy each free, smooth body's t part across unchanged.</li>
+<li><b>n:</b> two equations, two unknowns (the two n parts after):
+ <ul class="tight"><li>momentum: $m_A(v_A)_n + m_B(v_B)_n = m_A(v'_A)_n + m_B(v'_B)_n$</li>
+ <li>restitution: $e = \dfrac{\text{speed apart after}}{\text{speed together before}}$, both measured along n.</li></ul></li>
+<li><b>Rebuild:</b> speed $= \sqrt{(\text{n part})^2 + (\text{t part})^2}$; direction from $\tan^{-1}$.</li>
+<li><b>Check:</b> kinetic energy after ≤ before.</li>
+</ol>
+</section>
+
+<!-- ================================================================== S25 Q6 -->
+<h2 class="part p2 brk">Part 2 · S25 Q6: two smooth disks (free bodies)</h2>
+
+<section class="card p2">
+<h3><span class="n">Q</span>The question</h3>
+<p>Two smooth disks A (8 kg) and B (6 kg) collide at O. Just before impact, A moves <b>left</b> at 5 m/s and B moves <b>right</b> at 7 m/s.
+The line through their centres has a slope marked by a 5–12–13 triangle, and e = 0.5. Find their speeds just after impact. [10 marks]</p>
+</section>
+
+<section class="card p2">
+<h3><span class="n">1</span>Draw n and t, and find the angle</h3>
+<div class="grid"><div>
+<ul class="tight">
+<li><b>n</b> = the line through both centres. The 5–12–13 triangle says it rises 12 for every 5 across.</li>
+<li>Measured from the <b>vertical</b>: $\tan\theta = 5/12$, so $\theta = 22.6°$.</li>
+<li>Exact helpers, no calculator needed: $\sin\theta = 5/13 = 0.3846$ and $\cos\theta = 12/13 = 0.9231$.</li>
+<li>Choose <b>+n = up-right</b> (from B towards A) and <b>+t = down-right</b> (⊥ to n).</li>
+</ul>
+</div></div>
+<div class="figrow">{{fig:s25_axes}}</div>
+</section>
+
+<section class="card p2">
+<h3><span class="n">2</span>Split both velocities (the "before" table)</h3>
+<div class="grid"><div>
+<p>Both velocities are horizontal and n is tilted θ from the vertical, so: n part $= v\sin\theta$, t part $= v\cos\theta$, with signs from the picture.</p>
+<table class="ku"><tr><th></th><th>n part (↗ +)</th><th>t part (↘ +)</th></tr>
+<tr><td>A: 5 m/s ←</td><td>$-5(5/13) = -1.923$</td><td>$-5(12/13) = -4.615$</td></tr>
+<tr><td>B: 7 m/s →</td><td>$+7(5/13) = +2.692$</td><td>$+7(12/13) = +6.462$</td></tr></table>
+<p class="small">Why the minus signs for A? A moves left, and both +n and +t lean right, so both of A's parts point "backwards".</p>
+</div></div>
+<div class="figrow">{{fig:s25_split}}</div>
+</section>
+
+<section class="card p2">
+<h3><span class="n">3</span>t: copy across</h3>
+<p>Smooth disks can't push each other along t, so <b>$(v'_A)_t = -4.615$ m/s and $(v'_B)_t = +6.462$ m/s</b>. Done.</p>
+</section>
+
+<section class="card p2">
+<h3><span class="n">4</span>n: a normal head-on impact</h3>
+<div class="grid"><div>
+<p><b>Momentum along n:</b></p>
+<p>$8(-1.923) + 6(2.692) = 8(v'_A)_n + 6(v'_B)_n$</p>
+<p>$0.769 = 8(v'_A)_n + 6(v'_B)_n$ ……(1)</p>
+<p><b>Restitution along n:</b> before, B (below) closes on A (above) at $2.692 - (-1.923) = 4.615$ m/s.
+After, they separate at e times that: $0.5 \times 4.615 = 2.308$ m/s, with A ahead in +n:</p>
+<p>$(v'_A)_n - (v'_B)_n = 2.308$ ……(2)</p>
+</div><div>
+<p><b>Solve:</b> from (2), $(v'_A)_n = (v'_B)_n + 2.308$. Into (1):</p>
+<p>$8(v'_B)_n + 18.46 + 6(v'_B)_n = 0.769$</p>
+<p>$(v'_B)_n = -1.264$ m/s, $\;(v'_A)_n = +1.044$ m/s</p>
+<p class="small">Same answer from the memo's form: $e = \dfrac{(v'_B)_n - (v'_A)_n}{(v_A)_n - (v_B)_n} = \dfrac{-1.264 - 1.044}{-1.923 - 2.692} = 0.5$ ✓.
+It's the same idea: the gap closing before versus the gap opening after.</p>
+</div></div>
+</section>
+
+<section class="card p2">
+<h3><span class="n">5</span>Rebuild each velocity</h3>
+<div class="grid"><div>
+<table class="ku"><tr><th></th><th>n part</th><th>t part</th><th>speed</th></tr>
+<tr><td>A after</td><td>+1.044</td><td>−4.615</td><td>$\sqrt{1.044^2 + 4.615^2} = $ <b>4.73 m/s</b></td></tr>
+<tr><td>B after</td><td>−1.264</td><td>+6.462</td><td>$\sqrt{1.264^2 + 6.462^2} = $ <b>6.58 m/s</b></td></tr></table>
+<p>The question asks for <b>speeds</b>, so you're done. If it asked for directions: A now heads up-left at 35.4° above the horizontal, and B heads down-right at 33.7° below it.</p>
+<p><b>Energy check:</b> before $= \tfrac12(8)(5^2) + \tfrac12(6)(7^2) = 247$ J; after $= 219.6$ J. That's less, as it must be with e &lt; 1 ✓</p>
+</div></div>
+<div class="figrow">{{fig:s25_after}}</div>
+<p class="ans">v′<sub>A</sub> = 4.73 m/s · v′<sub>B</sub> = 6.58 m/s</p>
+</section>
+
+<!-- ================================================================== F25 Q8 -->
+<h2 class="part p2 brk">Part 3 · F25 Q8: bat and ball (the bat is stuck in a slot)</h2>
+
+<section class="card p2">
+<h3><span class="n">Q</span>The question</h3>
+<p>The bat A (0.5 kg) slides to the right at 18 m/s inside a horizontal slot. The ball B (0.146 kg) comes in from the right at 38 m/s.
+The line through their centres is at 20° above the horizontal, and e = 0.5. Find the ball's speed after impact and the angle β of its velocity to the horizontal. [14 marks]</p>
+<div class="figrow">{{fig:f25_axes}}</div>
+</section>
+
+<section class="card p2">
+<h3><span class="n">!</span>The one twist: the slot</h3>
+<div class="big">The slot holds the bat. During the hit, the slot pushes the bat <b>up or down</b>, so there's an outside push on the system.
+Because that push has a piece along n, <b>momentum along n is NOT conserved</b> this time.
+<br>The slot can't push <b>sideways</b> (horizontally), so <b>conserve momentum horizontally</b> instead.</div>
+<ul class="tight">
+<li>The <b>ball</b> is still free and smooth, so its <b>t part is still unchanged</b>.</li>
+<li><b>Restitution still works along n</b>: it's about the contact between the two bodies, not about outside pushes.</li>
+<li>The bat can only move horizontally, so its unknown is just one number: $v'_A$.</li>
+</ul>
+</section>
+
+<section class="card p2">
+<h3><span class="n">1</span>Axes and the "before" table</h3>
+<p><b>+n</b> = along the line of centres, 20° above the horizontal, pointing from A towards B. <b>+t</b> = 90° further round (up-left).</p>
+<table class="ku"><tr><th></th><th>n part</th><th>t part</th></tr>
+<tr><td>A: 18 m/s →</td><td>$18\cos 20° = +16.91$</td><td>(not needed: the slot changes it)</td></tr>
+<tr><td>B: 38 m/s ←</td><td>$-38\cos 20° = -35.71$</td><td>$+38\sin 20° = +13.00$</td></tr></table>
+<p class="small">The ball moves left, almost straight against +n (so a big negative n part), and a little along +t (up-left).</p>
+</section>
+
+<section class="card p2">
+<h3><span class="n">2</span>Three equations, three unknowns</h3>
+<div class="grid"><div>
+<p><b>Unknowns:</b> the bat's $v'_A$ and the ball's $(v'_B)_n$. The ball's t part is already known.</p>
+<p><b>(i) Ball's t part unchanged:</b> $(v'_B)_t = 13.00$ m/s</p>
+<p><b>(ii) Horizontal momentum (→ +):</b></p>
+<p>$0.5(18) + 0.146(-38) = 0.5\,v'_A + 0.146\,(v'_B)_x$</p>
+<p>with $(v'_B)_x = (v'_B)_n\cos 20° - 13.00\sin 20°$ (the ball's n and t parts each have a horizontal share)</p>
+<p><b>(iii) Restitution along n:</b> the gap closes at $16.91 - (-35.71) = 52.62$ m/s, and opens at $0.5 \times 52.62 = 26.31$ m/s:</p>
+<p>$(v'_B)_n - v'_A\cos 20° = 26.31$</p>
+</div><div>
+<p><b>Solve (ii) and (iii)</b> together:</p>
+<p>$v'_A = 0.781$ m/s → (the bat almost stops)</p>
+<p>$(v'_B)_n = 27.05$ m/s</p>
+<p><b>Rebuild the ball:</b></p>
+<p>speed $= \sqrt{27.05^2 + 13.00^2} = $ <b>30.0 m/s</b></p>
+<p>In x–y: $(v'_B)_x = 20.97$ and $(v'_B)_y = 21.46$, so $\beta = \tan^{-1}(21.46/20.97) = $ <b>45.7°</b> above the horizontal, up and to the right.</p>
+<p class="small">If you (wrongly) conserved momentum along n as if the bat were free, you'd get 28.5 m/s. Close enough to look right, but it's wrong.</p>
+</div></div>
+<div class="figrow">{{fig:f25_after}}</div>
+<p class="ans">v′<sub>B</sub> = 30.0 m/s at β = 45.7° (bat: 0.781 m/s →)</p>
+</section>
+
+<section class="card p1">
+<h3><span class="n">✓</span>Mistakes to avoid</h3>
+<ul class="tight">
+<li><b>e only ever lives along n.</b> Never use x or y velocities in the e equation.</li>
+<li><b>t is unchanged per ball</b>, not for the system, and only for a body nothing else is holding.</li>
+<li><b>Free bodies:</b> conserve momentum along n. <b>A body held in a slot or guide:</b> conserve momentum only in the direction the guide can't push.</li>
+<li><b>sin or cos?</b> Test an extreme angle: if n were along the velocity, the whole velocity would be its n part.</li>
+<li><b>Signs:</b> write the + arrows for n and t on your sketch before you split anything.</li>
+<li><b>Speed or velocity?</b> Speed is just the size, so the sign doesn't matter. Velocity needs a direction (β).</li>
+</ul>
+</section>
