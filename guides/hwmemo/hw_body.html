@@ -1,0 +1,201 @@
+<h1 class="title">MEC2047 Homework – Memo<br><span class="subt">Rotation (L11) · Absolute motion (L12) · Instantaneous centre (L13)</span></h1>
+<p class="unoff">Worked memo for the ten homework problems, grouped by topic. Every answer was checked numerically by a second route
+and matches the answers printed on your slides wherever the slides give one.</p>
+
+<!-- =============================================================== SECTION A -->
+<h2 class="sec" id="secA">SECTION A · Rotation about a fixed axis (L11)</h2>
+<div class="howto"><b>Spot it:</b> the body is pinned at a fixed point O. <b>Flow:</b> write $\vec r$ from O to the point →
+$\vec v = \vec\omega\times\vec r$ (⊥ to OP, in the sense of ω) → $\vec a = \vec\alpha\times\vec r - \omega^2\vec r$
+($a_t = r\alpha$ ⊥ OP in the sense of α; $a_n = r\omega^2$ towards O) → magnitude and direction.
+<br><b>Shortcut:</b> $\omega\vec k\times(x\vec i + y\vec j) = \omega(-y\vec i + x\vec j)$, with CCW positive.</div>
+
+<section class="q" id="p52">
+{{crop:p52}}
+<p class="solh">Solution</p>
+<div class="row"><div class="txt">
+<p class="rn">[Senses: the slide's answer corresponds to ω counter-clockwise and α clockwise, so $\vec\omega = \omega\vec k$ and $\vec\alpha = -\alpha\vec k$.]</p>
+<div class="ln">Position of A from O: $\vec r_A = b\vec i - h\vec j$</div>
+<div class="ln">$\vec v_A = \omega\vec k\times(b\vec i - h\vec j) = \omega(h\vec i + b\vec j)$</div>
+<div class="ln">$\vec\alpha\times\vec r_A = -\alpha\vec k\times(b\vec i - h\vec j) = -\alpha(h\vec i + b\vec j)$</div>
+<div class="ln">$-\omega^2\vec r_A = -\omega^2 b\,\vec i + \omega^2 h\,\vec j$</div>
+<div class="ln">$\vec a_A = -(b\omega^2 + h\alpha)\vec i + (h\omega^2 - b\alpha)\vec j$</div>
+<p class="rn">[Check the picture: $\vec v_A$ is ⊥ to OA ($\vec v_A\cdot\vec r_A = \omega(hb - bh) = 0$ ✓), $a_n$ points from A back to O, and $a_t$ is opposite to $\vec v_A$ because α opposes ω (it's slowing down).]</p>
+</div><figure class="side">{{fig:r2}}</figure></div>
+<p class="ansl">$\vec v_A = \omega(h\vec i + b\vec j)$ · $\vec a_A = -(b\omega^2 + h\alpha)\vec i + (h\omega^2 - b\alpha)\vec j$</p>
+</section>
+
+<section class="q" id="p517">
+{{crop:p517}}
+<p class="solh">Solution</p>
+<div class="row"><div class="txt">
+<p class="rn">[Senses from the figure: the ω arrow sweeps left → right under O, so <b>ω = 2 rad/s CCW</b>. The α arrow sweeps the other way, so <b>α = 5 rad/s² CW</b>.]</p>
+<p class="sub">Geometry</p>
+<div class="ln">OB = 0.5 m at 15° to the vertical; BA = 0.3 m; the angle at the bend is 120°.</div>
+<div class="ln">Cosine rule: $OA^2 = 0.5^2 + 0.3^2 - 2(0.5)(0.3)\cos 120° = 0.49 \Rightarrow OA = 0.7$ m</div>
+<div class="ln">Components: $\vec r_A = (0.5\sin 15° + 0.3\cos 15°)\vec i - (0.5\cos 15° + 0.3\sin 15°)\vec j = 0.4192\vec i - 0.5606\vec j$ m</div>
+<p class="sub">Velocity</p>
+<div class="ln">$\vec v_A = 2\vec k\times(0.4192\vec i - 0.5606\vec j) = 1.121\vec i + 0.838\vec j$ m/s</div>
+<div class="ln">$|\vec v_A| = \omega\,OA = 2(0.7) = 1.40$ m/s ✓</div>
+<p class="sub">Acceleration</p>
+<div class="ln">$\vec\alpha\times\vec r_A = -5\vec k\times\vec r_A = -2.803\vec i - 2.096\vec j$</div>
+<div class="ln">$-\omega^2\vec r_A = -4\vec r_A = -1.677\vec i + 2.242\vec j$</div>
+<div class="ln">$\vec a_A = -4.48\vec i + 0.147\vec j$ m/s²</div>
+<div class="ln">Check: $a_t = \alpha\,OA = 3.5$, $a_n = \omega^2 OA = 2.8$, so $|\vec a_A| = \sqrt{3.5^2 + 2.8^2} = 4.48$ m/s² ✓</div>
+</div></div>
+<div class="figs2"><figure>{{fig:r17_geom}}<figcaption>Geometry (true scale 1:10)</figcaption></figure><figure>{{fig:r17_vec}}<figcaption>v and a at A (true scale)</figcaption></figure></div>
+<p class="ansl">$\vec v_A = 1.121\vec i + 0.838\vec j$ m/s (1.40 m/s) · $\vec a_A = -4.48\vec i + 0.147\vec j$ m/s² (4.48 m/s²)</p>
+</section>
+
+<section class="q" id="p526">
+{{crop:p526}}
+<p class="solh">Solution</p>
+<div class="row"><div class="txt">
+<p class="rn">[Both pulleys are one rigid unit, so they share one ω and one α. A belt point moves with the rim it touches: belt speed = rω and belt acceleration = rα (the tangential part only).]</p>
+<div class="ln">Small pulley: the belt strands are 150 mm apart, so r = 75 mm. $\omega = v_A/r = 1.5/0.075 = 20$ rad/s</div>
+<div class="ln">Large pulley: the belts are 800 mm apart, so r = 400 mm. $\alpha = a_B/r = 45/0.4 = 112.5$ rad/s²</div>
+<div class="ln">Senses: A's strand leaves the bottom of the small pulley moving right, and B's belt at the top accelerates left, so both ω and α are <b>CCW</b> (speeding up).</div>
+<p class="sub">Point C at r = 0.36 m</p>
+<div class="ln">$a_n = r\omega^2 = 0.36(20)^2 = 144$ m/s², from C towards O</div>
+<div class="ln">$a_t = r\alpha = 0.36(112.5) = 40.5$ m/s², ⊥ OC in the CCW sense</div>
+<div class="ln">$a_C = \sqrt{144^2 + 40.5^2} = 149.6$ m/s², at $\tan^{-1}(40.5/144) = 15.7°$ from the line CO, turned towards the CCW tangent</div>
+<p class="rn">[The magnitude doesn't depend on where C sits on its circle. Only the direction of the sketch does.]</p>
+</div><figure class="side">{{fig:r26}}</figure></div>
+<p class="ansl">a<sub>C</sub> = 149.6 m/s² (sketch: mostly towards O, tilted 15.7° towards the CCW tangent)</p>
+</section>
+
+<!-- =============================================================== SECTION B -->
+<h2 class="sec brk" id="secB">SECTION B · Absolute motion: geometry, then differentiate (L12)</h2>
+<div class="howto"><b>Spot it:</b> "as a function of x", "in terms of θ", or a contact or slot geometry. <b>Flow:</b> (1) draw the geometry at a general position
+and name the changing variables; (2) write <b>one</b> relation between the angle and the distance (tan, sin, sine or cosine rule);
+(3) differentiate with respect to time using the chain rule; (4) substitute the known rate, with its <b>sign</b> (is x growing or shrinking?);
+(5) decide CW/CCW from how the angle changes.</div>
+
+<section class="q" id="p542">
+{{crop:p542}}
+<p class="solh">Solution</p>
+<div class="row"><div class="txt">
+<div class="ln">The bar rests on the fixed corner P, at height h above A. With θ the bar's angle to the horizontal at A:</div>
+<div class="ln">$\tan\theta = \dfrac{h}{x}\;\Rightarrow\;\theta = \tan^{-1}\dfrac{h}{x}$</div>
+<div class="ln">Differentiate: $\dot\theta = \dfrac{1}{1 + h^2/x^2}\left(-\dfrac{h}{x^2}\right)\dot x = -\dfrac{h\,\dot x}{x^2 + h^2}$</div>
+<div class="ln">The drum winds the cable in, so A moves left towards the corner: $\dot x = -r\omega_0$</div>
+<div class="ln">$\omega = \dot\theta = \dfrac{r h\,\omega_0}{x^2 + h^2}$</div>
+<p class="rn">[Sense: as x shrinks, θ grows and the bar gets steeper. A swings under P towards the left, so the bar turns <b>clockwise</b>.
+The bar's angular velocity is the rate of change of <i>any</i> line fixed to it, here θ.]</p>
+</div><figure class="side">{{fig:m42}}</figure></div>
+<p class="ansl">ω = rhω₀/(x² + h²), clockwise</p>
+</section>
+
+<section class="q" id="p544">
+{{crop:p544}}
+<p class="solh">Solution</p>
+<div class="row"><div class="txt">
+<div class="ln">The lever is tangent to the disk, so the radius to the contact point is ⊥ to OA and has length r.
+Its centre is a horizontal distance x from O, so in the right triangle:</div>
+<div class="ln">$\sin\theta = \dfrac{r}{x}\;\Rightarrow\;\theta = \sin^{-1}\dfrac{r}{x}$</div>
+<div class="ln">Differentiate: $\dot\theta = \dfrac{1}{\sqrt{1 - r^2/x^2}}\left(-\dfrac{r}{x^2}\right)\dot x$</div>
+<div class="ln">The disk moves right, towards O, so x shrinks: $\dot x = -v$</div>
+<div class="ln">$\omega = \dfrac{r v}{x^2\sqrt{1 - r^2/x^2}} = \dfrac{r v}{x\sqrt{x^2 - r^2}} = \dfrac{v}{x\sqrt{(x/r)^2 - 1}}$</div>
+<p class="rn">[Sense: θ grows, so A lifts. A point to the left of O moving up means <b>clockwise</b>.]</p>
+</div><figure class="side">{{fig:m44}}</figure></div>
+<p class="ansl">ω = v / [x√((x/r)² − 1)], clockwise</p>
+</section>
+
+<section class="q" id="p556">
+{{crop:p556}}
+<p class="solh">Solution</p>
+<div class="row"><div class="txt">
+<p class="rn">[Wheel C turns with the slot O₂P, so ω₂ is the rate of change of the angle β of line O₂P. Write β in terms of θ (the angle of O₁P), then differentiate.]</p>
+<div class="ln">With $r = O_1P = 200/\sqrt2 = 141.4$ mm and $d = O_1O_2 = 200$ mm, P is at $(r\cos\theta,\ r\sin\theta)$ from O₁:</div>
+<div class="ln">$\tan\beta = \dfrac{r\sin\theta}{d - r\cos\theta}$</div>
+<div class="ln">Differentiate (quotient rule, then simplify):</div>
+<div class="ln">$\omega_2 = \dot\beta = \omega_1\,\dfrac{r(d\cos\theta - r)}{d^2 + r^2 - 2dr\cos\theta}$</div>
+<div class="ln">At θ = 20°: numerator $= 0.1414(0.18794 - 0.14142) = 0.006579$; denominator $= 0.06 - 0.053157 = 0.006843$</div>
+<div class="ln">$\omega_2 = 2(0.9614) = 1.923$ rad/s</div>
+<p class="rn">[Sanity checks: at engagement (θ = 45°) $d\cos\theta = r$, so ω₂ = 0 and the wheel starts smoothly. On the line of centres (θ = 0) the ratio peaks at r/(d − r) = 2.41.
+Senses: wheel A turns CW, so P sweeps down towards the line O₁O₂. That rotates slot O₂P, and wheel C, counter-clockwise.]</p>
+</div></div>
+<div class="figc">{{fig:m56}}</div>
+<p class="ansl">ω₂ = 1.923 rad/s CCW</p>
+</section>
+
+<!-- =============================================================== SECTION C -->
+<h2 class="sec brk" id="secC">SECTION C · Instantaneous centre of zero velocity (L13)</h2>
+<div class="howto"><b>Spot it:</b> "using instantaneous centres", or a velocity-only question on a link. <b>Flow:</b> (1) for each link, find two points whose velocity
+<b>directions</b> you know; (2) draw the line ⊥ to each velocity: they cross at the IC (C); (3) get distances by trig; (4) ω = v/r<sub>known</sub>,
+then v = ω r for the point you want, ⊥ to its line from C; (5) carry the shared pin's velocity to the next link.
+<br><b>The trap in 5/108 and 5/117:</b> a roller pressed against a moving surface only shares that surface's velocity <b>⊥ to the surface</b>. It can slide along it.</div>
+
+<section class="q" id="p5119">
+{{crop:p5119}}
+<p class="solh">Solution</p>
+<div class="txt">
+<p class="sub">Link OBD (fixed pivot O)</p>
+<div class="ln">$\vec v_D$ is ⊥ OD, i.e. 60° from the horizontal. Its downward component is 0.6 m/s, so $v_D = 0.6/\sin 60° = 0.6928$ m/s.</div>
+<div class="ln">$\omega_{OD} = v_D/OD = 0.6928/1.2 = 0.5774$ rad/s CW (θ increasing); $\;v_B = 0.8\,\omega_{OD} = 0.4619$ m/s, ⊥ OB</div>
+<p class="sub">Link AB: locate its IC</p>
+<div class="ln">B = (0.6928, −0.4) m from O. A is on the shaft with AB = 0.7: $x_A = 0.6928 + \sqrt{0.7^2 - 0.4^2} = 1.2673$ m</div>
+<div class="ln">⊥ to $\vec v_A$ (horizontal) → the vertical line through A. ⊥ to $\vec v_B$ → the line OB itself, extended.</div>
+<div class="ln">They meet at C, at depth $1.2673\tan 30° = 0.7317$ m below A. So $r_{A/C} = 0.7317$ m and $r_{B/C} = OC - OB = 1.4634 - 0.8 = 0.6634$ m.</div>
+<div class="ln">$\omega_{AB} = v_B/r_{B/C} = 0.4619/0.6634 = 0.696$ rad/s</div>
+<div class="ln">$v_A = \omega_{AB}\,r_{A/C} = 0.696(0.7317) = 0.509$ m/s, to the <b>left</b></div>
+<p class="rn">[Direction: B moves down-left, so AB turns CCW about C. C is directly below A, so A moves left.
+Vector check: $\vec v_B + \omega_{AB}\vec k\times\vec r_{A/B}$ with ω<sub>AB</sub> = 0.696 CCW gives $\vec v_A = -0.509\vec i$ ✓]</p>
+</div>
+<div class="figc">{{fig:i119}}</div>
+<p class="ansl">v<sub>A</sub> = 0.509 m/s ←</p>
+</section>
+
+<section class="q" id="p5108">
+{{crop:p5108}}
+<p class="solh">Solution</p>
+<div class="txt">
+<p class="rn">[Read the constraints carefully. B is pinned to the rod of the <i>fixed</i> cylinder F, so $\vec v_B$ is horizontal. D runs in a vertical guide, so $\vec v_D$ is vertical.
+A is a <b>roller pressed against the plunger's vertical plate</b>, so only its horizontal velocity is 2 m/s. It can roll up or down the plate.]</p>
+<div class="ln">IC of ABD: ⊥ to $\vec v_B$ → the vertical line through B; ⊥ to $\vec v_D$ → the horizontal line through D. So C = (x<sub>B</sub>, y<sub>D</sub>).</div>
+<div class="ln">A horizontal velocity at A comes only from A's <b>vertical</b> distance from C: $v_{A,x} = \omega\,(y_A - y_C) = \omega(0.3\sin 30°) = 0.15\,\omega$</div>
+<div class="ln">$\omega = 2/0.15 = 13.33$ rad/s CW</div>
+<div class="ln">$v_D = \omega\,(x_D - x_C) = 13.33(0.2\cos 30°) = 13.33(0.1732) = 2.31$ m/s ↓</div>
+<p class="rn">[Full velocity of A: $\vec v_A = 2\vec i + 1.155\vec j$ m/s. The roller climbs the plate at 1.155 m/s while the plate pushes it at 2 m/s.
+Using A as a pin, i.e. assuming v<sub>A</sub> is horizontal, puts the IC on the vertical through A and gives the wrong v<sub>D</sub> = 3.46 m/s.]</p>
+</div>
+<div class="figc">{{fig:i108}}</div>
+<p class="ansl">v<sub>D</sub> = 2.31 m/s ↓ · ω = 13.33 rad/s CW</p>
+</section>
+
+<section class="q" id="p5117">
+{{crop:p5117}}
+<p class="solh">Solution</p>
+<div class="txt">
+<p class="rn">[Same idea as 5/108: F is a roller sitting <b>on</b> the plunger cup, so only its vertical velocity is v<sub>G</sub> = 2 m/s. D is a fixed pin and B slides on the vertical shaft.]</p>
+<p class="sub">Link DHF (rotates about the fixed pin D)</p>
+<div class="ln">$\vec v_F$ is ⊥ DF (DF at 45°), so its vertical part is $v_F\sin 45° = 2$, giving $v_F = 2.828$ m/s</div>
+<div class="ln">$\omega_{DF} = 2.828/0.32 = 8.84$ rad/s; $\;v_H = 8.84(0.24) = 2.121$ m/s, ⊥ DH</div>
+<p class="sub">Link HBA: locate its IC</p>
+<div class="ln">Geometry (D at the origin): H = (−0.1697, −0.1697) m. B is on the shaft x = 0 with HB = 0.2, so $y_B = -0.1697 - \sqrt{0.04 - 0.1697^2} = -0.2755$ m.
+A = B + 0.16 × (unit vector H→B) = (0.1358, −0.3602) m.</div>
+<div class="ln">⊥ to $\vec v_H$ → the line DH extended (y = x). ⊥ to $\vec v_B$ (vertical) → the horizontal line through B. So C = (−0.2755, −0.2755) m.</div>
+<div class="ln">$r_{H/C} = \sqrt2(0.2755 - 0.1697) = 0.1497$ m, so $\omega_{AH} = 2.121/0.1497 = 14.17$ rad/s</div>
+<div class="ln">$r_{A/C} = \sqrt{0.4113^2 + 0.0847^2} = 0.4199$ m, so $v_A = 14.17(0.4199) = 5.95$ m/s</div>
+</div>
+<div class="figc">{{fig:i117}}</div>
+<p class="ansl">v<sub>A</sub> = 5.95 m/s (⊥ CA, up and slightly to the right)</p>
+</section>
+
+<section class="q" id="p5120">
+{{crop:p5120}}
+<p class="solh">Solution</p>
+<div class="txt">
+<p class="rn">[Read the figure: B is the <b>central (sun) gear</b> turning about O; the arm OA carries planet gear A (radius a/2) at distance a.
+The planet meshes with B (radius a/2) and with ring D (radius 3a/2). Work along the planet's horizontal diameter, from the sun contact (x = a/2) through A (x = a) to the ring contact (x = 3a/2).]</p>
+<div class="ln">Arm at 90 rev/min CW: the planet centre A (on the right) moves down at $90a$ (in a·rev/min units).</div>
+<div class="ln">The planet is a rigid disc, so its velocity varies <b>linearly</b> along that diameter: the same velocity-line idea as the pulleys.</div>
+<p class="sub">(a) Ring D fixed</p>
+<div class="ln">Ring contact: v = 0 (that's the planet's IC). A: 90a ↓, so the sun contact (twice as far from the IC) moves at 180a ↓</div>
+<div class="ln">$\omega_B = 180a/(a/2) = 360$ rev/min CW</div>
+<p class="sub">(b) Ring D at 80 rev/min CCW</p>
+<div class="ln">Ring contact: $80(3a/2) = 120a$ ↑. A: 90a ↓. The change across half a diameter is 210a, so the sun contact moves at $90a + 210a = 300a$ ↓</div>
+<div class="ln">$\omega_B = 300a/(a/2) = 600$ rev/min CW. The planet's IC now sits inside the planet, 0.214a beyond A.</div>
+</div>
+<div class="figc">{{fig:i120}}</div>
+<p class="ansl">(a) ω<sub>B</sub> = 360 rev/min CW · (b) ω<sub>B</sub> = 600 rev/min CW</p>
+</section>
