@@ -1,0 +1,221 @@
+<header class="hero">
+  <p class="kicker">MEC2047S Dynamics · Rolling, all of it</p>
+  <h1>Rolling: kinematics, kinetics, and when it slips</h1>
+  <p class="lede">Part 1 covers how a rolling body <i>moves</i> (no forces). Part 2 covers what makes it move (forces, friction, and the slip check).
+  Part 3 works every rolling case from your course: on a slope, on the flat, the bowling ball that slips then rolls, the rod in a hoop, and a spool.
+  Rigid-body energy is off your syllabus this year, so everything here uses ΣF = ma<sub>G</sub> and ΣM = Iα.</p>
+</header>
+
+<h2 class="part p1">Part 1 · Kinematics of rolling</h2>
+
+<section class="card p1">
+<h3><span class="n">1</span>What "rolls without slipping" actually means</h3>
+<div class="grid"><div>
+<p>The point C touching the ground is <b>momentarily at rest</b>: it doesn't skid. That single fact gives everything else:</p>
+<ul class="tight">
+<li><b>C is the instantaneous centre (IC).</b> The whole wheel turns about C at that instant.</li>
+<li><b>Centre:</b> $v_O = r\omega$, parallel to the ground.</li>
+<li><b>Any point P:</b> its speed is ω × (distance CP), and its direction is <b>⊥ to CP</b>. So the top moves at 2rω.</li>
+<li><b>Distance:</b> the centre moves $s = r\theta$, as if the rim were unrolled onto the ground.</li>
+</ul>
+<p class="key">Clockwise rolling on flat ground means the wheel moves to the <b>right</b>. Picture the bottom point stuck to the ground: the top has to go right.</p>
+<p><b>If it does slip</b>, C is no longer at rest. It slides at $v_O - r\omega$, and the IC isn't at C any more.</p>
+</div><div>
+{{fig:k_vel}}
+</div></div>
+</section>
+
+<section class="card p1">
+<h3><span class="n">2</span>Accelerations: the contact point is <i>not</i> zero</h3>
+<div class="grid"><div>
+<ul class="tight">
+<li><b>Centre:</b> $a_O = r\alpha$, along the surface. (Differentiate $v_O = r\omega$.)</li>
+<li><b>Contact point:</b> $a_C = r\omega^2$, straight up towards the centre. Its velocity is zero, but it's in the middle of turning round, so its acceleration isn't.</li>
+<li><b>Any point P:</b> $\vec a_P = \vec a_O + \vec\alpha\times\vec r_{P/O} - \omega^2\vec r_{P/O}$ (relative acceleration from the centre).</li>
+</ul>
+<div class="watch"><h4>Trap</h4><ul><li>The IC is a <b>velocity-only</b> tool. Never write $\vec a_P = \vec\alpha\times\vec r_{P/C}$. C itself accelerates (at rω² upwards).</li></ul></div>
+</div><div>
+{{fig:k_acc}}
+</div></div>
+</section>
+
+<section class="card p1">
+<h3><span class="n">3</span>Example: gear rolling on a fixed rack (L17 Example 1)</h3>
+<div class="grid"><div>
+<p>r = 0.3 m, ω = 12 rad/s CW, α = 6 rad/s² CW. Find the acceleration of the top point A.</p>
+<ol class="flow">
+<li>$a_O = r\alpha = 0.3(6) = 1.8$ m/s² → (CW rolling moves the gear right)</li>
+<li>$(a_{A/O})_t = r\alpha = 1.8$ m/s², ⊥ OA. A is at the top and α is CW, so it points →</li>
+<li>$(a_{A/O})_n = r\omega^2 = 0.3(144) = 43.2$ m/s², from A <b>towards O</b> (↓)</li>
+<li>Add: $\vec a_A = (1.8 + 1.8,\ -43.2) = (3.6,\ -43.2)$ m/s²</li>
+<li>$|\vec a_A| = 43.3$ m/s² at −85.2°: almost straight down, because the ω² term dominates</li>
+</ol>
+<p class="small">Vector form: $\vec a_A = 1.8\vec i + (-6\vec k)\times(0.3\vec j) - 144(0.3\vec j)$, which gives the same (3.6, −43.2).</p>
+</div><div>
+{{fig:k_rack}}
+</div></div>
+</section>
+
+<section class="card p1">
+<h3><span class="n">4</span>Rolling wheel joined to a link (the S25 Q4 type)</h3>
+<p>Get the velocity of the pin on the wheel from the wheel's IC (the contact point): $v = \omega \times (\text{distance from C})$, ⊥ to that line.
+Then hand that velocity to the link, using the same-body ⊥ rule inside the link. For accelerations, go through the <b>centre</b> O: $\vec a_{pin} = \vec a_O + \vec\alpha\times\vec r - \omega^2\vec r$, with $a_O = r\alpha$.</p>
+</section>
+
+<h2 class="part p2 brk">Part 2 · Kinetics of rolling</h2>
+
+<section class="card p2">
+<h3><span class="n">5</span>The diagrams</h3>
+<div class="grid"><div>
+<p><b>FBD:</b> weight mg at G; normal force N ⊥ the surface at C; <b>friction F along the surface at C</b>, plus any applied forces (P, string tension T).</p>
+<p><b>KD:</b> $m\vec a_G$ along the surface at G, plus the curl $I_G\alpha$.</p>
+<p class="key"><b>Friction is what makes it spin.</b> When the driving force (gravity down a slope, or a push P at the centre) acts <b>through G</b>, it has no moment about G.
+The only force with a moment about G is friction at the contact. So friction must point the way that produces the spin.</p>
+<p><b>Its direction is often unknown.</b> Assume a direction, solve, and let the sign tell you (see the spool, W6).</p>
+</div><div>
+{{fig:roll_fbd}}
+{{fig:roll_kd}}
+</div></div>
+</section>
+
+<section class="card p2">
+<h3><span class="n">6</span>The recipe: assume no slip, then check</h3>
+<ol class="flow">
+<li><b>Assume it rolls without slipping:</b> $a_G = r\alpha$ (for a round body with G at its centre).</li>
+<li>$\sum F_\parallel = m a_G$ (along the surface), $\;\sum F_\perp = 0$ (gives N), $\;\sum M_G = I_G\alpha$.</li>
+<li>Solve for $a_G$, α and F.</li>
+<li><b>Check:</b> $|F| \le \mu_s N$? If yes, done: it rolls.</li>
+<li><b>If not, it slips.</b> Throw away $a_G = r\alpha$. Use $F = \mu_k N$, pointing <b>against the direction the contact point slides</b>. Now $\sum F$ gives $a_G$ and $\sum M_G$ gives α <b>separately</b>.</li>
+<li>Sanity check after slipping: compare $a_G$ with $r\alpha$ to confirm the contact point really slides the way you assumed.</li>
+</ol>
+<p class="small">Shortcut for step 2: take moments about C. F and N act at C, so they drop out, but use $\sum M_C = I_G\alpha + m a_G r$ (include the moment of the $m\vec a_G$ arrow). For a round body with G at its centre this equals $I_C\alpha$, with $I_C = I_G + mr^2$.</p>
+</section>
+
+<section class="card p2">
+<h3><span class="n">7</span>Particle vs rolling body ("neglect the mass", "treat as a particle")</h3>
+<div class="grid"><div>
+<p>Down a 30° slope, starting from rest:</p>
+<table class="ku">
+<tr><th>Body</th><th>$k^2/r^2$</th><th>$a_G$ (m/s²)</th><th>μ needed to roll</th></tr>
+<tr><td>Smooth block (particle, no rotation)</td><td>–</td><td>$g\sin\theta$ = 4.91</td><td>–</td></tr>
+<tr><td>Thin hoop ($mr^2$)</td><td>1</td><td>2.45</td><td>0.289</td></tr>
+<tr><td>Solid cylinder ($\tfrac12 mr^2$)</td><td>½</td><td>3.27</td><td>0.192</td></tr>
+<tr><td>Solid sphere ($\tfrac25 mr^2$)</td><td>⅖</td><td>3.50</td><td>0.165</td></tr>
+</table>
+<p>General rolling result: $a_G = \dfrac{g\sin\theta}{1 + k^2/r^2}$ and $\mu_{min} = \tan\theta\,\dfrac{k^2/r^2}{1 + k^2/r^2}$</p>
+</div><div>
+<p class="key"><b>Why rolling bodies are slower:</b> part of gravity's pull is used up by friction to spin the body. The more mass sits far from the centre (bigger k), the more is "spent" on spinning, so the hoop is slowest.</p>
+<p><b>"Treat it as a particle":</b> no rotation, no I, no $I\alpha$ term. Just ΣF = ma with friction $\mu_k N$ if it slides.</p>
+<p><b>"Neglect the mass of the wheel"</b> (F25 Q5 carriage wheels, or the massless hoop in T11 Q3): a massless wheel has I = 0, so the moments on it must balance.
+A free, unpowered massless wheel therefore carries <b>no friction</b> at its contact.</p>
+</div></div>
+</section>
+
+<h2 class="part p2 brk">Part 3 · Every rolling case, worked</h2>
+
+<section class="card p2">
+<h3><span class="n">W1</span>Solid cylinder down a 30° slope (your slide: 3.6 kg, r = 150 mm, μ<sub>s</sub> = 0.30)</h3>
+<div class="grid"><div>
+<ol class="flow">
+<li>Assume no slip: $a_G = 0.15\alpha$. Friction acts <b>up</b> the slope: it's the only force with a moment about G, and it must spin the cylinder CW (in the rolling direction).</li>
+<li>$\sum F_\parallel$: $mg\sin 30° - F = m a_G$</li>
+<li>$\sum M_G$: $F(0.15) = \tfrac12 m(0.15)^2\alpha$, so $F = \tfrac12 m a_G$</li>
+<li>Combine: $mg\sin 30° = \tfrac32 m a_G$, so $a_G = \tfrac23 g\sin 30° = $ <b>3.27 m/s²</b> and $\alpha = 3.27/0.15 = $ <b>21.8 rad/s²</b></li>
+<li>$F = \tfrac12(3.6)(3.27) = $ <b>5.89 N</b> up the slope; $\;N = mg\cos 30° = 30.6$ N</li>
+<li>Check: $\mu_s N = 9.17$ N ≥ 5.89 N, so it <b>rolls</b> ✓</li>
+</ol>
+<p class="small">About C: $mg\,r\sin 30° = (\tfrac12 mr^2 + mr^2)\alpha$, so $2.649 = 0.1215\,\alpha$ and α = 21.8 ✓</p>
+</div><div>
+{{fig:roll_fbd}}
+{{fig:roll_kd}}
+</div></div>
+<h4>W2 · Same cylinder on a 60° slope (μ<sub>s</sub> = 0.30, μ<sub>k</sub> = 0.25)</h4>
+<ol class="flow">
+<li>No slip would need $\mu_{min} = \tfrac13\tan 60° = 0.577 > 0.30$, so it <b>slips</b>.</li>
+<li>$F = \mu_k N = 0.25\,mg\cos 60°$, up the slope (the contact point skids down).</li>
+<li>$a_G = g(\sin 60° - 0.25\cos 60°) = $ <b>7.27 m/s²</b>; $\;\alpha = \dfrac{F r}{\tfrac12 mr^2} = \dfrac{2(0.25)g\cos 60°}{0.15} = $ <b>16.4 rad/s²</b></li>
+<li>Check: $a_G = 7.27 > r\alpha = 2.45$, so the contact point does slide down the slope, consistent with friction pointing up ✓</li>
+</ol>
+</section>
+
+<section class="card p2">
+<h3><span class="n">W3</span>Flat floor, push at the centre (mock exam Q8)</h3>
+<div class="grid"><div>
+<ol class="flow">
+<li>Friction acts <b>backwards</b>: P pushes the bottom forwards, friction opposes that and spins the cylinder CW.</li>
+<li>No slip: $P - F = ma$ and $F r = \tfrac12 mr^2(a/r)$, so $F = \tfrac12 ma$ and $a = \dfrac{P}{1.5m}$</li>
+<li>P = 120 N: $a = 2.67$ m/s², α = 10.7 rad/s², F = 40 N ≤ μ<sub>s</sub>N = 58.9 N, so it <b>rolls</b></li>
+<li>P = 200 N: it would need 66.7 N > 58.9 N, so it <b>slips</b>. Then $F = \mu_k N = 44.1$ N, $a = (200 - 44.1)/30 = 5.20$ m/s², α = 11.8 rad/s²</li>
+</ol>
+</div><div>
+{{fig:m8}}
+</div></div>
+</section>
+
+<section class="card p2">
+<h3><span class="n">W4</span>Bowling ball: slips first, then rolls (Tutorial 10 Q5)</h3>
+<div class="grid"><div>
+<p>6.4 kg, r = 120 mm, <b>k = 83 mm</b> (use $I_G = mk^2$, not ⅖mr²), released at 6 m/s with ω = 0, μ = 0.2.</p>
+<ol class="flow">
+<li>At release, v<sub>O</sub> = 6 but rω = 0, so the contact point <b>skids forwards</b>. Friction $\mu N$ acts <b>backwards</b> and is known.</li>
+<li>Slipping, so $a_G$ and α are separate: $a = \mu g = 1.962$ m/s² (slowing); $\;\alpha = \dfrac{\mu mg\,r}{mk^2} = 34.2$ rad/s² (spinning up)</li>
+<li>$v = 6 - 1.962t$ and $r\omega = 0.12(34.2)t = 4.10t$. Slipping stops when they're equal: t = 0.990 s, v = 4.06 m/s</li>
+<li>$s = \dfrac{v_0^2 - v^2}{2a} = $ <b>4.98 m</b>. After that it rolls, and (on level ground) friction drops to zero.</li>
+</ol>
+</div><div>
+{{fig:w6_fbd}}
+{{fig:w6_kd}}
+{{fig:w6_graph}}
+</div></div>
+</section>
+
+<section class="card p2">
+<h3><span class="n">W5</span>Rod fixed in a massless hoop: rolling with G off-centre (Tutorial 11 Q3)</h3>
+<div class="grid"><div>
+<p>The hoop rolls, so its centre O has $a_O = l\alpha$. But G (the rod's middle) is <b>not</b> at O, so $a_G \ne l\alpha$. Get it with relative acceleration:</p>
+<ol class="flow">
+<li>$\vec a_G = \vec a_O + \vec\alpha\times\vec r_{G/O}$ (ω = 0 at release) $= (l\alpha,\ -\tfrac{l}{2}\alpha)$</li>
+<li>F = $m\,l\alpha$; $\;N = mg - m\tfrac{l}{2}\alpha$; $\;\sum M_G = I_G\alpha$ with $I_G = \tfrac{1}{12}ml^2$ (the hoop is massless)</li>
+<li>Solve: $\alpha = \dfrac{3g}{8l} = $ <b>14.7 rad/s²</b></li>
+<li>Rolling needs $\mu \ge F/N = 0.46$. With less friction than that, it would slip.</li>
+</ol>
+<p class="small">About C you must use $\sum M_C = I_G\alpha + (\text{moment of } m\vec a_G)$. Because G isn't at the centre, $I_C\alpha$ alone would be wrong.</p>
+</div><div>
+{{fig:w7_fbd}}
+{{fig:w7_kd}}
+{{fig:w7_acc}}
+</div></div>
+</section>
+
+<section class="card p2">
+<h3><span class="n">W6</span>Spool pulled by a string: friction can point forwards</h3>
+<p>10 kg spool, outer radius 0.3 m, hub radius 0.15 m, k<sub>G</sub> = 0.2 m. A string wound on the hub is pulled horizontally to the right with T = 50 N. Assume F points to the right (+), and that it rolls without slipping, so a = 0.3α (CW).</p>
+<div class="grid"><div>
+<p><b>String from the top of the hub:</b></p>
+<p>$T + F = ma$ and $T(0.15) - F(0.3) = mk^2\alpha$</p>
+<p>α = 17.3 rad/s², a = 5.19 m/s², <b>F = +1.92 N (forwards!)</b></p>
+<p><b>String from the bottom of the hub:</b> the moment of T reverses: $-T(0.15) - F(0.3) = mk^2\alpha$</p>
+<p>α = 5.77 rad/s², a = 1.73 m/s², <b>F = −32.7 N (backwards)</b></p>
+</div><div>
+<p class="key">Never guess friction's direction from "it must oppose the motion". On a rolling body it does whatever is needed to keep the contact point from skidding. Assume a direction and let the sign decide.</p>
+</div></div>
+<div class="figrow">{{fig:spool}}</div>
+</section>
+
+<section class="card p1">
+<h3><span class="n">✓</span>One-page summary</h3>
+<div class="grid"><div>
+<ol class="flow">
+<li>No slip: contact point at rest, so it's the IC. $v_O = r\omega$, $a_O = r\alpha$, and the contact point accelerates at rω² upwards.</li>
+<li>Accelerations go through the centre: $\vec a_P = \vec a_O + \vec\alpha\times\vec r - \omega^2\vec r$. Never use the IC for accelerations.</li>
+<li>FBD: mg, N, F at the contact (assume its direction). KD: $m\vec a_G$ and $I_G\alpha$.</li>
+</ol>
+</div><div>
+<ol class="flow" start="4">
+<li>Assume no slip ($a_G = r\alpha$), solve, then check $|F| \le \mu_s N$.</li>
+<li>If it slips: $F = \mu_k N$ against the skid, and $a_G$ and α become independent.</li>
+<li>Off-centre G (rod in hoop): get $a_G$ from relative acceleration, not $r\alpha$.</li>
+<li>Particle: no Iα. Massless free wheel: no friction.</li>
+</ol>
+</div></div>
+</section>
