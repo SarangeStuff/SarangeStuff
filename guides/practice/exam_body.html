@@ -1,0 +1,129 @@
+<h1 class="title">MEC2047S Practice Exam<br><span class="subt">Guided "do it with me" paper · relative motion, rigid-body kinematics → kinetics</span></h1>
+<table class="cover">
+<tr><td><b>Marks:</b></td><td>100 (Section A 62 · Section B 38)</td><td><b>Suggested time:</b></td><td>3 hours</td></tr>
+</table>
+<div class="howto"><b>How to use this paper</b>
+<ol class="tight">
+<li>Read the <b>theory sheet</b> on the next page first.</li>
+<li>For each question: try it cold. Stuck? Read the <span class="hb">Theory hint</span>, then the step hints <i>one at a time</i>. The hints point the way; they never give a number.</li>
+<li>Draw every scaled diagram on the grid pages at the back, and state your scale.</li>
+<li>Only when a whole question is done, open the <b>separate memo</b> and mark yourself line by line (✓ = 1 mark).</li>
+<li>Keep your working, including the mistakes. Upload it with the memo and I'll build your error log.</li>
+</ol>
+Some questions are your homework problems, and two use <b>new numbers</b> (marked "variant") so you can't just recall an answer.</div>
+
+<!-- ================================================================ THEORY SHEET -->
+<h2 class="sec brk">Theory sheet · Which relative-velocity rule applies?</h2>
+<div class="figc">{{fig:situations}}</div>
+<table class="th">
+<thead><tr><th>Situation</th><th>What you write</th><th>Direction of the relative term</th><th>How to picture it</th></tr></thead>
+<tbody>
+<tr><td><b>1 · Same rigid body</b><br>(two points on one link, bar, plate or wheel)</td><td>$\vec v_B = \vec v_A + \vec v_{B/A}$, with $v_{B/A} = \omega\,AB$</td><td><b>⊥ to the line AB</b>. Its sense (which way along the ⊥) comes from ω, or from closing the triangle.<br>Acceleration: $(a_{B/A})_n$ along BA, pointing <b>to A</b>; $(a_{B/A})_t$ ⊥ AB.</td><td>Stand on A. The body can't stretch, so B can only swing round you in a circle.</td></tr>
+<tr><td><b>2 · Separate bodies</b><br>(cars, boats, planes, two particles)</td><td>$\vec v_{B/A} = \vec v_B - \vec v_A$</td><td><b>Any direction.</b> No ⊥ rule: nothing ties A to B.</td><td>Ride in A. The whole world drifts backwards at $\vec v_A$; B's apparent motion is its own motion plus that drift. Draw both absolute arrows from one point o: $\vec v_{B/A}$ runs from the tip of $\vec v_A$ to the tip of $\vec v_B$.</td></tr>
+<tr><td><b>3 · Different bodies joined by a pin</b><br>(crank + rod, four-bar)</td><td>Chain through the pin: $\vec v_B$ from the first link, then $\vec v_C = \vec v_B + \vec v_{C/B}$ on the next</td><td>Use rule 1 <b>inside each link</b>, with that link's own ω.</td><td>The pin is the "hand-over" point: one velocity belonging to both links.</td></tr>
+<tr><td><b>4 · Bodies touching</b><br>(gears, belts, rolling, rollers on plates)</td><td><b>No slip</b> (meshing, rolling): the contact points share their whole velocity and their tangential acceleration.<br><b>Sliding</b> (a roller on a plate): they share <b>only the component ⊥ to the contact surface</b>.</td><td>Normal accelerations differ between bodies, because each has its own $r\omega^2$.</td><td>Ask: can they slip past each other here? Whatever direction they can slide along is <b>not</b> shared.</td></tr>
+</tbody></table>
+<p class="small">Golden habit: before writing any equation, say out loud which of the four situations you're in.</p>
+
+<!-- ================================================================ SECTION A -->
+<h2 class="sec brk">SECTION A · Relative motion [62 marks]</h2>
+
+<section class="q">
+<p class="qh"><b>Question 1</b> [12 marks] · Direction drill</p>
+<p>(a) Link AB is 250 mm long, with B up and to the right of A at 30° above the horizontal. It turns at ω = 4 rad/s clockwise.</p>
+<div class="row"><div class="txt">
+<ol class="parts roman">
+<li>Find the size and direction (angle from +x) of $\vec v_{B/A}$. (2)</li>
+<li>Write down $\vec v_{A/B}$. (1)</li>
+<li>Find the size and direction of $(\vec a_{B/A})_n$. (2)</li>
+</ol>
+</div><figure class="side">{{fig:q1a}}</figure></div>
+<div class="row"><div class="txt">
+<p>(b) Car A drives east at 24 m/s and car B drives north at 10 m/s on a crossing road. Is $\vec v_{B/A}$ perpendicular to the line joining the cars? Explain in one line, then find $\vec v_{B/A}$ (size and direction). (4)</p>
+</div><figure class="side">{{fig:q1b}}</figure></div>
+<div class="row"><div class="txt">
+<p>(c) Gear B (radius 2 m) meshes with gear C (radius 1 m) at point A. The tangential acceleration of A on gear B is 100 m/s². Find the tangential acceleration of the touching point A′ on gear C, and the angular accelerations of both gears. (3)</p>
+</div><figure class="side">{{fig:q1c}}</figure></div>
+<div class="hint"><span class="hb">Theory hint</span> (a) is situation 1, (b) is situation 2, (c) is situation 4 (no slip).
+<ol class="steps"><li>(a) Rotate the line AB by 90° in the sense of ω.</li><li>(a)(iii) Normal parts always point towards the reference point.</li><li>(b) Subtract the vectors in components; draw the triangle from one point o.</li><li>(c) What's shared at a no-slip contact: the whole $a$, or only part of it?</li></ol></div>
+<div class="work" style="height:62mm"></div>
+</section>
+
+<section class="q">
+<p class="qh"><b>Question 2</b> [14 marks] · Two cars on a circular track (variant of CT1 2025 Q2: new numbers)</p>
+<div class="row"><div class="txt">
+<p>Car A is on the outer lane (radius 375 m) at 25° above the horizontal line through the centre, travelling at a <b>constant</b> 90 km/h.
+Car B is on the inner lane (radius 360 m) on that horizontal line, travelling at 72 km/h and <b>speeding up</b> at 0.8 m/s². Both cars move anticlockwise round the track.</p>
+<ol class="parts">
+<li>Draw a scaled velocity diagram and find the magnitude of $\vec v_{A/B}$. (6)</li>
+<li>Draw a scaled acceleration diagram and find the magnitude and direction of $\vec a_{A/B}$. (8)</li>
+</ol>
+</div><figure class="side">{{fig:q2}}</figure></div>
+<div class="hint"><span class="hb">Theory hint</span> Separate bodies (situation 2): no ⊥ rule. $\vec v_{A/B} = \vec v_A - \vec v_B$ joins the tip of $\vec v_B$ to the tip of $\vec v_A$.
+Each car's acceleration is $v^2/\rho$ towards the centre, plus $\dot v$ along its motion.
+<ol class="steps"><li>Convert km/h to m/s.</li><li>Each velocity is ⊥ to its car's radius line.</li><li>Constant speed means no tangential part.</li><li>Draw each absolute vector from the same point o, then close the gap.</li></ol></div>
+<div class="work" style="height:52mm"></div>
+</section>
+
+<section class="q">
+<p class="qh"><b>Question 3</b> [16 marks] · Homework 5/119: one answer, two routes</p>
+{{crop:p5119}}
+<ol class="parts">
+<li>Find the velocity of collar A using instantaneous centres. (10)</li>
+<li>Find it again using $\vec v_A = \vec v_B + \vec v_{A/B}$, and show the two routes agree, including ω<sub>AB</sub>. (6)</li>
+</ol>
+<div class="hint"><span class="hb">Theory hint</span> Two links joined at pin B (situation 3). Get $\vec v_B$ from link OBD, which rotates about the fixed O. Then hand B's velocity to link AB, where the same-body rule applies.
+<ol class="steps"><li>D's velocity is ⊥ OD, and you're only given its vertical component.</li><li>Find B, then A, with trig: A is on the shaft and AB = 700 mm.</li><li>IC of AB: draw ⊥ $\vec v_A$ through A and ⊥ $\vec v_B$ through B. One of these is simply line OB, extended.</li><li>Relative route: $\vec v_{A/B}$ is ⊥ AB. Find AB's angle first.</li></ol></div>
+<div class="work" style="height:60mm"></div>
+</section>
+
+<section class="q">
+<p class="qh"><b>Question 4</b> [10 marks] · Homework 5/108: read the constraints</p>
+{{crop:p5108}}
+<div class="hint"><span class="hb">Theory hint</span> Look closely at A. Is it pinned to the plunger, or <b>pressing on its plate</b>? A roller pressing on a moving surface shares only the velocity component ⊥ to that surface (situation 4, sliding).
+<ol class="steps"><li>What direction must B move in? What about D?</li><li>Use B and D to find the IC of ABD.</li><li>Only A's horizontal velocity is 2 m/s. Which distance from the IC gives a horizontal velocity at A?</li></ol></div>
+<div class="work" style="height:52mm"></div>
+</section>
+
+<section class="q">
+<p class="qh"><b>Question 5</b> [10 marks] · Homework 5/120: gears touching</p>
+{{crop:p5120}}
+<div class="hint"><span class="hb">Theory hint</span> Meshing gears share the velocity of their contact point (situation 4, no slip). Across one gear, velocity varies linearly: the same velocity line as the pulleys.
+<ol class="steps"><li>Which gear is B? Assume, as the figure suggests, that the sun B and the planets all have radius a/2. That makes the ring radius 3a/2.</li><li>Work along the planet's horizontal diameter: sun contact, then centre A, then ring contact.</li><li>Work in units of a × rev/min, and give each answer as a speed with CW or CCW.</li></ol></div>
+<div class="work" style="height:48mm"></div>
+</section>
+
+<!-- ================================================================ SECTION B -->
+<h2 class="sec brk">SECTION B · Rotation, absolute motion, and the link to kinetics [38 marks]</h2>
+
+<section class="q">
+<p class="qh"><b>Question 6</b> [20 marks] · Tutorial 11 Q4: relative acceleration feeding ΣF = ma</p>
+{{crop:t11q4}}
+<ol class="parts">
+<li>Find ω<sub>AB</sub> and ω<sub>CB</sub>. (4)</li>
+<li>Draw the acceleration polygon. Find α<sub>AB</sub>, α<sub>CB</sub> and the acceleration of G, the centre of AB. (8)</li>
+<li>Draw the FBD and KD of AB and find the force in CB. (8)</li>
+</ol>
+<div class="hint"><span class="hb">Theory hint</span> Kinetics needs $\vec a_G$ and α, and the acceleration polygon is where they come from. Velocities → accelerations → $\vec a_G$ → FBD/KD → moments.
+<ol class="steps"><li>Both A and B move horizontally at this instant. What does that say about ω<sub>AB</sub>?</li><li>Pick + directions for ω<sub>OA</sub> and α<sub>OA</sub> from the arrows, then find both parts of $\vec a_A$.</li><li>G is the midpoint of AB, so g is the midpoint of ab on your polygon.</li><li>CB is massless: its force acts along CB. Take moments about A to remove A<sub>x</sub> and A<sub>y</sub>.</li></ol></div>
+<div class="work" style="height:66mm"></div>
+</section>
+
+<section class="q">
+<p class="qh"><b>Question 7</b> [18 marks] · Rotation (homework 5/17) and absolute motion (homework 5/44)</p>
+<div class="row"><div class="txt">
+<p>(a) Homework 5/17: find the velocity and acceleration of A, in vector form and as magnitudes. (10)</p>
+</div><div class="txt">{{crop:p517}}</div></div>
+<div class="row"><div class="txt">
+<p>(b) Homework 5/44: derive ω of lever OA in terms of x, then evaluate it for r = 200 mm, x = 500 mm and v = 1.5 m/s. State CW or CCW. (8)</p>
+</div><div class="txt">{{crop:p544}}</div></div>
+<div class="hint"><span class="hb">Theory hint</span> (a) Fixed axis: $\vec v = \vec\omega\times\vec r$ and $\vec a = \vec\alpha\times\vec r - \omega^2\vec r$. Read the ω and α arrows very carefully.
+(b) Geometry, then differentiate: the lever is tangent to the disk.
+<ol class="steps"><li>(a) OA comes straight from the cosine rule, using the 120° angle.</li><li>(a) Shortcut: $\omega\vec k\times(x\vec i + y\vec j) = \omega(-y\vec i + x\vec j)$.</li><li>(b) Draw the right triangle: centre to O is x, and centre to the lever is r. Is x growing or shrinking?</li></ol></div>
+<div class="work" style="height:60mm"></div>
+</section>
+
+<p class="total">END OF PAPER · TOTAL 100</p>
+
+<section class="gridpage brk"><p class="small">Grid page 1: scaled diagrams (1 cm squares). State your scale.</p><div class="grid1"></div></section>
+<section class="gridpage brk"><p class="small">Grid page 2: scaled diagrams (1 cm squares). State your scale.</p><div class="grid1"></div></section>

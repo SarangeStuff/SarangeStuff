@@ -1,0 +1,162 @@
+<h1 class="title">MEC2047S Mock Final Exam – Memo<br><span class="subt">✓ = 1 mark · red notes explain <i>why</i> each direction is chosen</span></h1>
+<p class="unoff">Every answer was checked by a second route (vector components, a numerical derivative, or momentum and energy checks).
+Mark yourself honestly, keep your working, and upload it with this memo for your error log.</p>
+
+<h2 class="sec">SECTION A [50 marks]</h2>
+
+<section class="q" data-marks="12" id="q1">
+<p class="qh"><b>Question 1</b> [12] · polar coordinates with an n–t acceleration</p>
+<div class="row"><div class="txt">
+<p class="sub">(a)</p>
+<div class="ln">Diagram: $\hat e_r$ along the radar line, away from O (at 40°); $\hat e_\theta$ 90° counter-clockwise from it (at 130°) {{t}}</div>
+<p class="rn">[Why: $\hat e_r$ always points from the origin out through the particle. $\hat e_\theta$ is $\hat e_r$ turned 90° in the direction θ increases (CCW). Nothing else decides them.]</p>
+<div class="ln">$\hat e_r = (\cos 40°, \sin 40°)$, $\;\hat e_\theta = (-\sin 40°, \cos 40°)$ {{t}}</div>
+<div class="ln">$v_r = \vec v\cdot\hat e_r = 30\cos 40° = +22.98$ m/s, so $\dot r = 22.98$ m/s {{t}}</div>
+<div class="ln">$v_\theta = \vec v\cdot\hat e_\theta = -30\sin 40° = -19.28$ m/s {{t}}</div>
+<div class="ln">$\dot\theta = v_\theta/r = -19.28/600 = -0.0321$ rad/s (θ decreasing, i.e. CW) {{t}}</div>
+<p class="rn">[Why negative: the drone flies right, which is <i>away</i> from the +$\hat e_\theta$ direction (up-left). As it moves right, the radar line swings down, so θ shrinks.]</p>
+</div><figure class="side">{{fig:m1}}</figure></div>
+<p class="sub">(b)</p>
+<div class="row"><div class="txt">
+<div class="ln">$a_t = 2$ m/s², along $\vec v$ (→), because the drone is <b>speeding up</b> {{t}}</div>
+<div class="ln">$a_n = v^2/\rho = 30^2/500 = 1.8$ m/s², <b>downwards</b>, towards the centre of curvature {{t}}</div>
+<p class="rn">[Why down: the path curves downwards, so its centre of curvature lies below. $a_n$ always points to the inside of the bend.]</p>
+<div class="ln">$\vec a = (2,\ -1.8)$ m/s² {{t}}</div>
+<div class="ln">$a_r = \vec a\cdot\hat e_r = 2\cos 40° - 1.8\sin 40° = 0.375$ m/s² {{t}}</div>
+<div class="ln">$a_\theta = \vec a\cdot\hat e_\theta = -2\sin 40° - 1.8\cos 40° = -2.664$ m/s² {{t}}</div>
+<div class="ln">$\ddot r = a_r + r\dot\theta^2 = 0.375 + 600(0.0321)^2 = 0.995$ m/s² {{t}}</div>
+<div class="ln">$\ddot\theta = \dfrac{a_\theta - 2\dot r\dot\theta}{r} = \dfrac{-2.664 - 2(22.98)(-0.0321)}{600} = -0.00198$ rad/s² {{t}}</div>
+<p class="rn">[Check: $|\vec a| = \sqrt{2^2 + 1.8^2} = 2.69$, and $\sqrt{0.375^2 + 2.664^2} = 2.69$ ✓. Watch the sign of $2\dot r\dot\theta$: it's +22.98 × −0.0321, which is negative.]</p>
+</div><figure class="side">{{fig:m1a}}</figure></div>
+</section>
+
+<section class="q" data-marks="10" id="q2">
+<p class="qh"><b>Question 2</b> [10] · rope with a slanted segment</p>
+<div class="row"><div class="txt">
+<div class="ln">Datum at the pulley P. x = horizontal distance of A from P's vertical; $y_B$ = depth of B below P (down +). Diagram {{t2}}</div>
+<div class="ln">$L = \sqrt{x^2 + h^2} + y_B = $ constant, with h = 2 m {{t}}</div>
+<p class="rn">[Why Pythagoras: the rope from P to A is slanted, so its length is the hypotenuse of the x–h triangle. The velocity-line trick only works for parallel strands.]</p>
+<div class="ln">Differentiate: $0 = \dfrac{x\dot x}{\sqrt{x^2 + h^2}} + \dot y_B$ {{t}}</div>
+<div class="ln">At x = 1.5 m, S = 2.5 m and $\dot x = +1.5$: $\;\dot y_B = -\dfrac{1.5(1.5)}{2.5} = -0.9$ m/s {{t}}</div>
+<div class="ln">$y_B$ is measured downwards, so −0.9 means <b>B rises at 0.9 m/s</b> {{t}}</div>
+<div class="ln">Differentiate again (with $\ddot x = 0$): $\;\ddot y_B = -\left[\dfrac{\dot x^2}{S} - \dfrac{x^2\dot x^2}{S^3}\right]$ {{t2}}</div>
+<div class="ln">$= -\left[\dfrac{2.25}{2.5} - \dfrac{2.25(2.25)}{15.625}\right] = -0.576$ m/s² {{t}}</div>
+<div class="ln">So <b>B accelerates upwards at 0.576 m/s²</b> {{t}}</div>
+<p class="rn">[Sense check: as A moves further out, the slanted rope lengthens faster, so B's upward speed grows. That's an upward acceleration ✓ (the same idea as S25 Q2c).]</p>
+</div><figure class="side">{{fig:m2}}</figure></div>
+</section>
+
+<section class="q" data-marks="8" id="q3">
+<p class="qh"><b>Question 3</b> [8] · instantaneous centre</p>
+<div class="ln">$v_A = \omega r = 6(0.2) = 1.2$ m/s, ⊥ OA (at 120°, up-left, because OA turns CCW) {{t}}</div>
+<div class="ln">IC of AB: the line ⊥ $\vec v_A$ through A is line OA extended; the line ⊥ $\vec v_B$ (vertical) through B is horizontal {{t}}</div>
+<p class="rn">[Why these lines: every point's velocity is ⊥ to its line from the IC. So the IC lies on the perpendicular to each known velocity direction, and where two perpendiculars cross, that's the IC.]</p>
+<div class="ln">B = (0.45, 0.1 + √(0.5² − 0.2768²)) = (0.45, 0.516) m {{t}}; $\;$C = (0.516/tan 30°, 0.516) = (0.894, 0.516) m {{t}}</div>
+<div class="ln">$r_{A/C} = 0.833$ m {{t}}; $\;r_{B/C} = 0.894 - 0.45 = 0.444$ m {{t}}</div>
+<div class="ln">$\omega_{AB} = 1.2/0.833 = 1.44$ rad/s, CW {{t}}; $\;v_B = 1.44(0.444) = 0.640$ m/s ↑ {{t}}</div>
+<p class="rn">[Sense: A is down-left of C and moves up-left, which swings it clockwise about C. B is directly left of C, so turning CW about C carries it straight up.
+Vector check: $\vec v_B = \vec v_A + \omega_{AB}\vec k\times\vec r_{B/A}$ gives ω<sub>AB</sub> = −1.441 (CW) and $v_B$ = +0.640 ✓]</p>
+<div class="figc">{{fig:m3}}</div>
+</section>
+
+<section class="q" data-marks="20" id="q4">
+<p class="qh"><b>Question 4</b> [20] · four-bar, scaled diagrams</p>
+<div class="row"><div class="txt">
+<p class="sub">(a) Geometry</p>
+<div class="ln">A = 0.15(cos 60°, sin 60°) = (0.075, 0.130). B is found by intersecting circles of radius 0.35 about A and 0.25 about C: B = (0.405, 0.246) m.</div>
+<div class="ln">AB is at <b>19.4°</b> above the horizontal {{t}}; CB (from C to B) is at <b>100.3°</b>, i.e. 79.7° to the horizontal, leaning back over C {{t}}</div>
+</div><figure class="side">{{fig:m4geom}}</figure></div>
+<div class="row"><div class="txt">
+<p class="sub">(b) Velocities</p>
+<div class="ln">$v_A = 10(0.15) = 1.5$ m/s at 150° {{t}}</div>
+<p class="rn">[Why 150°: ⊥ OA (60° + 90°) in the CCW sense of ω<sub>OA</sub>.]</p>
+<div class="ln">$\vec v_B = \vec v_A + \vec v_{B/A}$ {{t}}</div>
+<div class="ln">Directions: $\vec v_{B/A}$ ⊥ AB (along 109.4°/289.4°); $\vec v_B$ ⊥ CB (along 10.3°/190.3°) {{t}}</div>
+<p class="rn">[Why ⊥: B and A are on the same rigid link AB, and B and C are on the same link CB with C fixed. Each relative velocity is ⊥ to its own link (theory situation 1).]</p>
+<div class="ln">Scaled polygon (1 cm = 0.25 m/s) {{t}}</div>
+<div class="ln">$v_{B/A} = 0.983$ m/s at 289.4°, so $\omega_{AB} = 0.983/0.35 = 2.81$ rad/s <b>CW</b> {{t}}</div>
+<div class="ln">$v_B = 0.989$ m/s at 190.3°, so $\omega_{CB} = 0.989/0.25 = 3.96$ rad/s <b>CCW</b> {{t}}</div>
+<div class="ln">Senses from the arrows {{t}}</div>
+<p class="rn">[Senses: $\vec v_{B/A}$ points down-right (289°) at B, which is right of A, so it swings AB clockwise.
+$\vec v_B$ points left (190°) at B, which is above C, so it swings CB anticlockwise.]</p>
+</div><figure class="side">{{fig:m4v}}</figure></div>
+<p class="sub">(c) Accelerations</p>
+<div class="ln">$(\vec a_B)_n + (\vec a_B)_t = (\vec a_A)_n + (\vec a_A)_t + (\vec a_{B/A})_n + (\vec a_{B/A})_t$ {{t}}</div>
+<div class="ln">$(a_A)_n = 10^2(0.15) = 15$ m/s², from A <b>towards O</b> (240°) {{t}}; $\;(a_A)_t = 40(0.15) = 6$ m/s² at 150° {{t}}</div>
+<div class="ln">$(a_{B/A})_n = 2.81^2(0.35) = 2.76$ m/s², from B <b>towards A</b> (199.4°) {{t}}</div>
+<div class="ln">$(a_B)_n = 3.96^2(0.25) = 3.91$ m/s², from B <b>towards C</b> (280.3°) {{t}}</div>
+<div class="ln">Unknown sizes: $(a_{B/A})_t$ ⊥ AB and $(a_B)_t$ ⊥ CB {{t}}</div>
+<p class="rn">[Why the normal terms point that way: each one is the centripetal pull of a point swinging round its reference point, so it points <b>at</b> the reference: A towards O, B towards A, B towards C.
+The tangential terms are always ⊥ to their link, like the velocities.]</p>
+<div class="figc">{{fig:m4a}}</div>
+<div class="ln">Scaled polygon: tangential directions correct {{t}}, correct proportions {{t}}</div>
+<div class="ln">$(a_{B/A})_t = 4.12$ m/s² at 109.4°, so $\alpha_{AB} = 4.12/0.35 = 11.8$ rad/s² <b>CCW</b> {{t}}</div>
+<div class="ln">$(a_B)_t = 17.65$ m/s² at 190.3°, so $\alpha_{CB} = 17.65/0.25 = 70.6$ rad/s² <b>CCW</b> {{t}}</div>
+<div class="ln">Check: $|\vec a_B| = 18.1$ m/s² by both routes {{t}}</div>
+<p class="rn">[AB is spinning CW (ω) but α is CCW, so its rotation is slowing down. That's fine: ω and α are independent.]</p>
+</section>
+
+<h2 class="sec brk">SECTION B [50 marks]</h2>
+
+<section class="q" data-marks="12" id="q5">
+<p class="qh"><b>Question 5</b> [12] · oblique impact</p>
+<div class="ln">n along the line of centres (30°, from A towards B); t ⊥ n (120°). Diagram {{t}}</div>
+<p class="rn">[Why: smooth pucks push each other only along the line through their centres. So n carries all the action and t carries none.]</p>
+<div class="ln">Before: A: $(v_A)_n = 4\cos 30° = 3.464$, $(v_A)_t = 4\cos 120° = -2.000$ {{t}}; B: $(v_B)_n = 2\sin 30° = 1.000$, $(v_B)_t = 2\cos 30° = 1.732$ {{t}}</div>
+<div class="ln">t: each puck keeps its own t part: $(v'_A)_t = -2.000$, $(v'_B)_t = 1.732$ {{t}}</div>
+<div class="ln">n momentum: $0.5(3.464) + 0.8(1.000) = 0.5(v'_A)_n + 0.8(v'_B)_n$ {{t}}</div>
+<div class="ln">n restitution: $(v'_B)_n - (v'_A)_n = 0.6(3.464 - 1.000) = 1.478$ {{t}}</div>
+<div class="ln">Solve: $(v'_A)_n = 1.038$ {{t}}, $(v'_B)_n = 2.516$ m/s {{t}}</div>
+<div class="ln">A: $\sqrt{1.038^2 + 2.000^2} = 2.25$ m/s; vector (1.899, −1.213), i.e. at −32.6° (32.6° below +x) {{t}}</div>
+<div class="ln">B: $\sqrt{2.516^2 + 1.732^2} = 3.05$ m/s; vector (1.313, 2.758), i.e. at 64.5° {{t}}</div>
+<div class="ln">Energy: $5.600 - 5.002 = 0.60$ J lost {{t}}; check: x-momentum stays 2.000 and y-momentum stays 1.600 ✓ {{t}}</div>
+<div class="figc">{{fig:m5}}</div>
+</section>
+
+<section class="q" data-marks="12" id="q6">
+<p class="qh"><b>Question 6</b> [12] · energy with a spring</p>
+<div class="row"><div class="txt">
+<div class="ln">$T_1 + V_1 + U'_{1\text{-}2} = T_2 + V_2$, with $T_1 = 0$ (from rest) and $U' = 0$ (smooth pin) {{t}}</div>
+<div class="ln">Diagram of both states {{t}}</div>
+<div class="ln">G drops 0.6 m: $\Delta V_g = 6(9.81)(0.6) = 35.32$ J released {{t}}</div>
+<div class="ln">State 1: DA = $\sqrt{1.2^2 + 0.9^2} = 1.5$ m, so the stretch is 0.6 m {{t}}; $\;V_{e1} = \tfrac12(40)(0.6)^2 = 7.2$ J {{t}}</div>
+<div class="ln">State 2: DA = 0.9 + 1.2 = 2.1 m, so the stretch is 1.2 m {{t}}; $\;V_{e2} = \tfrac12(40)(1.2)^2 = 28.8$ J {{t}}</div>
+<p class="rn">[Why "stretch": a spring's energy uses its change from the <b>natural length</b> (0.9 m), never its full length.]</p>
+<div class="ln">$I_O = \tfrac13 ml^2$ (slender rod about an end) $= \tfrac13(6)(1.2)^2 = 2.88$ kg·m² {{t}}; $\;T_2 = \tfrac12 I_O\omega^2$ {{t}}</div>
+<div class="ln">$35.32 + 7.2 = 28.8 + 1.44\,\omega^2$ {{t}}</div>
+<div class="ln">$\omega = 3.09$ rad/s {{t}}; $\;v_A = 3.09(1.2) = 3.70$ m/s {{t}}</div>
+</div><figure class="side">{{fig:m6}}</figure></div>
+</section>
+
+<section class="q" data-marks="14" id="q7">
+<p class="qh"><b>Question 7</b> [14] · composite I and sudden release</p>
+<div class="ln">(a) $\bar x = \dfrac{6(1) + 4(2)}{10}$ {{t}} $= 1.4$ m from A {{t}}</div>
+<div class="ln">(b) Bar about its end, "uniform slender rod $I_{y_1y_1} = \tfrac13 ml^2$": $\tfrac13(6)(2)^2 = 8$ kg·m² {{t2}}</div>
+<div class="ln">Disc about its own centre, "circular cylinder $I_{zz} = \tfrac12 mr^2$": $\tfrac12(4)(0.2)^2 = 0.08$ kg·m² {{t}}</div>
+<div class="ln">Moved to A by the parallel-axis theorem: $+\,md^2 = 4(2)^2 = 16$ kg·m² {{t}}</div>
+<div class="ln">$I_A = 8 + 0.08 + 16 = 24.08$ kg·m² {{t}}</div>
+<p class="rn">[Why parallel axis only for the disc: the rod formula is already about its end (A). The disc formula is about its centre (B), which is 2 m from A.]</p>
+<div class="figs2"><figure>{{fig:m7fbd}}<figcaption>FBD</figcaption></figure><figure>{{fig:m7kd}}<figcaption>KD</figcaption></figure></div>
+<div class="ln">(c) A is a fixed pin, so $\sum M_A = I_A\alpha$ {{t}}: $\;6(9.81)(1) + 4(9.81)(2) = 137.3$ N·m {{t}}</div>
+<div class="ln">$\alpha = 137.3/24.08 = 5.70$ rad/s² CW {{t}}</div>
+<div class="ln">(d) The bar has just been released, so ω = 0 and there's no normal acceleration. $a_G = \bar x\,\alpha = 1.4(5.70) = 7.98$ m/s² ↓ {{t}}</div>
+<div class="ln">(↑ +) $A_y - 10(9.81) = -10(7.98)$ {{t}}, so $A_y = 18.3$ N ↑ {{t}}; $\;A_x = 0$ (nothing horizontal acts and $a_{Gx} = 0$) {{t}}</div>
+<p class="rn">[Why the pin force drops from its static value (29.4 N, sharing the load with the cable) to 18.3 N: once the cable is cut the assembly starts to fall, and the pin only has to supply whatever its downward acceleration doesn't use up.]</p>
+</section>
+
+<section class="q" data-marks="12" id="q8">
+<p class="qh"><b>Question 8</b> [12] · rolling, then slipping</p>
+<div class="figc">{{fig:m8}}</div>
+<div class="ln">FBD (P, mg, N, and F at the contact pointing <b>backwards</b>) {{t}}; KD ($ma$ →, $I_G\alpha$ CW) {{t}}</div>
+<p class="rn">[Why friction points backwards: P pushes the centre forwards, so the bottom of the cylinder tends to skid forwards. Friction opposes that, and in doing so supplies the only moment about G that makes it spin (CW).]</p>
+<div class="ln">(a) Assume no slip: $a = r\alpha$ {{t}}</div>
+<div class="ln">$\sum F_x$: $120 - F = 30a$ {{t}}; $\;\sum M_G$: $F(0.25) = \tfrac12(30)(0.25)^2\alpha$, so $F = 15a$ {{t}}</div>
+<div class="ln">$a = 120/45 = 2.67$ m/s², $\;\alpha = 2.67/0.25 = 10.7$ rad/s² CW {{t}}; $\;F = 40.0$ N {{t}}</div>
+<div class="ln">Check: $F_{max} = \mu_s N = 0.2(294.3) = 58.9$ N > 40 N, so <b>no slip</b> ✓ {{t}}</div>
+<div class="ln">(b) P = 200 N: no-slip would need F = 200/3 = 66.7 N > 58.9 N, so it <b>slips</b> {{t}}</div>
+<div class="ln">Slipping: $F = \mu_k N = 0.15(294.3) = 44.1$ N {{t}}</div>
+<div class="ln">$a = (200 - 44.1)/30 = 5.20$ m/s² {{t}}; $\;\alpha = \dfrac{F r}{\tfrac12 mr^2} = \dfrac{2(44.1)}{30(0.25)} = 11.8$ rad/s² CW {{t}}</div>
+<p class="rn">[Once it slips, $a$ and $r\alpha$ are no longer linked: here $a$ = 5.20 is bigger than $r\alpha$ = 2.94, so the contact point really does skid forwards.]</p>
+</section>
+
+<p class="total">TOTAL MARKS: 100</p>
