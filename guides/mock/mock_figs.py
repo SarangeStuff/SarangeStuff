@@ -116,17 +116,28 @@ def e5():
 
 
 def e6():
-    f = Fig(190, "Q6 bar OA pinned at O, spring from D to A")
-    O, A, D = V(0, 0), V(1.2, 0), V(0, 0.9)
-    ceiling(f, -0.2, 0.2, 0.9)
-    f.link(T(O), T(A), w=9); f.pivot(T(O)); f.pin(T(A)); f.pin(T(D))
-    n = 14; dvec = A - D; L = np.linalg.norm(dvec); u = dvec / L; p = V(-u[1], u[0])
-    pts = [D] + [D + u * (0.1 + (L - 0.2) * i / n) + p * (0.05 if i % 2 else -0.05) for i in range(1, n)] + [A]
+    f = Fig(150, "Q6 block on a 30 degree incline above a spring")
+    u, nrm = U(30), U(120)
+    base = V(0, 0)
+    f.line(T(base - 0.3 * u), T(base + 2.9 * u), "ink")
+    f.line(T(base - V(0.3, 0)), T(base + V(2.9 * math.cos(math.radians(30)), 0)), "ink")
+    f.line(T(base), T(base + 0.5 * nrm), "ink")
+    a, b = f.P(T(base - 0.05 * u)), f.P(T(base - 0.05 * u + 0.5 * nrm)); f.hatch(a[0], a[1], b[0], b[1], side=-1)
+    free = base + 0.6 * u
+    n = 10
+    pts = [base + 0.12 * nrm] + [base + 0.12 * nrm + u * (0.6 * i / n) + nrm * (0.05 if i % 2 else -0.05) for i in range(1, n)] + [free + 0.12 * nrm]
     f.path_world([T(q) for q in pts], "ink")
-    f.text(T(O), "O", dx=-10, dy=8, anchor="end"); f.text(T(A), "A", dx=8, dy=10, anchor="start"); f.text(T(D), "D", dx=-10, anchor="end")
-    f.dim(T(V(0, 0)), T(D), "0.9 m", off=30, side="l")
-    f.dim(T(O), T(A), "1.2 m", off=22, side="r")
-    f.text(T((D + A) / 2), "k = 40 N/m", "muted", dx=10, dy=-8, anchor="start")
+    f.line(T(free + 0.02 * nrm), T(free + 0.22 * nrm), "ink")
+    A = free + 1.2 * u
+    c = A + 0.14 * nrm + 0.17 * u
+    corners = [A, A + 0.34 * u, A + 0.34 * u + 0.28 * nrm, A + 0.28 * nrm, A]
+    f.path_world([T(q) for q in corners], "block")
+    f.text(T(c), "4 kg")
+    f.dim(T(free), T(A), "1.2 m", off=26, side="r")
+    f.arc(T(base), 60, 0, 30, "muted", "30°", lr=78, la=12)
+    f.text(T(free * 0.5 + 0.35 * nrm), "k = 1500 N/m", "muted", dx=-6, anchor="end")
+    f.text(T(A + 0.7 * u + 0.5 * nrm), "μ_k = 0.25, μ_s = 0.30", "muted", anchor="start")
+    f.text(T(A + 0.55 * nrm), "released from rest", "muted", dx=10, anchor="start")
     return f.svg()
 
 
@@ -284,17 +295,23 @@ def m5():
 
 
 def m6():
-    f = Fig(150, "Memo Q6: state 1 (horizontal) and state 2 (hanging), spring lengths")
-    O, D = V(0, 0), V(0, 0.9)
-    A1, A2 = V(1.2, 0), V(0, -1.2)
-    f.link(T(O), T(A1), w=7); f.link(T(O), T(A2), w=7)
-    f.pivot(T(O)); f.pin(T(D))
-    f.line(T(D), T(A1), "t"); f.text(T((D + A1) / 2), "state 1: DA = 1.5 m (stretch 0.6)", "t", dx=10, dy=-6, anchor="start")
-    f.line(T(D + V(0.04, 0)), T(A2 + V(0.04, 0)), "n"); f.text(T(A2), "state 2: DA = 2.1 m (stretch 1.2)", "n", dx=10, dy=8, anchor="start")
-    f.dot(T(V(0.6, 0))); f.dot(T(V(0, -0.6)))
-    f.text(T(V(0.6, 0)), "G₁", dy=14); f.text(T(V(0, -0.6)), "G₂", dx=-8, anchor="end")
-    f.dim(T(V(-0.35, 0)), T(V(-0.35, -0.6)), "G drops 0.6 m", off=0, side="l")
-    f.arc(T(O), 40, 0, 270, "ans", "ω", arrow=True, ccw=False, lr=56, la=315)
+    f = Fig(150, "Memo Q6: positions 1, 2, 3 along the incline, with the block's FBD while sliding down")
+    u, nrm = U(30), U(120)
+    base = V(0, 0)
+    f.line(T(base - 0.3 * u), T(base + 2.9 * u), "ink")
+    f.line(T(base), T(base + 0.5 * nrm), "ink")
+    P3, P2 = base + 0.6 * u - 0.141 * 2 * u, base + 0.6 * u
+    P1 = P2 + 1.2 * u
+    for P, lab in ((P1, "1: rest"), (P2, "2: touches spring"), (P3, "3: max squash")):
+        f.dot(T(P + 0.02 * nrm)); f.text(T(P), lab, "muted", dx=6, dy=14, anchor="start")
+    f.dim(T(P2), T(P1), "1.2 m", off=30, side="l")
+    f.dim(T(P3), T(P2), "x", off=30, side="l")
+    G = P1 + 0.9 * u + 0.6 * nrm
+    f.path_world([T(G - 0.15 * u - 0.12 * nrm), T(G + 0.15 * u - 0.12 * nrm), T(G + 0.15 * u + 0.12 * nrm), T(G - 0.15 * u + 0.12 * nrm), T(G - 0.15 * u - 0.12 * nrm)], "block")
+    f.arrow(T(G), T(G + V(0, -0.5)), "ans", "W = 39.24 N", at=("E", 6), lpos=0.9)
+    f.arrow(T(G - 0.12 * nrm - 0.45 * nrm), T(G - 0.12 * nrm), "ans", "N", at=("W", 6), lpos=0.3)
+    f.arrow(T(G - 0.12 * nrm), T(G - 0.12 * nrm + 0.42 * u), "ans", "F = μ_k N (up the slope)", at=("N", 10), lpos=1.0)
+    f.arrow(T(G + 0.35 * nrm + 0.1 * u), T(G + 0.35 * nrm - 0.3 * u), "abs", "motion", at=("N", 8), lpos=0.6)
     return f.svg()
 
 

@@ -57,12 +57,16 @@ print(f"  before A n={An:.4f} t={At:.4f} | B n={Bn:.4f} t={Bt:.4f}")
 print(f"  after  A n={An2:.4f} -> {np.linalg.norm(vA2):.4f} @ {ang(vA2):.1f} {vA2.round(4)} | B n={Bn2:.4f} -> {np.linalg.norm(vB2):.4f} @ {ang(vB2):.1f} {vB2.round(4)}")
 print(f"  momentum x: {mA*4:.3f} -> {mA*vA2[0] + mB*vB2[0]:.4f}; y: {mB*2:.3f} -> {mA*vA2[1] + mB*vB2[1]:.4f}; KE {0.5*mA*16 + 0.5*mB*4:.3f} -> {0.5*mA*vA2@vA2 + 0.5*mB*vB2@vB2:.4f}")
 
-print("Q6 bar OA 6 kg 1.2 m pinned at O, spring k=40 from D (0.9 m above O), unstretched 0.9 m; released from rest horizontal; w when vertical (down)")
-m, L, kk, l0 = 6.0, 1.2, 40.0, 0.9
-s1 = hypot(L, 0.9) - l0; s2 = (0.9 + L) - l0
-Vg = m * g * L / 2; Ve1, Ve2 = 0.5 * kk * s1**2, 0.5 * kk * s2**2; IO = m * L**2 / 3
-T2 = Vg + Ve1 - Ve2; w = sqrt(2 * T2 / IO)
-print(f"  s1={s1:.3f} s2={s2:.3f} Vg drop={Vg:.3f} Ve1={Ve1:.3f} Ve2={Ve2:.3f} T2={T2:.3f} IO={IO:.3f} w={w:.4f} v_A={w*L:.4f}")
+print("Q6 (particle work-energy) block 4 kg on 30 deg incline, mu_k 0.25, mu_s 0.30, 1.2 m above a spring k 1500")
+m, th, mk, ms, d, kk = 4.0, radians(30), 0.25, 0.30, 1.2, 1500.0
+W_along, N = m * g * sin(th), m * g * cos(th); Fk = mk * N
+v2 = sqrt(2 * (W_along - Fk) * d / m)
+a_, b_, c_ = 0.5 * kk, -(W_along - Fk), -(W_along - Fk) * d
+x = (-b_ + sqrt(b_**2 - 4 * a_ * c_)) / (2 * a_)
+print(f"  mg sin30={W_along:.3f} N={N:.3f} F_k={Fk:.4f} net={W_along - Fk:.4f}")
+print(f"  (a) Vg drop={W_along*d:.4f} U_f={-Fk*d:.4f} v={v2:.4f}")
+print(f"  (b) 750x^2 - {W_along - Fk:.4f}x - {(W_along - Fk)*d:.4f} = 0 -> x = {x:.5f} m; check energy: {(W_along - Fk)*(d + x):.4f} vs {0.5*kk*x*x:.4f}")
+print(f"  (c) spring force {kk*x:.2f} vs mg sin30 {W_along:.2f} + mu_s N {ms*N:.3f} = {W_along + ms*N:.2f} -> moves back up")
 
 print("Q7 bar AB 6 kg 2 m + disk 4 kg r 0.2 welded centred at B; pin A, cable at B; cable cut (horizontal)")
 mb, Lb, md, rd = 6.0, 2.0, 4.0, 0.2; mt = mb + md
