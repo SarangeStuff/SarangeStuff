@@ -1,0 +1,217 @@
+<h1 class="title">MEC2047S Final Exam (November 2026) – Memo<br><span class="subt">Worked solutions · ✓ = 1 mark · red notes explain why</span></h1>
+<p class="unoff">Unofficial memo, solved independently after the exam. Every answer was checked by a second route. The mark split within each question is my estimate, not the examiners'.</p>
+
+<h2 class="sec">SECTION A [50 marks]</h2>
+
+<section class="q" data-marks="9" id="q1">
+<p class="qh"><b>Question 1</b> [9] · n–t coordinates</p>
+<div class="qbox"><div class="row"><div class="txt"><p>A model train (a particle) travels along a curved path. At A the speed is 3 m/s, decreasing at 0.75 m/s². At B the speed is increasing at 0.7 m/s².
+(a) Sketch the directions of the acceleration components at A and B. (b) If the magnitude of the acceleration stays constant, find the velocity at B.</p></div>
+<figure class="side">{{crop:q1}}</figure></div></div>
+<p class="solh">Solution</p>
+<p class="sub">(a)</p>
+<div class="figc">{{fig:s1}}</div>
+<div class="ln">At A: $a_t$ points <b>backwards</b> (opposite to $v_A$), because the train is slowing {{t}}; $a_n$ points <b>up</b>, towards the centre of the 40 m dip {{t}}</div>
+<div class="ln">At B: $a_t$ points <b>forwards</b> (speeding up); $a_n$ points <b>down</b>, towards the centre of the 20 m hump {{t}}</div>
+<p class="rn">[Why: $a_n$ always points to the inside of the bend, where the centre of curvature is. $a_t$ follows the change in speed, not the direction of travel.]</p>
+<p class="sub">(b)</p>
+<div class="ln">At A: $a_n = v_A^2/\rho_A = 3^2/40 = 0.225$ m/s² {{t}}</div>
+<div class="ln">$|\vec a| = \sqrt{0.75^2 + 0.225^2} = 0.783$ m/s², and this is the same at B {{t}}</div>
+<div class="ln">At B: $a_n = \sqrt{0.783^2 - 0.7^2} = 0.351$ m/s² {{t2}}</div>
+<div class="ln">$v_B^2 = \rho_B\,a_n = 20(0.351)$ {{t}}, so $v_B = 2.65$ m/s {{t}}</div>
+</section>
+
+<section class="q" data-marks="9" id="q2">
+<p class="qh"><b>Question 2</b> [9] · constrained motion</p>
+<div class="qbox"><div class="row"><div class="txt"><p>Block A and weight B are attached to the pulley system shown. If the velocity of B is 3.15 m/s downwards, find the velocity of A. The upper surface of A stays horizontal.</p></div>
+<figure class="side">{{crop:q2}}</figure></div></div>
+<p class="solh">Solution</p>
+<div class="ln">Datum at the ceiling; $s_A$ and $s_B$ measured downwards to A and to B {{t2}}</div>
+<div class="ln">Trace the one cable: ceiling → down under A's 1st pulley → up over a ceiling pulley → down under A's 2nd → up → down under A's 3rd → up over the top pulley → across → down to B {{t}}</div>
+<div class="ln">Each of A's 3 pulleys carries 2 vertical strands, so <b>6 strands</b> get longer when A drops {{t}}</div>
+<div class="ln">$L = 6s_A + s_B + \text{constant}$ (the horizontal run and the arcs never change) {{t}}</div>
+<p class="rn">[Why not 5 or 7: count only the strands that end on a pulley attached to A. All six change length by exactly $\Delta s_A$ when A moves; the strand to B changes by $\Delta s_B$. Nothing is subtracted.]</p>
+<div class="ln">Differentiate: $6v_A + v_B = 0$ {{t}}</div>
+<div class="ln">$v_A = -\dfrac{3.15}{6}$ {{t}} $= -0.525$ m/s {{t}}</div>
+<div class="ln">Negative in a "down is positive" convention, so <b>A rises at 0.525 m/s</b> {{t}}</div>
+<p class="rn">[Velocity-line check: B moves down at 3.15, so the strands work in parallel and A, held by 6 of them, moves at 1/6 of the rope speed.]</p>
+</section>
+
+<section class="q" data-marks="9" id="q3">
+<p class="qh"><b>Question 3</b> [9] · rectilinear motion, a(v)</p>
+<div class="qbox"><p>The acceleration of a particle is $a = -k\sqrt v$. At t = 0, x = 0 and v = 81 m/s; when x = 18 m, v = 36 m/s. Find (a) the velocity when x = 20 m, and (b) the time for the particle to come to rest.</p></div>
+<p class="solh">Solution</p>
+<p class="sub">(a)</p>
+<p class="rn">[a is given as a function of v and we want v at a position, so use v dv = a dx.]</p>
+<div class="ln">$v\dfrac{dv}{dx} = -k\sqrt v$ {{t}}</div>
+<div class="ln">$\displaystyle\int_{81}^{v} v^{1/2}\,dv = -k\int_0^x dx$ {{t}}, so $\tfrac23\left(v^{3/2} - 729\right) = -kx$ ……[1] {{t}}</div>
+<div class="ln">x = 18, v = 36: $\tfrac23(216 - 729) = -18k$, so $k = 19$ {{t}}</div>
+<div class="ln">From [1] at x = 20: $v^{3/2} = 729 - \tfrac32(19)(20) = 159$ {{t}}, so $v = 159^{2/3} = 29.3$ m/s {{t}}</div>
+<p class="sub">(b)</p>
+<p class="rn">[Now we want time, so use a = dv/dt.]</p>
+<div class="ln">$\displaystyle\int_{81}^{v} v^{-1/2}\,dv = -k\int_0^t dt$ {{t}}, so $2(\sqrt v - 9) = -kt$ {{t}}</div>
+<div class="ln">At rest (v = 0): $t = 18/19 = 0.947$ s {{t}}</div>
+</section>
+
+<section class="q" data-marks="6" id="q4">
+<p class="qh"><b>Question 4</b> [6] · relative velocity of separate bodies</p>
+<div class="qbox"><div class="row"><div class="txt"><p>A water drop falls from rest at A of an overpass. After dropping 6 m it strikes the windshield at B of a car travelling at 100 km/h. The windshield is inclined 50° from the vertical. Find the acute angle, relative to the windshield normal n, at which the drop strikes.</p></div>
+<figure class="side">{{crop:q4}}</figure></div></div>
+<p class="solh">Solution</p>
+<div class="row"><div class="txt">
+<div class="ln">Free fall: $v_D = \sqrt{2gh} = \sqrt{2(9.81)(6)} = 10.85$ m/s ↓ {{t}}</div>
+<div class="ln">$v_C = 100/3.6 = 27.78$ m/s → {{t}}</div>
+<p class="rn">[What the windshield "feels" is the drop's velocity <b>relative to the car</b>. The drop and the car are separate bodies, so there's no ⊥ rule: just subtract.]</p>
+<div class="ln">$\vec v_{D/C} = \vec v_D - \vec v_C = (-27.78,\ -10.85)$ m/s {{t}}</div>
+<div class="ln">It points backwards and down at $\tan^{-1}(10.85/27.78) = 21.3°$ below the horizontal {{t}}</div>
+<div class="ln">The windshield is 50° from the vertical, so its normal n is 50° above the horizontal {{t}}</div>
+<div class="ln">Angle to the normal: $50° - 21.3° = 28.7°$ {{t}}</div>
+</div></div>
+<div class="figc">{{fig:s4}}</div>
+</section>
+
+<section class="q" data-marks="17" id="q5">
+<p class="qh"><b>Question 5</b> [17] · relative velocity and acceleration</p>
+<div class="qbox"><div class="row"><div class="txt"><p>Three bars are pinned as shown. Arm AB has a constant clockwise angular velocity of 6 rad/s. For this instant: (a) determine the angular velocity of BDE; (b) draw a scaled relative acceleration diagram of BDE and use it to find the angular acceleration of BDE; (c) calculate the acceleration of E.</p>
+<p class="small">Geometry: A(0, 0), B(0, 90), C(225, 0), D(225, 180), E(450, 270) mm. B, D and E are collinear, and AB and CD are vertical.</p></div>
+<figure class="side">{{fig:s5q}}</figure></div></div>
+<p class="solh">Solution</p>
+<p class="sub">(a) Velocities</p>
+<div class="row"><div class="txt">
+<div class="ln">$v_B = \omega_{AB}\,AB = 6(0.09) = 0.54$ m/s, ⊥ AB. AB is vertical and turns CW, so B moves <b>→</b> {{t}}</div>
+<div class="ln">CD is vertical, so $\vec v_D$ (⊥ CD) is also <b>horizontal</b> {{t}}</div>
+<div class="ln">The perpendiculars to $\vec v_B$ and $\vec v_D$ are two parallel vertical lines: they never meet, so there's <b>no IC</b> {{t}}</div>
+<div class="ln">BDE is translating at this instant: $\omega_{BDE} = 0$ {{t}}</div>
+<div class="ln">So $v_D = v_E = 0.54$ m/s →, and $\omega_{CD} = 0.54/0.18 = 3$ rad/s CW {{t}}</div>
+<p class="rn">[Check with relative velocity: $\vec v_D = \vec v_B + \vec v_{D/B}$. Both absolute velocities are horizontal, but $\vec v_{D/B}$ must be ⊥ BD (not horizontal). The only way the equation balances is $\vec v_{D/B} = 0$.]</p>
+</div><figure class="side">{{fig:s5v}}</figure></div>
+<p class="sub">(b) Accelerations</p>
+<div class="ln">$(\vec a_D)_n + (\vec a_D)_t = \vec a_B + (\vec a_{D/B})_n + (\vec a_{D/B})_t$ {{t}}</div>
+<div class="ln">$a_B = \omega_{AB}^2\,AB = 36(0.09) = 3.24$ m/s², from B <b>towards A</b> (↓). There's no t part, because ω<sub>AB</sub> is constant {{t}}</div>
+<div class="ln">$(a_D)_n = \omega_{CD}^2\,CD = 9(0.18) = 1.62$ m/s², from D <b>towards C</b> (↓) {{t}}</div>
+<div class="ln">$(a_{D/B})_n = \omega_{BDE}^2\,BD = 0$ {{t}}</div>
+<div class="ln">Unknown sizes: $(\vec a_D)_t$ is horizontal (⊥ CD); $(\vec a_{D/B})_t$ is ⊥ BD, at 111.8° {{t}}</div>
+<div class="figc">{{fig:s5a}}</div>
+<div class="ln">Scaled diagram as shown {{t}}</div>
+<div class="ln">Vertical balance: $1.62 = 3.24 - (a_{D/B})_t\sin 68.2°$, so $(a_{D/B})_t = 1.745$ m/s², and $\alpha_{BDE} = 1.745/0.2423 = 7.2$ rad/s² {{t}}</div>
+<div class="ln">Sense: $(\vec a_{D/B})_t$ points up-left at D, which is up-right of B, so it turns BDE <b>counter-clockwise</b> {{t}}</div>
+<p class="sub">(c) Acceleration of E</p>
+<div class="ln">$\vec a_E = \vec a_B + (\vec a_{E/B})_t$ (the n part is zero, because ω<sub>BDE</sub> = 0) {{t}}</div>
+<div class="ln">$(a_{E/B})_t = \alpha\,BE = 7.2(0.4847) = 3.49$ m/s², ⊥ BE. On the diagram, e lies on line bd extended to twice the length, since BE = 2BD {{t}}</div>
+<div class="ln">Vector form: $(0, -3.24) + 7.2\,\vec k\times(0.45,\ 0.18) = (-1.296,\ 0)$, so $a_E = 1.30$ m/s² {{t}}, horizontal, to the <b>left</b> {{t}}</div>
+</section>
+
+<h2 class="sec brk">SECTION B [50 marks]</h2>
+
+<section class="q" data-marks="6" id="q6">
+<p class="qh"><b>Question 6</b> [6] · ΣF = ma with static friction</p>
+<div class="qbox"><div class="row"><div class="txt"><p>The coefficient of static friction between the flat bed of the truck and the crate is 0.32. Find the minimum distance s needed to stop the truck from 80 km/h, with constant deceleration, without the crate slipping.</p></div>
+<figure class="side">{{crop:q6}}</figure></div></div>
+<p class="solh">Solution</p>
+<div class="ln">FBD of the crate: the only horizontal force is friction from the bed, acting backwards {{t}}</div>
+<p class="rn">[Why friction decelerates the crate: the bed slows down, and the crate tends to slide forwards relative to it. Static friction opposes that relative motion, so it points backwards.]</p>
+<div class="ln">No slip, at most: $F_{max} = \mu_s N = \mu_s mg$ {{t}}, so $a_{max} = \mu_s g = 0.32(9.81) = 3.14$ m/s² {{t}}</div>
+<div class="ln">$v_0 = 80/3.6 = 22.22$ m/s {{t}}</div>
+<div class="ln">$0 = v_0^2 - 2as$, so $s = \dfrac{v_0^2}{2a} = \dfrac{22.22^2}{2(3.14)}$ {{t}} $= 78.7$ m {{t}}</div>
+<p class="rn">[The 2.5 m dimension and the crate's mass aren't needed: m cancels.]</p>
+</section>
+
+<section class="q" data-marks="18" id="q7">
+<p class="qh"><b>Question 7</b> [18] · work–energy in two stages, with a pulley constraint</p>
+<div class="qbox"><div class="row"><div class="txt"><p>The system is released from rest. The 13 kg cylinder falls through the hole in the support, but the 15 kg collar is removed when it hits the support. Find the total distance s the 45 kg block moves up the incline before coming instantaneously to rest. μ<sub>k</sub> = 0.33, and the pulley mass is negligible.</p></div>
+<figure class="side">{{crop:q7}}</figure></div></div>
+<p class="solh">Solution</p>
+<p class="sub">Constraint and forces</p>
+<div class="ln">The block carries a pulley, and two cable strands pull it up the slope. If the block moves d, the cylinder moves <b>2d</b>, so $v_{block} = \tfrac12 v_{cyl}$ {{t2}}</div>
+<div class="ln">$N = 45g\cos 25° = 400.1$ N {{t}}; friction $= 0.33N = 132.0$ N, acting <b>down</b> the slope (the block moves up) {{t}}</div>
+<div class="ln">Weight component along the slope: $45g\sin 25° = 186.6$ N {{t}}</div>
+<div class="ln">Check it moves: 28 kg hanging gives 274.7 N per strand, i.e. 549 N on the block, which beats 186.6 + 132.0 = 318.6 N {{t}}</div>
+<p class="rn">[If you treat it as a single cable, the block would never move (274.7 < 318.6). That's the hint that the 2:1 pulley matters.]</p>
+<p class="sub">Stage 1: release to the collar hitting the support (cylinder falls 1.15 m, block moves 0.575 m)</p>
+<div class="ln">$T_1 + V_1 + U'_{1\text{-}2} = T_2 + V_2$ for the whole system (the cable tension does no net work) {{t}}</div>
+<div class="ln">Cylinder + collar fall: $28(9.81)(1.15) = 315.9$ J released {{t}}</div>
+<div class="ln">Block rises: $186.6(0.575) = 107.3$ J stored {{t}}; friction work: $-132.0(0.575) = -75.9$ J {{t}}</div>
+<div class="ln">$T_2 = \tfrac12(28)v_c^2 + \tfrac12(45)(v_c/2)^2 = 19.63\,v_c^2$ {{t}}</div>
+<div class="ln">$315.9 - 107.3 - 75.9 = 19.63\,v_c^2$, so $v_c = 2.60$ m/s and $v_{block} = 1.30$ m/s {{t}}</div>
+<p class="sub">Stage 2: collar removed, the 13 kg cylinder continues until the block stops</p>
+<div class="ln">KE at the start of stage 2, without the collar: $\tfrac12(13)(2.60)^2 + \tfrac12(45)(1.30)^2 = 43.9 + 38.0 = 82.0$ J {{t}}</div>
+<p class="rn">[The collar's KE leaves with the collar. Per the question, its removal doesn't change the velocities of the cylinder and block.]</p>
+<div class="ln">Block moves a further d, so the cylinder falls 2d {{t}}: gravity on the cylinder gives $13(9.81)(2d) = 255.1d$ {{t}}</div>
+<div class="ln">Losses: $(186.6 + 132.0)d = 318.6d$ {{t}}</div>
+<div class="ln">$82.0 + 255.1d - 318.6d = 0$, so $d = 1.29$ m {{t}}</div>
+<div class="ln">$s = 0.575 + 1.29 = 1.87$ m {{t}}</div>
+</section>
+
+<section class="q" data-marks="4" id="q8">
+<p class="qh"><b>Question 8</b> [4] · mass moment of inertia of a rod assembly</p>
+<div class="qbox"><div class="row"><div class="txt"><p>The slender rods are welded together as shown. Each 100 mm segment has a mass of 0.12 kg. Compute the mass moment of inertia about the z-axis.</p></div>
+<figure class="side">{{crop:q8}}</figure></div></div>
+<p class="solh">Solution</p>
+<div class="ln">Use $I_z = \sum\int(x^2 + y^2)\,dm$: each rod's contribution depends on its distance from the z-axis {{t}}</div>
+<table class="ku"><tr><th>Rod</th><th>Position relative to z</th><th>I (kg·m²)</th></tr>
+<tr><td>origin → junction</td><td>lies <b>on</b> the z-axis</td><td>0</td></tr>
+<tr><td>junction → −y, and junction → +y</td><td>⊥ to z, with one end on the axis: $\tfrac13 mL^2$ each</td><td>2 × 0.0004</td></tr>
+<tr><td>vertical rod (along x) at y = −0.1</td><td>$\tfrac13 mL^2 + m(0.1)^2$</td><td>0.0016</td></tr>
+<tr><td>rod parallel to z at y = +0.1</td><td>every point is 0.1 m away: $m(0.1)^2$</td><td>0.0012</td></tr></table>
+<div class="ln">$\tfrac13 mL^2 = \tfrac13(0.12)(0.1)^2 = 0.0004$ kg·m² {{t}}</div>
+<div class="ln">The offset rods: $0.0004 + 0.12(0.01) = 0.0016$ and $0.12(0.01) = 0.0012$ {{t}}</div>
+<div class="ln">$I_z = 0 + 0.0008 + 0.0016 + 0.0012 = 3.60\times10^{-3}$ kg·m² {{t}}</div>
+<p class="rn">[Reading the 3-D figure: the first rod from the origin runs along the z-axis. The rod parallel to z contributes m d², not a ⅓mL² term, because its length runs along the axis.]</p>
+</section>
+
+<section class="q" data-marks="6" id="q9">
+<p class="qh"><b>Question 9</b> [6] · plastic impact, momentum in components</p>
+<div class="qbox"><div class="row"><div class="txt"><p>Two cars collide at right angles on icy roads. Car A (1300 kg) moves at 45 km/h; car B has a mass of 1500 kg. They become entangled and move together at v in the direction shown (25° from the y-axis). Find the velocity of B just before the impact.</p></div>
+<figure class="side">{{crop:q9}}</figure></div></div>
+<p class="solh">Solution</p>
+<div class="row"><div class="txt">
+<div class="ln">Icy road, so no external horizontal impulse: momentum is conserved in x and y {{t}}</div>
+<div class="ln">x: $1500\,v_B = 2800\,v\sin 25°$ {{t}}</div>
+<div class="ln">y: $1300(45) = 2800\,v\cos 25°$ {{t}}</div>
+<div class="ln">Divide: $\tan 25° = \dfrac{1500\,v_B}{1300(45)}$ {{t}}</div>
+<div class="ln">$v_B = 18.2$ km/h {{t}}; $\;v = 23.1$ km/h {{t}}</div>
+<p class="rn">[No units conversion needed: km/h cancels throughout. No e is needed either: "entangled" means e = 0.]</p>
+</div><figure class="side">{{fig:s9}}</figure></div>
+</section>
+
+<section class="q" data-marks="16" id="q10">
+<p class="qh"><b>Question 10</b> [16] · rolling with friction, cable on the shaft</p>
+<div class="qbox"><div class="row"><div class="txt"><p>The 30 kg spool (r<sub>o</sub> = 450 mm, k̄ = 275 mm, shaft r<sub>i</sub> = 200 mm) is at rest on the 20° incline when a tension T is applied to the cable wrapped around the shaft. μ<sub>s</sub> = 0.45, μ<sub>k</sub> = 0.30.
+(a) Find T and the friction force that keep G at rest. (b) Find the maximum T for which the spool rolls up the slope without slipping, with an FBD. (c) Find the corresponding a<sub>G</sub>.</p></div>
+<figure class="side">{{crop:q10}}</figure></div></div>
+<p class="solh">Solution</p>
+<div class="figc">{{fig:s10}}</div>
+<p class="rn">[Reading the figure: the cable leaves from the <b>bottom</b> of the shaft, parallel to the slope, pulling up the slope. Its moment about G turns the spool the "rolling down" way, so friction must act <b>down</b> the slope to balance it.]</p>
+<p class="sub">(a) Equilibrium</p>
+<div class="ln">FBD: mg, N, F at the contact, T at the bottom of the shaft {{t}}</div>
+<div class="ln">$\sum M_G = 0$: $T r_i = F r_o$, so $F = 0.444\,T$ {{t}}</div>
+<div class="ln">$\sum F_\parallel = 0$: $T - F - mg\sin 20° = 0$ {{t}}</div>
+<div class="ln">$T(1 - 0.444) = 30(9.81)\sin 20° = 100.7$, so $T = 181$ N {{t}}</div>
+<div class="ln">$F = 80.5$ N down the slope. Check: $\mu_s N = 0.45(276.6) = 124.5$ N > 80.5 N, so no slip ✓ {{t}}</div>
+<p class="rn">[Why not $F = \mu_s N$ here: friction only reaches $\mu_s N$ on the point of slipping. At rest it's whatever the balance equations need.]</p>
+<p class="sub">(b) On the point of slipping, rolling up</p>
+<div class="ln">FBD and KD as shown {{t}}</div>
+<div class="ln">Rolling without slip: $a_G = r_o\alpha$ {{t}}</div>
+<div class="ln">On the point of slipping: $F = \mu_s N = 124.5$ N {{t}}, still acting down the slope {{t}}</div>
+<div class="ln">$\sum F_\parallel$: $T - 124.5 - 100.7 = 30\,a_G$ {{t}}</div>
+<div class="ln">$\sum M_G$ (in the rolling-up sense): $124.5(0.45) - 0.2\,T = 30(0.275)^2\dfrac{a_G}{0.45}$ {{t}}</div>
+<div class="ln">Solve: $T = 255$ N {{t}}</div>
+<p class="sub">(c)</p>
+<div class="ln">$a_G = \dfrac{255 - 124.5 - 100.7}{30}$ {{t}} $= 0.995$ m/s² {{t}}, up the slope {{t}}</div>
+<div class="ln">$\alpha = a_G/r_o = 2.21$ rad/s² {{t}}</div>
+<p class="rn">[Check the direction: friction's moment (124.5 × 0.45 = 56.0 N·m) beats the cable's (255 × 0.2 = 51.0 N·m), so the net moment spins the spool the rolling-up way ✓]</p>
+</section>
+
+<p class="total">TOTAL MARKS: 100</p>
+
+<section class="q review">
+<p class="qh"><b>Where your paper lost marks</b> (from your notes on the question paper)</p>
+<ul class="tight">
+<li><b>Q2:</b> you subtracted a strand (5s<sub>A</sub> instead of 6s<sub>A</sub>). All six strands on A's pulleys lengthen together.</li>
+<li><b>Q4:</b> relative velocity of separate bodies, $\vec v_D - \vec v_C$, then the angle to the normal.</li>
+<li><b>Q5:</b> both $\vec v_B$ and $\vec v_D$ are horizontal, so there's no IC and ω<sub>BDE</sub> = 0. Your first acceleration vector (a<sub>B</sub> ↓) was right.</li>
+<li><b>Q7:</b> the pulley on the block (2:1) and the two energy stages (collar on, then off).</li>
+<li><b>Q8:</b> work rod by rod, using each rod's distance from the axis.</li>
+<li><b>Q10(a):</b> static friction isn't automatically μ<sub>s</sub>N. Use ΣM<sub>G</sub> = 0 and ΣF = 0.</li>
+</ul>
+</section>

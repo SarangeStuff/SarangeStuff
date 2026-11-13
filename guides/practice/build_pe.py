@@ -89,7 +89,7 @@ def assemble(body, figs, cr, title):
 
 def check_ticks(memo):
     total = 0
-    for m in re.finditer(r'<section class="q" data-marks="(\d+)" id="(q\d)">(.*?)</section>', memo, re.S):
+    for m in re.finditer(r'<section class="q" data-marks="(\d+)" id="(q\d+)">(.*?)</section>', memo, re.S):
         marks, qid, txt = int(m.group(1)), m.group(2), m.group(3)
         ticks = sum(int(n or 1) for n in re.findall(r"\{\{t(\d?)\}\}", txt))
         print(f"  {qid}: {ticks} ticks / {marks} marks")
